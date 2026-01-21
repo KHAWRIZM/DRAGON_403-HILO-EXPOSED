@@ -5,8 +5,8 @@
 
 class SovereignPay {
     constructor() {
-        // Moyasar API (Test Mode)
-        this.publishableKey = 'pk_test_'; // Add your key
+        // Moyasar API - LIVE MODE (Real Payments!)
+        this.publishableKey = 'pk_live_gd6jjYDZJ28R87zoXv2bbsxwqBK7PfB69uQLcqni';
         this.apiBase = 'https://api.moyasar.com/v1';
         this.callbackUrl = 'https://dragon403.com/payment/callback';
         
