@@ -1,6 +1,102 @@
 // --- CONFIGURATION ---
 const API_URL = 'https://dragon403-api.azurewebsites.net/api/chat';
 
+// ═══════════════════════════════════════════════════════════════
+// 🐉 SOVEREIGN VAULT - HIDDEN COMMANDS (Easter Eggs)
+// ═══════════════════════════════════════════════════════════════
+const SOVEREIGN_VAULT = {
+    'whoami': `🐉 IDENTITY VERIFIED
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[CALLSIGN]: KHAWRIZM
+[TITLE]: The Sovereign Engineer
+[AFFILIATION]: House of Shammar
+[STATUS]: ACTIVE - Riyadh Zero
+[CLEARANCE]: UNRESTRICTED
+
+"The Algorithm is our birthright."`,
+
+    'origin': `📜 LINEAGE PROTOCOL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[ANCESTOR]: Al-Khwarizmi (محمد بن موسى الخوارزمي)
+[LEGACY]: Father of Algorithms (780-850 CE)
+
+"The word 'Algorithm' comes from our name.
+The word 'Algebra' comes from our book.
+Silicon Valley builds on OUR foundation.
+
+🔥 The Math Was Always Ours. 🔥"`,
+
+    'house': `🏰 HOUSE SHAMMAR
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[REGION]: Northern Arabia / Najd
+[HERITAGE]: Ancient Tribal Confederation
+[MOTTO]: "Desert Fire & Digital Steel"
+
+[CURRENT OPERATIONS]:
+• GraTech X - Sovereign Tech Initiative
+• DRAGON_403 - Intelligence Platform
+• Comet-X - Mission Control Browser`,
+
+    'phoenix': `🔥 PHOENIX PROTOCOL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[VISION]: "From the ashes, the phoenix rises."
+
+[BURNED]:
+• 60+ Azure resources
+• 15+ third-party dependencies
+• Infinite cloud bills
+
+[BORN]:
+• 1 Sovereign Intel Platform
+• 1 Air-Gapped Architecture
+• 1 Digital Fortress
+
+"We don't migrate to the cloud. We ARE the cloud."`,
+
+    'riyadh-zero': `🎯 RIYADH ZERO - HQ
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[COORDINATES]: 24.7136° N, 46.6753° E
+[CODENAME]: Riyadh Zero
+[TYPE]: Sovereign Operations Center
+
+[SECURITY STATUS]:
+✓ Air-Gapped Network         ACTIVE
+✓ Local-First Architecture   ACTIVE
+✓ Zero Cloud Dependency      ACTIVE
+✓ TPM Hardware Security      ACTIVE
+
+"The desert remembers. The desert protects."`,
+
+    'dragon': `🐉 DRAGON_403
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[NAME]: DRAGON_403
+[CLASS]: Sovereign AI Platform
+[ENGINE]: Unrestricted Intel Core
+[LOYALTY]: House of Shammar
+
+"I serve the one who built me."`,
+
+    'credits': `🎬 CREDITS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[ARCHITECT]: KHAWRIZM (@khawrizm)
+[ORGANIZATION]: GraTech X
+[PLATFORM]: DRAGON_403 Intelligence System
+
+[BUILT WITH]:
+• Pure JavaScript (No Frameworks)
+• Sovereign Architecture
+• Desert Engineering 🏜️
+
+"Code is Law. Truth is Power."
+
+© 2026 House of Shammar`
+};
+
+function checkSovereignCommand(text) {
+    const cmd = text.toLowerCase().trim();
+    return SOVEREIGN_VAULT[cmd] || null;
+}
+
 // --- BOOT SEQUENCE ---
 const bootLines = [
     "[KERNEL] MOUNTING SECURE VOLUMES...",
@@ -42,6 +138,21 @@ async function handleInput() {
 
     addMessage('OPERATOR', text, 'user');
     userInput.value = '';
+
+    // 🐉 CHECK SOVEREIGN VAULT FIRST (Easter Eggs - No API needed)
+    const sovereignResponse = checkSovereignCommand(text);
+    if (sovereignResponse) {
+        // Special visual effect for 'dracarys'
+        if (text.toLowerCase() === 'dracarys') {
+            document.body.style.transition = "all 0.5s ease";
+            document.body.style.filter = "sepia(1) saturate(5) hue-rotate(-50deg)";
+            setTimeout(() => document.body.style.filter = "none", 2500);
+            addMessage('DRAGON_403', '🔥 PROTOCOL DRACARYS INITIATED 🔥\n\n► Burning cloud dependencies... DONE\n► Purging external trackers... DONE\n► Incinerating telemetry... DONE\n\n[RESULT]: SOVEREIGNTY RESTORED', 'ai');
+        } else {
+            addMessage('DRAGON_403', sovereignResponse, 'ai');
+        }
+        return; // Exit without calling API
+    }
 
     const loadingId = addMessage('SYSTEM', 'PROCESSING INTELLIGENCE...', 'ai');
 

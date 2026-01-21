@@ -6,13 +6,17 @@
     <title>DRAGON_403 | SOVEREIGN INTEL</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/sovereign-pay.css">
 </head>
 <body>
     <div id="boot-screen"><div id="boot-log"></div></div>
     <div id="main-interface">
         <header>
-            <div class="brand">DRAGON<span style="color:#3b82f6">403</span> <span style="font-size:0.7rem; color:#64748b">v2.0 [SOVEREIGN]</span></div>
-            <div class="status-badge">● SYSTEM SECURE [AES-256]</div>
+            <div class="brand">DRAGON<span style="color:#dc2626">403</span> <span style="font-size:0.7rem; color:#64748b">v3.0 [SOVEREIGN]</span></div>
+            <div class="header-actions">
+                <button class="pay-btn" onclick="sovereignPay.open()">💳 SOVEREIGN PAY</button>
+                <div class="status-badge">● SYSTEM SECURE [AES-256]</div>
+            </div>
         </header>
         <div class="dashboard-grid">
             <aside>
@@ -25,20 +29,24 @@
                     <button class="module-btn" onclick="quickQuery('Show Fraud Evidence')">🕵️ EVIDENCE LOCKER</button>
                     <button class="module-btn" onclick="quickQuery('List Shell Companies')">🏢 SHELL CORP</button>
                     <button class="module-btn" onclick="quickQuery('Legal Violations Report')">⚖️ LEGAL AUDIT</button>
+                    <div class="module-divider"></div>
+                    <button class="module-btn pay" onclick="sovereignPay.open()">💰 SOVEREIGN PAY</button>
+                    <button class="module-btn" onclick="quickQuery('Show Transaction Ledger')">📋 LEDGER</button>
                 </nav>
             </aside>
             <main>
                 <div id="chat-history">
-                    <div class="message ai"><strong>[SYSTEM]</strong> Sovereign Node initialized. Azure Proxy connected. Ready.</div>
+                    <div class="message ai"><strong>[SYSTEM]</strong> Sovereign Node v3.0 initialized. Payment Gateway: Moyasar (SAMA). Ready.</div>
                 </div>
                 <div class="command-bar">
-                    <span style="color:#3b82f6; font-weight:bold; margin-right:10px">>_</span>
+                    <span style="color:#dc2626; font-weight:bold; margin-right:10px">{'>_'}</span>
                     <input type="text" id="user-input" placeholder="Execute command..." autocomplete="off">
                     <button id="send-btn" onclick="handleInput()">EXECUTE</button>
                 </div>
             </main>
         </div>
     </div>
+    <script src="js/sovereign-pay.js"></script>
     <script src="js/dragon403-ai.js"></script>
 </body>
 </html>

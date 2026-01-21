@@ -3,7 +3,11 @@
     --panel-bg: #0a0a0a;
     --border-color: #1f2937;
     --accent-blue: #3b82f6;
+    --accent-red: #dc2626;
+    --accent-gold: #f59e0b;
     --accent-glow: rgba(59, 130, 246, 0.15);
+    --accent-red-glow: rgba(220, 38, 38, 0.15);
+    --accent-gold-glow: rgba(245, 158, 11, 0.15);
     --text-main: #e2e8f0;
     --text-dim: #64748b;
     --success: #10b981;
@@ -110,6 +114,44 @@ aside {
     border-color: var(--accent-blue);
     background: var(--accent-glow);
     color: var(--accent-blue);
+}
+.module-btn.pay {
+    border-color: var(--accent-gold);
+    color: var(--accent-gold);
+    background: var(--accent-gold-glow);
+    margin-top: 10px;
+}
+.module-btn.pay:hover {
+    background: rgba(245, 158, 11, 0.3);
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+}
+.module-divider {
+    height: 1px;
+    background: var(--border-color);
+    margin: 10px 0;
+}
+
+/* HEADER PAY BUTTON */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.pay-btn {
+    background: linear-gradient(135deg, var(--accent-gold), #d97706);
+    color: #000;
+    border: none;
+    padding: 8px 16px;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+.pay-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
 }
 
 /* MAIN CHAT */
