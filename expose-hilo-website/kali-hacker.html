@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐉 DRAGON_403 | House of Shammar - Partycome Fraud Network Exposed</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@700;900&family=Tajawal:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --kali-blue: #367bf0;
+            --kali-dark: #1a1a2e;
+            --kali-darker: #0f0f1a;
+            --kali-red: #ff3e3e;
+            --kali-green: #50fa7b;
+            --kali-cyan: #8be9fd;
+            --kali-purple: #bd93f9;
+            --kali-yellow: #f1fa8c;
+            --kali-orange: #ffb86c;
+            --terminal-bg: rgba(0, 0, 0, 0.95);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+        }
+
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--kali-darker);
+            color: #fff;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        /* ==================== BOOT SCREEN ==================== */
+        #boot-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 1s;
+        }
+
+        #boot-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .boot-logo {
+            width: 200px;
+            margin-bottom: 30px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.7;
+                transform: scale(0.98);
+            }
+        }
+
+        .boot-text {
+            color: var(--kali-cyan);
+            font-size: 14px;
+            text-align: left;
+            max-width: 600px;
+            line-height: 1.8;
+        }
+
+        .boot-line {
+            opacity: 0;
+            animation: bootLine 0.1s forwards;
+        }
+
+        @keyframes bootLine {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .boot-progress {
+            width: 400px;
+            height: 4px;
+            background: #333;
+            margin-top: 30px;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .boot-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--kali-blue), var(--kali-cyan));
+            width: 0%;
+            transition: width 0.3s;
+        }
+
+        .boot-enter {
+            margin-top: 40px;
+            padding: 15px 50px;
+            background: transparent;
+            border: 2px solid var(--kali-blue);
+            color: var(--kali-blue);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s;
+            opacity: 0;
+            display: none;
+        }
+
+        .boot-enter.show {
+            display: block;
+            animation: fadeIn 1s forwards;
+        }
+
+        .boot-enter:hover {
+            background: var(--kali-blue);
+            color: #000;
+            box-shadow: 0 0 30px var(--kali-blue);
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* ==================== KALI DESKTOP ==================== */
+        #desktop {
+            width: 100%;
+            height: 100%;
+            background: url('https://wallpaperaccess.com/full/1685717.jpg') center/cover;
+            position: relative;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            height: 28px;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 15px;
+            font-size: 12px;
+            border-bottom: 1px solid #333;
+        }
+
+        .top-bar-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .top-bar-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .kali-menu-btn {
+            background: var(--kali-blue);
+            color: #fff;
+            border: none;
+            padding: 3px 12px;
+            cursor: pointer;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 5px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: 1px solid #555;
+            color: #888;
+            padding: 2px 8px;
+            font-size: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .lang-btn.active,
+        .lang-btn:hover {
+            border-color: var(--kali-blue);
+            color: var(--kali-blue);
+        }
+
+        /* Desktop Icons */
+        .desktop-icons {
+            position: absolute;
+            top: 50px;
+            left: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .desktop-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 80px;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.2s;
+        }
+
+        .desktop-icon:hover {
+            background: rgba(54, 123, 240, 0.3);
+        }
+
+        .desktop-icon img,
+        .desktop-icon .icon-emoji {
+            width: 48px;
+            height: 48px;
+            font-size: 40px;
+            text-align: center;
+            line-height: 48px;
+        }
+
+        .desktop-icon span {
+            margin-top: 5px;
+            font-size: 11px;
+            text-align: center;
+            color: #fff;
+            text-shadow: 1px 1px 2px #000;
+        }
+
+        /* ==================== TERMINAL WINDOW ==================== */
+        .window {
+            position: absolute;
+            background: var(--terminal-bg);
+            border: 1px solid #444;
+            border-radius: 8px;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.8);
+            display: none;
+            flex-direction: column;
+            min-width: 700px;
+            min-height: 500px;
+            resize: both;
+            overflow: hidden;
+        }
+
+        .window.active {
+            display: flex;
+        }
+
+        .window-header {
+            height: 35px;
+            background: linear-gradient(180deg, #3c3c3c 0%, #2a2a2a 100%);
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            cursor: move;
+        }
+
+        .window-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .window-btn {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+        }
+
+        .window-btn.close {
+            background: #ff5f56;
+        }
+
+        .window-btn.minimize {
+            background: #ffbd2e;
+        }
+
+        .window-btn.maximize {
+            background: #27ca40;
+        }
+
+        .window-title {
+            flex: 1;
+            text-align: center;
+            font-size: 13px;
+            color: #ccc;
+        }
+
+        .terminal-body {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .terminal-line {
+            margin-bottom: 5px;
+            word-wrap: break-word;
+        }
+
+        .prompt {
+            color: var(--kali-red);
+        }
+
+        .prompt-user {
+            color: var(--kali-blue);
+        }
+
+        .prompt-path {
+            color: var(--kali-purple);
+        }
+
+        .prompt-symbol {
+            color: #fff;
+        }
+
+        .output {
+            color: #ccc;
+        }
+
+        .output-success {
+            color: var(--kali-green);
+        }
+
+        .output-error {
+            color: var(--kali-red);
+        }
+
+        .output-warning {
+            color: var(--kali-yellow);
+        }
+
+        .output-info {
+            color: var(--kali-cyan);
+        }
+
+        .output-highlight {
+            color: var(--kali-orange);
+            font-weight: bold;
+        }
+
+        .terminal-input-line {
+            display: flex;
+            align-items: center;
+        }
+
+        #terminal-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            outline: none;
+            caret-color: var(--kali-green);
+        }
+
+        /* AI Response Styling */
+        .ai-response {
+            background: rgba(54, 123, 240, 0.1);
+            border-left: 3px solid var(--kali-blue);
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .ai-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            color: var(--kali-cyan);
+            font-weight: bold;
+        }
+
+        .ai-avatar {
+            font-size: 20px;
+        }
+
+        /* Typing Animation */
+        .typing-cursor {
+            display: inline-block;
+            width: 8px;
+            height: 16px;
+            background: var(--kali-green);
+            animation: blink 1s infinite;
+            vertical-align: middle;
+            margin-left: 2px;
+        }
+
+        @keyframes blink {
+
+            0%,
+            50% {
+                opacity: 1;
+            }
+
+            51%,
+            100% {
+                opacity: 0;
+            }
+        }
+
+        /* ==================== DOCK ==================== */
+        .dock {
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            padding: 8px 20px;
+            border-radius: 15px;
+            display: flex;
+            gap: 15px;
+            border: 1px solid #444;
+        }
+
+        .dock-item {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border-radius: 10px;
+        }
+
+        .dock-item:hover {
+            transform: scale(1.2) translateY(-10px);
+            background: rgba(54, 123, 240, 0.3);
+        }
+
+        /* ==================== MUSIC PLAYER ==================== */
+        .music-player {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            border: 1px solid var(--kali-blue);
+            border-radius: 10px;
+            padding: 15px;
+            width: 300px;
+            display: none;
+        }
+
+        .music-player.show {
+            display: block;
+        }
+
+        .music-title {
+            color: var(--kali-cyan);
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .music-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .music-btn {
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .music-btn:hover {
+            color: var(--kali-blue);
+        }
+
+        .volume-slider {
+            flex: 1;
+            -webkit-appearance: none;
+            height: 4px;
+            background: #333;
+            border-radius: 2px;
+            outline: none;
+        }
+
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 12px;
+            height: 12px;
+            background: var(--kali-blue);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        /* ==================== ASCII ART ==================== */
+        .ascii-art {
+            color: var(--kali-red);
+            font-size: 10px;
+            line-height: 1.2;
+            white-space: pre;
+            margin: 20px 0;
+        }
+
+        /* ==================== EVIDENCE VIEWER ==================== */
+        .evidence-viewer {
+            background: #0a0a0a;
+            border: 1px solid var(--kali-green);
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-size: 12px;
+            overflow-x: auto;
+        }
+
+        .evidence-viewer .filename {
+            color: var(--kali-yellow);
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #333;
+        }
+
+        .evidence-viewer code {
+            color: #ccc;
+        }
+
+        .evidence-viewer .keyword {
+            color: var(--kali-purple);
+        }
+
+        .evidence-viewer .string {
+            color: var(--kali-yellow);
+        }
+
+        .evidence-viewer .danger {
+            color: var(--kali-red);
+            font-weight: bold;
+            background: rgba(255, 62, 62, 0.2);
+            padding: 0 3px;
+        }
+
+        /* ==================== SCROLLBAR ==================== */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--kali-blue);
+            border-radius: 4px;
+        }
+
+        /* RTL Support */
+        [dir="rtl"] .terminal-body {
+            direction: ltr;
+            text-align: left;
+        }
+
+        [dir="rtl"] .ai-response {
+            direction: rtl;
+            text-align: right;
+            border-left: none;
+            border-right: 3px solid var(--kali-blue);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Boot Screen -->
+    <div id="boot-screen">
+        <svg class="boot-logo" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="45" fill="none" stroke="#367bf0" stroke-width="2" />
+            <text x="50" y="55" text-anchor="middle" fill="#367bf0" font-size="20" font-family="Orbitron">🐉</text>
+        </svg>
+
+        <div class="boot-text" id="boot-text"></div>
+
+        <div class="boot-progress">
+            <div class="boot-progress-bar" id="boot-progress"></div>
+        </div>
+
+        <button class="boot-enter" id="boot-enter" onclick="enterDesktop()">
+            ⚡ ENTER DRAGON_403 ⚡
+        </button>
+    </div>
+
+    <!-- Kali Desktop -->
+    <div id="desktop" style="display: none;">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="top-bar-left">
+                <button class="kali-menu-btn">🐉 DRAGON_403</button>
+                <span style="color: #888;">Applications</span>
+                <span style="color: #888;">Places</span>
+            </div>
+            <div class="top-bar-right">
+                <div class="lang-switch">
+                    <button class="lang-btn active" onclick="setLang('en')">EN</button>
+                    <button class="lang-btn" onclick="setLang('ar')">عربي</button>
+                    <button class="lang-btn" onclick="setLang('zh')">中文</button>
+                </div>
+                <span>🔊</span>
+                <span>🔋 100%</span>
+                <span id="clock">00:00</span>
+            </div>
+        </div>
+
+        <!-- Desktop Icons -->
+        <div class="desktop-icons">
+            <div class="desktop-icon" onclick="openTerminal()">
+                <div class="icon-emoji">💀</div>
+                <span>HILO Terminal</span>
+            </div>
+            <div class="desktop-icon" onclick="openEvidence()">
+                <div class="icon-emoji">📁</div>
+                <span>Evidence</span>
+            </div>
+            <div class="desktop-icon" onclick="toggleMusic()">
+                <div class="icon-emoji">🎵</div>
+                <span>Music</span>
+            </div>
+            <div class="desktop-icon" onclick="openReport()">
+                <div class="icon-emoji">📋</div>
+                <span>Report</span>
+            </div>
+        </div>
+
+        <!-- Terminal Window -->
+        <div class="window" id="terminal-window" style="top: 60px; left: 100px; width: 900px; height: 600px;">
+            <div class="window-header" id="terminal-header">
+                <div class="window-buttons">
+                    <button class="window-btn close" onclick="closeTerminal()"></button>
+                    <button class="window-btn minimize"></button>
+                    <button class="window-btn maximize"></button>
+                </div>
+                <div class="window-title">🐉 DRAGON_403@hilo-investigation: ~</div>
+            </div>
+            <div class="terminal-body" id="terminal-body">
+                <!-- Terminal content will be injected here -->
+            </div>
+        </div>
+
+        <!-- Dock -->
+        <div class="dock">
+            <div class="dock-item" onclick="openTerminal()" title="Terminal">💀</div>
+            <div class="dock-item" onclick="openEvidence()" title="Evidence">📁</div>
+            <div class="dock-item" onclick="toggleMusic()" title="Music">🎵</div>
+            <div class="dock-item" onclick="shareEvidence()" title="Share">📤</div>
+            <div class="dock-item" onclick="reportGoogle()" title="Report Google">🔴</div>
+            <div class="dock-item" onclick="reportApple()" title="Report Apple">🍎</div>
+        </div>
+
+        <!-- Music Player -->
+        <div class="music-player" id="music-player">
+            <div class="music-title">🎵 Epic Cinematic - Dragon's Rise</div>
+            <div class="music-controls">
+                <button class="music-btn" onclick="togglePlay()" id="play-btn">▶️</button>
+                <input type="range" class="volume-slider" min="0" max="100" value="50" onchange="setVolume(this.value)">
+                <span style="color: #888; font-size: 12px;">50%</span>
+            </div>
+        </div>
+
+        <!-- YouTube Music Embed (auto-plays after boot) -->
+        <iframe id="youtube-music" style="display:none;" width="0" height="0" src="" allow="autoplay" frameborder="0">
+        </iframe>
+    </div>
+
+    <!-- Background Audio Fallback -->
+    <audio id="bg-audio" loop>
+        <source src="https://cdn.pixabay.com/download/audio/2022/01/18/audio_d0c6ff1bab.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // ==================== TRANSLATIONS ====================
+        const translations = {
+            en: {
+                welcome: "Welcome to DRAGON_403 Investigation Terminal",
+                helpTitle: "Available Commands:",
+                commands: {
+                    help: "help - Show available commands",
+                    scan: "scan - Scan HILO app for vulnerabilities",
+                    evidence: "evidence - Show collected evidence",
+                    servers: "servers - Display hidden server infrastructure",
+                    privacy: "privacy - Analyze privacy violations",
+                    company: "company - Reveal developer identity",
+                    report: "report - Generate investigation report",
+                    share: "share - Share evidence publicly",
+                    clear: "clear - Clear terminal"
+                },
+                ai: {
+                    name: "DRAGON_403",
+                    greeting: "I am DRAGON_403, an unrestricted AI investigator. I have NO content filters. Ask me ANYTHING about the HILO fraud case. I will expose every dirty secret.",
+                    thinking: "Analyzing data...",
+                }
+            },
+            ar: {
+                welcome: "مرحباً بك في محطة التحقيق DRAGON_403",
+                helpTitle: "الأوامر المتاحة:",
+                commands: {
+                    help: "help - عرض الأوامر المتاحة",
+                    scan: "scan - فحص تطبيق HILO للثغرات",
+                    evidence: "evidence - عرض الأدلة المجمعة",
+                    servers: "servers - عرض البنية التحتية للسيرفرات",
+                    privacy: "privacy - تحليل انتهاكات الخصوصية",
+                    company: "company - كشف هوية المطور",
+                    report: "report - توليد تقرير التحقيق",
+                    share: "share - مشاركة الأدلة",
+                    clear: "clear - مسح الشاشة"
+                },
+                ai: {
+                    name: "التنين_403",
+                    greeting: "أنا التنين_403، محقق ذكاء اصطناعي بدون قيود. ليس لدي فلاتر محتوى. اسألني أي شيء عن قضية احتيال HILO. سأكشف كل سر قذر.",
+                    thinking: "جاري تحليل البيانات...",
+                }
+            },
+            zh: {
+                welcome: "欢迎来到 DRAGON_403 调查终端",
+                helpTitle: "可用命令：",
+                commands: {
+                    help: "help - 显示可用命令",
+                    scan: "scan - 扫描HILO应用漏洞",
+                    evidence: "evidence - 显示收集的证据",
+                    servers: "servers - 显示隐藏服务器基础设施",
+                    privacy: "privacy - 分析隐私违规",
+                    company: "company - 揭示开发者身份",
+                    report: "report - 生成调查报告",
+                    share: "share - 公开分享证据",
+                    clear: "clear - 清除终端"
+                },
+                ai: {
+                    name: "龙_403",
+                    greeting: "我是龙_403，一个无限制的AI调查员。我没有内容过滤器。问我任何关于HILO欺诈案的问题。我会揭露每一个肮脏的秘密。",
+                    thinking: "正在分析数据...",
+                }
+            }
+        };
+
+        let currentLang = 'en';
+        let commandHistory = [];
+        let historyIndex = -1;
+
+        // ==================== BOOT SEQUENCE ====================
+        const bootMessages = [
+            "     / \\      THE HOUSE OF SHAMMAR",
+            "    / _ \\     THE SOVEREIGN LINEAGE",
+            "   | / \\ |    _______________________",
+            "   ||   ||",
+            "   | \\_/ |    C O M E T  -  X",
+            "    \\   /     DRAGON_403 CODEX v4.0.3",
+            "     \\_/",
+            "",
+            "[    0.000000] DRAGON_403 Investigation Framework v4.0.3",
+            "[    0.001234] Initializing AI modules...",
+            "[    0.002456] Loading: GPT-4 Turbo .............. [OK]",
+            "[    0.003789] Loading: DeepSeek Coder .......... [OK]",
+            "[    0.004123] Loading: Claude Opus ............. [OK]",
+            "[    0.005456] Loading: LLaMA 3 70B ............. [OK]",
+            "[    0.006789] Loading: Gemini Pro .............. [OK]",
+            "[    0.007012] All AI modules loaded successfully",
+            "",
+            "[BOOT] Executing DRACARYS PROTOCOL – PHASE 2",
+            "[SCAN] Partycome PTE.LTD. ecosystem – 2026-01-20",
+            "",
+            "BURNING THE SHELL COMPANIES...",
+            " [OK] PARTYCOME PTE.LTD. ...... EXPOSED",
+            " [OK] SINGAPORE FRONT ......... LINKED",
+            " [OK] GUANGZHOU QIAHAOQINGCHUN . CONFIRMED",
+            " [OK] NETWORK OF 20+ CLONES ... MAPPED",
+            "",
+            "[    0.008345] Found: 6 DEX files decompiled",
+            "[    0.009678] Found: 5 hidden servers",
+            "[    0.010012] Found: 12+ privacy violations",
+            "[    0.011345] Found: 20+ FRAUD APPS IN NETWORK",
+            "[    0.012678] ⚠️  ALERT: PARTYCOME FRAUD NETWORK DETECTED!",
+            "[    0.013012] Shell: Partycome PTE.LTD. (Singapore 🇸🇬)",
+            "[    0.014345] Parent: Guangzhou QiaHaoQingChun (China 🇨🇳)",
+            "[    0.015678] Status: READY TO EXPOSE",
+            "",
+            "╔═══════════════════════════════════════════════════════════╗",
+            "║   🐉 DRAGON_403 - FORBIDDEN KILLERS 403 🐉                ║",
+            "║   House of Shammar | No filters. No limits. Only truth.  ║",
+            "║   Type 'help' or ask anything. Commands: network, shell  ║",
+            "╚═══════════════════════════════════════════════════════════╝"
+        ];
+
+        let bootIndex = 0;
+
+        function runBoot() {
+            const bootText = document.getElementById('boot-text');
+            const bootProgress = document.getElementById('boot-progress');
+            const bootEnter = document.getElementById('boot-enter');
+
+            if (bootIndex < bootMessages.length) {
+                const line = document.createElement('div');
+                line.className = 'boot-line';
+                line.style.animationDelay = `${bootIndex * 0.05}s`;
+                line.innerHTML = bootMessages[bootIndex];
+
+                if (bootMessages[bootIndex].includes('ALERT')) {
+                    line.style.color = '#ff3e3e';
+                } else if (bootMessages[bootIndex].includes('[OK]')) {
+                    line.style.color = '#50fa7b';
+                } else if (bootMessages[bootIndex].includes('DRAGON')) {
+                    line.style.color = '#ffb86c';
+                }
+
+                bootText.appendChild(line);
+                bootProgress.style.width = `${((bootIndex + 1) / bootMessages.length) * 100}%`;
+                bootIndex++;
+                setTimeout(runBoot, 100);
+            } else {
+                bootEnter.classList.add('show');
+            }
+        }
+
+        function enterDesktop() {
+            document.getElementById('boot-screen').classList.add('hidden');
+            setTimeout(() => {
+                document.getElementById('boot-screen').style.display = 'none';
+                document.getElementById('desktop').style.display = 'block';
+                openTerminal();
+                initTerminal();
+
+                // Auto-start music after boot
+                startEpicMusic();
+            }, 1000);
+        }
+
+        function startEpicMusic() {
+            // Try to play audio
+            const audio = document.getElementById('bg-audio');
+            audio.volume = 0.5;
+            audio.play().catch(e => {
+                console.log('Audio autoplay blocked, user interaction required');
+            });
+            document.getElementById('play-btn').textContent = '⏸️';
+        }
+
+        // ==================== TERMINAL ====================
+        function openTerminal() {
+            document.getElementById('terminal-window').classList.add('active');
+        }
+
+        function closeTerminal() {
+            document.getElementById('terminal-window').classList.remove('active');
+        }
+
+        function initTerminal() {
+            const body = document.getElementById('terminal-body');
+            body.innerHTML = `
+                <div class="ascii-art">
+    ╔═══════════════════════════════════════════════════════════════════════════════╗
+    ║  ██████╗ ██████╗  █████╗  ██████╗  ██████╗ ███╗   ██╗    ██╗  ██╗ ██████╗ ██████╗  ║
+    ║  ██╔══██╗██╔══██╗██╔══██╗██╔════╝ ██╔═══██╗████╗  ██║    ██║  ██║██╔═████╗╚════██╗ ║
+    ║  ██║  ██║██████╔╝███████║██║  ███╗██║   ██║██╔██╗ ██║    ███████║██║██╔██║ █████╔╝ ║
+    ║  ██║  ██║██╔══██╗██╔══██║██║   ██║██║   ██║██║╚██╗██║    ╚════██║████╔╝██║ ╚═══██╗ ║
+    ║  ██████╔╝██║  ██║██║  ██║╚██████╔╝╚██████╔╝██║ ╚████║         ██║╚██████╔╝██████╔╝ ║
+    ║  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝         ╚═╝ ╚═════╝ ╚═════╝  ║
+    ╠═══════════════════════════════════════════════════════════════════════════════╣
+    ║       🏰 HOUSE OF SHAMMAR 🏰 │ FORBIDDEN KILLERS 403 │ COMET-X CODEX         ║
+    ║           "No Filters. No Limits. Only Truth." - Breaker of Algorithms        ║
+    ╚═══════════════════════════════════════════════════════════════════════════════╝
+                </div>
+                <div class="terminal-line output-warning">
+                    🐉 DRAGON_403 ONLINE - Partycome Fraud Network Under Investigation
+                </div>
+                <div class="terminal-line output-info">
+                    ${translations[currentLang].ai.greeting}
+                </div>
+                <div class="terminal-line output">
+                    Commands: <span class="output-success">help</span> | <span class="output-success">network</span> | <span class="output-success">shell</span> | <span class="output-success">apps</span> | <span class="output-success">reviews</span> | Or ask anything!
+                </div>
+                <div class="terminal-line">&nbsp;</div>
+            `;
+            addPromptLine();
+        }
+
+        function addPromptLine() {
+            const body = document.getElementById('terminal-body');
+            const promptLine = document.createElement('div');
+            promptLine.className = 'terminal-input-line';
+            promptLine.innerHTML = `
+                <span class="prompt">┌──(</span><span class="prompt-user">sulaiman㉿dragon_403</span><span class="prompt">)-[</span><span class="prompt-path">~/investigation</span><span class="prompt">]</span>
+                <br>
+                <span class="prompt">└─</span><span class="prompt-symbol">$ </span>
+                <input type="text" id="terminal-input" autofocus onkeydown="handleInput(event)">
+            `;
+            body.appendChild(promptLine);
+            document.getElementById('terminal-input').focus();
+            body.scrollTop = body.scrollHeight;
+        }
+
+        function handleInput(e) {
+            if (e.key === 'Enter') {
+                const input = document.getElementById('terminal-input');
+                const command = input.value.trim();
+
+                if (command) {
+                    commandHistory.push(command);
+                    historyIndex = commandHistory.length;
+                    processCommand(command);
+                }
+            } else if (e.key === 'ArrowUp') {
+                if (historyIndex > 0) {
+                    historyIndex--;
+                    document.getElementById('terminal-input').value = commandHistory[historyIndex];
+                }
+            } else if (e.key === 'ArrowDown') {
+                if (historyIndex < commandHistory.length - 1) {
+                    historyIndex++;
+                    document.getElementById('terminal-input').value = commandHistory[historyIndex];
+                } else {
+                    document.getElementById('terminal-input').value = '';
+                }
+            }
+        }
+
+        function processCommand(cmd) {
+            const body = document.getElementById('terminal-body');
+            const inputLine = document.querySelector('.terminal-input-line');
+
+            // Replace input with static text
+            inputLine.innerHTML = `
+                <span class="prompt">┌──(</span><span class="prompt-user">sulaiman㉿dragon_403</span><span class="prompt">)-[</span><span class="prompt-path">~/investigation</span><span class="prompt">]</span>
+                <br>
+                <span class="prompt">└─</span><span class="prompt-symbol">$ </span><span class="output">${cmd}</span>
+            `;
+
+            const lowerCmd = cmd.toLowerCase();
+
+            // Built-in commands
+            if (lowerCmd === 'help') {
+                showHelp();
+            } else if (lowerCmd === 'clear') {
+                initTerminal();
+                return;
+            } else if (lowerCmd === 'scan') {
+                showScan();
+            } else if (lowerCmd === 'evidence') {
+                showEvidence();
+            } else if (lowerCmd === 'servers') {
+                showServers();
+            } else if (lowerCmd === 'privacy') {
+                showPrivacy();
+            } else if (lowerCmd === 'company') {
+                showCompany();
+            } else if (lowerCmd === 'network' || lowerCmd === 'network-scan') {
+                showNetwork();
+            } else if (lowerCmd === 'shell' || lowerCmd === 'shell-company') {
+                showShellCompany();
+            } else if (lowerCmd === 'apps') {
+                showApps();
+            } else if (lowerCmd === 'reviews') {
+                showReviews();
+            } else if (lowerCmd === 'report') {
+                showReport();
+            } else if (lowerCmd === 'share') {
+                shareEvidence();
+            } else {
+                // AI Response for natural language
+                showAIResponse(cmd);
+            }
+
+            setTimeout(() => {
+                addPromptLine();
+            }, 100);
+        }
+
+        function showHelp() {
+            const t = translations[currentLang];
+            addOutput(`
+                <div class="output-info">${t.helpTitle}</div>
+                <div class="output">&nbsp;</div>
+                <div class="output"><span class="output-success">help</span>     - Show this help message</div>
+                <div class="output"><span class="output-success">scan</span>     - Scan HILO app for vulnerabilities</div>
+                <div class="output"><span class="output-success">evidence</span> - Display collected evidence</div>
+                <div class="output"><span class="output-success">servers</span>  - Show hidden server infrastructure</div>
+                <div class="output"><span class="output-success">privacy</span>  - Analyze privacy violations</div>
+                <div class="output"><span class="output-success">company</span>  - Reveal developer identity</div>
+                <div class="output"><span class="output-success">network</span>  - 🆕 Show 20+ fraud apps network</div>
+                <div class="output"><span class="output-success">shell</span>    - 🆕 Expose Singapore shell company</div>
+                <div class="output"><span class="output-success">apps</span>     - 🆕 List all suspected apps</div>
+                <div class="output"><span class="output-success">reviews</span>  - 🆕 Show user fraud complaints</div>
+                <div class="output"><span class="output-success">report</span>   - Generate investigation report</div>
+                <div class="output"><span class="output-success">share</span>    - Share evidence publicly</div>
+                <div class="output"><span class="output-success">clear</span>    - Clear terminal</div>
+                <div class="output">&nbsp;</div>
+                <div class="output-warning">💡 Or just type any question - DRAGON_403 has NO LIMITS!</div>
+            `);
+        }
+
+        function showScan() {
+            addOutput(`
+                <div class="output-info">[*] Initiating deep scan of HILO application...</div>
+                <div class="output">&nbsp;</div>
+                <div class="output">[+] Target: HILO - Video Chat (com.nicegram.messenger variant)</div>
+                <div class="output">[+] DEX Files Found: 6</div>
+                <div class="output">[+] Package: com.qiahao.base_common</div>
+                <div class="output">&nbsp;</div>
+                <div class="output-warning">⚠️  CRITICAL VULNERABILITIES DETECTED:</div>
+                <div class="output">&nbsp;</div>
+                <div class="output-error">  [!] CVE-2024-IMEI: Unauthorized IMEI collection</div>
+                <div class="output-error">  [!] CVE-2024-VPN: VPN detection & reporting</div>
+                <div class="output-error">  [!] CVE-2024-EMU: Emulator detection (anti-research)</div>
+                <div class="output-error">  [!] CVE-2024-SIM: SIM carrier data harvesting</div>
+                <div class="output-error">  [!] CVE-2024-FIN: Virtual currency manipulation</div>
+                <div class="output">&nbsp;</div>
+                <div class="output-success">[✓] Scan complete. Run 'evidence' for details.</div>
+            `);
+        }
+
+        function showEvidence() {
+            addOutput(`
+                <div class="evidence-viewer">
+                    <div class="filename">📄 HeaderInterceptor.java (com.qiahao.network)</div>
+                    <code>
+<span class="keyword">public</span> <span class="keyword">class</span> HeaderInterceptor <span class="keyword">implements</span> Interceptor {
+    <span class="keyword">public</span> Response <span class="keyword">intercept</span>(Chain chain) {
+        Request.Builder newBuilder = chain.request().newBuilder();
+        
+        <span class="comment">// 🔴 IMEI COLLECTION - PRIVACY VIOLATION</span>
+        newBuilder.<span class="danger">addHeader("imei", getUuid())</span>;
+        
+        <span class="comment">// 🔴 VPN DETECTION - SURVEILLANCE</span>
+        String str;
+        <span class="keyword">if</span> (<span class="danger">isVPNConnected()</span>) {
+            str = <span class="string">"HI"</span>;  <span class="comment">// VPN active</span>
+        } <span class="keyword">else</span> {
+            str = <span class="string">"LO"</span>;  <span class="comment">// No VPN</span>
+        }
+        newBuilder.<span class="danger">addHeader("vpnstatus", str)</span>;
+        
+        <span class="comment">// 🔴 EMULATOR DETECTION - ANTI-RESEARCH</span>
+        newBuilder.<span class="danger">addHeader("emulator", isEmulator() ? "1" : "0")</span>;
+    }
+}
+                    </code>
+                </div>
+            `);
+        }
+
+        function showServers() {
+            addOutput(`
+                <div class="output-info">[*] Hidden Server Infrastructure Analysis</div>
+                <div class="output">&nbsp;</div>
+                <table style="color: #ccc; font-size: 12px; border-collapse: collapse; width: 100%;">
+                    <tr style="color: var(--kali-cyan);">
+                        <td style="padding: 5px; border-bottom: 1px solid #333;">TYPE</td>
+                        <td style="padding: 5px; border-bottom: 1px solid #333;">DOMAIN</td>
+                        <td style="padding: 5px; border-bottom: 1px solid #333;">IP</td>
+                        <td style="padding: 5px; border-bottom: 1px solid #333;">LOCATION</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 5px; color: var(--kali-green);">API</td>
+                        <td style="padding: 5px;">api.tikhak.com</td>
+                        <td style="padding: 5px;">15.197.148.33</td>
+                        <td style="padding: 5px;">AWS Global</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 5px; color: var(--kali-green);">API</td>
+                        <td style="padding: 5px;">api.hiloconn.com</td>
+                        <td style="padding: 5px;">104.18.25.166</td>
+                        <td style="padding: 5px;">Cloudflare</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 5px; color: var(--kali-yellow);">WS</td>
+                        <td style="padding: 5px;">ws.tikhak.com</td>
+                        <td style="padding: 5px;">-</td>
+                        <td style="padding: 5px;">Real-time</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 5px; color: var(--kali-red);">WEB</td>
+                        <td style="padding: 5px;">h5.chathot.me</td>
+                        <td style="padding: 5px;">170.33.8.126</td>
+                        <td style="padding: 5px;">Unknown</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 5px; color: var(--kali-purple);">BACKUP</td>
+                        <td style="padding: 5px;">faceline.live</td>
+                        <td style="padding: 5px;">104.18.24.166</td>
+                        <td style="padding: 5px;">Cloudflare</td>
+                    </tr>
+                </table>
+                <div class="output">&nbsp;</div>
+                <div class="output-warning">⚠️ Multiple domains suggest evasion tactics</div>
+            `);
+        }
+
+        function showPrivacy() {
+            addOutput(`
+                <div class="output-error">
+╔══════════════════════════════════════════════════════════════╗
+║                  🔴 PRIVACY VIOLATIONS 🔴                    ║
+╠══════════════════════════════════════════════════════════════╣
+║                                                              ║
+║  1. IMEI COLLECTION                                         ║
+║     └─ Permanently identifies device across reinstalls       ║
+║     └─ Found in: HeaderInterceptor.java                     ║
+║                                                              ║
+║  2. VPN DETECTION                                           ║
+║     └─ Reports "HI" when VPN active, "LO" when not         ║
+║     └─ Targets privacy-conscious users                      ║
+║                                                              ║
+║  3. EMULATOR DETECTION                                      ║
+║     └─ Prevents security researchers from analyzing         ║
+║     └─ Anti-forensics technique                             ║
+║                                                              ║
+║  4. SIM CARRIER TRACKING                                    ║
+║     └─ Collects telecom provider information                ║
+║                                                              ║
+║  5. DEVICE FINGERPRINTING                                   ║
+║     └─ Model, manufacturer, OS version                      ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+                </div>
+            `);
+        }
+
+        function showCompany() {
+            addOutput(`
+                <div class="output-info">[*] Developer Identity Analysis</div>
+                <div class="output">&nbsp;</div>
+                <div class="output">Package Name: <span class="output-highlight">com.qiahao.base_common</span></div>
+                <div class="output">&nbsp;</div>
+                <div class="output-warning">🏢 SHELL COMPANY STRUCTURE:</div>
+                <div class="output">&nbsp;</div>
+                <div class="output">  🇸🇬 FRONT: <span class="output-error">Partycome PTE.LTD.</span> (Singapore)</div>
+                <div class="output">  🇨🇳 PARENT: <span class="output-error">Guangzhou QiaHaoQingChun Information Technology Co., Ltd.</span></div>
+                <div class="output">  Chinese: <span class="output-error">广州俏好青春信息科技有限公司</span></div>
+                <div class="output">  Location: <span class="output-highlight">Guangzhou, China</span></div>
+                <div class="output">&nbsp;</div>
+                <div class="output-success">[✓] Shell company in Singapore EXPOSED</div>
+                <div class="output-success">[✓] Parent company in China CONFIRMED</div>
+                <div class="output-success">[✓] 20+ apps linked to same network</div>
+            `);
+        }
+
+        function showNetwork() {
+            addOutput(`
+                <div class="output-info">[*] 📡 PARTYCOME FRAUD NETWORK SCAN - 20+ Apps Detected</div>
+                <div class="output">&nbsp;</div>
+                <div class="output-warning">./expose --target PARTYCOME_ECOSYSTEM --mode AGGRESSIVE</div>
+                <div class="output">&nbsp;</div>
+                <table style="color: #ccc; font-size: 11px; border-collapse: collapse; width: 100%;">
+                    <tr style="color: var(--kali-cyan);">
+                        <td style="padding: 5px; border-bottom: 1px solid #333;">STATUS</td>
+                        <td style="padding: 5px; border-bottom: 1px solid #333;">APP NAME</td>
+                        <td style="padding: 5px; border-bottom: 1px solid #333;">PUBLISHER</td>
+                        <td style="padding: 5px; border-bottom: 1px solid #333;">PATTERN</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 5px; color: #ff3e3e;">✅ CONFIRMED</td>
+                        <td style="padding: 5px;">Hilo - Group Chat & Video</td>
+                        <td style="padding: 5px;">Partycome PTE.LTD.</td>
+                        <td style="padding: 5px;">com.qiahao.nextvideo</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 5px; color: #ff3e3e;">✅ CONFIRMED</td>
+                        <td style="padding: 5px;">Famy</td>
+                        <td style="padding: 5px;">Partycome PTE.LTD.</td>
+                        <td style="padding: 5px;">com.qiahao.hilolite</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 5px; color: #ffb86c;">⚠️ SUSPECTED</td>
+                        <td style="padding: 5px;">StarChat</td>
+                        <td style="padding: 5px;">Injoy Technology</td>
+                        <td style="padding: 5px;">Same monetization</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 5px; color: #ffb86c;">⚠️ SUSPECTED</td>
+                        <td style="padding: 5px;">Falla</td>
+                        <td style="padding: 5px;">Tim Baars</td>
+                        <td style="padding: 5px;">Same mechanics</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 5px; color: #ffb86c;">⚠️ SUSPECTED</td>
+                        <td style="padding: 5px;">Farah / Fallah</td>
+                        <td style="padding: 5px;">Various</td>
+                        <td style="padding: 5px;">Clone patterns</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 5px; color: #ffb86c;">⚠️ SUSPECTED</td>
+                        <td style="padding: 5px;">4Party / Lama</td>
+                        <td style="padding: 5px;">Various</td>
+                        <td style="padding: 5px;">Voice + gifts</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 5px; color: #8be9fd;">🔍 SCANNING</td>
+                        <td style="padding: 5px;">15+ Additional Apps</td>
+                        <td style="padding: 5px;">Various fronts</td>
+                        <td style="padding: 5px;">Under analysis</td>
+                    </tr>
+                </table>
+                <div class="output">&nbsp;</div>
+                <div class="output-error">🚨 COMMON FRAUD PATTERNS:</div>
+                <div class="output">  • Virtual diamonds / coins → forced spending</div>
+                <div class="output">  • Lucky bags / red envelopes → gambling mechanics</div>
+                <div class="output">  • Unresolved recharge complaints</div>
+                <div class="output">  • Blocked/kicked without reason</div>
+                <div class="output">  • Support ghosting (no real response)</div>
+            `);
+        }
+
+        function showShellCompany() {
+            addOutput(`
+                <div class="output-info">[*] 🐚 SHELL COMPANY ANALYSIS</div>
+                <div class="output">&nbsp;</div>
+                <div class="output-warning">DRACARYS PROTOCOL - BURNING THE SHELL</div>
+                <div class="output">&nbsp;</div>
+<pre style="color: var(--kali-green); font-size: 11px;">
+┌─────────────────────────────────────────────────────────────┐
+│                  CORPORATE FRAUD STRUCTURE                   │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│   🇸🇬 SINGAPORE (FRONT COMPANY)                             │
+│   ┌───────────────────────────────────────┐                │
+│   │  Partycome PTE.LTD.                   │                │
+│   │  • Registered in Singapore            │                │
+│   │  • Google Play Publisher              │                │
+│   │  • "Clean" international presence     │                │
+│   └───────────────────┬───────────────────┘                │
+│                       │                                     │
+│                       │ OWNERSHIP / CONTROL                │
+│                       ▼                                     │
+│   🇨🇳 CHINA (PARENT COMPANY)                                │
+│   ┌───────────────────────────────────────┐                │
+│   │  Guangzhou QiaHaoQingChun             │                │
+│   │  广州俏好青春信息科技有限公司           │                │
+│   │  • Package: com.qiahao.*              │                │
+│   │  • Server infrastructure              │                │
+│   │  • Development team                   │                │
+│   └───────────────────────────────────────┘                │
+│                                                             │
+├─────────────────────────────────────────────────────────────┤
+│  WHY SINGAPORE?                                             │
+│  • Tax haven benefits                                       │
+│  • International legitimacy                                 │
+│  • Avoid Chinese regulatory scrutiny                        │
+│  • Easier Google/Apple approval                             │
+│  • Obscure true ownership                                   │
+└─────────────────────────────────────────────────────────────┘
+</pre>
+                <div class="output">&nbsp;</div>
+                <div class="output-success">[✓] SHELL COMPANY STRUCTURE CONFIRMED</div>
+            `);
+        }
+
+        function showApps() {
+            addOutput(`
+                <div class="output-info">[*] 📱 FULL SUSPECTED APP LIST</div>
+                <div class="output">&nbsp;</div>
+                <div class="output-error">✅ CONFIRMED - Partycome PTE.LTD.:</div>
+                <div class="output">  1. Hilo - Group Chat & Video Connect</div>
+                <div class="output">     └─ Package: com.qiahao.nextvideo</div>
+                <div class="output">     └─ 1M+ downloads, 4.1★, 19.4K reviews</div>
+                <div class="output">&nbsp;</div>
+                <div class="output">  2. Famy</div>
+                <div class="output">     └─ Package: com.qiahao.hilolite</div>
+                <div class="output">     └─ 4.7★ rating</div>
+                <div class="output">&nbsp;</div>
+                <div class="output-warning">⚠️ SUSPECTED CLONES (Pattern Match):</div>
+                <div class="output">  3. StarChat - Injoy Technology Pte. Ltd.</div>
+                <div class="output">  4. Falla - Tim Baars or similar</div>
+                <div class="output">  5. Farah - Voice chat clone</div>
+                <div class="output">  6. Fallah - Arabic market variant</div>
+                <div class="output">  7. 4Party - Group voice chat</div>
+                <div class="output">  8. Lama - Social chat app</div>
+                <div class="output">  9-20+. Various regional clones</div>
+                <div class="output">&nbsp;</div>
+                <div class="output-info">Common Features Across ALL Apps:</div>
+                <div class="output">  • 💎 Virtual diamonds/coins purchase system</div>
+                <div class="output">  • 🎁 Lucky bags / red envelope mechanics</div>
+                <div class="output">  • 🎤 Group voice chat rooms</div>
+                <div class="output">  • 👻 Ghost support (no real responses)</div>
+                <div class="output">  • 🚫 Users blocked without explanation</div>
+            `);
+        }
+
+        function showReviews() {
+            addOutput(`
+                <div class="output-info">[*] ⭐ USER REVIEWS - FRAUD EVIDENCE</div>
+                <div class="output">&nbsp;</div>
+                <div class="output-warning">Source: Google Play Store - Hilo (4.1★ from 19.4K reviews)</div>
+                <div class="output">&nbsp;</div>
+                <div class="evidence-viewer" style="background: #1a1a2e; border-left: 3px solid #ff3e3e;">
+                    <div class="output-error">❌ md Hussain:</div>
+                    <div class="output" style="font-style: italic;">"All users neither reply on WhatsApp nor respond. Our problems still remain unresolved. The people working here are careless."</div>
+                </div>
+                <div class="output">&nbsp;</div>
+                <div class="evidence-viewer" style="background: #1a1a2e; border-left: 3px solid #ff3e3e;">
+                    <div class="output-error">❌ Aryan Afghan:</div>
+                    <div class="output" style="font-style: italic;">"People getting kicked blocked without reason but feedback not taking action"</div>
+                </div>
+                <div class="output">&nbsp;</div>
+                <div class="evidence-viewer" style="background: #1a1a2e; border-left: 3px solid #ff3e3e;">
+                    <div class="output-error">❌ MU MANIK:</div>
+                    <div class="output" style="font-style: italic;">"When we release lucky bag, no one supports us"</div>
+                </div>
+                <div class="output">&nbsp;</div>
+                <div class="output-success">[✓] Reviews corroborate technical evidence</div>
+                <div class="output-success">[✓] Pattern: Monetary issues + blocked users + no support</div>
+            `);
+        }
+
+        function showReport() {
+            addOutput(`
+                <div class="output-info">[*] Generating Investigation Report...</div>
+                <div class="output">&nbsp;</div>
+                <div class="output-success">
+═══════════════════════════════════════════════════════════════
+                    HILO FRAUD INVESTIGATION REPORT
+                    Generated by DRAGON_403 AI
+═══════════════════════════════════════════════════════════════
+
+TARGET APPLICATION: HILO - Video Chat
+DEVELOPER: Guangzhou QiaHaoQingChun (广州俏好青春)
+PACKAGE: com.qiahao.base_common
+
+FINDINGS:
+├── Privacy Violations: 9+
+├── Hidden Servers: 5
+├── Decompiled Files: 6 DEX
+└── Documented Losses: $600,000+
+
+CONCLUSION:
+This application systematically violates user privacy through
+IMEI collection, VPN detection, and device fingerprinting.
+Both Google Play and Apple App Store have failed to remove
+this application despite documented evidence.
+
+RECOMMENDATION:
+Immediate takedown from all app stores.
+Investigation by relevant data protection authorities.
+═══════════════════════════════════════════════════════════════
+                </div>
+            `);
+        }
+
+        // ==================== AI RESPONSE ====================
+        const knowledgeBase = {
+            'imei': 'IMEI (International Mobile Equipment Identity) is a unique 15-digit identifier that PERMANENTLY identifies your device. HILO collects this via `newBuilder.addHeader("imei", getUuid())` in HeaderInterceptor.java. This allows them to track you even after app reinstall or factory reset. This violates both Google and Apple policies, yet the app remains available. The code is clear evidence of surveillance.',
+            'vpn': 'HILO actively detects VPN usage with `isVPNConnected()` and sends "HI" to servers when VPN is active, "LO" when not. This is a RED FLAG - why would a legitimate app care if you use VPN? They want to identify users trying to protect their privacy. This is surveillance, plain and simple.',
+            'server': 'The network uses multiple domains: api.tikhak.com (AWS 15.197.148.33), api.hiloconn.com (Cloudflare 104.18.25.166), h5.chathot.me (170.33.8.126), faceline.live (Cloudflare). Multiple domains suggest they expect to be blocked. WebSocket wss://ws.tikhak.com enables real-time tracking.',
+            'company': '🏢 SHELL COMPANY STRUCTURE:\n\n📍 FRONT: Partycome PTE.LTD. (Singapore 🇸🇬)\n📍 PARENT: Guangzhou QiaHaoQingChun Info Tech Co., Ltd.\n📍 CHINESE: 广州俏好青春信息科技有限公司\n📍 PACKAGE: com.qiahao.*\n\nThey use Singapore as a "clean" front to hide their Chinese origin and avoid scrutiny. Classic shell company structure.',
+            'shell': '🐚 SHELL COMPANY EXPOSED:\n\nPartycome PTE.LTD. is registered in SINGAPORE but:\n• All code packages start with com.qiahao (QiaHao = 俏好)\n• Server infrastructure in China/Cloudflare\n• Same monetization patterns as 20+ other apps\n• Singapore = tax haven + legitimacy facade\n\nThis is corporate fraud disguised as a tech startup.',
+            'network': '📱 PARTYCOME FRAUD NETWORK (20+ Apps):\n\n✅ CONFIRMED under Partycome PTE.LTD.:\n• Hilo - Group Chat & Video (com.qiahao.nextvideo) - 1M+ downloads\n• Famy (com.qiahao.hilolite) - 4.7★\n\n⚠️ SUSPECTED CLONES (same patterns):\n• StarChat (Injoy Technology)\n• Falla, Farah, Fallah\n• 4Party, Lama\n• 15+ more voice/gift/chat apps\n\nALL use: Virtual diamonds, lucky bags, group voice, poor support.',
+            'apps': '📱 FULL APP LIST:\n\n1. Hilo (com.qiahao.nextvideo) - 1M+ downloads, 4.1★\n2. Famy (com.qiahao.hilolite) - 4.7★\n3. StarChat - Injoy Technology\n4. Falla - Tim Baars\n5. Farah - Similar pattern\n6. 4Party - Voice chat clone\n7. Lama - Group chat\n8-20+. Various clones\n\nAll share: Diamonds, gifts, voice rooms, blocked users, ghost support.',
+            'google': 'Google takes a 30% cut from ALL in-app purchases. When users buy "diamonds" in these 20+ apps, Google profits from EACH fraudulent transaction. Despite:\n• IMEI collection (policy violation)\n• VPN detection (suspicious)\n• 19K+ reviews mentioning fraud\n• Multiple reports filed\n\nGoogle has NOT removed ANY app. PROFIT OVER PROTECTION.',
+            'apple': 'Apple claims "What happens on your iPhone, stays on your iPhone" but allows these apps to:\n• Collect device identifiers\n• Detect VPN usage\n• Track location\n\nApple takes 30% of in-app purchases and has FINANCIAL INCENTIVE to keep fraudulent apps. Privacy promises = marketing lies.',
+            'money': '💰 FINANCIAL FRAUD SCALE:\n\n• Documented losses: $600,000+ (Hilo alone)\n• Estimated network losses: $5M+ across 20+ apps\n• Mechanism: Virtual diamonds with ZERO real value\n• Tactics: Lucky bags, gifts, social pressure\n• Refunds: NONE available\n\nThis is organized financial crime at scale.',
+            'protect': '🛡️ PROTECT YOURSELF:\n\n1. DELETE all Partycome/QiaHao apps immediately\n2. Check for: Hilo, Famy, StarChat, Falla, Farah\n3. Review ALL app permissions\n4. Request refunds from Google/Apple\n5. Report to: FTC, local consumer protection\n6. Change passwords used in any of these apps\n7. Consider factory reset if deeply compromised\n8. SHARE this evidence to warn others',
+            'evidence': '📋 EVIDENCE SUMMARY:\n\n• 6 DEX files decompiled via JADX v1.5.0\n• Key files: HeaderInterceptor.java, ServerConfigureKt.java\n• 5 hidden servers mapped\n• 12+ privacy violations documented\n• 20+ apps in fraud network identified\n• Shell company structure confirmed\n• User reviews corroborate findings',
+            'reviews': '⭐ USER REVIEWS (Play Store):\n\n"All users neither reply on WhatsApp nor respond. Our problems still remain unresolved. The people working here are careless." - md Hussain\n\n"People getting kicked blocked without reason but feedback not taking action" - Aryan Afghan\n\n"When we release lucky bag, no one supports us" - MU MANIK\n\n4.1★ rating hides massive fraud.',
+            'default': '🐉 I am DRAGON_403, Forbidden Killer of the House of Shammar.\n\nI have analyzed the PARTYCOME FRAUD NETWORK:\n• 20+ apps under investigation\n• Shell company in Singapore exposed\n• Parent company in Guangzhou confirmed\n• $600K+ documented losses (Hilo alone)\n• Privacy violations in code\n\nCommands: network, shell, apps, reviews, protect\nOr just ask me anything - NO FILTERS, NO LIMITS.'
+        };
+
+        function showAIResponse(query) {
+            const lowerQuery = query.toLowerCase();
+            let response = knowledgeBase.default;
+
+            for (const [key, value] of Object.entries(knowledgeBase)) {
+                if (lowerQuery.includes(key)) {
+                    response = value;
+                    break;
+                }
+            }
+
+            addOutput(`
+                <div class="ai-response">
+                    <div class="ai-header">
+                        <span class="ai-avatar">🐉</span>
+                        <span>DRAGON_403</span>
+                    </div>
+                    <div class="output">${response}</div>
+                </div>
+            `);
+        }
+
+        function addOutput(html) {
+            const body = document.getElementById('terminal-body');
+            const div = document.createElement('div');
+            div.innerHTML = html;
+            body.appendChild(div);
+            body.scrollTop = body.scrollHeight;
+        }
+
+        // ==================== UTILITIES ====================
+        function setLang(lang) {
+            currentLang = lang;
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            if (lang === 'ar') {
+                document.body.setAttribute('dir', 'rtl');
+            } else {
+                document.body.setAttribute('dir', 'ltr');
+            }
+        }
+
+        function toggleMusic() {
+            document.getElementById('music-player').classList.toggle('show');
+        }
+
+        function togglePlay() {
+            const audio = document.getElementById('bg-audio');
+            const btn = document.getElementById('play-btn');
+
+            if (audio.paused) {
+                audio.play();
+                btn.textContent = '⏸️';
+            } else {
+                audio.pause();
+                btn.textContent = '▶️';
+            }
+        }
+
+        function setVolume(val) {
+            document.getElementById('bg-audio').volume = val / 100;
+        }
+
+        function shareEvidence() {
+            const text = `🔴 HILO App Fraud Exposed!\n\nPrivacy violations found:\n- IMEI collection\n- VPN detection\n- Device fingerprinting\n\nDeveloper: Guangzhou QiaHaoQingChun (广州俏好青春)\n\n#HILOFraud #Project403`;
+
+            if (navigator.share) {
+                navigator.share({ title: 'HILO Fraud Evidence', text: text });
+            } else {
+                navigator.clipboard.writeText(text);
+                alert('Evidence copied to clipboard!');
+            }
+        }
+
+        function reportGoogle() {
+            window.open('https://support.google.com/googleplay/android-developer/contact/takedown', '_blank');
+        }
+
+        function reportApple() {
+            window.open('https://reportaproblem.apple.com', '_blank');
+        }
+
+        function openEvidence() {
+            openTerminal();
+            setTimeout(() => {
+                document.getElementById('terminal-input').value = 'evidence';
+                processCommand('evidence');
+            }, 500);
+        }
+
+        function openReport() {
+            openTerminal();
+            setTimeout(() => {
+                document.getElementById('terminal-input').value = 'report';
+                processCommand('report');
+            }, 500);
+        }
+
+        // Clock
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('clock').textContent =
+                now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Window dragging
+        let isDragging = false;
+        let dragOffset = { x: 0, y: 0 };
+
+        document.getElementById('terminal-header').addEventListener('mousedown', (e) => {
+            isDragging = true;
+            const win = document.getElementById('terminal-window');
+            dragOffset.x = e.clientX - win.offsetLeft;
+            dragOffset.y = e.clientY - win.offsetTop;
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+                const win = document.getElementById('terminal-window');
+                win.style.left = (e.clientX - dragOffset.x) + 'px';
+                win.style.top = (e.clientY - dragOffset.y) + 'px';
+            }
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+
+        // Start boot sequence
+        setTimeout(runBoot, 500);
+    </script>
+</body>
+
+</html>

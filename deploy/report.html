@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔒 Official Security Audit - HILO/Partycome Fraud Network</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f172a;
+            --surface: #1e293b;
+            --border: #334155;
+            --accent: #ef4444;
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --info: #3b82f6;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(239,68,68,0.1), rgba(59,130,246,0.1));
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            margin-bottom: 40px;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        h1 {
+            font-size: 32px;
+            font-weight: 900;
+            margin-bottom: 8px;
+        }
+        
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 16px;
+        }
+        
+        .meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+        
+        .meta-item {
+            text-align: center;
+        }
+        
+        .meta-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .meta-value {
+            font-weight: 700;
+            font-size: 14px;
+        }
+        
+        section {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+        
+        h2 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        h2 .icon {
+            font-size: 24px;
+        }
+        
+        h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin: 24px 0 12px;
+            color: var(--info);
+        }
+        
+        p {
+            margin-bottom: 16px;
+            color: var(--text-muted);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+        
+        th, td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        th {
+            background: rgba(255,255,255,0.05);
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+        }
+        
+        .severity-critical {
+            color: var(--accent);
+            font-weight: 700;
+        }
+        
+        .severity-high {
+            color: var(--warning);
+            font-weight: 600;
+        }
+        
+        .severity-medium {
+            color: var(--info);
+        }
+        
+        .code-block {
+            background: #0a0a0f;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 16px 0;
+            overflow-x: auto;
+        }
+        
+        .code-block pre {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            line-height: 1.8;
+            color: #e2e8f0;
+        }
+        
+        .code-block .comment { color: #6b7280; }
+        .code-block .keyword { color: #f472b6; }
+        .code-block .string { color: #34d399; }
+        .code-block .danger { 
+            color: #ef4444; 
+            background: rgba(239, 68, 68, 0.2); 
+            padding: 2px 6px; 
+            border-radius: 4px; 
+        }
+        
+        .structure-diagram {
+            background: #0a0a0f;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 24px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            line-height: 1.6;
+            color: var(--success);
+            white-space: pre;
+            overflow-x: auto;
+        }
+        
+        .quote {
+            border-left: 4px solid var(--accent);
+            padding: 16px 20px;
+            background: rgba(239,68,68,0.1);
+            border-radius: 0 8px 8px 0;
+            margin: 16px 0;
+            font-style: italic;
+        }
+        
+        .quote-author {
+            font-style: normal;
+            font-weight: 600;
+            color: var(--info);
+            margin-top: 8px;
+        }
+        
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 16px;
+            margin: 24px 0;
+        }
+        
+        .stat-card {
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--accent);
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+        
+        .violation-list {
+            list-style: none;
+        }
+        
+        .violation-list li {
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .violation-list li::before {
+            content: '❌';
+        }
+        
+        .recommendation-list {
+            list-style: none;
+        }
+        
+        .recommendation-list li {
+            padding: 8px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        
+        .recommendation-list li::before {
+            content: '✅';
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+        
+        .footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        .print-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 16px 24px;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 20px rgba(239,68,68,0.4);
+        }
+        
+        .print-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        @media print {
+            body {
+                background: white;
+                color: black;
+                padding: 20px;
+            }
+            
+            .print-btn {
+                display: none;
+            }
+            
+            section {
+                background: white;
+                border: 1px solid #ddd;
+                break-inside: avoid;
+            }
+            
+            .code-block, .structure-diagram {
+                background: #f5f5f5;
+            }
+            
+            .code-block pre, .structure-diagram {
+                color: #333;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="badge">Official Security Audit</div>
+            <h1>🔒 Partycome PTE.LTD. / HILO Network</h1>
+            <p class="subtitle">Critical Privacy Violations & Fraudulent Practices Documentation</p>
+            <div class="meta">
+                <div class="meta-item">
+                    <div class="meta-label">Report ID</div>
+                    <div class="meta-value">DRAGON-403-2026-001</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Date</div>
+                    <div class="meta-value">January 20, 2026</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Classification</div>
+                    <div class="meta-value">PUBLIC DISCLOSURE</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Researcher</div>
+                    <div class="meta-value">@KHAWRIZM</div>
+                </div>
+            </div>
+        </header>
+
+        <section>
+            <h2><span class="icon">📋</span> Executive Summary</h2>
+            <p>This security audit documents <strong>critical privacy violations</strong> and <strong>fraudulent practices</strong> in the HILO mobile application network published by Partycome PTE.LTD. (Singapore shell company) operated by Guangzhou QiaHaoQingChun Information Technology Co., Ltd. (China).</p>
+            
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="stat-value">20+</div>
+                    <div class="stat-label">Fraud Apps</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">$5M+</div>
+                    <div class="stat-label">Est. Stolen</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">1M+</div>
+                    <div class="stat-label">Victims</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">$1.5M+</div>
+                    <div class="stat-label">Google/Apple Profit</div>
+                </div>
+            </div>
+
+            <h3>Key Findings</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Finding</th>
+                        <th>Severity</th>
+                        <th>Policy Violation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>IMEI Collection</td>
+                        <td class="severity-critical">CRITICAL</td>
+                        <td>Google Play 4.8, Apple 5.1.2</td>
+                    </tr>
+                    <tr>
+                        <td>VPN Detection & Reporting</td>
+                        <td class="severity-high">HIGH</td>
+                        <td>Privacy violation, Surveillance</td>
+                    </tr>
+                    <tr>
+                        <td>Emulator Detection</td>
+                        <td class="severity-medium">MEDIUM</td>
+                        <td>Anti-research, Obstruction</td>
+                    </tr>
+                    <tr>
+                        <td>Shell Company Structure</td>
+                        <td class="severity-high">HIGH</td>
+                        <td>Deceptive business practices</td>
+                    </tr>
+                    <tr>
+                        <td>Financial Fraud</td>
+                        <td class="severity-critical">CRITICAL</td>
+                        <td>$600K+ documented losses</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2><span class="icon">🏢</span> Shell Company Structure</h2>
+            <div class="structure-diagram">
+┌─────────────────────────────────────────────────────────────┐
+│                  CORPORATE FRAUD STRUCTURE                   │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│   🇸🇬 SINGAPORE (FRONT COMPANY)                             │
+│   ┌───────────────────────────────────────┐                │
+│   │  Partycome PTE.LTD.                   │                │
+│   │  • Google Play Publisher              │                │
+│   │  • "Clean" international presence     │                │
+│   └───────────────────┬───────────────────┘                │
+│                       │                                     │
+│                       │ OWNERSHIP / CONTROL                │
+│                       ▼                                     │
+│   🇨🇳 CHINA (PARENT COMPANY)                                │
+│   ┌───────────────────────────────────────┐                │
+│   │  Guangzhou QiaHaoQingChun             │                │
+│   │  广州俏好青春信息科技有限公司           │                │
+│   │  • Package: com.qiahao.*              │                │
+│   │  • Actual development team            │                │
+│   └───────────────────────────────────────┘                │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘</div>
+
+            <h3>Evidence of Connection</h3>
+            <ul class="violation-list">
+                <li>Package namespace: <code>com.qiahao.nextvideo</code>, <code>com.qiahao.hilolite</code></li>
+                <li>"QiaHao" (俏好) directly translates to company name</li>
+                <li>Server infrastructure in China + AWS Global + Cloudflare</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2><span class="icon">🔍</span> Technical Evidence</h2>
+            
+            <h3>1. IMEI Collection (CRITICAL)</h3>
+            <p><strong>File:</strong> HeaderInterceptor.java (com.qiahao.network)</p>
+            <div class="code-block">
+<pre><span class="keyword">public class</span> HeaderInterceptor <span class="keyword">implements</span> Interceptor {
+    <span class="keyword">public</span> Response <span class="keyword">intercept</span>(Chain chain) {
+        Request.Builder newBuilder = chain.request().newBuilder();
+        
+        <span class="comment">// ❌ CRITICAL VIOLATION - Permanent device tracking</span>
+        newBuilder.<span class="danger">addHeader("imei", getUuid())</span>;
+        
+        <span class="comment">// Additional data collection</span>
+        newBuilder.addHeader(<span class="string">"carrier"</span>, getCarrier());
+        newBuilder.addHeader(<span class="string">"model"</span>, Build.MODEL);
+    }
+}</pre>
+            </div>
+            <p><strong>Impact:</strong> IMEI is a permanent 15-digit device identifier. Enables tracking across reinstalls, factory resets, and cross-app identification.</p>
+
+            <h3>2. VPN Detection & Reporting (HIGH)</h3>
+            <div class="code-block">
+<pre><span class="comment">// ❌ HIGH SEVERITY - Active surveillance of privacy tools</span>
+String vpnStatus;
+<span class="keyword">if</span> (<span class="danger">isVPNConnected()</span>) {
+    vpnStatus = <span class="string">"HI"</span>;  <span class="comment">// VPN is active</span>
+} <span class="keyword">else</span> {
+    vpnStatus = <span class="string">"LO"</span>;  <span class="comment">// No VPN detected</span>
+}
+newBuilder.<span class="danger">addHeader("vpnstatus", vpnStatus)</span>;</pre>
+            </div>
+            <p><strong>Impact:</strong> No legitimate chat application needs to detect VPN usage. This targets privacy-conscious users.</p>
+
+            <h3>3. Discovered API Key</h3>
+            <div class="code-block">
+<pre><span class="comment">// Tencent IM API Key - Hardcoded credential</span>
+API_KEY: <span class="danger">6291d069123642d9929a49c734c50719</span></pre>
+            </div>
+        </section>
+
+        <section>
+            <h2><span class="icon">🌐</span> Server Infrastructure</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Domain</th>
+                        <th>IP Address</th>
+                        <th>Provider</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>API</td>
+                        <td>api.tikhak.com</td>
+                        <td>15.197.148.33</td>
+                        <td>AWS Global</td>
+                    </tr>
+                    <tr>
+                        <td>API</td>
+                        <td>api.hiloconn.com</td>
+                        <td>104.18.25.166</td>
+                        <td>Cloudflare</td>
+                    </tr>
+                    <tr>
+                        <td>WebSocket</td>
+                        <td>ws.tikhak.com</td>
+                        <td>AWS</td>
+                        <td>Real-time tracking</td>
+                    </tr>
+                    <tr>
+                        <td>Web</td>
+                        <td>h5.chathot.me</td>
+                        <td>170.33.8.126</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>IM</td>
+                        <td>Tencent IM</td>
+                        <td>-</td>
+                        <td>China</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2><span class="icon">📱</span> Fraud App Network (20+ Apps)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>App</th>
+                        <th>Package</th>
+                        <th>Downloads</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Hilo</strong></td>
+                        <td>com.qiahao.nextvideo</td>
+                        <td>1M+</td>
+                        <td class="severity-critical">CONFIRMED</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Famy</strong></td>
+                        <td>com.qiahao.hilolite</td>
+                        <td>500K+</td>
+                        <td class="severity-critical">CONFIRMED</td>
+                    </tr>
+                    <tr>
+                        <td>StarChat</td>
+                        <td>-</td>
+                        <td>1M+</td>
+                        <td class="severity-high">SUSPECTED</td>
+                    </tr>
+                    <tr>
+                        <td>Falla, Farah, Fallah</td>
+                        <td>Various</td>
+                        <td>500K+</td>
+                        <td class="severity-high">SUSPECTED</td>
+                    </tr>
+                    <tr>
+                        <td>15+ More</td>
+                        <td>Various</td>
+                        <td>5M+ total</td>
+                        <td class="severity-medium">INVESTIGATING</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2><span class="icon">⭐</span> User Reviews as Evidence</h2>
+            <div class="quote">
+                "All the users working on this application neither reply on WhatsApp nor respond on their IDs. Even when we bring users from the application who come here and make recharges, our problems still remain unresolved. The people working here are careless."
+                <div class="quote-author">— md Hussain, November 2025</div>
+            </div>
+            <div class="quote">
+                "People getting kicked blocked without reason but feedback or Hilo assistant manager not taking action on this things."
+                <div class="quote-author">— Aryan Afghan, January 2026</div>
+            </div>
+            <div class="quote">
+                "When we release the lucky bag, no one supports us."
+                <div class="quote-author">— MU MANIK, November 2025</div>
+            </div>
+        </section>
+
+        <section>
+            <h2><span class="icon">⚖️</span> Policy Violations</h2>
+            <h3>Google Play Developer Policy</h3>
+            <ul class="violation-list">
+                <li>Section 4.8: Device identifier collection without consent</li>
+                <li>Section 8.1: Deceptive behavior through shell company</li>
+                <li>Section 3.7: In-app purchase transparency violations</li>
+            </ul>
+            
+            <h3>Apple App Store Guidelines</h3>
+            <ul class="violation-list">
+                <li>5.1.2: Privacy - Unauthorized data collection</li>
+                <li>3.1.1: In-App Purchase requirement violations</li>
+                <li>5.6: Developer Code of Conduct violations</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2><span class="icon">🎯</span> Recommendations</h2>
+            <h3>For Google Play</h3>
+            <ul class="recommendation-list">
+                <li>Immediate removal of all Partycome PTE.LTD. apps</li>
+                <li>Investigation of related publishers with same patterns</li>
+                <li>Refund processing for affected users</li>
+                <li>Permanent publisher ban from Google Play</li>
+            </ul>
+            
+            <h3>For Apple App Store</h3>
+            <ul class="recommendation-list">
+                <li>App removal pending investigation</li>
+                <li>Review of privacy compliance</li>
+                <li>User notification of data collection</li>
+            </ul>
+        </section>
+
+        <footer class="footer">
+            <p><strong>🐉 DRAGON_403 | House of Shammar | ForbiddenKillers 403</strong></p>
+            <p>Evidence obtained through legal reverse engineering (JADX v1.5.0)</p>
+            <p style="margin-top: 16px;"><a href="https://github.com/KHAWRIZM" target="_blank">GitHub: @KHAWRIZM</a></p>
+        </footer>
+    </div>
+
+    <button class="print-btn" onclick="window.print()">
+        📄 Export PDF
+    </button>
+</body>
+</html>

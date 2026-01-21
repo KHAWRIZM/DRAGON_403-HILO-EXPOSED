@@ -1,0 +1,10 @@
+{
+    "version": "0.2",
+    "configurations": [
+        {
+            "appLocation": "./deploy",
+            "apiLocation": "./deploy/api",
+            "appArtifactLocation": "./deploy"
+        }
+    ]
+}

@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐉 Dragon403 Twitter Thread - Ready to Post</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1a 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #fff;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(90deg, #1DA1F2, #ff3333);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #888;
+            font-size: 1.1rem;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .tweet-card {
+            background: #16181c;
+            border: 1px solid #2f3336;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .tweet-card:hover {
+            border-color: #1DA1F2;
+            transform: translateY(-2px);
+        }
+
+        .tweet-number {
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: #1DA1F2;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        .tweet-number.hook {
+            background: linear-gradient(90deg, #ff3333, #ff6b6b);
+        }
+
+        .tweet-number.cta {
+            background: linear-gradient(90deg, #00ba7c, #00d084);
+        }
+
+        .tweet-content {
+            font-size: 1.1rem;
+            line-height: 1.5;
+            margin-top: 10px;
+            white-space: pre-line;
+        }
+
+        .tweet-content .hashtag {
+            color: #1DA1F2;
+        }
+
+        .tweet-content .mention {
+            color: #1DA1F2;
+        }
+
+        .tweet-content .link {
+            color: #1DA1F2;
+            text-decoration: underline;
+        }
+
+        .tweet-content .emoji {
+            font-size: 1.2rem;
+        }
+
+        .char-count {
+            text-align: right;
+            color: #555;
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+
+        .char-count.warning {
+            color: #ffad1f;
+        }
+
+        .char-count.danger {
+            color: #ff3333;
+        }
+
+        .copy-btn {
+            background: #1DA1F2;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 10px;
+            transition: all 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: #1a91da;
+        }
+
+        .copy-btn.copied {
+            background: #00ba7c;
+        }
+
+        .section-divider {
+            text-align: center;
+            margin: 40px 0;
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        .section-divider span {
+            background: #1a1a2e;
+            padding: 0 20px;
+        }
+
+        .accounts-section {
+            background: #16181c;
+            border: 1px solid #2f3336;
+            border-radius: 16px;
+            padding: 25px;
+            margin-top: 40px;
+        }
+
+        .accounts-section h2 {
+            color: #1DA1F2;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .account-category {
+            margin-bottom: 25px;
+        }
+
+        .account-category h3 {
+            color: #ff6b6b;
+            font-size: 1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .account-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .account-tag {
+            background: #2f3336;
+            color: #1DA1F2;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .account-tag:hover {
+            background: #1DA1F2;
+            color: white;
+        }
+
+        .tips-section {
+            background: linear-gradient(135deg, #1a3a1a 0%, #0f1f0f 100%);
+            border: 1px solid #00ba7c;
+            border-radius: 16px;
+            padding: 25px;
+            margin-top: 30px;
+        }
+
+        .tips-section h2 {
+            color: #00ba7c;
+            margin-bottom: 15px;
+        }
+
+        .tips-section ul {
+            list-style: none;
+        }
+
+        .tips-section li {
+            padding: 8px 0;
+            color: #aaa;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .tips-section li::before {
+            content: "✓";
+            color: #00ba7c;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #555;
+        }
+
+        .footer .dragon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>🐉 DRAGON403 THREAD</h1>
+        <p>Ready to expose the $50M fraud network</p>
+    </div>
+
+    <div class="container">
+
+        <!-- Tweet 1 - HOOK -->
+        <div class="tweet-card">
+            <div class="tweet-number hook">1/10 - HOOK</div>
+            <div class="tweet-content">🚨 EXPOSED: Chinese fraud network stealing $50M+ from Arab users.
+
+                Google & Apple take 30% cut.
+
+                They know. They don't care.
+
+                Thread 🧵👇
+
+                <span class="hashtag">#HILOFraud</span> <span class="hashtag">#Dragon403</span>
+            </div>
+            <div class="char-count">178 / 280</div>
+            <button class="copy-btn" onclick="copyTweet(this)">📋 Copy</button>
+        </div>
+
+        <!-- Tweet 2 -->
+        <div class="tweet-card">
+            <div class="tweet-number">2/10</div>
+            <div class="tweet-content">🎭 The Setup:
+
+                App: HILO (+ 20 more apps)
+                Publisher: "Partycome PTE.LTD" 🇸🇬
+                Real owner: Chinese company 🇨🇳
+
+                Singapore = Shell company to hide origin.
+
+                Classic fraud structure.</div>
+            <div class="char-count">196 / 280</div>
+            <button class="copy-btn" onclick="copyTweet(this)">📋 Copy</button>
+        </div>
+
+        <!-- Tweet 3 -->
+        <div class="tweet-card">
+            <div class="tweet-number">3/10</div>
+            <div class="tweet-content">💻 I decompiled the APK.
+
+                Found this code:
+
+                addHeader("imei", getUuid());
+                if(isVPNConnected()) str="HI";
+                if(isEmulator()) i10=1;
+
+                They track your device.
+                They detect VPN users.
+                They block researchers.</div>
+            <div class="char-count">219 / 280</div>
+            <button class="copy-btn" onclick="copyTweet(this)">📋 Copy</button>
+        </div>
+
+        <!-- Tweet 4 -->
+        <div class="tweet-card">
+            <div class="tweet-number">4/10</div>
+            <div class="tweet-content">📱 Same company runs 20+ apps:
+
+                • HILO (10M+)
+                • Falla (10M+)
+                • StarChat (5M+)
+                • Farah (5M+)
+                • Famy (5M+)
+
+                Same code. Same scam. Different skins.
+
+                50M+ victims. Mostly Arabs.</div>
+            <div class="char-count">198 / 280</div>
+            <button class="copy-btn" onclick="copyTweet(this)">📋 Copy</button>
+        </div>
+
+        <!-- Tweet 5 -->
+        <div class="tweet-card">
+            <div class="tweet-number">5/10</div>
+            <div class="tweet-content">🎭 How the scam works:
+
+                1. Fake women profiles (AI/stolen photos)
+                2. Pay-per-message ($$$)
+                3. Virtual gifts (real money)
+                4. Bots reply, not humans
+
+                You're chatting with code, paying real money.</div>
+            <div class="char-count">203 / 280</div>
+            <button class="copy-btn" onclick="copyTweet(this)">📋 Copy</button>
+        </div>
+
+        <!-- Tweet 6 -->
+        <div class="tweet-card">
+            <div class="tweet-number">6/10</div>
+            <div class="tweet-content">💰 The money:
+
+                $50,000,000+ stolen
+                $15,000,000+ to Google/Apple (30% cut)
+
+                They profit from every scam transaction.
+
+                Reported multiple times.
+                Response: ZERO.</div>
+            <div class="char-count">178 / 280</div>
+            <button class="copy-btn" onclick="copyTweet(this)">📋 Copy</button>
+        </div>
+
+        <!-- Tweet 7 -->
+        <div class="tweet-card">
+            <div class="tweet-number">7/10</div>
+            <div class="tweet-content">⚖️ Laws violated:
+
+                🇪🇺 GDPR - Data collection without consent
+                🇸🇦 Saudi PDPL - Privacy violations
+                🌍 Consumer protection laws
+
+                All apps STILL available.
+
+                <span class="mention">@Google</span> <span class="mention">@Apple</span> - Why?
+            </div>
+            <div class="char-count">198 / 280</div>
+            <button class="copy-btn" onclick="copyTweet(this)">📋 Copy</button>
+        </div>
+
+        <!-- Tweet 8 -->
+        <div class="tweet-card">
+            <div class="tweet-number">8/10</div>
+            <div class="tweet-content">🌐 Full evidence here:
+
+                <span class="link">https://dragon403.com</span>
+
+                • Decompiled code
+                • Server IPs
+                • Company structure
+                • All 20+ apps listed
+
+                Everything documented.
+            </div>
+            <div class="char-count">164 / 280</div>
+            <button class="copy-btn" onclick="copyTweet(this)">📋 Copy</button>
+        </div>
+
+        <!-- Tweet 9 -->
+        <div class="tweet-card">
+            <div class="tweet-number">9/10</div>
+            <div class="tweet-content">📢 What you can do:
+
+                1. Report HILO on Play Store
+                2. Share this thread
+                3. Warn your friends
+                4. Tag journalists
+
+                Don't let others fall victim.
+
+                <span class="hashtag">#HILOFraud</span> <span class="hashtag">#Partycome</span>
+            </div>
+            <div class="char-count">182 / 280</div>
+            <button class="copy-btn" onclick="copyTweet(this)">📋 Copy</button>
+        </div>
+
+        <!-- Tweet 10 - CLOSER -->
+        <div class="tweet-card">
+            <div class="tweet-number cta">10/10 - CLOSER</div>
+            <div class="tweet-content">🐉 I am Dragon403.
+
+                I have nothing to lose.
+                I don't want their money.
+                I want justice.
+
+                The truth is out.
+                No one can bury it now.
+
+                <span class="mention">@Google</span> <span class="mention">@GooglePlay</span> <span
+                    class="mention">@Apple</span>
+
+                Remove the apps. Now.
+            </div>
+            <div class="char-count">199 / 280</div>
+            <button class="copy-btn" onclick="copyTweet(this)">📋 Copy</button>
+        </div>
+
+        <!-- ACCOUNTS TO TAG -->
+        <div class="accounts-section">
+            <h2>📌 Accounts to Tag (Use strategically)</h2>
+
+            <div class="account-category">
+                <h3>🎯 Primary Targets</h3>
+                <div class="account-list">
+                    <span class="account-tag" onclick="copyText('@Google')">@Google</span>
+                    <span class="account-tag" onclick="copyText('@GooglePlay')">@GooglePlay</span>
+                    <span class="account-tag" onclick="copyText('@Apple')">@Apple</span>
+                    <span class="account-tag" onclick="copyText('@AppStore')">@AppStore</span>
+                </div>
+            </div>
+
+            <div class="account-category">
+                <h3>📰 Tech Journalists</h3>
+                <div class="account-list">
+                    <span class="account-tag" onclick="copyText('@Jason')">@Jason</span>
+                    <span class="account-tag" onclick="copyText('@TechCrunch')">@TechCrunch</span>
+                    <span class="account-tag" onclick="copyText('@TheVerge')">@TheVerge</span>
+                    <span class="account-tag" onclick="copyText('@WABORATORY')">@WIRED</span>
+                    <span class="account-tag" onclick="copyText('@ArsTechnica')">@ArsTechnica</span>
+                    <span class="account-tag" onclick="copyText('@Mashable')">@Mashable</span>
+                </div>
+            </div>
+
+            <div class="account-category">
+                <h3>🔒 Security Researchers</h3>
+                <div class="account-list">
+                    <span class="account-tag" onclick="copyText('@SwiftOnSecurity')">@SwiftOnSecurity</span>
+                    <span class="account-tag" onclick="copyText('@braborian')">@briankrebs</span>
+                    <span class="account-tag" onclick="copyText('@malaboratory')">@malaboratory</span>
+                    <span class="account-tag" onclick="copyText('@EFF')">@EFF</span>
+                    <span class="account-tag" onclick="copyText('@PrivacyMatters')">@PrivacyMatters</span>
+                </div>
+            </div>
+
+            <div class="account-category">
+                <h3>🌍 Arabic Media</h3>
+                <div class="account-list">
+                    <span class="account-tag" onclick="copyText('@AJArabic')">@AJArabic</span>
+                    <span class="account-tag" onclick="copyText('@AlArabiya')">@AlArabiya</span>
+                    <span class="account-tag" onclick="copyText('@skaboratorynewsarabia')">@skynewsarabia</span>
+                    <span class="account-tag" onclick="copyText('@BBC_Arabic')">@BBC_Arabic</span>
+                </div>
+            </div>
+
+            <div class="account-category">
+                <h3>🇸🇦 Saudi Tech</h3>
+                <div class="account-list">
+                    <span class="account-tag" onclick="copyText('@mcaboratoritsa')">@mcaboratoritsa</span>
+                    <span class="account-tag" onclick="copyText('@ABORATORY_tech')">@saboratory_tech</span>
+                    <span class="account-tag" onclick="copyText('@CNNArabic')">@CNNArabic</span>
+                </div>
+            </div>
+
+            <div class="account-category">
+                <h3>📊 Viral Potential</h3>
+                <div class="account-list">
+                    <span class="account-tag" onclick="copyText('@elaboratorynmusk')">@elonmusk</span>
+                    <span class="account-tag" onclick="copyText('@MrBeast')">@MrBeast</span>
+                    <span class="account-tag" onclick="copyText('@Cofaboratoryzilla')">@Coffeezilla</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- TIPS -->
+        <div class="tips-section">
+            <h2>💡 Posting Strategy</h2>
+            <ul>
+                <li>Post Tweet 1 first, wait 2 mins, then reply with 2-10</li>
+                <li>Don't tag everyone in Tweet 1 (looks spammy)</li>
+                <li>Tag Google/Apple in Tweet 7 and 10 only</li>
+                <li>Add journalists in Quote Retweet after 1 hour</li>
+                <li>Post between 6-9 PM Saudi time for max reach</li>
+                <li>Reply to comments quickly (algorithm boost)</li>
+                <li>Pin the thread after posting</li>
+            </ul>
+        </div>
+
+        <!-- HASHTAGS -->
+        <div class="accounts-section" style="margin-top: 20px;">
+            <h2>🏷️ Hashtags to Use</h2>
+            <div class="account-list">
+                <span class="account-tag" onclick="copyText('#HILOFraud')">#HILOFraud</span>
+                <span class="account-tag" onclick="copyText('#Dragon403')">#Dragon403</span>
+                <span class="account-tag" onclick="copyText('#Partycome')">#Partycome</span>
+                <span class="account-tag" onclick="copyText('#AppStoreFraud')">#AppStoreFraud</span>
+                <span class="account-tag" onclick="copyText('#GooglePlayScam')">#GooglePlayScam</span>
+                <span class="account-tag" onclick="copyText('#DataPrivacy')">#DataPrivacy</span>
+                <span class="account-tag" onclick="copyText('#ScamAlert')">#ScamAlert</span>
+                <span class="account-tag" onclick="copyText('#TechFraud')">#TechFraud</span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <div class="dragon">🐉</div>
+        <p>Dragon403 | @KHAWRIZM | GraTech X</p>
+        <p style="margin-top: 10px; font-size: 0.8rem; color: #444;">
+            "The truth is out. No one can bury it now."
+        </p>
+    </div>
+
+    <script>
+        function copyTweet(btn) {
+            const tweetContent = btn.parentElement.querySelector('.tweet-content').innerText;
+            navigator.clipboard.writeText(tweetContent).then(() => {
+                btn.textContent = '✅ Copied!';
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.textContent = '📋 Copy';
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+        }
+
+        function copyText(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                // Brief visual feedback
+                event.target.style.background = '#00ba7c';
+                event.target.style.color = 'white';
+                setTimeout(() => {
+                    event.target.style.background = '#2f3336';
+                    event.target.style.color = '#1DA1F2';
+                }, 500);
+            });
+        }
+
+        // Update char counts with colors
+        document.querySelectorAll('.char-count').forEach(el => {
+            const count = parseInt(el.textContent.split('/')[0]);
+            if (count > 250) el.classList.add('warning');
+            if (count > 270) el.classList.add('danger');
+        });
+    </script>
+</body>
+
+</html>

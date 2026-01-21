@@ -1,0 +1,53 @@
+{
+    "name": "dragon403-hilo-exposed",
+    "version": "2.0.0",
+    "description": "🐉 DRAGON_403 - Security Audit Platform for HILO/Partycome Fraud Exposure",
+    "author": "Sulaiman Alshammari <SULAIMAN@Gratechx.onmicrosoft.com>",
+    "organization": "House of Shammar | Forbidden Killers 403 | GraTech Solutions",
+    "license": "MIT",
+    "homepage": "https://khawrizm.github.io/DRAGON_403-HILO-EXPOSED/",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/KHAWRIZM/DRAGON_403-HILO-EXPOSED.git"
+    },
+    "keywords": [
+        "security-audit",
+        "fraud-detection",
+        "hilo",
+        "partycome",
+        "apk-analysis",
+        "android-forensics",
+        "whistleblower",
+        "consumer-protection"
+    ],
+    "config": {
+        "mission": "Expose fraudulent mobile applications and protect consumers",
+        "targets": [
+            "com.qiahao.nextvideo",
+            "com.hilo.live",
+            "com.yoyo.chat",
+            "com.lamour.live"
+        ],
+        "evidence_repository": "https://github.com/KHAWRIZM/DRAGON_403-HILO-EXPOSED",
+        "contact": {
+            "email": "shammar403@gmail.com",
+            "github": "KHAWRIZM",
+            "organization": "GraTech Solutions LLC"
+        }
+    },
+    "deployment": {
+        "primary": "https://gratech-demo.azurewebsites.net",
+        "github_pages": "https://khawrizm.github.io/DRAGON_403-HILO-EXPOSED/",
+        "sovereign_domain": "gratech.sa (pending NS update)"
+    },
+    "scripts": {
+        "deploy:azure": "az webapp up -n gratech-demo -g gratechx-auto-rg --html",
+        "deploy:github": "git add -A && git commit -m '🐉 Update' && git push origin main",
+        "deploy:all": "npm run deploy:github && npm run deploy:azure"
+    },
+    "legal": {
+        "disclaimer": "This research is published in the public interest under principles of responsible disclosure.",
+        "jurisdiction": "International - FTC (US), DPC (Ireland), SDAIA (Saudi Arabia)",
+        "classification": "Security Research / Public Interest Disclosure"
+    }
+}

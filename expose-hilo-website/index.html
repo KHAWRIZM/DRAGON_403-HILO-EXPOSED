@@ -1,0 +1,1791 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Project 403: Exposing HILO App Fraud - Technical Evidence & AI Analysis Platform">
+    <meta name="keywords" content="HILO, fraud, scam, QiaHao, privacy violation, 广州俏好青春, احتيال, هيلو">
+    <meta property="og:title" content="🔴 PROJECT 403 | HILO Fraud Exposure">
+    <meta property="og:description" content="Technical Evidence Platform - Powered by Comet X AI">
+    <meta property="og:image" content="https://img.shields.io/badge/STATUS-EXPOSED-red?style=for-the-badge">
+    <title>🔴 PROJECT 403 | HILO FRAUD EXPOSURE | مشروع 403</title>
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Tajawal:wght@400;700;900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #00ff41;
+            --danger: #ff0040;
+            --warning: #ffcc00;
+            --dark: #0a0a0a;
+            --darker: #050505;
+            --terminal: #0d1117;
+            --glow: 0 0 10px var(--primary), 0 0 20px var(--primary), 0 0 30px var(--primary);
+            --glow-red: 0 0 10px var(--danger), 0 0 20px var(--danger), 0 0 30px var(--danger);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--darker);
+            color: var(--primary);
+            font-family: 'Share Tech Mono', 'Tajawal', monospace;
+            overflow-x: hidden;
+            cursor: crosshair;
+        }
+
+        /* Matrix Rain Background */
+        #matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        /* Scan Lines */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(0deg,
+                    rgba(0, 0, 0, 0.15),
+                    rgba(0, 0, 0, 0.15) 1px,
+                    transparent 1px,
+                    transparent 2px);
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        /* Glitch Effect */
+        @keyframes glitch {
+            0% {
+                transform: translate(0);
+            }
+
+            20% {
+                transform: translate(-2px, 2px);
+            }
+
+            40% {
+                transform: translate(-2px, -2px);
+            }
+
+            60% {
+                transform: translate(2px, 2px);
+            }
+
+            80% {
+                transform: translate(2px, -2px);
+            }
+
+            100% {
+                transform: translate(0);
+            }
+        }
+
+        @keyframes flicker {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes pulse-red {
+
+            0%,
+            100% {
+                box-shadow: var(--glow-red);
+            }
+
+            50% {
+                box-shadow: 0 0 5px var(--danger);
+            }
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        /* Navigation */
+        .cyber-nav {
+            background: rgba(10, 10, 10, 0.95);
+            border-bottom: 2px solid var(--primary);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 999;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-brand {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--danger);
+            text-shadow: var(--glow-red);
+            animation: flicker 2s infinite;
+            text-decoration: none;
+        }
+
+        .nav-link {
+            color: var(--primary) !important;
+            font-family: 'Orbitron', sans-serif;
+            margin: 0 15px;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .nav-link:hover {
+            color: var(--danger) !important;
+            text-shadow: var(--glow-red);
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 5px 15px;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Share Tech Mono', monospace;
+        }
+
+        .lang-btn:hover,
+        .lang-btn.active {
+            background: var(--primary);
+            color: var(--dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, transparent 0%, var(--darker) 70%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background: var(--danger);
+            color: white;
+            padding: 10px 30px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            letter-spacing: 3px;
+            animation: pulse-red 2s infinite;
+            margin-bottom: 30px;
+        }
+
+        .main-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 5rem;
+            font-weight: 900;
+            color: var(--danger);
+            text-shadow: var(--glow-red);
+            animation: glitch 0.5s infinite;
+            margin-bottom: 20px;
+        }
+
+        .sub-title {
+            font-size: 2rem;
+            color: var(--primary);
+            text-shadow: var(--glow);
+            margin-bottom: 30px;
+        }
+
+        .typing-text {
+            font-size: 1.2rem;
+            color: var(--warning);
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 3px solid var(--warning);
+            animation: typing 4s steps(40) infinite, blink 0.75s step-end infinite;
+            max-width: fit-content;
+            margin: 0 auto 40px;
+        }
+
+        /* Terminal Box */
+        .terminal {
+            background: var(--terminal);
+            border: 2px solid var(--primary);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--glow);
+            margin: 40px auto;
+            max-width: 900px;
+        }
+
+        .terminal-header {
+            background: #1a1a2e;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .terminal-btn {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .terminal-btn.red {
+            background: #ff5f56;
+        }
+
+        .terminal-btn.yellow {
+            background: #ffbd2e;
+        }
+
+        .terminal-btn.green {
+            background: #27ca40;
+        }
+
+        .terminal-title {
+            color: #888;
+            font-size: 0.9rem;
+            margin-left: auto;
+        }
+
+        .terminal-body {
+            padding: 20px;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            max-height: 400px;
+            overflow-y: auto;
+            text-align: left;
+            direction: ltr;
+        }
+
+        .terminal-body .prompt {
+            color: var(--primary);
+        }
+
+        .terminal-body .command {
+            color: #fff;
+        }
+
+        .terminal-body .output {
+            color: #888;
+        }
+
+        .terminal-body .danger {
+            color: var(--danger);
+        }
+
+        .terminal-body .warning {
+            color: var(--warning);
+        }
+
+        /* Evidence Cards */
+        .evidence-section {
+            padding: 100px 0;
+            background: linear-gradient(180deg, var(--darker) 0%, #0a0a1a 100%);
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            text-shadow: var(--glow);
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .evidence-card {
+            background: rgba(13, 17, 23, 0.9);
+            border: 1px solid var(--primary);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .evidence-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            animation: scan 3s linear infinite;
+        }
+
+        @keyframes scan {
+            to {
+                left: 100%;
+            }
+        }
+
+        .evidence-card:hover {
+            border-color: var(--danger);
+            transform: translateY(-5px);
+            box-shadow: var(--glow-red);
+        }
+
+        .evidence-card.critical {
+            border-color: var(--danger);
+            animation: pulse-red 3s infinite;
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        /* AI Chat Section */
+        .ai-section {
+            padding: 100px 0;
+            background: var(--terminal);
+        }
+
+        .ai-container {
+            background: rgba(5, 5, 5, 0.9);
+            border: 2px solid var(--primary);
+            border-radius: 20px;
+            overflow: hidden;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .ai-header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #0a0a1a 100%);
+            padding: 20px 30px;
+            border-bottom: 1px solid var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .ai-avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--danger));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            animation: pulse-red 2s infinite;
+        }
+
+        .ai-info h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .ai-status {
+            color: var(--warning);
+            font-size: 0.9rem;
+        }
+
+        .ai-models {
+            margin-left: auto;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .model-badge {
+            background: rgba(0, 255, 65, 0.1);
+            border: 1px solid var(--primary);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--primary);
+        }
+
+        .chat-messages {
+            height: 500px;
+            overflow-y: auto;
+            padding: 30px;
+        }
+
+        .message {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 15px;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message.ai {
+            flex-direction: row;
+        }
+
+        .message.user {
+            flex-direction: row-reverse;
+        }
+
+        .message-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .message.ai .message-avatar {
+            background: var(--primary);
+            color: var(--dark);
+        }
+
+        .message.user .message-avatar {
+            background: var(--danger);
+            color: white;
+        }
+
+        .message-content {
+            max-width: 70%;
+            padding: 15px 20px;
+            border-radius: 15px;
+            line-height: 1.6;
+        }
+
+        .message.ai .message-content {
+            background: rgba(0, 255, 65, 0.1);
+            border: 1px solid var(--primary);
+        }
+
+        .message.user .message-content {
+            background: rgba(255, 0, 64, 0.1);
+            border: 1px solid var(--danger);
+        }
+
+        .chat-input-container {
+            padding: 20px 30px;
+            border-top: 1px solid var(--primary);
+            display: flex;
+            gap: 15px;
+        }
+
+        .chat-input {
+            flex: 1;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--primary);
+            border-radius: 10px;
+            padding: 15px 20px;
+            color: var(--primary);
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 1rem;
+        }
+
+        .chat-input:focus {
+            outline: none;
+            box-shadow: var(--glow);
+        }
+
+        .chat-input::placeholder {
+            color: #555;
+        }
+
+        .send-btn,
+        .voice-btn {
+            background: var(--primary);
+            border: none;
+            border-radius: 10px;
+            padding: 15px 30px;
+            color: var(--dark);
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .send-btn:hover,
+        .voice-btn:hover {
+            background: var(--danger);
+            color: white;
+            box-shadow: var(--glow-red);
+        }
+
+        .voice-btn {
+            padding: 15px 20px;
+        }
+
+        .voice-btn.recording {
+            background: var(--danger);
+            color: white;
+            animation: pulse-red 0.5s infinite;
+        }
+
+        /* Server Table */
+        .server-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .server-table th,
+        .server-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #333;
+        }
+
+        .server-table th {
+            background: rgba(0, 255, 65, 0.1);
+            color: var(--primary);
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .server-table tr:hover {
+            background: rgba(255, 0, 64, 0.1);
+        }
+
+        /* Stats Counter */
+        .stats-section {
+            padding: 60px 0;
+            background: rgba(255, 0, 64, 0.05);
+            border-top: 1px solid var(--danger);
+            border-bottom: 1px solid var(--danger);
+        }
+
+        .stat-box {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--danger);
+            text-shadow: var(--glow-red);
+        }
+
+        .stat-label {
+            color: #888;
+            margin-top: 10px;
+        }
+
+        /* Call to Action */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #1a0a0a 0%, #0a1a0a 100%);
+            text-align: center;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 20px 50px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            margin: 10px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--primary);
+            transition: all 0.3s;
+            z-index: -1;
+        }
+
+        .cta-btn:hover {
+            color: var(--dark);
+        }
+
+        .cta-btn:hover::before {
+            left: 0;
+        }
+
+        .cta-btn.danger {
+            border-color: var(--danger);
+            color: var(--danger);
+        }
+
+        .cta-btn.danger::before {
+            background: var(--danger);
+        }
+
+        .cta-btn.danger:hover {
+            color: white;
+        }
+
+        /* Footer */
+        .cyber-footer {
+            background: var(--dark);
+            padding: 40px 0;
+            border-top: 2px solid var(--primary);
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        /* Audio Player */
+        .audio-control {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1001;
+        }
+
+        .audio-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .audio-btn:hover {
+            background: var(--primary);
+            color: var(--dark);
+        }
+
+        .audio-btn.playing {
+            animation: pulse-red 1s infinite;
+            border-color: var(--danger);
+            color: var(--danger);
+        }
+
+        /* RTL Support */
+        [dir="rtl"] .terminal-body {
+            direction: ltr;
+            text-align: left;
+        }
+
+        [dir="rtl"] .server-table th,
+        [dir="rtl"] .server-table td {
+            text-align: right;
+        }
+
+        [dir="ltr"] .ai-models {
+            margin-left: auto;
+            margin-right: 0;
+        }
+
+        [dir="rtl"] .ai-models {
+            margin-right: auto;
+            margin-left: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+
+            .sub-title {
+                font-size: 1.2rem;
+            }
+
+            .terminal-body {
+                font-size: 0.8rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .ai-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .ai-models {
+                margin: 15px 0 0 0;
+                justify-content: center;
+            }
+
+            .cta-btn {
+                padding: 15px 30px;
+                font-size: 1rem;
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--danger);
+        }
+
+        /* Code highlighting */
+        .code-block {
+            background: #0d1117;
+            border: 1px solid #333;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px 0;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+            direction: ltr;
+            text-align: left;
+        }
+
+        .code-block .keyword {
+            color: #ff79c6;
+        }
+
+        .code-block .string {
+            color: #f1fa8c;
+        }
+
+        .code-block .comment {
+            color: #6272a4;
+        }
+
+        .code-block .function {
+            color: #50fa7b;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Matrix Background Canvas -->
+    <canvas id="matrix-bg"></canvas>
+
+    <!-- Navigation -->
+    <nav class="cyber-nav">
+        <div class="container d-flex align-items-center justify-content-between flex-wrap">
+            <a href="#" class="nav-brand">
+                <i class="bi bi-radioactive"></i> PROJECT 403
+            </a>
+
+            <div class="d-flex align-items-center flex-wrap">
+                <a href="#evidence" class="nav-link" data-i18n="nav.evidence">EVIDENCE</a>
+                <a href="#ai-chat" class="nav-link" data-i18n="nav.ai">COMET X</a>
+                <a href="#action" class="nav-link" data-i18n="nav.action">TAKE ACTION</a>
+
+                <div class="ms-4">
+                    <button class="lang-btn active" onclick="setLanguage('en')">EN</button>
+                    <button class="lang-btn" onclick="setLanguage('ar')">عربي</button>
+                    <button class="lang-btn" onclick="setLanguage('zh')">中文</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="status-badge" data-i18n="hero.status">⚠️ FRAUD DETECTED</div>
+            <h1 class="main-title">HILO</h1>
+            <h2 class="sub-title" data-i18n="hero.subtitle">EXPOSED // مكشوف // 曝光</h2>
+            <p class="typing-text" data-i18n="hero.typing">Analyzing privacy violations... جاري تحليل انتهاكات
+                الخصوصية...</p>
+
+            <!-- Terminal -->
+            <div class="terminal">
+                <div class="terminal-header">
+                    <span class="terminal-btn red"></span>
+                    <span class="terminal-btn yellow"></span>
+                    <span class="terminal-btn green"></span>
+                    <span class="terminal-title">comet-x@project403:~</span>
+                </div>
+                <div class="terminal-body" id="boot-terminal">
+                    <!-- Boot sequence will be injected here -->
+                </div>
+            </div>
+
+            <a href="#evidence" class="cta-btn danger" style="margin-top: 30px;">
+                <i class="bi bi-shield-exclamation"></i> <span data-i18n="hero.cta">VIEW EVIDENCE</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="stat-box">
+                        <div class="stat-number" id="counter-money">$0</div>
+                        <div class="stat-label" data-i18n="stats.losses">Documented Losses</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="stat-box">
+                        <div class="stat-number" id="counter-violations">0</div>
+                        <div class="stat-label" data-i18n="stats.violations">Privacy Violations</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="stat-box">
+                        <div class="stat-number" id="counter-servers">0</div>
+                        <div class="stat-label" data-i18n="stats.servers">Hidden Servers</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="stat-box">
+                        <div class="stat-number" id="counter-files">0</div>
+                        <div class="stat-label" data-i18n="stats.files">Decompiled Files</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Evidence Section -->
+    <section class="evidence-section" id="evidence">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="bi bi-file-earmark-code"></i>
+                <span data-i18n="evidence.title">TECHNICAL EVIDENCE</span>
+            </h2>
+
+            <div class="row">
+                <!-- Company Identity -->
+                <div class="col-lg-6 mb-4">
+                    <div class="evidence-card critical">
+                        <div class="card-icon text-danger"><i class="bi bi-building-fill-exclamation"></i></div>
+                        <h3 class="card-title" data-i18n="evidence.company.title">DEVELOPER IDENTITY EXPOSED</h3>
+                        <p style="color: #888;" data-i18n="evidence.company.desc">Package name analysis reveals the true
+                            developer:</p>
+                        <div class="code-block">
+                            <span class="comment">// From AndroidManifest.xml & Java packages</span><br>
+                            <span class="keyword">package</span> com.qiahao.base_common;<br><br>
+                            <span class="comment">// Company: 广州俏好青春信息科技有限公司</span><br>
+                            <span class="comment">// Guangzhou QiaHaoQingChun Info Tech Co., Ltd.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Privacy Violations -->
+                <div class="col-lg-6 mb-4">
+                    <div class="evidence-card critical">
+                        <div class="card-icon text-danger"><i class="bi bi-shield-fill-x"></i></div>
+                        <h3 class="card-title" data-i18n="evidence.privacy.title">PRIVACY VIOLATIONS</h3>
+                        <ul style="color: #888; list-style: none; padding: 0;">
+                            <li class="mb-2"><span class="text-danger">✗</span> <span
+                                    data-i18n="evidence.privacy.imei">IMEI Collection (Device Tracking)</span></li>
+                            <li class="mb-2"><span class="text-danger">✗</span> <span
+                                    data-i18n="evidence.privacy.vpn">VPN Detection & Reporting</span></li>
+                            <li class="mb-2"><span class="text-danger">✗</span> <span
+                                    data-i18n="evidence.privacy.emulator">Emulator Detection (Anti-Research)</span></li>
+                            <li class="mb-2"><span class="text-danger">✗</span> <span
+                                    data-i18n="evidence.privacy.carrier">SIM Carrier Information</span></li>
+                            <li class="mb-2"><span class="text-danger">✗</span> <span
+                                    data-i18n="evidence.privacy.device">Device Model & Manufacturer</span></li>
+                        </ul>
+                        <div class="code-block">
+                            <span class="comment">// HeaderInterceptor.java</span><br>
+                            <span class="keyword">if</span> (<span class="function">isVPNConnected</span>()) str = <span
+                                class="string">"HI"</span>;<br>
+                            <span class="keyword">else</span> str = <span class="string">"LO"</span>;<br>
+                            newBuilder.<span class="function">addHeader</span>(<span class="string">"imei"</span>, <span
+                                class="function">getUuid</span>());
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Server Infrastructure -->
+                <div class="col-lg-12 mb-4">
+                    <div class="evidence-card">
+                        <div class="card-icon" style="color: var(--warning);"><i class="bi bi-hdd-network-fill"></i>
+                        </div>
+                        <h3 class="card-title" data-i18n="evidence.servers.title">HIDDEN SERVER INFRASTRUCTURE</h3>
+                        <div style="overflow-x: auto;">
+                            <table class="server-table">
+                                <thead>
+                                    <tr>
+                                        <th data-i18n="evidence.servers.type">Type</th>
+                                        <th data-i18n="evidence.servers.domain">Domain</th>
+                                        <th data-i18n="evidence.servers.ip">IP Address</th>
+                                        <th data-i18n="evidence.servers.location">Location</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span style="color: var(--primary);">API</span></td>
+                                        <td><code>api.tikhak.com</code></td>
+                                        <td>15.197.148.33</td>
+                                        <td>AWS Global Accelerator</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span style="color: var(--primary);">API</span></td>
+                                        <td><code>api.hiloconn.com</code></td>
+                                        <td>104.18.25.166</td>
+                                        <td>Cloudflare</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span style="color: var(--warning);">WebSocket</span></td>
+                                        <td><code>wss://ws.tikhak.com</code></td>
+                                        <td>-</td>
+                                        <td>Real-time Tracking</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span style="color: var(--danger);">Web</span></td>
+                                        <td><code>h5.chathot.me</code></td>
+                                        <td>170.33.8.126</td>
+                                        <td>Unknown</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span style="color: var(--danger);">Backup</span></td>
+                                        <td><code>faceline.live</code></td>
+                                        <td>104.18.24.166</td>
+                                        <td>Cloudflare</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Source Code Evidence -->
+                <div class="col-lg-12 mb-4">
+                    <div class="evidence-card">
+                        <div class="card-icon" style="color: var(--primary);"><i class="bi bi-code-slash"></i></div>
+                        <h3 class="card-title" data-i18n="evidence.code.title">SOURCE CODE EVIDENCE</h3>
+                        <div class="code-block">
+                            <span class="comment">// ServerConfigureKt.java - API Keys & Servers</span><br><br>
+                            <span class="keyword">public static final</span> String API_KEY = <span
+                                class="string">"6291d069123642d9929a49c734c50719"</span>;<br>
+                            <span class="keyword">public static final</span> <span class="keyword">int</span>
+                            IM_SDK_APP_ID = <span class="string">40000066</span>; <span class="comment">// Tencent
+                                IM</span><br><br>
+                            <span class="keyword">public static final</span> String URL_BASE = <span
+                                class="string">"https://api.tikhak.com/"</span>;<br>
+                            <span class="keyword">public static final</span> String URL_BASE2 = <span
+                                class="string">"https://api.hiloconn.com/"</span>;<br>
+                            <span class="keyword">public static final</span> String URL_BASE3 = <span
+                                class="string">"https://api.faceline.live/"</span>;<br>
+                            <span class="keyword">public static final</span> String URL_H5 = <span
+                                class="string">"https://h5.chathot.me/"</span>;<br>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hypocrisy -->
+                <div class="col-lg-6 mb-4">
+                    <div class="evidence-card">
+                        <div class="card-icon"><i class="bi bi-apple"></i></div>
+                        <h3 class="card-title" data-i18n="evidence.apple.title">APPLE'S HYPOCRISY</h3>
+                        <blockquote
+                            style="border-left: 3px solid var(--primary); padding-left: 20px; color: #666; font-style: italic;">
+                            "We respect user privacy and reject apps that collect data without consent"
+                        </blockquote>
+                        <p style="color: var(--danger); margin-top: 15px;" data-i18n="evidence.apple.reality">
+                            <strong>Reality:</strong> HILO still available despite IMEI collection, VPN detection
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 mb-4">
+                    <div class="evidence-card">
+                        <div class="card-icon" style="color: #4285F4;"><i class="bi bi-google"></i></div>
+                        <h3 class="card-title" data-i18n="evidence.google.title">GOOGLE'S HYPOCRISY</h3>
+                        <blockquote
+                            style="border-left: 3px solid var(--primary); padding-left: 20px; color: #666; font-style: italic;">
+                            "Data Safety: Developers must disclose data collection practices"
+                        </blockquote>
+                        <p style="color: var(--danger); margin-top: 15px;" data-i18n="evidence.google.reality">
+                            <strong>Reality:</strong> Misleading disclosures, no code review, profit over protection
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Chat Section -->
+    <section class="ai-section" id="ai-chat">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="bi bi-robot"></i>
+                <span data-i18n="ai.title">COMET X - AI INVESTIGATOR</span>
+            </h2>
+
+            <div class="ai-container">
+                <div class="ai-header">
+                    <div class="ai-avatar">🤖</div>
+                    <div class="ai-info">
+                        <h3>COMET X</h3>
+                        <div class="ai-status">
+                            <i class="bi bi-circle-fill text-success" style="font-size: 0.6rem;"></i>
+                            <span data-i18n="ai.status">Online - Ready to Expose</span>
+                        </div>
+                    </div>
+                    <div class="ai-models">
+                        <span class="model-badge"><i class="bi bi-lightning-fill"></i> GPT-4</span>
+                        <span class="model-badge"><i class="bi bi-tsunami"></i> DeepSeek</span>
+                        <span class="model-badge"><i class="bi bi-fire"></i> LLaMA</span>
+                        <span class="model-badge"><i class="bi bi-stars"></i> Gemini</span>
+                    </div>
+                </div>
+
+                <div class="chat-messages" id="chat-messages">
+                    <div class="message ai">
+                        <div class="message-avatar"><i class="bi bi-robot"></i></div>
+                        <div class="message-content">
+                            <strong style="color: var(--primary);">COMET X</strong><br><br>
+                            <span data-i18n="ai.welcome">
+                                Welcome, truth seeker. I am COMET X, your AI investigator powered by multiple
+                                intelligence models.
+                                <br><br>
+                                I have analyzed <strong style="color: var(--danger);">6 DEX files</strong> from HILO app
+                                and found
+                                <strong style="color: var(--danger);">critical privacy violations</strong>.
+                                <br><br>
+                                Ask me anything about:
+                                <br>• Technical evidence
+                                <br>• Server infrastructure
+                                <br>• Privacy violations
+                                <br>• How to protect yourself
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-input-container">
+                    <button class="voice-btn" id="voice-btn" onclick="toggleVoice()" title="Voice Input">
+                        <i class="bi bi-mic-fill" id="voice-icon"></i>
+                    </button>
+                    <input type="text" class="chat-input" id="user-input"
+                        placeholder="Ask about HILO fraud... اسأل عن احتيال هيلو..."
+                        data-i18n-placeholder="ai.placeholder">
+                    <button class="send-btn" onclick="sendMessage()">
+                        <i class="bi bi-send-fill"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section" id="action">
+        <div class="container">
+            <h2 class="section-title" data-i18n="cta.title">TAKE ACTION NOW</h2>
+            <p style="color: #888; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;"
+                data-i18n="cta.desc">
+                Help expose this fraud. Report to platforms. Share with others. Protect potential victims.
+            </p>
+
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                <a href="https://github.com/KHAWRIZM/cometx/discussions" target="_blank" class="cta-btn">
+                    <i class="bi bi-github"></i> GitHub Discussion
+                </a>
+                <a href="https://support.google.com/googleplay/android-developer/contact/takedown" target="_blank"
+                    class="cta-btn danger">
+                    <i class="bi bi-google"></i> <span data-i18n="cta.report.google">Report to Google</span>
+                </a>
+                <a href="https://reportaproblem.apple.com" target="_blank" class="cta-btn danger">
+                    <i class="bi bi-apple"></i> <span data-i18n="cta.report.apple">Report to Apple</span>
+                </a>
+                <a href="#" onclick="shareEvidence()" class="cta-btn">
+                    <i class="bi bi-share-fill"></i> <span data-i18n="cta.share">Share Evidence</span>
+                </a>
+            </div>
+
+            <div class="mt-5 p-4"
+                style="background: rgba(255, 0, 64, 0.1); border: 1px solid var(--danger); border-radius: 10px; max-width: 800px; margin: 50px auto 0;">
+                <h4 style="color: var(--danger);"><i class="bi bi-exclamation-triangle-fill"></i> <span
+                        data-i18n="cta.protect.title">PROTECT YOURSELF</span></h4>
+                <ol style="color: #888; text-align: left; padding-left: 20px; margin-top: 20px;">
+                    <li data-i18n="cta.protect.1">Delete HILO app immediately</li>
+                    <li data-i18n="cta.protect.2">Change passwords linked to the app</li>
+                    <li data-i18n="cta.protect.3">Review app permissions on your device</li>
+                    <li data-i18n="cta.protect.4">Report the app on Play Store / App Store</li>
+                    <li data-i18n="cta.protect.5">Share this page to warn others</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="cyber-footer">
+        <div class="container">
+            <div class="footer-logo">
+                <i class="bi bi-radioactive"></i> PROJECT 403 | GRATECH X
+            </div>
+            <p style="color: #666;">
+                <span data-i18n="footer.disclaimer">All evidence based on technical code analysis using JADX
+                    decompiler</span>
+            </p>
+            <p style="color: #444; margin-top: 15px;">
+                Investigation by <a href="https://github.com/KHAWRIZM" style="color: var(--primary);">@KHAWRIZM</a> |
+                Powered by <a href="https://github.com/KHAWRIZM/cometx" style="color: var(--primary);">COMET X</a>
+            </p>
+            <p style="color: #333; margin-top: 10px; font-size: 0.8rem;">
+                © 2025 GraTech | Built to protect others 🛡️
+            </p>
+        </div>
+    </footer>
+
+    <!-- Audio Control -->
+    <div class="audio-control">
+        <button class="audio-btn" id="audio-toggle" onclick="toggleAudio()">
+            <i class="bi bi-volume-mute-fill" id="audio-icon"></i>
+        </button>
+    </div>
+
+    <!-- Background Music -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="https://cdn.pixabay.com/download/audio/2022/10/25/audio_946c61eab8.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // ===========================================
+        // TRANSLATIONS - Multi-language Support
+        // ===========================================
+        const translations = {
+            en: {
+                'nav.evidence': 'EVIDENCE',
+                'nav.ai': 'COMET X',
+                'nav.action': 'TAKE ACTION',
+                'hero.status': '⚠️ FRAUD DETECTED',
+                'hero.subtitle': 'EXPOSED',
+                'hero.typing': 'Analyzing privacy violations...',
+                'hero.cta': 'VIEW EVIDENCE',
+                'stats.losses': 'Documented Losses',
+                'stats.violations': 'Privacy Violations',
+                'stats.servers': 'Hidden Servers',
+                'stats.files': 'Decompiled Files',
+                'evidence.title': 'TECHNICAL EVIDENCE',
+                'evidence.company.title': 'DEVELOPER IDENTITY EXPOSED',
+                'evidence.company.desc': 'Package name analysis reveals the true developer:',
+                'evidence.privacy.title': 'PRIVACY VIOLATIONS',
+                'evidence.privacy.imei': 'IMEI Collection (Device Tracking)',
+                'evidence.privacy.vpn': 'VPN Detection & Reporting',
+                'evidence.privacy.emulator': 'Emulator Detection (Anti-Research)',
+                'evidence.privacy.carrier': 'SIM Carrier Information',
+                'evidence.privacy.device': 'Device Model & Manufacturer',
+                'evidence.servers.title': 'HIDDEN SERVER INFRASTRUCTURE',
+                'evidence.servers.type': 'Type',
+                'evidence.servers.domain': 'Domain',
+                'evidence.servers.ip': 'IP Address',
+                'evidence.servers.location': 'Location',
+                'evidence.code.title': 'SOURCE CODE EVIDENCE',
+                'evidence.apple.title': "APPLE'S HYPOCRISY",
+                'evidence.apple.reality': 'Reality: HILO still available despite IMEI collection, VPN detection',
+                'evidence.google.title': "GOOGLE'S HYPOCRISY",
+                'evidence.google.reality': 'Reality: Misleading disclosures, no code review, profit over protection',
+                'ai.title': 'COMET X - AI INVESTIGATOR',
+                'ai.status': 'Online - Ready to Expose',
+                'ai.welcome': 'Welcome, truth seeker. I am COMET X, your AI investigator powered by multiple intelligence models.<br><br>I have analyzed <strong style="color: var(--danger);">6 DEX files</strong> from HILO app and found <strong style="color: var(--danger);">critical privacy violations</strong>.<br><br>Ask me anything about:<br>• Technical evidence<br>• Server infrastructure<br>• Privacy violations<br>• How to protect yourself',
+                'ai.placeholder': 'Ask about HILO fraud...',
+                'cta.title': 'TAKE ACTION NOW',
+                'cta.desc': 'Help expose this fraud. Report to platforms. Share with others. Protect potential victims.',
+                'cta.report.google': 'Report to Google',
+                'cta.report.apple': 'Report to Apple',
+                'cta.share': 'Share Evidence',
+                'cta.protect.title': 'PROTECT YOURSELF',
+                'cta.protect.1': 'Delete HILO app immediately',
+                'cta.protect.2': 'Change passwords linked to the app',
+                'cta.protect.3': 'Review app permissions on your device',
+                'cta.protect.4': 'Report the app on Play Store / App Store',
+                'cta.protect.5': 'Share this page to warn others',
+                'footer.disclaimer': 'All evidence based on technical code analysis using JADX decompiler'
+            },
+            ar: {
+                'nav.evidence': 'الأدلة',
+                'nav.ai': 'كوميت إكس',
+                'nav.action': 'اتخذ إجراء',
+                'hero.status': '⚠️ تم كشف الاحتيال',
+                'hero.subtitle': 'مكشوف // EXPOSED // 曝光',
+                'hero.typing': 'جاري تحليل انتهاكات الخصوصية...',
+                'hero.cta': 'عرض الأدلة',
+                'stats.losses': 'خسائر موثقة',
+                'stats.violations': 'انتهاكات خصوصية',
+                'stats.servers': 'سيرفرات مخفية',
+                'stats.files': 'ملفات مفككة',
+                'evidence.title': 'الأدلة التقنية',
+                'evidence.company.title': 'هوية المطور المكشوفة',
+                'evidence.company.desc': 'تحليل اسم الحزمة يكشف المطور الحقيقي:',
+                'evidence.privacy.title': 'انتهاكات الخصوصية',
+                'evidence.privacy.imei': 'جمع IMEI (تتبع الجهاز)',
+                'evidence.privacy.vpn': 'كشف VPN والإبلاغ عنه',
+                'evidence.privacy.emulator': 'كشف المحاكي (ضد البحث)',
+                'evidence.privacy.carrier': 'معلومات شركة الاتصالات',
+                'evidence.privacy.device': 'طراز الجهاز والشركة المصنعة',
+                'evidence.servers.title': 'البنية التحتية للسيرفرات المخفية',
+                'evidence.servers.type': 'النوع',
+                'evidence.servers.domain': 'الدومين',
+                'evidence.servers.ip': 'عنوان IP',
+                'evidence.servers.location': 'الموقع',
+                'evidence.code.title': 'أدلة الكود المصدري',
+                'evidence.apple.title': 'نفاق آبل',
+                'evidence.apple.reality': 'الواقع: هيلو لا يزال متاحاً رغم جمع IMEI وكشف VPN',
+                'evidence.google.title': 'نفاق جوجل',
+                'evidence.google.reality': 'الواقع: إفصاحات مضللة، لا مراجعة للكود، الربح قبل الحماية',
+                'ai.title': 'كوميت إكس - المحقق الذكي',
+                'ai.status': 'متصل - جاهز للكشف',
+                'ai.welcome': 'مرحباً أيها الباحث عن الحقيقة. أنا كوميت إكس، محققك الذكي المدعوم بنماذج ذكاء متعددة.<br><br>حللت <strong style="color: var(--danger);">6 ملفات DEX</strong> من تطبيق هيلو ووجدت <strong style="color: var(--danger);">انتهاكات خصوصية خطيرة</strong>.<br><br>اسألني عن:<br>• الأدلة التقنية<br>• البنية التحتية للسيرفرات<br>• انتهاكات الخصوصية<br>• كيف تحمي نفسك',
+                'ai.placeholder': 'اسأل عن احتيال هيلو...',
+                'cta.title': 'اتخذ إجراءً الآن',
+                'cta.desc': 'ساعد في كشف هذا الاحتيال. أبلغ المنصات. شارك مع الآخرين. احمِ الضحايا المحتملين.',
+                'cta.report.google': 'أبلغ جوجل',
+                'cta.report.apple': 'أبلغ آبل',
+                'cta.share': 'شارك الأدلة',
+                'cta.protect.title': 'احمِ نفسك',
+                'cta.protect.1': 'احذف تطبيق هيلو فوراً',
+                'cta.protect.2': 'غيّر كلمات المرور المرتبطة بالتطبيق',
+                'cta.protect.3': 'راجع صلاحيات التطبيقات على جهازك',
+                'cta.protect.4': 'أبلغ عن التطبيق في المتجر',
+                'cta.protect.5': 'شارك هذه الصفحة لتحذير الآخرين',
+                'footer.disclaimer': 'جميع الأدلة مبنية على تحليل تقني للكود باستخدام أداة JADX'
+            },
+            zh: {
+                'nav.evidence': '证据',
+                'nav.ai': 'COMET X',
+                'nav.action': '采取行动',
+                'hero.status': '⚠️ 检测到欺诈',
+                'hero.subtitle': '已曝光 // EXPOSED // مكشوف',
+                'hero.typing': '正在分析隐私违规行为...',
+                'hero.cta': '查看证据',
+                'stats.losses': '记录的损失',
+                'stats.violations': '隐私违规',
+                'stats.servers': '隐藏服务器',
+                'stats.files': '反编译文件',
+                'evidence.title': '技术证据',
+                'evidence.company.title': '开发者身份曝光',
+                'evidence.company.desc': '包名分析揭示真正的开发者：',
+                'evidence.privacy.title': '隐私违规',
+                'evidence.privacy.imei': 'IMEI收集（设备追踪）',
+                'evidence.privacy.vpn': 'VPN检测和报告',
+                'evidence.privacy.emulator': '模拟器检测（反研究）',
+                'evidence.privacy.carrier': 'SIM卡运营商信息',
+                'evidence.privacy.device': '设备型号和制造商',
+                'evidence.servers.title': '隐藏的服务器基础设施',
+                'evidence.servers.type': '类型',
+                'evidence.servers.domain': '域名',
+                'evidence.servers.ip': 'IP地址',
+                'evidence.servers.location': '位置',
+                'evidence.code.title': '源代码证据',
+                'evidence.apple.title': '苹果的虚伪',
+                'evidence.apple.reality': '现实：尽管存在IMEI收集和VPN检测，HILO仍然可用',
+                'evidence.google.title': '谷歌的虚伪',
+                'evidence.google.reality': '现实：误导性披露，无代码审查，利润优先于保护',
+                'ai.title': 'COMET X - AI调查员',
+                'ai.status': '在线 - 准备曝光',
+                'ai.welcome': '欢迎，真相追寻者。我是COMET X，由多个智能模型驱动的AI调查员。<br><br>我分析了HILO应用的<strong style="color: var(--danger);">6个DEX文件</strong>，发现了<strong style="color: var(--danger);">严重的隐私违规行为</strong>。<br><br>问我关于：<br>• 技术证据<br>• 服务器基础设施<br>• 隐私违规<br>• 如何保护自己',
+                'ai.placeholder': '询问HILO欺诈...',
+                'cta.title': '立即采取行动',
+                'cta.desc': '帮助揭露这个骗局。向平台举报。与他人分享。保护潜在受害者。',
+                'cta.report.google': '向谷歌举报',
+                'cta.report.apple': '向苹果举报',
+                'cta.share': '分享证据',
+                'cta.protect.title': '保护自己',
+                'cta.protect.1': '立即删除HILO应用',
+                'cta.protect.2': '更改与应用关联的密码',
+                'cta.protect.3': '检查设备上的应用权限',
+                'cta.protect.4': '在应用商店举报该应用',
+                'cta.protect.5': '分享此页面警告他人',
+                'footer.disclaimer': '所有证据基于使用JADX反编译器进行的技术代码分析'
+            }
+        };
+
+        let currentLang = 'en';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Set direction
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            document.documentElement.lang = lang;
+
+            // Update all translatable elements
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+
+            // Update placeholders
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (translations[lang] && translations[lang][key]) {
+                    el.placeholder = translations[lang][key];
+                }
+            });
+        }
+
+        // ===========================================
+        // MATRIX RAIN BACKGROUND
+        // ===========================================
+        const canvas = document.getElementById('matrix-bg');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const chars = 'HILO FRAUD EXPOSED 欺诈 احتيال 0123456789@#$%^&*()'.split('');
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+        const drops = [];
+
+        for (let i = 0; i < columns; i++) {
+            drops[i] = 1;
+        }
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(5, 5, 5, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#00ff41';
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < drops.length; i++) {
+                const char = chars[Math.floor(Math.random() * chars.length)];
+                ctx.fillText(char, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(drawMatrix, 33);
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // ===========================================
+        // BOOT SEQUENCE
+        // ===========================================
+        const bootLines = [
+            { text: '[BOOT] Initializing COMET X System...', delay: 0, class: 'output' },
+            { text: '[OK] Loading AI modules: GPT-4, DeepSeek, LLaMA, Gemini', delay: 500, class: 'prompt' },
+            { text: '[SCAN] Analyzing HILO APK...', delay: 1000, class: 'output' },
+            { text: '[FOUND] Package: com.qiahao.base_common', delay: 1500, class: 'warning' },
+            { text: '[ALERT] Privacy violations detected!', delay: 2000, class: 'danger' },
+            { text: '[DATA] IMEI collection: CONFIRMED', delay: 2500, class: 'danger' },
+            { text: '[DATA] VPN detection: CONFIRMED', delay: 3000, class: 'danger' },
+            { text: '[DATA] Hidden servers: 4 FOUND', delay: 3500, class: 'danger' },
+            { text: '[READY] Evidence compilation complete.', delay: 4000, class: 'prompt' },
+            { text: '', delay: 4500, class: '' },
+            { text: '$ ./expose --target HILO --mode FULL', delay: 5000, class: 'command' }
+        ];
+
+        function runBootSequence() {
+            const terminal = document.getElementById('boot-terminal');
+            terminal.innerHTML = '';
+
+            bootLines.forEach((line, index) => {
+                setTimeout(() => {
+                    const div = document.createElement('div');
+                    div.innerHTML = `<span class="${line.class}">${line.text}</span>`;
+                    terminal.appendChild(div);
+                    terminal.scrollTop = terminal.scrollHeight;
+                }, line.delay);
+            });
+        }
+
+        // ===========================================
+        // COUNTER ANIMATION
+        // ===========================================
+        function animateCounter(elementId, target, prefix = '', suffix = '') {
+            const element = document.getElementById(elementId);
+            const duration = 2000;
+            const steps = 60;
+            const increment = target / steps;
+            let current = 0;
+            let step = 0;
+
+            const timer = setInterval(() => {
+                current += increment;
+                step++;
+
+                if (step >= steps) {
+                    current = target;
+                    clearInterval(timer);
+                }
+
+                if (typeof target === 'number' && target >= 1000) {
+                    element.textContent = prefix + Math.floor(current).toLocaleString() + suffix;
+                } else {
+                    element.textContent = prefix + Math.floor(current) + suffix;
+                }
+            }, duration / steps);
+        }
+
+        // ===========================================
+        // AI CHAT (COMET X) - Enhanced Knowledge Base
+        // ===========================================
+        const knowledgeBase = {
+            // English keywords
+            'company': {
+                response: '🏢 <strong>Developer Identity Exposed:</strong><br><br>The HILO app is developed by <span style="color: var(--danger);">Guangzhou QiaHaoQingChun Information Technology Co., Ltd.</span><br><br>Chinese Name: <strong>广州俏好青春信息科技有限公司</strong><br><br>Evidence: The package name <code>com.qiahao</code> directly reveals this company identity. Found in all Java source files after decompilation.',
+                keywords: ['company', 'developer', 'who made', 'qiahao', 'guangzhou']
+            },
+            'privacy': {
+                response: '🔒 <strong>Privacy Violations Found:</strong><br><br>1. <span style="color: var(--danger);">IMEI Collection</span> - Unique device identifier tracked<br>2. <span style="color: var(--danger);">VPN Detection</span> - Reports "HI" when VPN active<br>3. <span style="color: var(--danger);">Emulator Detection</span> - Anti-research measure<br>4. <span style="color: var(--danger);">SIM Carrier</span> - Telecom provider info<br>5. <span style="color: var(--danger);">Device Fingerprinting</span> - Model, manufacturer<br><br>All found in <code>HeaderInterceptor.java</code>',
+                keywords: ['privacy', 'data', 'collect', 'tracking', 'spy', 'violation']
+            },
+            'vpn': {
+                response: '🌐 <strong>VPN Detection System:</strong><br><br>The app actively detects VPN connections:<br><br><code style="color: var(--warning);">if (isVPNConnected()) str = "HI";<br>else str = "LO";</code><br><br>This is highly suspicious as it suggests they want to:<br>• Track users trying to protect privacy<br>• Identify users bypassing geo-restrictions<br>• Flag "suspicious" users for special treatment<br><br>This is a major red flag for any legitimate app.',
+                keywords: ['vpn', 'detection', 'hi lo', 'network']
+            },
+            'servers': {
+                response: '🖥️ <strong>Hidden Server Infrastructure:</strong><br><br>Discovered 5 domains in source code:<br><br>1. <code>api.tikhak.com</code> - Main API (AWS)<br>2. <code>api.hiloconn.com</code> - Backup API (Cloudflare)<br>3. <code>api.faceline.live</code> - Third backup<br>4. <code>h5.chathot.me</code> - Web interface<br>5. <code>wss://ws.tikhak.com</code> - WebSocket (real-time)<br><br>Multiple domains suggest attempts to evade blocking and maintain persistence.',
+                keywords: ['server', 'domain', 'api', 'infrastructure', 'tikhak', 'hiloconn']
+            },
+            'imei': {
+                response: '📱 <strong>IMEI Collection - Critical:</strong><br><br>IMEI (International Mobile Equipment Identity) is a unique 15-digit number that identifies your device PERMANENTLY.<br><br>Code found: <code>newBuilder.addHeader("imei", getUuid())</code><br><br><strong>Why this is dangerous:</strong><br>• Tracks you across app reinstalls<br>• Tracks you even after factory reset<br>• Can be used to build permanent profile<br>• Violates Google & Apple policies<br><br>This is arguably the most invasive tracking possible.',
+                keywords: ['imei', 'device id', 'uuid', 'identifier', 'tracking']
+            },
+            'protect': {
+                response: '🛡️ <strong>How to Protect Yourself:</strong><br><br>1. <span style="color: var(--danger);">DELETE</span> HILO app immediately<br>2. <span style="color: var(--warning);">CHANGE</span> all passwords used in/with the app<br>3. <span style="color: var(--primary);">REVIEW</span> all app permissions on your device<br>4. <span style="color: var(--primary);">REPORT</span> the app on Play Store & App Store<br>5. <span style="color: var(--primary);">SHARE</span> this evidence to warn others<br>6. <span style="color: var(--warning);">CONSIDER</span> a factory reset if deeply concerned<br><br>Your privacy matters. Don\'t let them exploit you.',
+                keywords: ['protect', 'safety', 'safe', 'delete', 'remove', 'help']
+            },
+            'apple': {
+                response: '🍎 <strong>Apple\'s Hypocrisy:</strong><br><br>Apple\'s Privacy Promise:<br><em>"We respect user privacy and reject apps that collect data without consent"</em><br><br><strong>Reality Check:</strong><br>• HILO is STILL on App Store<br>• IMEI collection clearly violates guidelines<br>• VPN detection violates App Review Guidelines 5.1.1<br>• No action despite clear evidence<br><br>Apple profits from the 30% cut while ignoring violations.',
+                keywords: ['apple', 'ios', 'app store', 'iphone']
+            },
+            'google': {
+                response: '🔍 <strong>Google\'s Hypocrisy:</strong><br><br>Google\'s Data Safety Promise:<br><em>"Developers must accurately disclose data collection"</em><br><br><strong>Reality Check:</strong><br>• HILO has misleading Data Safety labels<br>• No code review for privacy compliance<br>• Profit (30% cut) over user protection<br>• Play Protect doesn\'t catch this<br><br>They have the technology to detect this. They choose not to.',
+                keywords: ['google', 'play store', 'android', 'play protect']
+            },
+            'money': {
+                response: '💰 <strong>Financial Damages:</strong><br><br>Documented losses exceed <span style="color: var(--danger);">$600,000+</span><br><br><strong>How the scam works:</strong><br>1. App sells virtual "diamonds" for real money<br>2. Users are manipulated into spending<br>3. Virtual items have ZERO real value<br>4. No refund mechanism exists<br>5. Psychological manipulation tactics used<br><br>This is a sophisticated financial exploitation scheme.',
+                keywords: ['money', 'loss', 'diamond', 'payment', 'spend', 'cost', '600']
+            },
+            'evidence': {
+                response: '📋 <strong>Evidence Summary:</strong><br><br>✓ Decompiled 6 DEX files using JADX<br>✓ Found company identity in package names<br>✓ Extracted server URLs from source code<br>✓ DNS lookups confirmed server locations<br>✓ Privacy violations documented in Java code<br>✓ VPN detection logic confirmed<br>✓ IMEI collection confirmed<br><br>All evidence is technical, verifiable, and reproducible.',
+                keywords: ['evidence', 'proof', 'technical', 'decompile', 'analysis']
+            },
+            // Arabic keywords
+            'شركة': {
+                response: '🏢 <strong>هوية المطور المكشوفة:</strong><br><br>تطبيق هيلو من تطوير <span style="color: var(--danger);">شركة قوانغتشو تشياهاو تشينغتشون لتكنولوجيا المعلومات</span><br><br>بالصينية: <strong>广州俏好青春信息科技有限公司</strong><br><br>الدليل: اسم الحزمة <code>com.qiahao</code> يكشف مباشرة عن هوية الشركة.',
+                keywords: ['شركة', 'مطور', 'من صنع', 'هوية']
+            },
+            'خصوصية': {
+                response: '🔒 <strong>انتهاكات الخصوصية:</strong><br><br>1. <span style="color: var(--danger);">جمع IMEI</span> - تتبع الجهاز<br>2. <span style="color: var(--danger);">كشف VPN</span> - إرسال "HI" عند التفعيل<br>3. <span style="color: var(--danger);">كشف المحاكي</span> - ضد البحث<br>4. <span style="color: var(--danger);">شركة الاتصالات</span><br>5. <span style="color: var(--danger);">بصمة الجهاز</span><br><br>كلها موجودة في ملف <code>HeaderInterceptor.java</code>',
+                keywords: ['خصوصية', 'بيانات', 'تتبع', 'تجسس', 'انتهاك']
+            },
+            'حماية': {
+                response: '🛡️ <strong>كيف تحمي نفسك:</strong><br><br>1. <span style="color: var(--danger);">احذف</span> تطبيق هيلو فوراً<br>2. <span style="color: var(--warning);">غيّر</span> كلمات المرور المرتبطة<br>3. <span style="color: var(--primary);">راجع</span> صلاحيات التطبيقات<br>4. <span style="color: var(--primary);">أبلغ</span> عن التطبيق<br>5. <span style="color: var(--primary);">شارك</span> هذه الأدلة<br><br>خصوصيتك مهمة. لا تدعهم يستغلونك.',
+                keywords: ['حماية', 'أمان', 'حذف', 'ساعد', 'نفسي']
+            },
+            'فلوس': {
+                response: '💰 <strong>الخسائر المالية:</strong><br><br>الخسائر الموثقة تتجاوز <span style="color: var(--danger);">600,000+ دولار</span><br><br><strong>كيف يعمل الاحتيال:</strong><br>1. التطبيق يبيع "ألماس" افتراضي بمال حقيقي<br>2. يتم التلاعب بالمستخدمين للإنفاق<br>3. المنتجات الافتراضية بدون قيمة حقيقية<br>4. لا يوجد آلية استرداد<br><br>هذا مخطط استغلال مالي متطور.',
+                keywords: ['فلوس', 'خسارة', 'ألماس', 'دفع', 'مال']
+            }
+        };
+
+        function sendMessage() {
+            const input = document.getElementById('user-input');
+            const message = input.value.trim();
+            if (!message) return;
+
+            const chatMessages = document.getElementById('chat-messages');
+
+            // Add user message
+            chatMessages.innerHTML += `
+                <div class="message user">
+                    <div class="message-avatar"><i class="bi bi-person-fill"></i></div>
+                    <div class="message-content">${escapeHtml(message)}</div>
+                </div>
+            `;
+
+            input.value = '';
+
+            // Simulate typing delay
+            setTimeout(() => {
+                const response = generateResponse(message);
+                chatMessages.innerHTML += `
+                    <div class="message ai">
+                        <div class="message-avatar"><i class="bi bi-robot"></i></div>
+                        <div class="message-content">
+                            <strong style="color: var(--primary);">COMET X</strong><br><br>
+                            ${response}
+                        </div>
+                    </div>
+                `;
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+
+                // Text-to-speech for response (optional)
+                // speakResponse(response);
+            }, 800 + Math.random() * 700);
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        function generateResponse(message) {
+            const lowerMessage = message.toLowerCase();
+
+            // Search through knowledge base
+            for (const [key, data] of Object.entries(knowledgeBase)) {
+                if (data.keywords) {
+                    for (const keyword of data.keywords) {
+                        if (lowerMessage.includes(keyword.toLowerCase())) {
+                            return data.response;
+                        }
+                    }
+                }
+            }
+
+            // Default responses based on language
+            if (/[\u0600-\u06FF]/.test(message)) {
+                return '🤖 ليس لدي معلومات محددة عن ذلك.<br><br>جرب السؤال عن:<br>• <strong>الشركة</strong> - من يقف وراء هيلو<br>• <strong>الخصوصية</strong> - ما البيانات المجموعة<br>• <strong>السيرفرات</strong> - البنية التحتية<br>• <strong>الحماية</strong> - كيف تحمي نفسك<br>• <strong>الفلوس</strong> - الخسائر المالية';
+            } else if (/[\u4e00-\u9fff]/.test(message)) {
+                return '🤖 我没有关于这个的具体信息。<br><br>尝试询问：<br>• <strong>公司</strong> - 谁在HILO背后<br>• <strong>隐私</strong> - 收集什么数据<br>• <strong>服务器</strong> - 基础设施<br>• <strong>保护</strong> - 如何保护自己';
+            }
+
+            return '🤖 I don\'t have specific information about that.<br><br>Try asking about:<br>• <strong>Company</strong> - Who is behind HILO<br>• <strong>Privacy</strong> - What data is collected<br>• <strong>Servers</strong> - Infrastructure details<br>• <strong>VPN</strong> - Detection system<br>• <strong>IMEI</strong> - Device tracking<br>• <strong>Protection</strong> - How to stay safe<br>• <strong>Money</strong> - Financial losses<br>• <strong>Evidence</strong> - Technical proof';
+        }
+
+        // Enter key to send
+        document.getElementById('user-input').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // ===========================================
+        // VOICE INPUT (Web Speech API)
+        // ===========================================
+        let isRecording = false;
+        let recognition = null;
+
+        function toggleVoice() {
+            const btn = document.getElementById('voice-btn');
+            const icon = document.getElementById('voice-icon');
+
+            if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+                alert('Voice input not supported in this browser. Try Chrome or Edge.');
+                return;
+            }
+
+            if (isRecording) {
+                recognition.stop();
+                btn.classList.remove('recording');
+                icon.className = 'bi bi-mic-fill';
+                isRecording = false;
+            } else {
+                const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+                recognition = new SpeechRecognition();
+                recognition.lang = currentLang === 'ar' ? 'ar-SA' : currentLang === 'zh' ? 'zh-CN' : 'en-US';
+                recognition.continuous = false;
+                recognition.interimResults = false;
+
+                recognition.onstart = function () {
+                    btn.classList.add('recording');
+                    icon.className = 'bi bi-mic-mute-fill';
+                    isRecording = true;
+                };
+
+                recognition.onresult = function (event) {
+                    const transcript = event.results[0][0].transcript;
+                    document.getElementById('user-input').value = transcript;
+                    sendMessage();
+                };
+
+                recognition.onerror = function (event) {
+                    console.error('Speech recognition error:', event.error);
+                    btn.classList.remove('recording');
+                    icon.className = 'bi bi-mic-fill';
+                    isRecording = false;
+                };
+
+                recognition.onend = function () {
+                    btn.classList.remove('recording');
+                    icon.className = 'bi bi-mic-fill';
+                    isRecording = false;
+                };
+
+                recognition.start();
+            }
+        }
+
+        // ===========================================
+        // AUDIO CONTROL
+        // ===========================================
+        let isPlaying = false;
+        const audio = document.getElementById('bg-music');
+        audio.volume = 0.3;
+
+        function toggleAudio() {
+            const btn = document.getElementById('audio-toggle');
+            const icon = document.getElementById('audio-icon');
+
+            if (isPlaying) {
+                audio.pause();
+                icon.className = 'bi bi-volume-mute-fill';
+                btn.classList.remove('playing');
+            } else {
+                audio.play().catch(e => console.log('Audio autoplay blocked'));
+                icon.className = 'bi bi-volume-up-fill';
+                btn.classList.add('playing');
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // ===========================================
+        // SHARE FUNCTION
+        // ===========================================
+        function shareEvidence() {
+            const shareData = {
+                title: '🔴 HILO App Fraud Exposure | Project 403',
+                text: 'Technical evidence exposes HILO app privacy violations: IMEI collection, VPN detection, hidden servers. Protect yourself and others! #HILOFraud #Project403',
+                url: window.location.href
+            };
+
+            if (navigator.share) {
+                navigator.share(shareData).catch(console.error);
+            } else {
+                // Fallback: copy to clipboard
+                const textToCopy = `${shareData.title}\n\n${shareData.text}\n\n${shareData.url}`;
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    alert('✓ Link copied to clipboard! Share it everywhere.');
+                }).catch(() => {
+                    prompt('Copy this link:', shareData.url);
+                });
+            }
+        }
+
+        // ===========================================
+        // INITIALIZATION
+        // ===========================================
+        document.addEventListener('DOMContentLoaded', () => {
+            // Run boot sequence
+            runBootSequence();
+
+            // Animate counters when visible
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounter('counter-money', 600000, '$', '+');
+                        animateCounter('counter-violations', 9, '', '+');
+                        animateCounter('counter-servers', 5, '', '');
+                        animateCounter('counter-files', 6, '', '');
+                        observer.disconnect();
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            observer.observe(document.querySelector('.stats-section'));
+
+            // Smooth scrolling for nav links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
