@@ -23,7 +23,7 @@ body {
     margin: 0;
     height: 100vh;
     overflow: hidden;
-    background-image: 
+    background-image:
         linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
     background-size: 50px 50px;
@@ -32,7 +32,10 @@ body {
 /* BOOT SCREEN */
 #boot-screen {
     position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: #000;
     z-index: 9999;
     display: flex;
@@ -40,8 +43,17 @@ body {
     padding: 2rem;
     font-family: var(--font-mono);
 }
-#boot-log { font-size: 0.9rem; color: var(--accent-blue); line-height: 1.6; }
-.boot-line { margin-bottom: 5px; text-transform: uppercase; }
+
+#boot-log {
+    font-size: 0.9rem;
+    color: var(--accent-blue);
+    line-height: 1.6;
+}
+
+.boot-line {
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
 
 /* LAYOUT */
 #main-interface {
@@ -62,13 +74,22 @@ header {
     align-items: center;
     padding: 0 1.5rem;
 }
-.brand { font-weight: 700; letter-spacing: 1px; font-size: 1.1rem; }
-.brand .accent { color: var(--accent-blue); }
-.status-badge { 
-    font-family: var(--font-mono); 
-    font-size: 0.75rem; 
-    padding: 4px 8px; 
-    border: 1px solid var(--success); 
+
+.brand {
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 1.1rem;
+}
+
+.brand .accent {
+    color: var(--accent-blue);
+}
+
+.status-badge {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    border: 1px solid var(--success);
     color: var(--success);
     border-radius: 2px;
 }
@@ -90,15 +111,32 @@ aside {
     flex-direction: column;
     gap: 2rem;
 }
+
 .target-box {
     border: 1px solid var(--border-color);
     padding: 1rem;
-    background: rgba(255,255,255,0.02);
+    background: rgba(255, 255, 255, 0.02);
 }
-.label { font-size: 0.7rem; color: var(--text-dim); letter-spacing: 1px; }
-.value { font-size: 1.1rem; font-weight: 700; color: var(--alert); margin-top: 5px; }
 
-.module-list { display: flex; flex-direction: column; gap: 5px; }
+.label {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+}
+
+.value {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--alert);
+    margin-top: 5px;
+}
+
+.module-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
 .module-btn {
     background: transparent;
     border: 1px solid transparent;
@@ -110,21 +148,25 @@ aside {
     cursor: pointer;
     transition: all 0.2s;
 }
+
 .module-btn:hover {
     border-color: var(--accent-blue);
     background: var(--accent-glow);
     color: var(--accent-blue);
 }
+
 .module-btn.pay {
     border-color: var(--accent-gold);
     color: var(--accent-gold);
     background: var(--accent-gold-glow);
     margin-top: 10px;
 }
+
 .module-btn.pay:hover {
     background: rgba(245, 158, 11, 0.3);
     box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
 }
+
 .module-divider {
     height: 1px;
     background: var(--border-color);
@@ -137,6 +179,7 @@ aside {
     align-items: center;
     gap: 1rem;
 }
+
 .pay-btn {
     background: linear-gradient(135deg, var(--accent-gold), #d97706);
     color: #000;
@@ -149,6 +192,7 @@ aside {
     border-radius: 4px;
     transition: all 0.2s;
 }
+
 .pay-btn:hover {
     transform: scale(1.05);
     box-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
@@ -158,9 +202,10 @@ aside {
 main {
     display: flex;
     flex-direction: column;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.5);
     position: relative;
 }
+
 #chat-history {
     flex-grow: 1;
     padding: 2rem;
@@ -170,6 +215,7 @@ main {
     flex-direction: column;
     gap: 1.5rem;
 }
+
 .message {
     padding: 1rem 1.5rem;
     max-width: 85%;
@@ -177,12 +223,14 @@ main {
     font-size: 0.9rem;
     border-left: 3px solid transparent;
 }
+
 .message.user {
     align-self: flex-end;
     background: var(--border-color);
     border-right: 3px solid var(--text-dim);
     color: white;
 }
+
 .message.ai {
     align-self: flex-start;
     background: rgba(59, 130, 246, 0.05);
@@ -199,6 +247,7 @@ main {
     align-items: center;
     gap: 10px;
 }
+
 #user-input {
     flex-grow: 1;
     background: transparent;
@@ -208,6 +257,7 @@ main {
     font-size: 1rem;
     outline: none;
 }
+
 #send-btn {
     background: var(--accent-blue);
     color: black;
