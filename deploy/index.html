@@ -145,10 +145,71 @@
             </div>
         </div>
 
+        <!-- ATTACK TRACE MAP -->
+        <div style="margin-top: 40px; background: #000; border: 2px solid #333; padding: 30px; border-radius: 10px;">
+            <h2 style="color: #00f2ff; text-align: center; margin-bottom: 25px;">🗺️ ATTACK TRACE MAP - LIVE</h2>
+            <div style="position: relative; background: linear-gradient(180deg, #0a0a15 0%, #000 100%); border: 1px solid #222; padding: 40px 20px; border-radius: 8px;">
+                <!-- Connection Lines (SVG) -->
+                <svg width="100%" height="200" style="position: absolute; top: 0; left: 0; pointer-events: none;">
+                    <defs>
+                        <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#00f2ff"/>
+                            <stop offset="50%" style="stop-color:#ff0000"/>
+                            <stop offset="100%" style="stop-color:#ff6600"/>
+                        </linearGradient>
+                    </defs>
+                    <line x1="15%" y1="100" x2="50%" y2="100" stroke="url(#lineGrad)" stroke-width="2" stroke-dasharray="5,5">
+                        <animate attributeName="stroke-dashoffset" from="0" to="-20" dur="1s" repeatCount="indefinite"/>
+                    </line>
+                    <line x1="50%" y1="100" x2="85%" y2="100" stroke="url(#lineGrad)" stroke-width="2" stroke-dasharray="5,5">
+                        <animate attributeName="stroke-dashoffset" from="0" to="-20" dur="1s" repeatCount="indefinite"/>
+                    </line>
+                </svg>
+                
+                <div style="display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1;">
+                    <!-- Riyadh Node -->
+                    <div style="text-align: center; flex: 1;">
+                        <div style="width: 80px; height: 80px; margin: 0 auto; border: 3px solid #0f0; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(0,255,0,0.1); animation: pulse 2s infinite;">
+                            <span style="font-size: 2em;">🇸🇦</span>
+                        </div>
+                        <div style="color: #0f0; margin-top: 10px; font-weight: bold;">RIYADH_ZERO</div>
+                        <div style="color: #666; font-size: 0.8em;">Command Center</div>
+                    </div>
+                    
+                    <!-- Sweden Node -->
+                    <div style="text-align: center; flex: 1;">
+                        <div style="width: 80px; height: 80px; margin: 0 auto; border: 3px solid #00f2ff; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(0,242,255,0.1); animation: pulse 2s infinite;">
+                            <span style="font-size: 2em;">🇸🇪</span>
+                        </div>
+                        <div style="color: #00f2ff; margin-top: 10px; font-weight: bold;">SWEDEN NODE</div>
+                        <div style="color: #666; font-size: 0.8em;">4.223.108.167</div>
+                        <div style="color: #0f0; font-size: 0.7em; margin-top: 5px;">● INTERCEPTING</div>
+                    </div>
+                    
+                    <!-- China Target -->
+                    <div style="text-align: center; flex: 1;">
+                        <div style="width: 80px; height: 80px; margin: 0 auto; border: 3px solid #ff0000; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(255,0,0,0.2); animation: pulse 1s infinite;">
+                            <span style="font-size: 2em;">🇨🇳</span>
+                        </div>
+                        <div style="color: #ff0000; margin-top: 10px; font-weight: bold;">CHINA C2</div>
+                        <div style="color: #666; font-size: 0.8em;">36.97.126.139</div>
+                        <div style="color: #ff6600; font-size: 0.7em; margin-top: 5px;">⚠ EXPOSED</div>
+                    </div>
+                </div>
+                
+                <!-- Live Status Bar -->
+                <div style="margin-top: 30px; background: rgba(0,0,0,0.5); border: 1px solid #333; padding: 15px; text-align: center;">
+                    <span style="color: #888;">TRACE STATUS:</span>
+                    <span id="trace-status" style="color: #0f0; margin-left: 10px;">● ACTIVE - Packet #<span id="packet-num">49847</span> captured</span>
+                </div>
+            </div>
+        </div>
+
     </main>
     <footer>
         <p>DRAGON403 Evidence Repository | <a href="https://github.com/KHAWRIZM">@KHAWRIZM</a></p>
         <p style="margin-top:10px; color: #0f0;">🛡️ SWEDEN NODE: 4.223.108.167 | ACTIVE</p>
+        <p style="margin-top:5px; color: #ff6600; font-size: 0.9em;">📍 Architect: @KHAWRIZM | Operation: RIYADH_ZERO</p>
     </footer>
     <script>
         let count = 8472930;
@@ -158,8 +219,17 @@
         let killCount = 49847;
         setInterval(() => { 
             killCount += Math.floor(Math.random() * 7) + 1; 
-            document.getElementById('kill-count').textContent = killCount.toLocaleString(); 
+            document.getElementById('kill-count').textContent = killCount.toLocaleString();
+            document.getElementById('packet-num').textContent = killCount.toLocaleString();
         }, 800);
+
+        // Trace status animation
+        const statuses = ['ACTIVE - Capturing WebSocket traffic', 'ACTIVE - Analyzing JWT tokens', 'ACTIVE - Tracing Agora channels', 'ACTIVE - Recording C2 heartbeats'];
+        let statusIdx = 0;
+        setInterval(() => {
+            statusIdx = (statusIdx + 1) % statuses.length;
+            document.getElementById('trace-status').innerHTML = '● ' + statuses[statusIdx] + ' | Packet #<span id="packet-num">' + killCount.toLocaleString() + '</span>';
+        }, 3000);
     </script>
 </body>
 </html>
