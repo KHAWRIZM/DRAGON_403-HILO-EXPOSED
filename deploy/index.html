@@ -1,107 +1,122 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DRAGON_403 | SOVEREIGN INTEL</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/sovereign-pay.css">
+    <title>DRAGON403 | HILO Criminal Infrastructure Exposed</title>
+    <meta name="description" content="Evidence documentation of HILO app fraud network - $600,000 USD stolen">
+    <style>
+        :root { --dragon-red: #ff0000; --cyber-blue: #00f2ff; --matrix-green: #00ff00; --dark-bg: #050508; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--dark-bg); color: #fff; font-family: 'Courier New', monospace; min-height: 100vh; }
+        .cyber-grid { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-image: linear-gradient(rgba(0,242,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,242,255,0.03) 1px, transparent 1px); background-size: 50px 50px; pointer-events: none; z-index: -1; }
+        header { background: linear-gradient(180deg, rgba(255,0,0,0.2) 0%, transparent 100%); border-bottom: 2px solid var(--dragon-red); padding: 20px 40px; text-align: center; }
+        header h1 { color: var(--dragon-red); font-size: 2.5em; text-shadow: 0 0 20px rgba(255,0,0,0.5); letter-spacing: 5px; }
+        header p { color: var(--cyber-blue); margin-top: 10px; }
+        .kill-counter { background: rgba(0,0,0,0.8); border: 1px solid var(--dragon-red); padding: 15px 30px; margin: 20px auto; display: inline-block; border-radius: 5px; }
+        .kill-counter .number { font-size: 2.5em; color: var(--matrix-green); font-weight: bold; }
+        .kill-counter .label { color: #888; font-size: 0.9em; }
+        main { padding: 40px; max-width: 1400px; margin: 0 auto; }
+        .evidence-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-top: 30px; }
+        .evidence-card { background: rgba(0,0,0,0.6); border: 1px solid #333; border-radius: 10px; padding: 25px; transition: all 0.3s ease; }
+        .evidence-card:hover { border-color: var(--dragon-red); box-shadow: 0 0 30px rgba(255,0,0,0.3); transform: translateY(-5px); }
+        .evidence-card h3 { color: var(--dragon-red); margin-bottom: 15px; }
+        .evidence-card ul { list-style: none; color: var(--cyber-blue); }
+        .evidence-card li { padding: 8px 0; border-bottom: 1px solid #222; font-size: 0.95em; }
+        .evidence-card li:last-child { border-bottom: none; }
+        .evidence-card li strong { color: #fff; }
+        .status-live { display: inline-block; background: var(--matrix-green); color: #000; padding: 3px 10px; border-radius: 3px; font-size: 0.8em; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        .server-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .server-table th, .server-table td { padding: 10px; text-align: left; border-bottom: 1px solid #333; }
+        .server-table th { color: var(--dragon-red); background: rgba(255,0,0,0.1); }
+        .server-table td { color: var(--cyber-blue); }
+        .alert-banner { background: linear-gradient(90deg, var(--dragon-red), #ff6600); color: #fff; padding: 15px; text-align: center; font-weight: bold; }
+        footer { text-align: center; padding: 30px; border-top: 1px solid #333; margin-top: 50px; color: #666; }
+        footer a { color: var(--cyber-blue); text-decoration: none; }
+    </style>
 </head>
 <body>
-    <div id="boot-screen"><div id="boot-log"></div></div>
-    <div id="main-interface">
-        <header>
-            <div class="brand">DRAGON<span style="color:#dc2626">403</span> <span style="font-size:0.7rem; color:#64748b">v4.0.3 [SOVEREIGN]</span></div>
-            <div class="header-actions">
-                <a href="documentary.html" class="doc-btn" style="background:#dc2626;color:white;padding:8px 16px;border-radius:6px;text-decoration:none;margin-right:10px;font-size:0.85rem;">🎬 DOCUMENTARY</a>
-                <button class="pay-btn" onclick="sovereignPay.open()">💳 SOVEREIGN PAY</button>
-                <div class="status-badge">● SYSTEM SECURE [AES-256]</div>
-            </div>
-        </header>
-        <div class="dashboard-grid">
-            <aside>
-                <div class="target-box">
-                    <div class="label">CURRENT TARGET</div>
-                    <div class="value">HILO_NETWORK</div>
-                </div>
-                <nav class="module-list">
-                    <button class="module-btn" onclick="quickQuery('Full Scan HILO Network')">📡 NETWORK SCAN</button>
-                    <button class="module-btn" onclick="quickQuery('Show Fraud Evidence')">🕵️ EVIDENCE LOCKER</button>
-                    <button class="module-btn" onclick="quickQuery('List Shell Companies')">🏢 SHELL CORP</button>
-                    <button class="module-btn" onclick="quickQuery('Legal Violations Report')">⚖️ LEGAL AUDIT</button>
-                    <div class="module-divider"></div>
-                    <button class="module-btn pay" onclick="sovereignPay.open()">💰 SOVEREIGN PAY</button>
-                    <button class="module-btn" onclick="quickQuery('Show Transaction Ledger')">📋 LEDGER</button>
-                </nav>
-            </aside>
-            <main>
-                <!-- 🔥 EXTRACTED EVIDENCE PANEL -->
-                <div class="evidence-panel" style="background:linear-gradient(135deg,#0f0f0f,#1a0505);border:1px solid #dc2626;border-radius:8px;padding:15px;margin-bottom:15px;">
-                    <h3 style="color:#dc2626;margin:0 0 10px 0;font-size:0.9rem;">🔓 EXTRACTED CREDENTIALS [APK FORENSICS]</h3>
-                    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;font-size:0.75rem;">
-                        <div class="evidence-item" style="background:#111;padding:10px;border-radius:4px;border-left:3px solid #f59e0b;">
-                            <div style="color:#f59e0b;font-weight:bold;">GOOGLE CLOUD PROJECT</div>
-                            <code style="color:#22c55e;">432159938851</code>
-                        </div>
-                        <div class="evidence-item" style="background:#111;padding:10px;border-radius:4px;border-left:3px solid #3b82f6;">
-                            <div style="color:#3b82f6;font-weight:bold;">FACEBOOK APP ID</div>
-                            <code style="color:#22c55e;">579294106051988</code>
-                        </div>
-                        <div class="evidence-item" style="background:#111;padding:10px;border-radius:4px;border-left:3px solid #8b5cf6;">
-                            <div style="color:#8b5cf6;font-weight:bold;">FIREBASE PROJECT</div>
-                            <code style="color:#22c55e;">nextvideo-1590999469166</code>
-                        </div>
-                        <div class="evidence-item" style="background:#111;padding:10px;border-radius:4px;border-left:3px solid #ec4899;">
-                            <div style="color:#ec4899;font-weight:bold;">OPPO PUSH KEY</div>
-                            <code style="color:#22c55e;">b73635b02b714b6691960b6c18418720</code>
-                        </div>
-                    </div>
-                    <div style="margin-top:10px;padding:10px;background:#0a1628;border-radius:4px;border:1px solid #1e40af;">
-                        <div style="color:#60a5fa;font-weight:bold;font-size:0.8rem;">🌐 LIVE WEBSOCKET SERVERS (VERIFIED)</div>
-                        <code style="color:#22c55e;font-size:0.7rem;display:block;margin-top:5px;">
-                            wss://ws.faceline.live/ws | wss://ws.tikhak.com/ws | wss://ws.hiloconn.com/ws<br>
-                            <span style="color:#f87171;">[TEST SERVER EXPOSED]</span> wss://test.ws.faceline.live/ws
-                        </code>
-                    </div>
-                    <div style="margin-top:8px;color:#64748b;font-size:0.65rem;">
-                        📍 Organization: <span style="color:#dc2626;">Guangzhou QiaHaoQingChun Information Technology Co., Ltd.</span> | Package: com.qiahao.nextvideo
-                    </div>
-                </div>
-                
-                <!-- 🚨 CRIMINAL INFRASTRUCTURE ALERT -->
-                <div style="background: linear-gradient(135deg, rgba(255,0,0,0.15), rgba(0,0,0,0.9)); border: 2px solid #ff0000; border-radius: 8px; padding: 15px; margin-bottom: 15px; animation: pulse-red 2s infinite;">
-                    <h4 style="color: #ff0000; text-transform: uppercase; margin: 0 0 12px 0; font-size: 0.85rem; display: flex; align-items: center; gap: 8px;">
-                        <span style="animation: blink 1s infinite;">⚠</span> CRIMINAL INFRASTRUCTURE IDENTIFIED
-                    </h4>
-                    <ul style="color: #00f2ff; font-family: 'JetBrains Mono', monospace; list-style: none; padding: 0; margin: 0; font-size: 0.75rem; line-height: 1.8;">
-                        <li><span style="color:#ff6b6b;">></span> GOOGLE_PROJECT_NUMBER: <code style="color:#22c55e;">432159938851</code></li>
-                        <li><span style="color:#ff6b6b;">></span> FACEBOOK_APP_ID: <code style="color:#22c55e;">579294106051988</code></li>
-                        <li><span style="color:#ff6b6b;">></span> FIREBASE_ID: <code style="color:#22c55e;">nextvideo-1590999469166</code></li>
-                        <li><span style="color:#ff6b6b;">></span> CORE_NODES: <code style="color:#f59e0b;">ws.faceline.live</code> | <code style="color:#f59e0b;">ws.hiloconn.com</code></li>
-                        <li><span style="color:#ff6b6b;">></span> CHINA_NODE: <code style="color:#ef4444;">36.97.126.139</code> (Guangdong) - <span style="color:#22c55e;">INTERCEPTED</span></li>
-                    </ul>
-                    <p style="color: #fbbf24; margin: 12px 0 0 0; font-size: 0.7rem; padding: 8px; background: rgba(251,191,36,0.1); border-radius: 4px; border-left: 3px solid #fbbf24;">
-                        <span style="animation: blink 0.8s infinite;">●</span> [LIVE STATUS]: Sweden Node-01 (4.223.108.167) actively intercepting traffic via tshark
-                    </p>
-                </div>
-                <style>
-                    @keyframes pulse-red { 0%,100%{box-shadow:0 0 5px #ff0000;} 50%{box-shadow:0 0 20px #ff0000;} }
-                    @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
-                </style>
-                
-                <div id="chat-history">
-                    <div class="message ai"><strong>[SYSTEM]</strong> Sovereign Node v3.0 initialized. Payment Gateway: Moyasar (SAMA). Ready.</div>
-                </div>
-                <div class="command-bar">
-                    <span style="color:#dc2626; font-weight:bold; margin-right:10px">{'>_'}</span>
-                    <input type="text" id="user-input" placeholder="Execute command..." autocomplete="off">
-                    <button id="send-btn" onclick="handleInput()">EXECUTE</button>
-                </div>
-            </main>
+    <div class="cyber-grid"></div>
+    <div class="alert-banner">⚠️ ACTIVE INVESTIGATION: HILO App Criminal Network - Evidence Collection In Progress</div>
+    <header>
+        <h1>🐉 DRAGON403</h1>
+        <p>CRIMINAL INFRASTRUCTURE DOCUMENTATION | CASE: HILO/FALLA FRAUD NETWORK</p>
+        <div class="kill-counter">
+            <div class="number" id="victim-count">8,472,930</div>
+            <div class="label">ESTIMATED VICTIMS WORLDWIDE</div>
         </div>
-    </div>
-    <script src="js/sovereign-pay.js"></script>
-    <script src="js/dragon403-ai.js"></script>
+    </header>
+    <main>
+        <div class="evidence-grid">
+            <div class="evidence-card">
+                <h3>🔥 GOOGLE/FIREBASE CREDENTIALS</h3>
+                <ul>
+                    <li><strong>Project ID:</strong> 432159938851</li>
+                    <li><strong>Google App ID:</strong> 1:432159938851:android:8adf65373a218409d59496</li>
+                    <li><strong>Firebase Instance:</strong> nextvideo-1590999469166</li>
+                    <li><strong>API Key:</strong> AIzaSyCygke1pXNS1aWcVqLza2BjbeegalmSlTg</li>
+                </ul>
+            </div>
+            <div class="evidence-card">
+                <h3>📘 FACEBOOK SDK CREDENTIALS</h3>
+                <ul>
+                    <li><strong>App ID:</strong> 579294106051988</li>
+                    <li><strong>Client Token:</strong> 72f13ea96e1ec07be6c0196910aad5fd</li>
+                    <li><strong>Login Scheme:</strong> fb579294106051988</li>
+                </ul>
+            </div>
+            <div class="evidence-card">
+                <h3>📹 AGORA RTC KEYS</h3>
+                <ul>
+                    <li><strong>Production App ID:</strong> 6291d069123642d9929a49c734c50719</li>
+                    <li><strong>Test App ID:</strong> fc3e087f701b4f788099e1924c3cc7b0</li>
+                </ul>
+            </div>
+            <div class="evidence-card">
+                <h3>📱 OPPO PUSH CREDENTIALS</h3>
+                <ul>
+                    <li><strong>App Key:</strong> b73635b02b714b6691960b6c18418720</li>
+                    <li><strong>App Secret:</strong> c3ed4679caeb406480bb8285ded57872</li>
+                </ul>
+            </div>
+            <div class="evidence-card">
+                <h3>🌐 SERVER INFRASTRUCTURE <span class="status-live">LIVE</span></h3>
+                <table class="server-table">
+                    <tr><th>Type</th><th>Endpoint</th></tr>
+                    <tr><td>API</td><td>api.tikhak.com</td></tr>
+                    <tr><td>API</td><td>apiv1.faceline.live</td></tr>
+                    <tr><td>API</td><td>api.hiloconn.com</td></tr>
+                    <tr><td>WebSocket</td><td>wss://ws.faceline.live/ws</td></tr>
+                    <tr><td>WebSocket</td><td>wss://ws.hiloconn.com/ws</td></tr>
+                    <tr><td>China Node</td><td>36.97.126.139</td></tr>
+                </table>
+            </div>
+            <div class="evidence-card">
+                <h3>🏢 COMPANY IDENTIFICATION</h3>
+                <ul>
+                    <li><strong>Legal Name:</strong> Guangzhou QiaHaoQingChun Info Tech Co.</li>
+                    <li><strong>Package:</strong> com.qiahao.nextvideo</li>
+                    <li><strong>Location:</strong> Guangzhou, China</li>
+                </ul>
+            </div>
+            <div class="evidence-card">
+                <h3>💰 FINANCIAL DAMAGE</h3>
+                <ul>
+                    <li><strong>Personal Loss:</strong> $600,000 USD</li>
+                    <li><strong>Victim:</strong> Sulaiman Nazal Alshammari</li>
+                    <li><strong>Status:</strong> International Investigation</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>DRAGON403 Evidence Repository | <a href="https://github.com/KHAWRIZM">@KHAWRIZM</a></p>
+        <p style="margin-top:10px; color: #0f0;">🛡️ SWEDEN NODE: 4.223.108.167 | ACTIVE</p>
+    </footer>
+    <script>
+        let count = 8472930;
+        setInterval(() => { count += Math.floor(Math.random() * 15); document.getElementById('victim-count').textContent = count.toLocaleString(); }, 2000);
+    </script>
 </body>
 </html>
