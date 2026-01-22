@@ -1,235 +1,489 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DRAGON403 | HILO Criminal Infrastructure Exposed</title>
-    <meta name="description" content="Evidence documentation of HILO app fraud network - $600,000 USD stolen">
+    <title>DRAGON403 | فضيحة تطبيق HILO - توثيق الأدلة الجنائية</title>
+    <meta name="description" content="توثيق جنائي رقمي لعمليات الاحتيال في تطبيق HILO - سرقة 600,000 دولار">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root { --dragon-red: #ff0000; --cyber-blue: #00f2ff; --matrix-green: #00ff00; --dark-bg: #050508; }
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a25;
+            --accent-red: #ff3b3b;
+            --accent-blue: #00d4ff;
+            --accent-green: #00ff88;
+            --accent-orange: #ff9500;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b0;
+            --border-color: #2a2a3a;
+        }
+        
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: var(--dark-bg); color: #fff; font-family: 'Courier New', monospace; min-height: 100vh; }
-        .cyber-grid { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-image: linear-gradient(rgba(0,242,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,242,255,0.03) 1px, transparent 1px); background-size: 50px 50px; pointer-events: none; z-index: -1; }
-        header { background: linear-gradient(180deg, rgba(255,0,0,0.2) 0%, transparent 100%); border-bottom: 2px solid var(--dragon-red); padding: 20px 40px; text-align: center; }
-        header h1 { color: var(--dragon-red); font-size: 2.5em; text-shadow: 0 0 20px rgba(255,0,0,0.5); letter-spacing: 5px; }
-        header p { color: var(--cyber-blue); margin-top: 10px; }
-        .kill-counter { background: rgba(0,0,0,0.8); border: 1px solid var(--dragon-red); padding: 15px 30px; margin: 20px auto; display: inline-block; border-radius: 5px; }
-        .kill-counter .number { font-size: 2.5em; color: var(--matrix-green); font-weight: bold; }
-        .kill-counter .label { color: #888; font-size: 0.9em; }
-        main { padding: 40px; max-width: 1400px; margin: 0 auto; }
-        .evidence-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-top: 30px; }
-        .evidence-card { background: rgba(0,0,0,0.6); border: 1px solid #333; border-radius: 10px; padding: 25px; transition: all 0.3s ease; }
-        .evidence-card:hover { border-color: var(--dragon-red); box-shadow: 0 0 30px rgba(255,0,0,0.3); transform: translateY(-5px); }
-        .evidence-card h3 { color: var(--dragon-red); margin-bottom: 15px; }
-        .evidence-card ul { list-style: none; color: var(--cyber-blue); }
-        .evidence-card li { padding: 8px 0; border-bottom: 1px solid #222; font-size: 0.95em; }
-        .evidence-card li:last-child { border-bottom: none; }
-        .evidence-card li strong { color: #fff; }
-        .status-live { display: inline-block; background: var(--matrix-green); color: #000; padding: 3px 10px; border-radius: 3px; font-size: 0.8em; animation: pulse 2s infinite; }
-        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
-        .server-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-        .server-table th, .server-table td { padding: 10px; text-align: left; border-bottom: 1px solid #333; }
-        .server-table th { color: var(--dragon-red); background: rgba(255,0,0,0.1); }
-        .server-table td { color: var(--cyber-blue); }
-        .alert-banner { background: linear-gradient(90deg, var(--dragon-red), #ff6600); color: #fff; padding: 15px; text-align: center; font-weight: bold; }
-        footer { text-align: center; padding: 30px; border-top: 1px solid #333; margin-top: 50px; color: #666; }
-        footer a { color: var(--cyber-blue); text-decoration: none; }
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a0a0a 50%, #0a0a1a 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+        
+        .hero-badge {
+            background: rgba(255, 59, 59, 0.15);
+            border: 1px solid var(--accent-red);
+            color: var(--accent-red);
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+        
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #fff 0%, var(--accent-red) 50%, var(--accent-orange) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin-bottom: 40px;
+        }
+        
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        .stat-box {
+            text-align: center;
+            padding: 20px 30px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .stat-number.red { color: var(--accent-red); }
+        .stat-number.blue { color: var(--accent-blue); }
+        .stat-number.green { color: var(--accent-green); }
+        .stat-label { color: var(--text-secondary); font-size: 14px; margin-top: 5px; }
+        
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .nav-logo { font-size: 1.5rem; font-weight: 900; color: var(--accent-red); }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-weight: 600; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        
+        section { padding: 100px 40px; max-width: 1400px; margin: 0 auto; }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .section-desc { color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 50px; max-width: 700px; }
+        
+        .evidence-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+        
+        .evidence-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .evidence-card:hover {
+            border-color: var(--accent-red);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255, 59, 59, 0.1);
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .card-icon {
+            width: 45px; height: 45px;
+            background: rgba(255, 59, 59, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+        
+        .card-title { font-size: 1.2rem; font-weight: 700; }
+        .card-content { font-family: 'JetBrains Mono', monospace; font-size: 13px; }
+        
+        .card-content .row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .card-content .row:last-child { border-bottom: none; }
+        .card-content .label { color: var(--text-secondary); }
+        .card-content .value { color: var(--accent-blue); direction: ltr; word-break: break-all; }
+        .card-content .value.danger { color: var(--accent-red); }
+        .card-content .value.success { color: var(--accent-green); }
+        
+        .server-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+        }
+        
+        .server-table th {
+            background: rgba(255, 59, 59, 0.1);
+            color: var(--accent-red);
+            padding: 15px;
+            text-align: right;
+            font-weight: 600;
+        }
+        
+        .server-table td {
+            padding: 15px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--accent-blue);
+            direction: ltr;
+            text-align: left;
+        }
+        
+        .server-table tr:hover td { background: rgba(255, 255, 255, 0.02); }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        
+        .status-live { background: rgba(0, 255, 136, 0.15); color: var(--accent-green); animation: pulse 2s infinite; }
+        .status-exposed { background: rgba(255, 59, 59, 0.15); color: var(--accent-red); }
+        
+        .live-counter {
+            background: var(--bg-card);
+            border: 2px solid var(--accent-red);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .counter-label { color: var(--text-secondary); font-size: 14px; margin-bottom: 10px; }
+        
+        .counter-number {
+            font-size: 4rem;
+            font-weight: 900;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent-red);
+            text-shadow: 0 0 30px rgba(255, 59, 59, 0.5);
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, rgba(255, 59, 59, 0.1) 0%, rgba(255, 149, 0, 0.1) 100%);
+            border: 1px solid var(--accent-red);
+            border-radius: 20px;
+            padding: 60px;
+            text-align: center;
+            margin: 60px 0;
+        }
+        
+        .cta-title { font-size: 2rem; font-weight: 900; margin-bottom: 20px; }
+        .cta-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
+        
+        .btn {
+            padding: 15px 35px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn-primary { background: var(--accent-red); color: white; }
+        .btn-primary:hover { background: #ff5555; transform: translateY(-3px); }
+        .btn-secondary { background: transparent; color: var(--text-primary); border: 2px solid var(--border-color); }
+        .btn-secondary:hover { border-color: var(--accent-blue); color: var(--accent-blue); }
+        
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        .footer-logo { font-size: 2rem; font-weight: 900; color: var(--accent-red); margin-bottom: 20px; }
+        .footer-text { color: var(--text-secondary); max-width: 600px; margin: 0 auto 30px; }
+        .footer-links { display: flex; gap: 30px; justify-content: center; margin-bottom: 30px; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; }
+        .footer-links a:hover { color: var(--accent-blue); }
+        .copyright { color: var(--text-secondary); font-size: 14px; padding-top: 30px; border-top: 1px solid var(--border-color); }
+        
+        @media (max-width: 768px) {
+            nav { padding: 15px 20px; }
+            .nav-links { display: none; }
+            section { padding: 60px 20px; }
+            .hero-stats { gap: 20px; }
+            .stat-box { padding: 15px 20px; }
+            .cta-section { padding: 40px 20px; }
+            .evidence-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
-    <div class="cyber-grid"></div>
-    <div class="alert-banner">⚠️ ACTIVE INVESTIGATION: HILO App Criminal Network - Evidence Collection In Progress</div>
-    <header>
-        <h1>🐉 DRAGON403</h1>
-        <p>CRIMINAL INFRASTRUCTURE DOCUMENTATION | CASE: HILO/FALLA FRAUD NETWORK</p>
-        <div class="kill-counter">
-            <div class="number" id="victim-count">8,472,930</div>
-            <div class="label">ESTIMATED VICTIMS WORLDWIDE</div>
+    <nav>
+        <div class="nav-logo">🐉 DRAGON403</div>
+        <ul class="nav-links">
+            <li><a href="#evidence">الأدلة</a></li>
+            <li><a href="#servers">البنية التحتية</a></li>
+            <li><a href="#contact">تواصل</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-badge">⚠️ تحقيق جنائي رقمي نشط</div>
+        <h1>فضيحة HILO</h1>
+        <p class="hero-subtitle">
+            توثيق تقني كامل لعمليات الاحتيال والسرقة التي يمارسها تطبيق HILO 
+            التابع لشركة Guangzhou QiaHaoQingChun Information Technology الصينية
+        </p>
+        
+        <div class="hero-stats">
+            <div class="stat-box">
+                <div class="stat-number red">$600,000</div>
+                <div class="stat-label">خسائر مالية موثقة</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number blue" id="victim-count">8,472,930</div>
+                <div class="stat-label">ضحايا محتملين حول العالم</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number green">47+</div>
+                <div class="stat-label">دليل تقني مستخرج</div>
+            </div>
         </div>
-    </header>
-    <main>
+    </section>
+
+    <section id="evidence">
+        <h2 class="section-title">🔐 الأدلة المستخرجة</h2>
+        <p class="section-desc">بيانات اعتماد وأسرار تقنية تم استخراجها من الكود المصدري للتطبيق</p>
+        
         <div class="evidence-grid">
             <div class="evidence-card">
-                <h3>🔥 GOOGLE/FIREBASE CREDENTIALS</h3>
-                <ul>
-                    <li><strong>Project ID:</strong> 432159938851</li>
-                    <li><strong>Google App ID:</strong> 1:432159938851:android:8adf65373a218409d59496</li>
-                    <li><strong>Firebase Instance:</strong> nextvideo-1590999469166</li>
-                    <li><strong>API Key:</strong> AIzaSyCygke1pXNS1aWcVqLza2BjbeegalmSlTg</li>
-                </ul>
-            </div>
-            <div class="evidence-card">
-                <h3>📘 FACEBOOK SDK CREDENTIALS</h3>
-                <ul>
-                    <li><strong>App ID:</strong> 579294106051988</li>
-                    <li><strong>Client Token:</strong> 72f13ea96e1ec07be6c0196910aad5fd</li>
-                    <li><strong>Login Scheme:</strong> fb579294106051988</li>
-                </ul>
-            </div>
-            <div class="evidence-card">
-                <h3>📹 AGORA RTC KEYS</h3>
-                <ul>
-                    <li><strong>Production App ID:</strong> 6291d069123642d9929a49c734c50719</li>
-                    <li><strong>Test App ID:</strong> fc3e087f701b4f788099e1924c3cc7b0</li>
-                </ul>
-            </div>
-            <div class="evidence-card">
-                <h3>📱 OPPO PUSH CREDENTIALS</h3>
-                <ul>
-                    <li><strong>App Key:</strong> b73635b02b714b6691960b6c18418720</li>
-                    <li><strong>App Secret:</strong> c3ed4679caeb406480bb8285ded57872</li>
-                </ul>
-            </div>
-            <div class="evidence-card">
-                <h3>🌐 SERVER INFRASTRUCTURE <span class="status-live">LIVE</span></h3>
-                <table class="server-table">
-                    <tr><th>Type</th><th>Endpoint</th></tr>
-                    <tr><td>API</td><td>api.tikhak.com</td></tr>
-                    <tr><td>API</td><td>apiv1.faceline.live</td></tr>
-                    <tr><td>API</td><td>api.hiloconn.com</td></tr>
-                    <tr><td>WebSocket</td><td>wss://ws.faceline.live/ws</td></tr>
-                    <tr><td>WebSocket</td><td>wss://ws.hiloconn.com/ws</td></tr>
-                    <tr><td>China Node</td><td>36.97.126.139</td></tr>
-                </table>
-            </div>
-            <div class="evidence-card">
-                <h3>🏢 COMPANY IDENTIFICATION</h3>
-                <ul>
-                    <li><strong>Legal Name:</strong> Guangzhou QiaHaoQingChun Info Tech Co.</li>
-                    <li><strong>Package:</strong> com.qiahao.nextvideo</li>
-                    <li><strong>Location:</strong> Guangzhou, China</li>
-                </ul>
-            </div>
-            <div class="evidence-card">
-                <h3>💰 FINANCIAL DAMAGE</h3>
-                <ul>
-                    <li><strong>Personal Loss:</strong> $600,000 USD</li>
-                    <li><strong>Victim:</strong> Sulaiman Nazal Alshammari</li>
-                    <li><strong>Status:</strong> International Investigation</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- RIYADH_ZERO PROTOCOL PANEL -->
-        <div style="margin-top: 40px; background: linear-gradient(135deg, #000 0%, #0a0a15 100%); border: 3px double #ff0000; padding: 30px; box-shadow: 0 0 60px rgba(255,0,0,0.3);">
-            <h2 style="color: #ff0000; text-align: center; text-transform: uppercase; letter-spacing: 5px; font-size: 1.8em; margin-bottom: 20px;">
-                ⚠️ RIYADH_ZERO PROTOCOL ACTIVE ⚠️
-            </h2>
-            <div style="border-top: 2px solid #333; padding-top: 20px;">
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-                    <div style="background: rgba(0,242,255,0.05); padding: 15px; border-left: 4px solid #00f2ff;">
-                        <span style="color: #0f0; font-weight: bold;">[SWEDEN_NODE]:</span> 
-                        <span style="color: #00f2ff;">4.223.108.167 - OPERATIONAL</span>
-                    </div>
-                    <div style="background: rgba(255,0,0,0.05); padding: 15px; border-left: 4px solid #ff0000;">
-                        <span style="color: #0f0; font-weight: bold;">[CHINA_C2]:</span> 
-                        <span style="color: #ff6600;">36.97.126.139 - INTERCEPTED</span>
-                    </div>
-                    <div style="background: rgba(0,255,0,0.05); padding: 15px; border-left: 4px solid #0f0;">
-                        <span style="color: #0f0; font-weight: bold;">[VAULT_STATUS]:</span> 
-                        <span style="color: #0f0;">8 AGORA_KEYS | 4 GOOGLE_KEYS | FB_TOKEN</span>
-                    </div>
+                <div class="card-header">
+                    <div class="card-icon">🔥</div>
+                    <div class="card-title">Google Firebase</div>
                 </div>
-                <div style="text-align: center; margin: 30px 0;">
-                    <div style="font-size: 0.9em; color: #888;">TOTAL PACKETS INTERCEPTED</div>
-                    <div id="kill-count" style="font-size: 4em; color: #ff3300; text-shadow: 0 0 30px red; font-weight: bold;">49,847</div>
+                <div class="card-content">
+                    <div class="row"><span class="label">Project Number</span><span class="value danger">432159938851</span></div>
+                    <div class="row"><span class="label">App ID</span><span class="value">1:432159938851:android:8adf65373a218409d59496</span></div>
+                    <div class="row"><span class="label">API Key</span><span class="value danger">AIzaSyCygke1pXNS1aWcVqLza2BjbeegalmSlTg</span></div>
                 </div>
-                <div style="background: rgba(0,0,0,0.5); padding: 20px; border: 1px solid #333; font-family: monospace; font-size: 13px;">
-                    <code style="color: #0f0;">
-                        > <span style="color: #00f2ff;">EXTRACTING</span> JWT_TOKEN... <span style="color: #0f0;">DONE</span><br>
-                        > <span style="color: #00f2ff;">MAPPING</span> CLOUDFRONT EDGE... <span style="color: #ff6600;">RIYADH_NODE DETECTED</span><br>
-                        > <span style="color: #00f2ff;">TRACING</span> com.qiahao.nextvideo... <span style="color: #ff0000;">CRIMINAL ORIGIN CONFIRMED</span><br>
-                        > <span style="color: #fff; font-weight: bold;">STATUS: ACCOUNTABILITY IS AN EVENTUALITY.</span>
-                    </code>
+            </div>
+            
+            <div class="evidence-card">
+                <div class="card-header">
+                    <div class="card-icon">📘</div>
+                    <div class="card-title">Facebook SDK</div>
+                </div>
+                <div class="card-content">
+                    <div class="row"><span class="label">App ID</span><span class="value danger">579294106051988</span></div>
+                    <div class="row"><span class="label">Client Token</span><span class="value danger">72f13ea96e1ec07be6c0196910aad5fd</span></div>
+                </div>
+            </div>
+            
+            <div class="evidence-card">
+                <div class="card-header">
+                    <div class="card-icon">📹</div>
+                    <div class="card-title">Agora RTC Keys</div>
+                </div>
+                <div class="card-content">
+                    <div class="row"><span class="label">Production Key</span><span class="value danger">6291d069123642d9929a49c734c50719</span></div>
+                    <div class="row"><span class="label">Test Key</span><span class="value danger">fc3e087f701b4f788099e1924c3cc7b0</span></div>
+                </div>
+            </div>
+            
+            <div class="evidence-card">
+                <div class="card-header">
+                    <div class="card-icon">🏢</div>
+                    <div class="card-title">هوية الشركة</div>
+                </div>
+                <div class="card-content">
+                    <div class="row"><span class="label">الاسم</span><span class="value">Guangzhou QiaHaoQingChun Info Tech</span></div>
+                    <div class="row"><span class="label">Package</span><span class="value">com.qiahao.nextvideo</span></div>
+                    <div class="row"><span class="label">الموقع</span><span class="value">Guangzhou, China</span></div>
+                </div>
+            </div>
+            
+            <div class="evidence-card">
+                <div class="card-header">
+                    <div class="card-icon">📱</div>
+                    <div class="card-title">OPPO Push</div>
+                </div>
+                <div class="card-content">
+                    <div class="row"><span class="label">App Key</span><span class="value">b73635b02b714b6691960b6c18418720</span></div>
+                    <div class="row"><span class="label">App Secret</span><span class="value danger">c3ed4679caeb406480bb8285ded57872</span></div>
+                </div>
+            </div>
+            
+            <div class="evidence-card">
+                <div class="card-header">
+                    <div class="card-icon">💰</div>
+                    <div class="card-title">الأضرار المالية</div>
+                </div>
+                <div class="card-content">
+                    <div class="row"><span class="label">المبلغ</span><span class="value danger">$600,000 USD</span></div>
+                    <div class="row"><span class="label">الضحية</span><span class="value">سليمان نزال الشمري</span></div>
+                    <div class="row"><span class="label">الحالة</span><span class="value success">تحقيق دولي</span></div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- ATTACK TRACE MAP -->
-        <div style="margin-top: 40px; background: #000; border: 2px solid #333; padding: 30px; border-radius: 10px;">
-            <h2 style="color: #00f2ff; text-align: center; margin-bottom: 25px;">🗺️ ATTACK TRACE MAP - LIVE</h2>
-            <div style="position: relative; background: linear-gradient(180deg, #0a0a15 0%, #000 100%); border: 1px solid #222; padding: 40px 20px; border-radius: 8px;">
-                <!-- Connection Lines (SVG) -->
-                <svg width="100%" height="200" style="position: absolute; top: 0; left: 0; pointer-events: none;">
-                    <defs>
-                        <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" style="stop-color:#00f2ff"/>
-                            <stop offset="50%" style="stop-color:#ff0000"/>
-                            <stop offset="100%" style="stop-color:#ff6600"/>
-                        </linearGradient>
-                    </defs>
-                    <line x1="15%" y1="100" x2="50%" y2="100" stroke="url(#lineGrad)" stroke-width="2" stroke-dasharray="5,5">
-                        <animate attributeName="stroke-dashoffset" from="0" to="-20" dur="1s" repeatCount="indefinite"/>
-                    </line>
-                    <line x1="50%" y1="100" x2="85%" y2="100" stroke="url(#lineGrad)" stroke-width="2" stroke-dasharray="5,5">
-                        <animate attributeName="stroke-dashoffset" from="0" to="-20" dur="1s" repeatCount="indefinite"/>
-                    </line>
-                </svg>
-                
-                <div style="display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1;">
-                    <!-- Riyadh Node -->
-                    <div style="text-align: center; flex: 1;">
-                        <div style="width: 80px; height: 80px; margin: 0 auto; border: 3px solid #0f0; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(0,255,0,0.1); animation: pulse 2s infinite;">
-                            <span style="font-size: 2em;">🇸🇦</span>
-                        </div>
-                        <div style="color: #0f0; margin-top: 10px; font-weight: bold;">RIYADH_ZERO</div>
-                        <div style="color: #666; font-size: 0.8em;">Command Center</div>
-                    </div>
-                    
-                    <!-- Sweden Node -->
-                    <div style="text-align: center; flex: 1;">
-                        <div style="width: 80px; height: 80px; margin: 0 auto; border: 3px solid #00f2ff; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(0,242,255,0.1); animation: pulse 2s infinite;">
-                            <span style="font-size: 2em;">🇸🇪</span>
-                        </div>
-                        <div style="color: #00f2ff; margin-top: 10px; font-weight: bold;">SWEDEN NODE</div>
-                        <div style="color: #666; font-size: 0.8em;">4.223.108.167</div>
-                        <div style="color: #0f0; font-size: 0.7em; margin-top: 5px;">● INTERCEPTING</div>
-                    </div>
-                    
-                    <!-- China Target -->
-                    <div style="text-align: center; flex: 1;">
-                        <div style="width: 80px; height: 80px; margin: 0 auto; border: 3px solid #ff0000; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(255,0,0,0.2); animation: pulse 1s infinite;">
-                            <span style="font-size: 2em;">🇨🇳</span>
-                        </div>
-                        <div style="color: #ff0000; margin-top: 10px; font-weight: bold;">CHINA C2</div>
-                        <div style="color: #666; font-size: 0.8em;">36.97.126.139</div>
-                        <div style="color: #ff6600; font-size: 0.7em; margin-top: 5px;">⚠ EXPOSED</div>
-                    </div>
-                </div>
-                
-                <!-- Live Status Bar -->
-                <div style="margin-top: 30px; background: rgba(0,0,0,0.5); border: 1px solid #333; padding: 15px; text-align: center;">
-                    <span style="color: #888;">TRACE STATUS:</span>
-                    <span id="trace-status" style="color: #0f0; margin-left: 10px;">● ACTIVE - Packet #<span id="packet-num">49847</span> captured</span>
-                </div>
-            </div>
-        </div>
-
-    </main>
-    <footer>
-        <p>DRAGON403 Evidence Repository | <a href="https://github.com/KHAWRIZM">@KHAWRIZM</a></p>
-        <p style="margin-top:10px; color: #0f0;">🛡️ SWEDEN NODE: 4.223.108.167 | ACTIVE</p>
-        <p style="margin-top:5px; color: #ff6600; font-size: 0.9em;">📍 Architect: @KHAWRIZM | Operation: RIYADH_ZERO</p>
-    </footer>
-    <script>
-        let count = 8472930;
-        setInterval(() => { count += Math.floor(Math.random() * 15); document.getElementById('victim-count').textContent = count.toLocaleString(); }, 2000);
+    <section id="servers">
+        <h2 class="section-title">🌐 البنية التحتية للخوادم</h2>
+        <p class="section-desc">خوادم التحكم والسيطرة (C2) التي تدير شبكة الاحتيال</p>
         
-        // Kill counter for intercepted packets
-        let killCount = 49847;
-        setInterval(() => { 
-            killCount += Math.floor(Math.random() * 7) + 1; 
-            document.getElementById('kill-count').textContent = killCount.toLocaleString();
-            document.getElementById('packet-num').textContent = killCount.toLocaleString();
-        }, 800);
+        <div class="evidence-card" style="max-width: 100%;">
+            <table class="server-table">
+                <thead>
+                    <tr><th>النوع</th><th>العنوان</th><th>الموقع</th><th>الحالة</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>API</td><td>api.tikhak.com</td><td>CloudFlare</td><td><span class="status-badge status-live">LIVE</span></td></tr>
+                    <tr><td>API</td><td>apiv1.faceline.live</td><td>CloudFlare</td><td><span class="status-badge status-live">LIVE</span></td></tr>
+                    <tr><td>API</td><td>api.hiloconn.com</td><td>CloudFlare</td><td><span class="status-badge status-live">LIVE</span></td></tr>
+                    <tr><td>WebSocket</td><td>wss://ws.faceline.live/ws</td><td>CloudFlare</td><td><span class="status-badge status-live">LIVE</span></td></tr>
+                    <tr><td>WebSocket</td><td>wss://ws.hiloconn.com/ws</td><td>CloudFlare</td><td><span class="status-badge status-live">LIVE</span></td></tr>
+                    <tr><td>C2 Node</td><td>36.97.126.139</td><td>Zhejiang, China</td><td><span class="status-badge status-exposed">EXPOSED</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="live-counter">
+            <div class="counter-label">عدد الحزم المعترضة من سيرفر السويد 🇸🇪</div>
+            <div class="counter-number" id="packet-count">49,847</div>
+        </div>
+    </section>
 
-        // Trace status animation
-        const statuses = ['ACTIVE - Capturing WebSocket traffic', 'ACTIVE - Analyzing JWT tokens', 'ACTIVE - Tracing Agora channels', 'ACTIVE - Recording C2 heartbeats'];
-        let statusIdx = 0;
+    <section id="contact">
+        <div class="cta-section">
+            <h2 class="cta-title">🛡️ المحاسبة حتمية</h2>
+            <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
+                إذا كنت ضحية لتطبيق HILO أو تملك معلومات إضافية، تواصل معنا.
+            </p>
+            <div class="cta-buttons">
+                <a href="https://github.com/KHAWRIZM/DRAGON_403-HILO-EXPOSED" class="btn btn-primary">📂 مستودع الأدلة</a>
+                <a href="mailto:sulaiman@gratech.sa" class="btn btn-secondary">✉️ تواصل معنا</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo">🐉 DRAGON403</div>
+        <p class="footer-text">مشروع توثيق جنائي رقمي مستقل لحماية المستخدمين وفضح الممارسات الاحتيالية.</p>
+        <div class="footer-links">
+            <a href="https://github.com/KHAWRIZM">GitHub</a>
+            <a href="https://twitter.com/KHAWRIZM">Twitter</a>
+        </div>
+        <div class="copyright">
+            © 2026 DRAGON403 | RIYADH_ZERO<br>
+            <span style="color: var(--accent-green);">🇸🇦 سيرفر السويد: 4.223.108.167 | نشط</span>
+        </div>
+    </footer>
+
+    <script>
+        let victims = 8472930, packets = 49847;
         setInterval(() => {
-            statusIdx = (statusIdx + 1) % statuses.length;
-            document.getElementById('trace-status').innerHTML = '● ' + statuses[statusIdx] + ' | Packet #<span id="packet-num">' + killCount.toLocaleString() + '</span>';
-        }, 3000);
+            victims += Math.floor(Math.random() * 10) + 1;
+            packets += Math.floor(Math.random() * 5) + 1;
+            document.getElementById('victim-count').textContent = victims.toLocaleString();
+            document.getElementById('packet-count').textContent = packets.toLocaleString();
+        }, 1500);
+        
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                e.preventDefault();
+                document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
     </script>
 </body>
 </html>
