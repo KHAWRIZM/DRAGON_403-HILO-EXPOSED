@@ -2,47 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>DRAGON403 | HILO RECLAMATION</title>
+    <title>DRAGON403 | SYSTEM RECLAMATION</title>
     <style>
-        body { background: #050508; color: #fff; font-family: 'Courier New', monospace; padding: 40px; line-height: 1.6; }
-        .alert { border: 2px solid red; padding: 25px; background: rgba(255,0,0,0.1); border-radius: 10px; box-shadow: 0 0 30px rgba(255,0,0,0.5); }
-        .intel-list { color: #00f2ff; list-style: square; font-size: 1.1em; }
-        .status-bar { background: #111; padding: 10px; border-left: 5px solid #0f0; margin-top: 20px; }
-        video { width: 100%; border: 2px solid #333; margin-top: 20px; }
-        .kill-counter { font-size: 2.5em; color: #ff3300; text-shadow: 0 0 10px red; }
+        body { background: #050508; color: #fff; font-family: monospace; padding: 30px; }
+        .vault-card { border: 2px solid #00f2ff; padding: 20px; background: rgba(0,0,0,0.8); }
+        .critical { color: #ff3300; font-weight: bold; }
+        .live-status { color: #0f0; animation: blink 1s infinite; }
+        @keyframes blink { 50% { opacity: 0; } }
+        video { width: 100%; border: 1px solid #333; margin-top: 15px; }
     </style>
 </head>
 <body>
-    <div class="alert">
-        <h1 style="color: red; margin-top: 0;">🚨 HILO/FALLA INFRASTRUCTURE EXPOSED</h1>
-        <p>Forensic Investigation by House of Shammar | Operator KHAWRIZM</p>
-        <hr style="border-color: #333;">
-        <ul class="intel-list">
-            <li><strong>GOOGLE_PROJECT:</strong> 432159938851</li>
-            <li><strong>FACEBOOK_APP:</strong> 579294106051988</li>
-            <li><strong>AGORA_APP_ID:</strong> fc3e087f701b4f788099e1924c3cc7b0</li>
-            <li><strong>TARGET_IP:</strong> 36.97.126.139 (China Node)</li>
-        </ul>
-        <div class="status-bar">
-            <span style="color: #0f0;">● LIVE:</span> Sweden Node Node-01 is actively intercepting traffic.
-        </div>
+    <div class="vault-card">
+        <h2 class="critical">⚠ CRIMINAL NETWORK EXPOSED</h2>
+        <hr>
+        <p>> PROJECT_NUMBER: 432159938851 (Google Cloud)</p>
+        <p>> AGORA_APP_ID: fc3e087f701b4f788099e1924c3cc7b0</p>
+        <p>> FACEBOOK_ID: 579294106051988</p>
+        <p>> TARGET_IP: 36.97.126.139 (Guangdong, China)</p>
+        <p class="live-status">[STATUS]: SWEDEN NODE INTERCEPTING LIVE TRAFFIC</p>
     </div>
-    
-    <div style="text-align: center; margin-top: 30px;">
-        <div class="kill-counter" id="hits">8,472,930</div>
-        <p style="color: #888;">BURSTS DELIVERED TO CRIMINAL ENDPOINTS</p>
-    </div>
-
-    <video controls poster="https://dragon403.com/media/thumb.jpg">
-        <source src="media/DRAGON403_WAR_COMPLETE.mp4" type="video/mp4">
-    </video>
-
-    <script>
-        let c = 8472930;
-        setInterval(() => {
-            c += Math.floor(Math.random() * 15);
-            document.getElementById('hits').innerText = c.toLocaleString();
-        }, 1000);
-    </script>
+    <video controls><source src="media/DRAGON403_WAR_COMPLETE.mp4" type="video/mp4"></video>
 </body>
 </html>
