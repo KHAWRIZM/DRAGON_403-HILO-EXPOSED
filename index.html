@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DRAGON403 | HILO RECLAMATION</title>
+    <style>
+        body { background: #050508; color: #fff; font-family: 'Courier New', monospace; padding: 40px; line-height: 1.6; }
+        .alert { border: 2px solid red; padding: 25px; background: rgba(255,0,0,0.1); border-radius: 10px; box-shadow: 0 0 30px rgba(255,0,0,0.5); }
+        .intel-list { color: #00f2ff; list-style: square; font-size: 1.1em; }
+        .status-bar { background: #111; padding: 10px; border-left: 5px solid #0f0; margin-top: 20px; }
+        video { width: 100%; border: 2px solid #333; margin-top: 20px; }
+        .kill-counter { font-size: 2.5em; color: #ff3300; text-shadow: 0 0 10px red; }
+    </style>
+</head>
+<body>
+    <div class="alert">
+        <h1 style="color: red; margin-top: 0;">🚨 HILO/FALLA INFRASTRUCTURE EXPOSED</h1>
+        <p>Forensic Investigation by House of Shammar | Operator KHAWRIZM</p>
+        <hr style="border-color: #333;">
+        <ul class="intel-list">
+            <li><strong>GOOGLE_PROJECT:</strong> 432159938851</li>
+            <li><strong>FACEBOOK_APP:</strong> 579294106051988</li>
+            <li><strong>AGORA_RTC_KEY:</strong> fc3e087f701b4f788099e1924c3cc7b0</li>
+            <li><strong>TARGET_IP:</strong> 36.97.126.139 (Guangdong, China)</li>
+        </ul>
+        <div class="status-bar">
+            <span style="color: #0f0;">● LIVE:</span> Sweden Node is intercepting WebSocket traffic from ws.faceline.live
+        </div>
+    </div>
+    
+    <div style="text-align: center; margin-top: 30px;">
+        <div class="kill-counter" id="hits">8,472,930</div>
+        <p style="color: #888;">BURSTS DELIVERED TO CRIMINAL ENDPOINTS</p>
+    </div>
+
+    <video controls poster="https://dragon403.com/media/thumb.jpg">
+        <source src="media/DRAGON403_WAR_COMPLETE.mp4" type="video/mp4">
+    </video>
+
+    <script>
+        let c = 8472930;
+        setInterval(() => {
+            c += Math.floor(Math.random() * 15);
+            document.getElementById('hits').innerText = c.toLocaleString();
+        }, 1000);
+    </script>
+</body>
+</html>
