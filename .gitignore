@@ -1,0 +1,6 @@
+# Large files to ignore
+*.mp4
+*.exe
+Documentary/comet_output/
+Comet-X/node_modules/
+node_modules/
