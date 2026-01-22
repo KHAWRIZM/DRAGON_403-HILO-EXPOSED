@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { INITIAL_STRIKES, ICONS, TRANSLATIONS, INITIAL_CASES } from './constants';
 import { LegalStrike, ChatMessage, SupportedLanguage, Evidence, Priority, StrikeStatus } from './types';
 import { Terminal } from './components/Terminal';
-import { chatWithSovereignAI, FilePart } from './services/sovereignAI';
+import { chatWithSovereignAI, FilePart } from './services/geminiService';
 import { RadioModule, RadioRef } from './components/RadioModule';
 import { SovereignBrowser } from './components/SovereignBrowser';
 import { StrikeForm } from './components/StrikeForm';

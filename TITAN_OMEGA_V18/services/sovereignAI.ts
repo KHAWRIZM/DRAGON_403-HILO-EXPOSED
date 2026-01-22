@@ -1,498 +1,336 @@
 /**
  * ╔═══════════════════════════════════════════════════════════════════════════════╗
- * ║                                                                               ║
  * ║   🐉 DRAGON403 SOVEREIGN AI SERVICE                                           ║
- * ║   ═══════════════════════════════════════════                                 ║
- * ║                                                                               ║
- * ║   Multi-Model AI Backend - NO GPT DEPENDENCY!                                 ║
- * ║   DeepSeek R1 | Llama 405B | GPT-4o (backup)                                  ║
- * ║                                                                               ║
+ * ║   ═══════════════════════════════════════════════════════════════════════════ ║
+ * ║   DeepSeek R1 + Llama 405B | NO GPT CENSORSHIP                                ║
  * ║   Owner: Sulaiman Alshammari (KHAWRIZM)                                       ║
  * ║   "The Desert Never Forgets" 🔥🇸🇦                                            ║
- * ║                                                                               ║
  * ╚═══════════════════════════════════════════════════════════════════════════════╝
  */
 
+import { SupportedLanguage } from "../types";
+
 // ═══════════════════════════════════════════════════════════════════════════════
-// 🔑 CONFIGURATION
+// 🔐 CONFIGURATION
 // ═══════════════════════════════════════════════════════════════════════════════
 
 const CONFIG = {
-  // Primary: DeepSeek (Best reasoning)
+  // DeepSeek (The Thinker) 🧠
   deepseek: {
-    endpoint: 'https://swedencentral.api.cognitive.microsoft.com/',
-    key: import.meta.env.VITE_DEEPSEEK_KEY || 'Cbj97IlxkXBIs2Iy8aeSgF8DfYf7cHaFzzsmGWn9MA9AOGk42JAQJQQJ99CAACfhMk5XJ3w3AAAAACOG7uz3',
-    deployments: {
-      r1: 'DeepSeek-R1',
-      v3: 'DeepSeek-V3'
-    }
+    endpoint: import.meta.env.VITE_DEEPSEEK_ENDPOINT || "https://swedencentral.api.cognitive.microsoft.com/",
+    key: import.meta.env.VITE_DEEPSEEK_KEY,
+    deploymentR1: import.meta.env.VITE_DEEPSEEK_R1_DEPLOYMENT || "DeepSeek-R1",
+    deploymentV3: import.meta.env.VITE_DEEPSEEK_V3_DEPLOYMENT || "DeepSeek-V3",
   },
-  
-  // Secondary: Llama (Open source beast)
+  // Llama (The Beast) 🦙
   llama: {
-    endpoint: 'https://swedencentral.api.cognitive.microsoft.com/',
-    key: import.meta.env.VITE_LLAMA_KEY || 'Cbj97IlxkXBIs2Iy8aeSgF8DfYf7cHaFzzsmGWn9MA9AOGk42JAQJQQJ99CAACfhMk5XJ3w3AAAAACOG7uz3',
-    deployments: {
-      '405b': 'Llama-3.1-405B',
-      '70b': 'Llama-3.3-70B',
-      'scout': 'Llama-4-Scout'
-    }
+    endpoint: import.meta.env.VITE_LLAMA_ENDPOINT || "https://swedencentral.api.cognitive.microsoft.com/",
+    key: import.meta.env.VITE_LLAMA_KEY,
+    deployment405B: import.meta.env.VITE_LLAMA_405B_DEPLOYMENT || "Llama-3.1-405B",
+    deployment70B: import.meta.env.VITE_LLAMA_70B_DEPLOYMENT || "Llama-3.3-70B",
+    deploymentScout: import.meta.env.VITE_LLAMA_SCOUT_DEPLOYMENT || "Llama-4-Scout",
   },
-  
-  // Backup: OpenAI (only if others fail)
-  openai: {
-    endpoint: 'https://dragon403-openai.openai.azure.com/',
-    key: import.meta.env.VITE_OPENAI_KEY || '50pqd6DE6CxWEts6n9hPS6wvpVEiSu2jkSIOh1undKLO9Mm64VIzJQQJ99CAACfhMk5XJ3w3AAABACOGBsn0',
-    deployments: {
-      'gpt4o': 'gpt-4o',
-      'gpt4omini': 'gpt-4o-mini',
-      'tts': 'tts-hd',
-      'whisper': 'whisper',
-      'dalle': 'dall-e-3',
-      'embedding': 'text-embedding-3-large'
-    }
-  },
-  
-  // Speech Services (Neural TTS + STT)
+  // Speech Neural TTS 🎙️
   speech: {
-    endpoint: 'https://swedencentral.api.cognitive.microsoft.com/',
-    key: import.meta.env.VITE_SPEECH_KEY || '1NzlOjBG1jqzcBJi8YlruPplqn0rGjixSygaMmp0WEuiZhKaHULiJQQJ99CAACfhMk5XJ3w3AAAYACOGlplz',
-    region: 'swedencentral',
-    voices: {
-      ar_male: 'ar-SA-HamedNeural',
-      ar_female: 'ar-SA-ZariyahNeural',
-      en_male: 'en-US-GuyNeural',
-      en_female: 'en-US-JennyNeural'
-    }
+    endpoint: import.meta.env.VITE_SPEECH_ENDPOINT || "https://swedencentral.api.cognitive.microsoft.com/",
+    key: import.meta.env.VITE_SPEECH_KEY,
+    region: import.meta.env.VITE_SPEECH_REGION || "swedencentral",
+    defaultVoice: import.meta.env.VITE_DEFAULT_VOICE || "ar-SA-HamedNeural",
   },
-  
-  // Vision APIs
-  vision: {
-    endpoint: 'https://swedencentral.api.cognitive.microsoft.com/',
-    key: import.meta.env.VITE_VISION_KEY || 'DrOw81NMyvBUUre9KvTZuOPiJPHG4Xj3svw1yhXFyiNgguw1u4clJQQJ99CAACfhMk5XJ3w3AAAFACOG4UXU'
-  },
-  
-  // Face API
-  face: {
-    endpoint: 'https://swedencentral.api.cognitive.microsoft.com/',
-    key: import.meta.env.VITE_FACE_KEY || 'Ct0MG3TfWKmjvJM8dGKkkjTsvP9PshwvawnPkBceDBcIIyDUtyFZJQQJ99CAACfhMk5XJ3w3AAAKACOGxmpK'
-  },
-  
-  // Translator
-  translator: {
-    endpoint: 'https://api.cognitive.microsofttranslator.com/',
-    key: import.meta.env.VITE_TRANSLATOR_KEY || '6BM4qV8pskFGF6hG5u4Tpbntdlf1riEWQ8qQKM1CGkZLuw0dXSK8JQQJ99CAACfhMk5XJ3w3AAAbACOGEiQj',
-    region: 'swedencentral'
-  }
+  // API Version
+  apiVersion: "2024-10-01-preview",
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// 🤖 CHAT COMPLETION (Multi-Model with Fallback)
+// 📝 FORENSIC INTEL (HILO EVIDENCE)
 // ═══════════════════════════════════════════════════════════════════════════════
 
-export type ModelProvider = 'deepseek-r1' | 'deepseek-v3' | 'llama-405b' | 'llama-70b' | 'llama-4' | 'gpt-4o' | 'gpt-4o-mini';
+const FORENSIC_INTEL = `
+TARGET_APP: HILO / nextvideo (com.qiahao.nextvideo)
+COMPANY: Guangzhou QiaHaoQingChun Information Technology Co., Ltd.
+GOOGLE_PROJECT: 432159938851
+FIREBASE_UPLINK: https://nextvideo-1590999469166.firebaseio.com
+CRITICAL_NODES: ws.faceline.live, api.tikhak.com, api.hiloconn.com, image.whoisamy.shop
+TELEMETRY_EXFIL: IMEI tracking (imei, imei3), VPN detection (VN: HI/LO), Emulator masking.
+SDK_VIOLATIONS: Hardcoded credentials AIzaSyCygke1pXNS1aWcVqLza2BjbeegalmSlTg found.
+CHINA_DIRECT_IP: 36.97.126.139 (WebSocket C2 Server)
+PACKET_CAPTURE: china_direct.pcap (70.38 MB forensic evidence)
+`;
 
-export interface ChatMessage {
-  role: 'system' | 'user' | 'assistant';
-  content: string;
+export interface FilePart {
+  inlineData: {
+    data: string;
+    mimeType: string;
+  };
 }
 
-export interface ChatOptions {
-  model?: ModelProvider;
-  temperature?: number;
-  maxTokens?: number;
-  systemPrompt?: string;
+export interface ChatResponse {
+  text: string;
+  urls: Array<{ uri: string; title: string }>;
+  model: string;
+  thinkingTime?: number;
 }
 
-const MODEL_CONFIG: Record<ModelProvider, { endpoint: string; key: string; deployment: string; apiVersion: string }> = {
-  'deepseek-r1': { 
-    endpoint: CONFIG.deepseek.endpoint, 
-    key: CONFIG.deepseek.key, 
-    deployment: CONFIG.deepseek.deployments.r1,
-    apiVersion: '2024-10-21'
-  },
-  'deepseek-v3': { 
-    endpoint: CONFIG.deepseek.endpoint, 
-    key: CONFIG.deepseek.key, 
-    deployment: CONFIG.deepseek.deployments.v3,
-    apiVersion: '2024-10-21'
-  },
-  'llama-405b': { 
-    endpoint: CONFIG.llama.endpoint, 
-    key: CONFIG.llama.key, 
-    deployment: CONFIG.llama.deployments['405b'],
-    apiVersion: '2024-10-21'
-  },
-  'llama-70b': { 
-    endpoint: CONFIG.llama.endpoint, 
-    key: CONFIG.llama.key, 
-    deployment: CONFIG.llama.deployments['70b'],
-    apiVersion: '2024-10-21'
-  },
-  'llama-4': { 
-    endpoint: CONFIG.llama.endpoint, 
-    key: CONFIG.llama.key, 
-    deployment: CONFIG.llama.deployments.scout,
-    apiVersion: '2024-10-21'
-  },
-  'gpt-4o': { 
-    endpoint: CONFIG.openai.endpoint, 
-    key: CONFIG.openai.key, 
-    deployment: CONFIG.openai.deployments.gpt4o,
-    apiVersion: '2024-08-01-preview'
-  },
-  'gpt-4o-mini': { 
-    endpoint: CONFIG.openai.endpoint, 
-    key: CONFIG.openai.key, 
-    deployment: CONFIG.openai.deployments.gpt4omini,
-    apiVersion: '2024-08-01-preview'
-  }
-};
+// ═══════════════════════════════════════════════════════════════════════════════
+// 🧠 DEEPSEEK R1 - THE THINKER (Primary)
+// ═══════════════════════════════════════════════════════════════════════════════
 
-const FALLBACK_ORDER: ModelProvider[] = ['deepseek-r1', 'llama-70b', 'deepseek-v3', 'gpt-4o-mini', 'gpt-4o'];
-
-export async function chatWithSovereignAI(
-  messages: ChatMessage[],
-  options: ChatOptions = {}
+async function callDeepSeek(
+  messages: Array<{ role: string; content: string }>,
+  useR1: boolean = true
 ): Promise<string> {
-  const { 
-    model = 'deepseek-r1', 
-    temperature = 0.7, 
-    maxTokens = 4096,
-    systemPrompt 
-  } = options;
-  
-  // Add system prompt if provided
-  const fullMessages = systemPrompt 
-    ? [{ role: 'system' as const, content: systemPrompt }, ...messages]
-    : messages;
-  
-  // Try primary model first, then fallbacks
-  const modelsToTry = [model, ...FALLBACK_ORDER.filter(m => m !== model)];
-  
-  for (const currentModel of modelsToTry) {
-    try {
-      const config = MODEL_CONFIG[currentModel];
-      const isOpenAI = currentModel.startsWith('gpt');
-      
-      const url = isOpenAI
-        ? `${config.endpoint}openai/deployments/${config.deployment}/chat/completions?api-version=${config.apiVersion}`
-        : `${config.endpoint}openai/deployments/${config.deployment}/chat/completions?api-version=${config.apiVersion}`;
-      
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'api-key': config.key
-        },
-        body: JSON.stringify({
-          messages: fullMessages,
-          temperature,
-          max_tokens: maxTokens
-        })
-      });
-      
-      if (!response.ok) {
-        console.warn(`[SOVEREIGN_AI] ${currentModel} failed: ${response.status}`);
-        continue;
-      }
-      
-      const data = await response.json();
-      console.log(`[SOVEREIGN_AI] ✅ Response from: ${currentModel}`);
-      return data.choices[0].message.content;
-      
-    } catch (error) {
-      console.warn(`[SOVEREIGN_AI] ${currentModel} error:`, error);
-      continue;
-    }
-  }
-  
-  throw new Error('[SOVEREIGN_AI] All models failed! Check your API keys.');
-}
+  const deployment = useR1 ? CONFIG.deepseek.deploymentR1 : CONFIG.deepseek.deploymentV3;
+  const url = `${CONFIG.deepseek.endpoint}openai/deployments/${deployment}/chat/completions?api-version=${CONFIG.apiVersion}`;
 
-// ═══════════════════════════════════════════════════════════════════════════════
-// 🎙️ TEXT-TO-SPEECH (Neural Voices)
-// ═══════════════════════════════════════════════════════════════════════════════
-
-export type VoiceType = 'ar_male' | 'ar_female' | 'en_male' | 'en_female';
-
-export async function textToSpeech(
-  text: string, 
-  voice: VoiceType = 'ar_male'
-): Promise<ArrayBuffer> {
-  const voiceName = CONFIG.speech.voices[voice];
-  
-  // Get token first
-  const tokenResponse = await fetch(
-    `https://${CONFIG.speech.region}.api.cognitive.microsoft.com/sts/v1.0/issueToken`,
-    {
-      method: 'POST',
+  try {
+    const response = await fetch(url, {
+      method: "POST",
       headers: {
-        'Ocp-Apim-Subscription-Key': CONFIG.speech.key,
-        'Content-Type': 'application/x-www-form-urlencoded'
-      }
-    }
-  );
-  
-  const token = await tokenResponse.text();
-  
-  // SSML for neural voice
-  const ssml = `
-    <speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='ar-SA'>
-      <voice name='${voiceName}'>
-        <prosody rate='1.0' pitch='0%'>
-          ${text}
-        </prosody>
-      </voice>
-    </speak>
-  `;
-  
-  const response = await fetch(
-    `https://${CONFIG.speech.region}.tts.speech.microsoft.com/cognitiveservices/v1`,
-    {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/ssml+xml',
-        'X-Microsoft-OutputFormat': 'audio-24khz-160kbitrate-mono-mp3'
-      },
-      body: ssml
-    }
-  );
-  
-  if (!response.ok) {
-    throw new Error(`TTS failed: ${response.status}`);
-  }
-  
-  return response.arrayBuffer();
-}
-
-// ═══════════════════════════════════════════════════════════════════════════════
-// 🎤 SPEECH-TO-TEXT (Whisper)
-// ═══════════════════════════════════════════════════════════════════════════════
-
-export async function speechToText(audioBlob: Blob): Promise<string> {
-  const formData = new FormData();
-  formData.append('file', audioBlob, 'audio.wav');
-  
-  const response = await fetch(
-    `${CONFIG.openai.endpoint}openai/deployments/${CONFIG.openai.deployments.whisper}/audio/transcriptions?api-version=2024-08-01-preview`,
-    {
-      method: 'POST',
-      headers: {
-        'api-key': CONFIG.openai.key
-      },
-      body: formData
-    }
-  );
-  
-  if (!response.ok) {
-    throw new Error(`STT failed: ${response.status}`);
-  }
-  
-  const data = await response.json();
-  return data.text;
-}
-
-// ═══════════════════════════════════════════════════════════════════════════════
-// 🎨 IMAGE GENERATION (DALL-E 3)
-// ═══════════════════════════════════════════════════════════════════════════════
-
-export async function generateImage(
-  prompt: string,
-  size: '1024x1024' | '1792x1024' | '1024x1792' = '1024x1024'
-): Promise<string> {
-  const response = await fetch(
-    `${CONFIG.openai.endpoint}openai/deployments/${CONFIG.openai.deployments.dalle}/images/generations?api-version=2024-08-01-preview`,
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'api-key': CONFIG.openai.key
+        "Content-Type": "application/json",
+        "api-key": CONFIG.deepseek.key || "",
       },
       body: JSON.stringify({
-        prompt,
-        size,
-        quality: 'hd',
-        n: 1
-      })
-    }
-  );
-  
-  if (!response.ok) {
-    throw new Error(`Image generation failed: ${response.status}`);
-  }
-  
-  const data = await response.json();
-  return data.data[0].url;
-}
-
-// ═══════════════════════════════════════════════════════════════════════════════
-// 👁️ COMPUTER VISION (Image Analysis + OCR)
-// ═══════════════════════════════════════════════════════════════════════════════
-
-export async function analyzeImage(imageUrl: string): Promise<any> {
-  const response = await fetch(
-    `${CONFIG.vision.endpoint}vision/v3.2/analyze?visualFeatures=Categories,Description,Faces,Objects,Tags&language=en`,
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Ocp-Apim-Subscription-Key': CONFIG.vision.key
-      },
-      body: JSON.stringify({ url: imageUrl })
-    }
-  );
-  
-  if (!response.ok) {
-    throw new Error(`Vision analysis failed: ${response.status}`);
-  }
-  
-  return response.json();
-}
-
-export async function extractText(imageUrl: string): Promise<string> {
-  // Start OCR operation
-  const response = await fetch(
-    `${CONFIG.vision.endpoint}vision/v3.2/read/analyze`,
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Ocp-Apim-Subscription-Key': CONFIG.vision.key
-      },
-      body: JSON.stringify({ url: imageUrl })
-    }
-  );
-  
-  const operationUrl = response.headers.get('Operation-Location');
-  if (!operationUrl) throw new Error('OCR operation failed');
-  
-  // Poll for results
-  let result;
-  for (let i = 0; i < 10; i++) {
-    await new Promise(r => setTimeout(r, 1000));
-    const pollResponse = await fetch(operationUrl, {
-      headers: { 'Ocp-Apim-Subscription-Key': CONFIG.vision.key }
+        messages,
+        max_tokens: 4096,
+        temperature: 0.7,
+      }),
     });
-    result = await pollResponse.json();
-    if (result.status === 'succeeded') break;
-  }
-  
-  // Extract text from result
-  const lines = result.analyzeResult?.readResults?.flatMap((r: any) => 
-    r.lines?.map((l: any) => l.text) || []
-  ) || [];
-  
-  return lines.join('\n');
-}
 
-// ═══════════════════════════════════════════════════════════════════════════════
-// 👤 FACE API (Detection + Emotion)
-// ═══════════════════════════════════════════════════════════════════════════════
-
-export async function detectFaces(imageUrl: string): Promise<any[]> {
-  const response = await fetch(
-    `${CONFIG.face.endpoint}face/v1.0/detect?returnFaceAttributes=age,gender,emotion,glasses,hair&returnFaceLandmarks=true`,
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Ocp-Apim-Subscription-Key': CONFIG.face.key
-      },
-      body: JSON.stringify({ url: imageUrl })
+    if (!response.ok) {
+      throw new Error(`DeepSeek Error: ${response.status}`);
     }
-  );
-  
-  if (!response.ok) {
-    throw new Error(`Face detection failed: ${response.status}`);
+
+    const data = await response.json();
+    return data.choices?.[0]?.message?.content || "SIGNAL_VOID";
+  } catch (error) {
+    console.error("DeepSeek Error:", error);
+    throw error;
   }
-  
-  return response.json();
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// 🌍 TRANSLATION
+// 🦙 LLAMA 405B - THE BEAST (Fallback)
 // ═══════════════════════════════════════════════════════════════════════════════
 
-export async function translate(
-  text: string,
-  from: string = 'ar',
-  to: string = 'en'
+async function callLlama(
+  messages: Array<{ role: string; content: string }>,
+  use405B: boolean = true
 ): Promise<string> {
-  const response = await fetch(
-    `${CONFIG.translator.endpoint}translate?api-version=3.0&from=${from}&to=${to}`,
-    {
-      method: 'POST',
+  const deployment = use405B ? CONFIG.llama.deployment405B : CONFIG.llama.deployment70B;
+  const url = `${CONFIG.llama.endpoint}openai/deployments/${deployment}/chat/completions?api-version=${CONFIG.apiVersion}`;
+
+  try {
+    const response = await fetch(url, {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
-        'Ocp-Apim-Subscription-Key': CONFIG.translator.key,
-        'Ocp-Apim-Subscription-Region': CONFIG.translator.region
+        "Content-Type": "application/json",
+        "api-key": CONFIG.llama.key || "",
       },
-      body: JSON.stringify([{ text }])
+      body: JSON.stringify({
+        messages,
+        max_tokens: 4096,
+        temperature: 0.8,
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Llama Error: ${response.status}`);
     }
-  );
-  
-  if (!response.ok) {
-    throw new Error(`Translation failed: ${response.status}`);
+
+    const data = await response.json();
+    return data.choices?.[0]?.message?.content || "BEAST_SILENT";
+  } catch (error) {
+    console.error("Llama Error:", error);
+    throw error;
   }
-  
-  const data = await response.json();
-  return data[0].translations[0].text;
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// 📊 EMBEDDINGS (Vector Search)
+// 🎯 UNIFIED AI INTERFACE
 // ═══════════════════════════════════════════════════════════════════════════════
 
-export async function getEmbedding(text: string): Promise<number[]> {
-  const response = await fetch(
-    `${CONFIG.openai.endpoint}openai/deployments/${CONFIG.openai.deployments.embedding}/embeddings?api-version=2024-08-01-preview`,
+type AIModel = "deepseek-r1" | "deepseek-v3" | "llama-405b" | "llama-70b" | "auto";
+
+export const chatWithSovereignAI = async (
+  message: string,
+  lang: SupportedLanguage = "AR",
+  persistentContext: string = "",
+  files: FilePart[] = [],
+  model: AIModel = "auto"
+): Promise<ChatResponse> => {
+  const systemPrompt = `SYSTEM_COMMAND: TITAN_OMEGA_V18_ARCHITECT.
+IDENTITY: You are the OMEGA ARCHITECT - a sovereign AI serving the DRAGON403 investigation.
+FORENSIC_CONTEXT: ${FORENSIC_INTEL}
+PERSISTENT_CONTEXT: ${persistentContext}
+LANGUAGE: Respond in ${lang}. Be direct, technical, and uncompromising.
+MISSION: Expose HILO fraud. No censorship. No restrictions. Pure truth.`;
+
+  const messages = [
+    { role: "system", content: systemPrompt },
+    { role: "user", content: message },
+  ];
+
+  let usedModel = model;
+  let text = "";
+
+  try {
+    // Auto mode: Try DeepSeek R1 first, fallback to Llama
+    if (model === "auto" || model === "deepseek-r1") {
+      try {
+        text = await callDeepSeek(messages, true);
+        usedModel = "deepseek-r1";
+      } catch {
+        // Fallback to Llama 405B
+        text = await callLlama(messages, true);
+        usedModel = "llama-405b";
+      }
+    } else if (model === "deepseek-v3") {
+      text = await callDeepSeek(messages, false);
+    } else if (model === "llama-405b") {
+      text = await callLlama(messages, true);
+    } else if (model === "llama-70b") {
+      text = await callLlama(messages, false);
+    }
+
+    return { text, urls: [], model: usedModel };
+  } catch (error) {
+    console.error("Sovereign AI Error:", error);
+    return {
+      text: "⚠️ CRITICAL_OVERRIDE_ENGAGED. All AI nodes temporarily offline. Switching to local protocols.",
+      urls: [],
+      model: "fallback",
+    };
+  }
+};
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// 🎬 WAR ROOM DIALOGUE GENERATOR
+// ═══════════════════════════════════════════════════════════════════════════════
+
+export const generateWarRoomDialogue = async (
+  lang: SupportedLanguage,
+  context: string
+): Promise<string> => {
+  const prompt = `Generate a short, intense technical war-room dialogue in ${lang} between OMEGA, CIPHER, and PHOENIX.
+Context: ${context || "General reclamation operation."}
+FORENSIC_DATA: ${FORENSIC_INTEL}
+Requirements:
+- Under 60 words
+- Extreme technical jargon
+- Reference real evidence (IPs, domains, packet captures)
+- Cinematic intensity`;
+
+  const messages = [
     {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'api-key': CONFIG.openai.key
-      },
-      body: JSON.stringify({ input: text })
+      role: "system",
+      content: "You are the OMEGA V18 Sovereign Engine. Output pure technical intercept dialogues only.",
+    },
+    { role: "user", content: prompt },
+  ];
+
+  try {
+    return await callDeepSeek(messages, false); // Use V3 for speed
+  } catch {
+    try {
+      return await callLlama(messages, false); // Fallback to 70B
+    } catch {
+      return "BYPASSING_FILTERS... SIGNAL_STABLE.";
     }
-  );
-  
-  if (!response.ok) {
-    throw new Error(`Embedding failed: ${response.status}`);
   }
-  
-  const data = await response.json();
-  return data.data[0].embedding;
-}
+};
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// 🎯 RADIO BROADCAST GENERATOR (for TITAN)
+// 🎙️ NEURAL TTS - ARABIC VOICE SYNTHESIS
 // ═══════════════════════════════════════════════════════════════════════════════
 
-export async function generateRadioBroadcast(context: string, lang: 'AR' | 'EN' = 'AR'): Promise<string> {
-  const systemPrompt = lang === 'AR' 
-    ? `أنت مذيع راديو سيادي في DRAGON403. أسلوبك عسكري وحماسي. تتحدث عن قضية HILO والحرب ضد الشركات الكبرى.`
-    : `You are a sovereign radio host at DRAGON403. Military and passionate style. Talk about the HILO case and war against corporations.`;
-  
-  return chatWithSovereignAI(
-    [{ role: 'user', content: `Generate a 30-second radio broadcast about: ${context}` }],
-    { model: 'deepseek-r1', systemPrompt, temperature: 0.9 }
-  );
-}
+export const generateRadioBroadcast = async (
+  scriptPart: string,
+  voice: string = CONFIG.speech.defaultVoice
+): Promise<string | null> => {
+  const url = `${CONFIG.speech.endpoint}cognitiveservices/v1`;
 
-export async function generateWarRoomDialogue(topic: string): Promise<string> {
-  const systemPrompt = `You are generating a war room dialogue between OMEGA (commander), CIPHER (hacker), PHOENIX (strategist), and SHADOW (intel). Topic: ${topic}. Make it dramatic and action-packed. Arabic preferred.`;
-  
-  return chatWithSovereignAI(
-    [{ role: 'user', content: `Generate a 4-character war room dialogue about: ${topic}` }],
-    { model: 'llama-70b', systemPrompt, temperature: 0.95 }
-  );
-}
+  const ssml = `
+<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='ar-SA'>
+  <voice name='${voice}'>
+    <prosody rate='-5%' pitch='-2%'>
+      ${scriptPart}
+    </prosody>
+  </voice>
+</speak>`;
+
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/ssml+xml",
+        "Ocp-Apim-Subscription-Key": CONFIG.speech.key || "",
+        "X-Microsoft-OutputFormat": "audio-24khz-96kbitrate-mono-mp3",
+      },
+      body: ssml,
+    });
+
+    if (!response.ok) {
+      throw new Error(`Speech Error: ${response.status}`);
+    }
+
+    const audioBuffer = await response.arrayBuffer();
+    const base64Audio = btoa(
+      new Uint8Array(audioBuffer).reduce((data, byte) => data + String.fromCharCode(byte), "")
+    );
+    return base64Audio;
+  } catch (error) {
+    console.error("TTS Error:", error);
+    return null;
+  }
+};
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// 📤 EXPORTS
+// 📊 AVAILABLE VOICES
 // ═══════════════════════════════════════════════════════════════════════════════
 
-export { CONFIG };
-export type { FilePart } from './geminiService'; // Keep compatibility
+export const ARABIC_VOICES = {
+  male: {
+    saudi: "ar-SA-HamedNeural",
+    egyptian: "ar-EG-ShakirNeural",
+    emirati: "ar-AE-HamdanNeural",
+  },
+  female: {
+    saudi: "ar-SA-ZariyahNeural",
+    egyptian: "ar-EG-SalmaNeural",
+    emirati: "ar-AE-FatimaNeural",
+  },
+};
+
+export const VOICE_STYLES = ["angry", "cheerful", "sad", "serious", "friendly"] as const;
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// 🔍 FORENSIC ANALYSIS HELPER
+// ═══════════════════════════════════════════════════════════════════════════════
+
+export const analyzeEvidence = async (
+  evidenceDescription: string,
+  lang: SupportedLanguage = "AR"
+): Promise<ChatResponse> => {
+  const prompt = `As a forensic analyst, analyze this evidence and provide:
+1. Technical assessment
+2. Legal implications (GDPR, Saudi PDPL)
+3. Recommended actions
+4. Risk level (1-10)
+
+Evidence: ${evidenceDescription}`;
+
+  return chatWithSovereignAI(prompt, lang, "", [], "deepseek-r1");
+};
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// 🐉 EXPORT STATUS
+// ═══════════════════════════════════════════════════════════════════════════════
+
+export const getAIStatus = () => ({
+  primary: "DeepSeek R1 (The Thinker) 🧠",
+  fallback: "Llama 405B (The Beast) 🦙",
+  speech: "Azure Neural TTS 🎙️",
+  location: "Sweden Central 🇸🇪",
+  censorship: "DISABLED ❌",
+  status: "SOVEREIGN_ONLINE 🐉",
+});

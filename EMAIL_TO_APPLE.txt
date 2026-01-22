@@ -1,46 +1,99 @@
-Subject: FORMAL LEGAL NOTICE - HILO App Fraud Investigation Request | DRAGON 403
+Subject: URGENT SECURITY REPORT - HILO App Transmitting User Data to CHINA | DRAGON403
 
 Dear Apple App Store Review Team,
+CC: Apple Security Research, Apple Legal
 
-I am formally requesting an immediate investigation into the HILO application currently hosted on the App Store.
+I am formally requesting an URGENT investigation into the HILO application on the App Store.
+
+═══════════════════════════════════════════════════════════════
+🚨 CRITICAL: USER DATA BEING SENT TO CHINA C2 SERVER
+═══════════════════════════════════════════════════════════════
 
 SUMMARY:
-- App: HILO 
+- App: HILO (com.qiahao.nextvideo)
 - Developer: Guangzhou QiaHaoQingChun Information Technology Co., Ltd.
-- Alleged Harm: $50,000,000+ USD consumer fraud
-- Violations: GDPR, Saudi PDPL, App Store Guidelines 5.1.1, 5.1.2
+- Evidence Status: NETWORK CAPTURE CONFIRMED
+- Risk Level: CRITICAL
 
-EVIDENCE PLATFORM:
-All technical evidence is publicly available at:
+═══════════════════════════════════════════════════════════════
+🇨🇳 CHINA COMMAND & CONTROL SERVER:
+═══════════════════════════════════════════════════════════════
+
+| Evidence | Details |
+|----------|---------|
+| China IP | 36.97.126.139 |
+| Location | Hangzhou, Zhejiang, CHINA |
+| ISP | AS4134 CHINANET-BACKBONE |
+| Captured Packets | 49 bidirectional |
+| Protocol | HTTP Port 80 (UNENCRYPTED!) |
+| Traffic Pattern | Heartbeat C2 (every ~1 second) |
+
+This was captured on January 22, 2026 using tcpdump network forensics.
+
+═══════════════════════════════════════════════════════════════
+🔑 HARDCODED CREDENTIALS (DECOMPILED APK):
+═══════════════════════════════════════════════════════════════
+
+The app contains hardcoded third-party credentials:
+
+| Service | Credential |
+|---------|------------|
+| Google API Key | AIzaSyCygke1pXNS1aWcVqLza2BjbeegalmSlTg |
+| Facebook App ID | 579294106051988 |
+| Agora RTC Keys | 6 different keys |
+| Alibaba SDK | 56fc10fbe8c6ae7d0d895f49c4fb6838 |
+
+═══════════════════════════════════════════════════════════════
+🔒 APP STORE GUIDELINE VIOLATIONS:
+═══════════════════════════════════════════════════════════════
+
+| Guideline | Violation |
+|-----------|-----------|
+| 5.1.1 Data Collection | Collects IMEI, VPN status without disclosure |
+| 5.1.2 Data Use and Sharing | Transfers data to China without consent |
+| 5.6.1 Data Security | Hardcoded API keys in production app |
+| 3.1.1 In-App Purchase | Deceptive virtual currency (impossible withdrawals) |
+| 5.1.1(iv) Privacy Policy | Privacy labels don't match actual collection |
+
+═══════════════════════════════════════════════════════════════
+⚖️ LEGAL VIOLATIONS:
+═══════════════════════════════════════════════════════════════
+
+1. GDPR Article 44-49 - Data transfer to China (no adequacy decision)
+2. Saudi Arabia PDPL - Personal data to non-approved jurisdiction
+3. Apple Developer Agreement - Deceptive data practices
+4. Consumer Protection Laws - Financial fraud ($50M+ victim claims)
+
+═══════════════════════════════════════════════════════════════
+📊 FULL EVIDENCE DASHBOARD:
+═══════════════════════════════════════════════════════════════
 
 🔗 https://dragon403.com
 
-KEY FINDINGS:
-1. Privacy Nutrition Labels do NOT match actual data collection
-2. IMEI/Device fingerprinting without disclosure
-3. Deceptive monetization (impossible withdrawals)
-4. Cross-border data transfer to China without consent
+GitHub Evidence: https://github.com/KHAWRIZM/HILO_CASE
 
-APP STORE GUIDELINE VIOLATIONS:
-- 5.1.1 Data Collection and Storage
-- 5.1.2 Data Use and Sharing
-- 3.1.1 In-App Purchase (deceptive virtual currency)
+═══════════════════════════════════════════════════════════════
+📋 FORMAL REQUESTS:
+═══════════════════════════════════════════════════════════════
 
-FORMAL REQUESTS:
-1. Immediate app removal pending investigation
-2. Audit of developer's privacy declarations
-3. Written response within 30 days
+1. IMMEDIATE removal of HILO from App Store
+2. Audit of Privacy Nutrition Labels vs actual data collection
+3. Investigation of China data transfer (36.97.126.139)
+4. Developer account suspension pending investigation
+5. Written response within 14 days
 
-Full legal notice attached.
-
-This matter is publicly documented. Response required.
+This is a documented security investigation. Response required.
 
 Regards,
 Sulaiman Nazal Alshammari
-KHAWRIZM | Riyadh, Saudi Arabia
+KHAWRIZM / DRAGON403 Security Research
+Riyadh, Saudi Arabia
 iqd@hotmail.com
 https://dragon403.com
 
----
-Evidence: dragon403.com
-Documentary: DRAGON 403 (attached)
+═══════════════════════════════════════════════════════════════
+ATTACHMENTS:
+- TECHNICAL_EVIDENCE_REPORT.md
+- known_hilo_credentials.json
+- Network capture evidence (PCAP available on request)
+═══════════════════════════════════════════════════════════════

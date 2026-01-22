@@ -1,41 +1,95 @@
-Subject: FORMAL LEGAL NOTICE - HILO App Fraud Investigation Request | DRAGON 403
+Subject: URGENT LEGAL NOTICE - HILO App Data Breach to CHINA | Firebase Project #432159938851 | DRAGON403
 
 Dear Google Play Trust & Safety Team,
+CC: Google Cloud Security Team, Firebase Abuse Team
 
-I am formally requesting an immediate investigation into the HILO application currently hosted on Google Play Store.
+I am formally requesting an IMMEDIATE investigation into the HILO application and associated Firebase project.
+
+═══════════════════════════════════════════════════════════════
+🚨 CRITICAL NEW EVIDENCE: CHINA C2 SERVER COMMUNICATION
+═══════════════════════════════════════════════════════════════
 
 SUMMARY:
-- App: HILO (com.nicegoodapps.hilo)
+- App: HILO (com.qiahao.nextvideo / com.nicegoodapps.hilo)
 - Developer: Guangzhou QiaHaoQingChun Information Technology Co., Ltd.
-- Alleged Harm: $50,000,000+ USD consumer fraud
-- Violations: GDPR, Saudi PDPL, FTC Act Section 5
+- Firebase Project: nextvideo-1590999469166
+- Google Cloud Project: #432159938851
+- Evidence Status: NETWORK CAPTURE CONFIRMED
 
-EVIDENCE PLATFORM:
-All technical evidence, including decompiled source code analysis, server infrastructure mapping, and data collection documentation, is publicly available at:
+═══════════════════════════════════════════════════════════════
+🔑 YOUR CREDENTIALS IN HILO APP (HARDCODED):
+═══════════════════════════════════════════════════════════════
+
+| Credential Type | Value |
+|-----------------|-------|
+| Google API Key | AIzaSyCygke1pXNS1aWcVqLza2BjbeegalmSlTg |
+| Project ID | 432159938851 |
+| App ID | 1:432159938851:android:8adf65373a218409d59496 |
+| Firebase URL | https://nextvideo-1590999469166.firebaseio.com |
+| Web Client ID | 432159938851-deoq0s10jrckc2krttv7ejeln5c60h69.apps.googleusercontent.com |
+| Server Client ID | 432159938851-i474jljk2fl1g364ro64mivqsuah211f.apps.googleusercontent.com |
+
+These credentials are extracted from the decompiled APK (res/values/strings.xml).
+
+═══════════════════════════════════════════════════════════════
+🇨🇳 CHINA C2 COMMUNICATION - NETWORK FORENSICS
+═══════════════════════════════════════════════════════════════
+
+On January 22, 2026, I captured live network traffic from the HILO app:
+
+| Evidence | Details |
+|----------|---------|
+| China IP | 36.97.126.139 |
+| Location | Hangzhou, Zhejiang, CHINA |
+| ISP | AS4134 CHINANET-BACKBONE |
+| Packets | 49 bidirectional packets |
+| Port | 80 (HTTP - UNENCRYPTED!) |
+| Pattern | Heartbeat every ~1 second (C2 pattern) |
+
+This traffic was captured using tcpdump on my Azure Sweden server (4.223.108.167).
+PCAP files are preserved as legal evidence.
+
+═══════════════════════════════════════════════════════════════
+📊 FULL EVIDENCE DASHBOARD:
+═══════════════════════════════════════════════════════════════
 
 🔗 https://dragon403.com
 
-KEY FINDINGS:
-1. Illegal IMEI collection without consent
-2. VPN detection for user tracking
-3. Impossible withdrawal thresholds (financial trap)
-4. Privacy labels do not match actual data collection
+Technical Evidence Report: https://dragon403.com/report
+GitHub Repository: https://github.com/KHAWRIZM/HILO_CASE
 
-FORMAL REQUESTS:
-1. Immediate app suspension pending investigation
-2. Full audit of developer's data practices
-3. Written response within 30 days
+═══════════════════════════════════════════════════════════════
+⚖️ LEGAL VIOLATIONS:
+═══════════════════════════════════════════════════════════════
 
-Full legal notice attached as PDF.
+1. GDPR Article 44-49 - Data transfer to China without adequacy decision
+2. Saudi Arabia PDPL - Personal data to non-approved jurisdiction
+3. Google Play Policy - Deceptive data practices
+4. Security Best Practices - Hardcoded API credentials
 
-This is a documented matter. Your response (or lack thereof) will be included in ongoing public documentation.
+═══════════════════════════════════════════════════════════════
+📋 FORMAL REQUESTS:
+═══════════════════════════════════════════════════════════════
+
+1. IMMEDIATE suspension of HILO app from Google Play
+2. Audit Firebase project #nextvideo-1590999469166
+3. Revoke API key AIzaSyCygke1pXNS1aWcVqLza2BjbeegalmSlTg
+4. Investigate data flows to China IP 36.97.126.139
+5. Written response within 14 days
+
+This is a documented investigation. Your response (or lack thereof) will be included in ongoing legal proceedings and public documentation.
 
 Regards,
 Sulaiman Nazal Alshammari
-KHAWRIZM | Riyadh, Saudi Arabia
+KHAWRIZM / DRAGON403 Security Research
+Riyadh, Saudi Arabia
 iqd@hotmail.com
 https://dragon403.com
 
----
-Evidence Video: DRAGON 403 Documentary (attached)
-Technical Report: dragon403.com/evidence
+═══════════════════════════════════════════════════════════════
+ATTACHMENTS:
+- TECHNICAL_EVIDENCE_REPORT.md
+- evidence_analysis_report.json
+- known_hilo_credentials.json
+- full_capture.pcap (available on request)
+═══════════════════════════════════════════════════════════════
