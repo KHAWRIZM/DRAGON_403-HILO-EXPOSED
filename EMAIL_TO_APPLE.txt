@@ -1,0 +1,46 @@
+Subject: FORMAL LEGAL NOTICE - HILO App Fraud Investigation Request | DRAGON 403
+
+Dear Apple App Store Review Team,
+
+I am formally requesting an immediate investigation into the HILO application currently hosted on the App Store.
+
+SUMMARY:
+- App: HILO 
+- Developer: Guangzhou QiaHaoQingChun Information Technology Co., Ltd.
+- Alleged Harm: $50,000,000+ USD consumer fraud
+- Violations: GDPR, Saudi PDPL, App Store Guidelines 5.1.1, 5.1.2
+
+EVIDENCE PLATFORM:
+All technical evidence is publicly available at:
+
+🔗 https://dragon403.com
+
+KEY FINDINGS:
+1. Privacy Nutrition Labels do NOT match actual data collection
+2. IMEI/Device fingerprinting without disclosure
+3. Deceptive monetization (impossible withdrawals)
+4. Cross-border data transfer to China without consent
+
+APP STORE GUIDELINE VIOLATIONS:
+- 5.1.1 Data Collection and Storage
+- 5.1.2 Data Use and Sharing
+- 3.1.1 In-App Purchase (deceptive virtual currency)
+
+FORMAL REQUESTS:
+1. Immediate app removal pending investigation
+2. Audit of developer's privacy declarations
+3. Written response within 30 days
+
+Full legal notice attached.
+
+This matter is publicly documented. Response required.
+
+Regards,
+Sulaiman Nazal Alshammari
+KHAWRIZM | Riyadh, Saudi Arabia
+iqd@hotmail.com
+https://dragon403.com
+
+---
+Evidence: dragon403.com
+Documentary: DRAGON 403 (attached)

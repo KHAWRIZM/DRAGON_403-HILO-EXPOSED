@@ -1,0 +1,79 @@
+package com.qiahao.nextvideo.room.help;
+
+import com.qiahao.nextvideo.data.model.MicroBean;
+import com.qiahao.nextvideo.room.fragment.GameRoomFragment;
+import com.qiahao.nextvideo.room.view.micro.OnMeetingRoomMicroItemClickListener;
+import com.qiahao.nextvideo.room.viewmodel.RoomViewModel;
+import kotlin.Metadata;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function0;
+
+@Metadata(d1 = {"\u0000\u001f\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004*\u0001\u0000\b\n\u0018\u00002\u00020\u0001J\u001a\u0010\u0002\u001a\u00020\u00032\u0006\u0010\u0004\u001a\u00020\u00052\b\u0010\u0006\u001a\u0004\u0018\u00010\u0007H\u0016J\u001a\u0010\b\u001a\u00020\u00032\u0006\u0010\u0004\u001a\u00020\u00052\b\u0010\u0006\u001a\u0004\u0018\u00010\u0007H\u0016J\u001a\u0010\t\u001a\u00020\u00032\u0006\u0010\u0004\u001a\u00020\u00052\b\u0010\u0006\u001a\u0004\u0018\u00010\u0007H\u0016J\u001a\u0010\n\u001a\u00020\u00032\u0006\u0010\u0004\u001a\u00020\u00052\b\u0010\u0006\u001a\u0004\u0018\u00010\u0007H\u0016¨\u0006\u000b"}, d2 = {"com/qiahao/nextvideo/room/help/GameRoomFragmentHelp$initChatUI$1", "Lcom/qiahao/nextvideo/room/view/micro/OnMeetingRoomMicroItemClickListener;", "onAvatarBtnClick", "", "position", "", "micBean", "Lcom/qiahao/nextvideo/data/model/MicroBean;", "onMicroClick", "onUnLockMic", "onUnMuteAvatarClick", "app_googleRelease"}, k = 1, mv = {2, 1, 0}, xi = 48)
+/* loaded from: C:\Users\admin\Projects\Archive\SULAIMAN_EMPIRE\DEX_FILES\classes4.dex */
+public final class GameRoomFragmentHelp$initChatUI$1 implements OnMeetingRoomMicroItemClickListener {
+    final /* synthetic */ GameRoomFragmentHelp this$0;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public GameRoomFragmentHelp$initChatUI$1(GameRoomFragmentHelp gameRoomFragmentHelp) {
+        this.this$0 = gameRoomFragmentHelp;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static final Unit onMicroClick$lambda$0(GameRoomFragmentHelp gameRoomFragmentHelp, int i, MicroBean microBean) {
+        boolean z;
+        RoomViewModel mViewModel = gameRoomFragmentHelp.getFragment().getMViewModel();
+        Integer valueOf = Integer.valueOf(i);
+        if (microBean != null && microBean.getMicForbid()) {
+            z = true;
+        } else {
+            z = false;
+        }
+        RoomViewModel.upMic$default(mViewModel, valueOf, null, z, 2, null);
+        return Unit.INSTANCE;
+    }
+
+    @Override // com.qiahao.nextvideo.room.view.micro.OnMeetingRoomMicroItemClickListener
+    public void onAvatarBtnClick(int position, MicroBean micBean) {
+        MatchGameHelp mGameHelp;
+        if (micBean != null && (mGameHelp = this.this$0.getFragment().getMGameHelp()) != null) {
+            String externalId = micBean.getExternalId();
+            if (externalId == null) {
+                externalId = "";
+            }
+            mGameHelp.showUserInfoDialog(externalId, position);
+        }
+    }
+
+    @Override // com.qiahao.nextvideo.room.view.micro.OnMeetingRoomMicroItemClickListener
+    public void onMicroClick(final int position, final MicroBean micBean) {
+        GameRoomFragment fragment = this.this$0.getFragment();
+        final GameRoomFragmentHelp gameRoomFragmentHelp = this.this$0;
+        fragment.checkAudioPermission(new Function0() { // from class: com.qiahao.nextvideo.room.help.h6
+            public final Object invoke() {
+                Unit onMicroClick$lambda$0;
+                onMicroClick$lambda$0 = GameRoomFragmentHelp$initChatUI$1.onMicroClick$lambda$0(GameRoomFragmentHelp.this, position, micBean);
+                return onMicroClick$lambda$0;
+            }
+        });
+    }
+
+    @Override // com.qiahao.nextvideo.room.view.micro.OnMeetingRoomMicroItemClickListener
+    public void onUnLockMic(int position, MicroBean micBean) {
+        MatchGameHelp mGameHelp = this.this$0.getFragment().getMGameHelp();
+        if (mGameHelp != null) {
+            mGameHelp.showMicOperateBottomDialog(position, micBean, false);
+        }
+    }
+
+    @Override // com.qiahao.nextvideo.room.view.micro.OnMeetingRoomMicroItemClickListener
+    public void onUnMuteAvatarClick(int position, MicroBean micBean) {
+        MatchGameHelp mGameHelp;
+        if (micBean != null && (mGameHelp = this.this$0.getFragment().getMGameHelp()) != null) {
+            String externalId = micBean.getExternalId();
+            if (externalId == null) {
+                externalId = "";
+            }
+            mGameHelp.showUserInfoDialog(externalId, position);
+        }
+    }
+}

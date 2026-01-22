@@ -1,0 +1,5678 @@
+package com.qiahao.nextvideo;
+
+import android.util.SparseIntArray;
+import android.view.View;
+import androidx.databinding.ViewDataBinding;
+import com.qiahao.nextvideo.databinding.ActivityAccountBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityActivitiesBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityActivitiesDetailBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityAristocracyBagBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityAuthBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityBaiShunBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityBillBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityBlockedUserListBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityChangePasswordBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityChatBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityChatDialogBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityChatStrangeBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityCommonChangeRoomSettingBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityCommonListWithRefreshBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityControllerInteractiveTrackingListBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityCountryBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityCountryDiscoverBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityCpMemorialBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityCpMemorialEditBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityCpRankBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityCpSpaceBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityCreateActivitiesBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityDefaultWebviewBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityEditNicknameBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityExchangeDetailBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityExchangeDiamondsBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityExchangeGemBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityFamilyApplicationBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityFamilyCenterBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityFamilyCenterHeaderBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityFamilyExitBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityFamilyMemberBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityFamilyRankBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityFamilyRecordingBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityFamilySettingBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityFamilyShareBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityFamilyStarBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityFoodieResultDialogBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityGameLevelBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityGameLevelRulesBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityGameMatchBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityGameMatchLobbyBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityGiftEffectBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityGiftRecordBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityGoddessBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityGroupAllRankBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityGroupCustomThemeBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityGroupSettingBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityGroupSupportBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityGroupThemesBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityHiloInformationBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityHorizontalWebviewBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityLocalAddMusicBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityLoginBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityMainBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityMatchVideoBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityMedalBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityMedalManageBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityMyBagBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityMyMusicBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityNumberOfMicBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityPeopleCertificationBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityPeopleMatchBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityPromoterBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityPromoterCenterBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityRechargeListBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityRedEnvelopDetailHeadBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityRedEnvelopeDetailBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityRedEnvelopeRecordBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityRoomAndPersonalTaskBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityRoomBlockedListBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityRoomMemberBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityRoomMemberOnlineBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityRoomRecordBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityRoomUserBlockBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityRoomUserInfoLevelBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivitySearchUserBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivitySecondTfBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivitySecondTfDiamondBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivitySecondTransferBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivitySelectCountryBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityShareContactsBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityStoreBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityStrangeListBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityStrangeMatchBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivitySuperAdminReportBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivitySupportGiftRankBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivitySvipBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivitySvipPointBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivitySvipPrivilegesBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivitySvipRulesBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityTaskBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityTextBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityTransferBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityTransferCenterBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityTransferRecordBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityTransferSearchBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityUserDetailBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityUserInfoEditBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityVideoCallBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityVideoRecordingBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityVideoResultBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityVipRecordBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityWalletBindingImpl;
+import com.qiahao.nextvideo.databinding.ActivityYouTuWatchBindingImpl;
+import com.qiahao.nextvideo.databinding.AudioHiloGameBetItemBindingImpl;
+import com.qiahao.nextvideo.databinding.AudioHiloGameBindingImpl;
+import com.qiahao.nextvideo.databinding.BaiShunHeadBindingImpl;
+import com.qiahao.nextvideo.databinding.BalloonLikeEachOtherBindingImpl;
+import com.qiahao.nextvideo.databinding.BaseLayoutCustomTabItemBindingImpl;
+import com.qiahao.nextvideo.databinding.BaseLayoutTaskTabItemBindingImpl;
+import com.qiahao.nextvideo.databinding.CellBillBindingImpl;
+import com.qiahao.nextvideo.databinding.CellCommonBindingImpl;
+import com.qiahao.nextvideo.databinding.CellConnectionLogBindingImpl;
+import com.qiahao.nextvideo.databinding.CellConversationBindingImpl;
+import com.qiahao.nextvideo.databinding.CellCountryBindingImpl;
+import com.qiahao.nextvideo.databinding.CellFansBindingImpl;
+import com.qiahao.nextvideo.databinding.CellHiloAssistantBeansHolderType1BindingImpl;
+import com.qiahao.nextvideo.databinding.CellHiloAssistantBindingImpl;
+import com.qiahao.nextvideo.databinding.CellHiloAssistantEnterCarBindingImpl;
+import com.qiahao.nextvideo.databinding.CellHiloAssistantHolderType1BindingImpl;
+import com.qiahao.nextvideo.databinding.CellHiloAssistantPraiseBindingImpl;
+import com.qiahao.nextvideo.databinding.CellHiloInformationBindingImpl;
+import com.qiahao.nextvideo.databinding.CellHistoryUserInformationSummaryBindingImpl;
+import com.qiahao.nextvideo.databinding.CellLikeEachOtherBindingImpl;
+import com.qiahao.nextvideo.databinding.CellOnlineBindingImpl;
+import com.qiahao.nextvideo.databinding.CellResultAnalysisBindingImpl;
+import com.qiahao.nextvideo.databinding.CommonFrameViewWrapperBindingImpl;
+import com.qiahao.nextvideo.databinding.CustomFooterBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogAristocracyCardBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogBalootEndBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogBalootIntroduceBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogBlockOrReportBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogBlockTextBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogCarromIntroduceBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogChangeCountryBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogChangeSexBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogCheckRoomErrorAgoraBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogCommonTextBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogCpCertificateBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogCpConfirmBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogCpConfirmTwoBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogCpDeleteBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogCpInvitationReceiveBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogCpInvitationSendBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogCpMoreBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogCpPrivilegeBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogCpRuleBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogCpTipBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogCreate1v1PkBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogCreateBackgammonBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogCreateBalootBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogCreateCarromBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogCreateCrushBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogCreateDominoBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogCreateJackaroBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogCreateLudoBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogCreateNuoBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogCrushEndBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogCrushIntroduceBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogCustomGiftRuleBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogDailyOperatingBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogDailyRecordBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogDailyVipDiamondBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogDefaultMoreBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogDeleteAccountBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogDominoEndBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogDominoIntroduceBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogFamilyMemberMoreBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogFamilySettingBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogFamilyShareBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogFiltrateUserBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogFirstChargeBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogFirstRechargeBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogGemDetailsBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogGemStoreBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogGiftTextBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogGoldTaskBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogGroupFaceBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogGroupMusicBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogH5DiamondGameBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogH5GameBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogH5GemGameBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogHelperBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogImCleanMessageBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogInviteTakeMicGetDiamondBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogItemMedalBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogJackaroIntroduceBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogJoinLockRoomBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogJoinedLevelBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogLeaveRoomBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogLuckyBoxBigPrizesBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogLuckyBoxBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogLuckyBoxRankingBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogLuckyBoxWinningRecordBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogLuckyFruitPlaceBetConfirmBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogLuckyFruitRankingBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogLuckyFruitRecordBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogLuckyFruitRuleBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogLuckyWheelBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogLudoEndBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogLudoIntroduceBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogMainActivityBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogMatchPermissionsBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogMedalLevelBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogMessageListBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogMessageMenuBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogMicOperateClickBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogMysteryBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogNotificationPermissionBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogNumberOfDiceBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogNumberOfMicBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogOpenEnvelopeBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogOtherGiftBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogPassWordLevelBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogPicOrSvgaBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogPk1v1RuleBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogPkEndBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogPkRuleBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogPkSupportBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogPreviewBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogRedEnvelopeCreateBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogRelationInvitationReceiveBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogRelationInvitationSendBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogRoomAnimationEffectBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogRoomBroadCastBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogRoomCpUserInfoBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogRoomGameBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogRoomGiftBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogRoomInfo2BindingImpl;
+import com.qiahao.nextvideo.databinding.DialogRoomPkCreateBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogRoomPkInviteBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogRoomPowerDiamondBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogRoomPowerJoinBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogRoomRocketBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogRoomRocketReawardBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogRoomTipBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogRoomToolBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogRoomUserInfoBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogSafetiesReferenceBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogSendGroupBroadcastBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogShareInviteFriendsBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogSheepEndBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogShowSvgaOrPicBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogStorePreviewBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogStrangeEndBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogStrangeLikeBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogStyledBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogSuperLikeBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogSvipUnblockBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogTakeMicTaskCompleteDiamondBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogUnoEndBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogUnoIntroduceBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogUploadBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogUserMenuBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogVerificationBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogVideoGiftBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogVideoInstructionsBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogWatchHelperBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogWatchRuleBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogWealthMedalBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogWhatsTipBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogYouTuHelperBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogYouTuLinkBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogYouTuListBindingImpl;
+import com.qiahao.nextvideo.databinding.DialogYouTuRoomFragmentBindingImpl;
+import com.qiahao.nextvideo.databinding.EditCountryBindingImpl;
+import com.qiahao.nextvideo.databinding.EditCountryTitleBindingImpl;
+import com.qiahao.nextvideo.databinding.EnvelopeBannerBindingImpl;
+import com.qiahao.nextvideo.databinding.FloatingViewBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentActivitiesBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentAudioRoomBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentBaseListBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentBinderBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentCarromBagBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentCarromChildBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentCarromStoreBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentContactBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentCpBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentCpChildBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentDiamondTaskBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentDiscoverBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentDiscoverHeadBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentFamilyApplicationBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentFamilyExitBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentFamilyRankBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentFamilySettingBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentFamilySettingEditBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentFamilyStarBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentFamilyStarChildBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentFirstChargeBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentGameRoomBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentGiftRecordBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentGoldTaskBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentGroupThemeBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentHomeBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentHomeChatBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentHomeCommunityBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentHomeGameBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentHomeGameHeadBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentHomeMatchingBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentHomeMatchingHeadBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentHomeRoomBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentInteractiveTrackingBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentLoginPhoneBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentMessageBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentMyBagBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentMyRoomBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentNewRoomBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentNewRoomHeadBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentPopularBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentPromoterCenterBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentPromoterCenterHeadBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentRealTaskBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentRecordBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentRoomActivityBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentRoomAndPersonalBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentRoomBagBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentRoomGiftBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentRoomProfileBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentRoomRecordBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentSecondHeadBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentSecondTfBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentSelectCountryBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentStoreBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentTransferBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentTransferCenterBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentTransferCenterDetailBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentTransferCenterHeadBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentTransferRecordBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentUserProfileBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentUserPropsBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentUserPropsHeadBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentVerificationCodeBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentVideoRecordingBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentVipRecordBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentWalletBeansBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentWalletDiamondBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentWalletGoldBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentYouTuHotListBindingImpl;
+import com.qiahao.nextvideo.databinding.FragmentYouTuPlayListBindingImpl;
+import com.qiahao.nextvideo.databinding.GiftBannerView1BindingImpl;
+import com.qiahao.nextvideo.databinding.GiftBannerView2BindingImpl;
+import com.qiahao.nextvideo.databinding.GiftBannerView3BindingImpl;
+import com.qiahao.nextvideo.databinding.GiftBannerView4BindingImpl;
+import com.qiahao.nextvideo.databinding.GiftBannerView5BindingImpl;
+import com.qiahao.nextvideo.databinding.GiftBannerView6BindingImpl;
+import com.qiahao.nextvideo.databinding.IncludeAccountItemBindingImpl;
+import com.qiahao.nextvideo.databinding.IncludeBalootItemBindingImpl;
+import com.qiahao.nextvideo.databinding.IncludeBillItemBindingImpl;
+import com.qiahao.nextvideo.databinding.IncludeCarromItemBindingImpl;
+import com.qiahao.nextvideo.databinding.IncludeCarromTitleBindingImpl;
+import com.qiahao.nextvideo.databinding.IncludeCpItemBindingImpl;
+import com.qiahao.nextvideo.databinding.IncludeFamilyItemBindingImpl;
+import com.qiahao.nextvideo.databinding.IncludeJackaroItemBindingImpl;
+import com.qiahao.nextvideo.databinding.IncludeLudoItemBindingImpl;
+import com.qiahao.nextvideo.databinding.IncludeMainActivityItemBindingImpl;
+import com.qiahao.nextvideo.databinding.IncludeMatchBigItemBindingImpl;
+import com.qiahao.nextvideo.databinding.IncludeMatchMinItemBindingImpl;
+import com.qiahao.nextvideo.databinding.IncludeNumberDiceBindingImpl;
+import com.qiahao.nextvideo.databinding.IncludePkGoBindingImpl;
+import com.qiahao.nextvideo.databinding.IncludePkLevelBindingImpl;
+import com.qiahao.nextvideo.databinding.IncludeReportItemBindingImpl;
+import com.qiahao.nextvideo.databinding.IncludeSvipRulesBindingImpl;
+import com.qiahao.nextvideo.databinding.IncludeTitleBindingImpl;
+import com.qiahao.nextvideo.databinding.IncludeTitleWriteBindingImpl;
+import com.qiahao.nextvideo.databinding.IncludeTransferTextBindingImpl;
+import com.qiahao.nextvideo.databinding.IncludeUnoItemBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemActivitiesDetailBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemActivityBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemAddImageBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemAgoraErrorAgoraIdBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemAgoraErrorUserInfoBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemAllMedalBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemAristocracyBagBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemAristocracyBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemBaiShunBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemBaiShunGameBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemBigMicroViewBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemCarromBagChildBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemCarromChildBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemChatBannerBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemChatInteractiveBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemChatRoomFoodieCircleResultBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemChatRoomFoodieRankingBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemChatRoomFoodieRecordBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemChatRoomLuckyFruitRecordBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemContactLikeEachOtherBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemContactLikeMeOtherBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemCountryBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemCpBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemCpMedalBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemCpMemorialItemBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemCpMemorialTopBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemCpMyRankBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemCpRankBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemCpRecordBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemCpSpaceBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemCreateActivityImageBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemCrushWinBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemCurrentlyPkBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemDailyEarnDiamondTaskBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemDailyRecordBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemDialogActivityBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemDiamondPurchaseBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemDiscoverBannerBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemDiscoverBroadCastBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemDiscoverCountryBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemDominoWinBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemExchangeDetailBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemFamilyApplicationBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemFamilyCenterMemberBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemFamilyExitBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemFamilyRankBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemFamilyRoomBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemFamilySearchMemberBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemFamilyShareBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemFamilyStarBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemFirstChargeBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemFragmentActivityBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemFragmentPromoterCenterBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemFragmentSecondTfBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemFragmentTransferBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemFragmentTransferCenterBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemGameBroadcastBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemGameLevelCardBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemGameLevelPrivilegesBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemGameListBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemGameMicroViewBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemGemBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemGemDetailsBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemGemExchangeBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemGemGameBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemGiftRecordBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemGiftWallBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemGlobalBroadcastHistoryBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemGoddessBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemGoldGameBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemGoldRechargeBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemGroupLuckyBoxBigRewardBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemGroupLuckyBoxBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemGroupLuckyBoxRankingBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemGroupLuckyBoxWinningBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemGroupMemberAdminBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemGroupMemberBlockBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemGroupMemberOnlineBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemGroupMyThemeBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemGroupNormalRankBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemGroupPopular1BindingImpl;
+import com.qiahao.nextvideo.databinding.ItemGroupPopular2BindingImpl;
+import com.qiahao.nextvideo.databinding.ItemGroupPopular3BindingImpl;
+import com.qiahao.nextvideo.databinding.ItemGroupPopular4BindingImpl;
+import com.qiahao.nextvideo.databinding.ItemGroupSupportBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemGroupThemeBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemGroupTopRankBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemHiloGameMicBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemHiloGameMicroViewBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemHiloInformationBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemHomeAuthenticationBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemHomeGameBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemHomeGameRoomBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemLocalMusicBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemLuckyFruitRecordBetBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemLuckyWheelSelectBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemLudoWinBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemMainActivityBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemMatchGameBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemMedalBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemMedalLevelBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemMedalManegeBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemMessagePopularBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemMicFaceBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemMicroGameViewBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemMiddleMicroViewBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemMountsBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemMyBagBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemMyGroupBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemMyMusicBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemMyOrJoinGroupBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemNamePlate1BindingImpl;
+import com.qiahao.nextvideo.databinding.ItemNamePlateBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemNewRoomBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemNewUserBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemOfficialRechargeBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemPeopleMatchBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemPk1v1BindingImpl;
+import com.qiahao.nextvideo.databinding.ItemPkMicroViewBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemPopupGiftMemberBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemPopupGiftNumberBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemPowerManagerBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemPowerRankBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemPowerRoomBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemPowerTeamMemberManagerBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemPrivilegesDetailsBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemPrivilegesImageBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemPrivilegesImageHeaderBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemRank1BindingImpl;
+import com.qiahao.nextvideo.databinding.ItemRankBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemRedEnvelopeDetailBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemRedEnvelopeRecordBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemRoomActiveNormalRankBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemRoomActiveTopRankBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemRoomBagBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemRoomGiftBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemRoomGiftCustomizeBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemRoomOnlineMemberBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemRoomPersonalTaskListAdapterBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemRoomRecordBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemSearchGroupViewBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemSearchUserBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemSearchUserViewBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemSelectCountryBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemSelectCountryTitleBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemSelectImageBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemSheepWinBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemSmallMicroViewBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemStoreBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemStrangeListBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemSupportPkBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemSvipCardBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemSvipPointBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemSvipPrivilegesBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemTextBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemTextGroupBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemTransferBannerBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemTransferRecordBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemTransferSearchBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemUnoWinBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemUserBlockBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemUserDetailSmallPicture1BindingImpl;
+import com.qiahao.nextvideo.databinding.ItemUserDetailSmallPictureBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemUserGiftBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemUserRelationBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemVideoBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemVideoGiftBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemVideoImGiftBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemVideoImTextBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemVipCardBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemWalletBannerBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemWatchVideoBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemYouTuHotListBindingImpl;
+import com.qiahao.nextvideo.databinding.ItemYouTuListBindingImpl;
+import com.qiahao.nextvideo.databinding.LayoutCustomCommunityTabItemBindingImpl;
+import com.qiahao.nextvideo.databinding.LayoutDiscoverBroadCastBindingImpl;
+import com.qiahao.nextvideo.databinding.LayoutGlobalBroad11BindingImpl;
+import com.qiahao.nextvideo.databinding.LayoutGlobalRoomBroadCastChildBindingImpl;
+import com.qiahao.nextvideo.databinding.LayoutPowerRankWeekBindingImpl;
+import com.qiahao.nextvideo.databinding.LayoutRoomOnlineMemberBindingImpl;
+import com.qiahao.nextvideo.databinding.LayoutRoomPersonalTaskTabItemBindingImpl;
+import com.qiahao.nextvideo.databinding.LayoutTestShapeImageViewBindingImpl;
+import com.qiahao.nextvideo.databinding.LiveRoomActivityBindingImpl;
+import com.qiahao.nextvideo.databinding.LuckyWheelSelectDialogBindingImpl;
+import com.qiahao.nextvideo.databinding.Pk1v1WinBindingImpl;
+import com.qiahao.nextvideo.databinding.PopWindowGiftNumberRecyclerBindingImpl;
+import com.qiahao.nextvideo.databinding.PopupKeepCallTipsBindingImpl;
+import com.qiahao.nextvideo.databinding.PowerDetailViewControllerBindingImpl;
+import com.qiahao.nextvideo.databinding.RoomButtonPkBindingImpl;
+import com.qiahao.nextvideo.databinding.RoomFloatingViewBindingImpl;
+import com.qiahao.nextvideo.databinding.RoomListEmptyBindingImpl;
+import com.qiahao.nextvideo.databinding.RoomMicroGameBindingImpl;
+import com.qiahao.nextvideo.databinding.RoomMicroPkBindingImpl;
+import com.qiahao.nextvideo.databinding.RoomPk1v1BindingImpl;
+import com.qiahao.nextvideo.databinding.RoomRecordTabBindingImpl;
+import com.qiahao.nextvideo.databinding.RoomViewContactWrapperBindingImpl;
+import com.qiahao.nextvideo.databinding.ShareChildLikeMeContactsBindingImpl;
+import com.qiahao.nextvideo.databinding.ShareCommonContactsBindingImpl;
+import com.qiahao.nextvideo.databinding.SplashAdvertisingViewBindingImpl;
+import com.qiahao.nextvideo.databinding.SvipFootBindingImpl;
+import com.qiahao.nextvideo.databinding.TabFirstChargeItemBindingImpl;
+import com.qiahao.nextvideo.databinding.TabLayoutTextBindingImpl;
+import com.qiahao.nextvideo.databinding.TaskTabActivityItemBindingImpl;
+import com.qiahao.nextvideo.databinding.TransferTabActivityItemBindingImpl;
+import com.qiahao.nextvideo.databinding.VideoImBindingImpl;
+import com.qiahao.nextvideo.databinding.VideoTipBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewActiveRankParentBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewAdvertisingBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewAristocracyPermissionListBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewCharmRankParentBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewChatRoomGameLuckyFruitBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewChatRoomGameLuckyFruitResultBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewChildCharmRankDetailBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewChildCpRankDetailBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewControllerAlertAgoraConfigureBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewControllerAllRankBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewControllerAuthenticationBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewControllerBuyAristocracyIdentityBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewControllerChangeSexBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewControllerCommonListBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewControllerConfirmTipBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewControllerConnectionLogsBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewControllerCpRankBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewControllerCpRankMenuBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewControllerDeleteAccount1BindingImpl;
+import com.qiahao.nextvideo.databinding.ViewControllerDeleteAccount2BindingImpl;
+import com.qiahao.nextvideo.databinding.ViewControllerDeleteAccount3BindingImpl;
+import com.qiahao.nextvideo.databinding.ViewControllerFeedbackBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewControllerFillUserDataBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewControllerGenderPreferenceBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewControllerGiftWallBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewControllerGlobalBroadCastBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewControllerHiloAssistantBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewControllerHomeDrawerHeadLayoutBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewControllerMyBagBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewControllerNeighborhoodsNoteBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewControllerOpenSourceBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewControllerPlatformProtocalBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewControllerPowerAllRankBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewControllerPowerMenuBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewControllerPowerTeamBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewControllerRegionPreferenceBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewControllerRongImTestBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewControllerServerSelectionBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewControllerSettingNativeBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewControllerShareContactsBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewControllerSvgaBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewControllerTestMicViewBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewControllerTestVideoCallingBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewControllerVipBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewControllerWebViewBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewCpLevelBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewCpMyRankBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewCpRankFlipperHolderBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewCpRankParentBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewEnvelopeNumberBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewFoodieBigRewardRuleBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewFoodieConfirmBetDialog2BindingImpl;
+import com.qiahao.nextvideo.databinding.ViewFoodieConfirmRepeatDialogBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewFoodieDialogBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewFoodieIntroBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewFoodieRankBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewFoodieRecordBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewFruitConfirmRepeatDialogBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewGameBackgammonBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewGameBalootBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewGameCarromBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewGameCrushBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewGameDominoBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewGameJackaroBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewGameLudoBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewGameNoticeBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewGamePkBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewGameSheepH5BindingImpl;
+import com.qiahao.nextvideo.databinding.ViewGameUnoBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewGiftMemberRecyclerBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewGiftNoticeBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewGiftWallFlipperHolderBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewGroupBannerBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewGroupChildCharmRankDetailBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewGroupInputLayoutBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewHomeRoomBannerBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewHorizontalInteractiveBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewLevelPkBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewMaskCoverLocalBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewMaskCoverLocalSpecifyBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewMaskCoverRemoteBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewMaskCoverRemoteSpecifyBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewMessageBannerBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewMyBagBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewPkSearchBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewPlanetBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewPopularBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewPopularChilderAllGroupBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewPowerMedalBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewPowerRankFlipperHolderBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewRankFlipperHolderBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewRocketSvgaCountDownBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewRoomChildActiveRankDetailBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewRoomGameBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewRoomRocketEnterBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewSearchChildGroupBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewSearchChildUserBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewSearchGroupUserBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewSendGiftLinearlayoutBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewTaskBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewTaskItemBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewVerifyDialogBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewVideoCallBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewVoteLayoutBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewWrapperMatchingPendingBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewYouTuBeBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewYouTuMoreBindingImpl;
+import com.qiahao.nextvideo.databinding.ViewYouTuVideoBindingImpl;
+import com.qiahao.nextvideo.room.manager.RoomEvent;
+import com.qiahao.nextvideo.utilities.userproxy.UserProxyUtility;
+import com.taobao.accs.ErrorCode;
+import com.taobao.accs.common.Constants;
+import com.taobao.accs.flowcontrol.FlowControl;
+import com.tencent.qcloud.tuikit.tuichat.bean.message.TUIMessageBean;
+import com.tencent.qcloud.tuikit.tuichat.bean.message.TipsMessageBean;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import okhttp3.internal.http.StatusLine;
+import org.apache.commons.sudcompress.archivers.zip.UnixStat;
+
+/* loaded from: C:\Users\admin\Projects\Archive\SULAIMAN_EMPIRE\DEX_FILES\classes4.dex */
+public class DataBinderMapperImpl extends androidx.databinding.e {
+    private static final SparseIntArray a = new SparseIntArray(682);
+
+    /* loaded from: C:\Users\admin\Projects\Archive\SULAIMAN_EMPIRE\DEX_FILES\classes4.dex */
+    private static class a {
+        static final HashMap a = new HashMap(682);
+
+        static {
+            a();
+            b();
+        }
+
+        private static void a() {
+            HashMap hashMap = a;
+            hashMap.put("layout/activity_account_0", Integer.valueOf(R.layout.activity_account));
+            hashMap.put("layout/activity_activities_0", Integer.valueOf(R.layout.activity_activities));
+            hashMap.put("layout/activity_activities_detail_0", Integer.valueOf(R.layout.activity_activities_detail));
+            hashMap.put("layout/activity_aristocracy_bag_0", Integer.valueOf(R.layout.activity_aristocracy_bag));
+            hashMap.put("layout/activity_auth_0", Integer.valueOf(R.layout.activity_auth));
+            hashMap.put("layout/activity_bai_shun_0", Integer.valueOf(R.layout.activity_bai_shun));
+            hashMap.put("layout/activity_bill_0", Integer.valueOf(R.layout.activity_bill));
+            hashMap.put("layout/activity_blocked_user_list_0", Integer.valueOf(R.layout.activity_blocked_user_list));
+            hashMap.put("layout/activity_change_password_0", Integer.valueOf(R.layout.activity_change_password));
+            hashMap.put("layout/activity_chat_0", Integer.valueOf(R.layout.activity_chat));
+            hashMap.put("layout/activity_chat_dialog_0", Integer.valueOf(R.layout.activity_chat_dialog));
+            hashMap.put("layout/activity_chat_strange_0", Integer.valueOf(R.layout.activity_chat_strange));
+            hashMap.put("layout/activity_common_change_room_setting_0", Integer.valueOf(R.layout.activity_common_change_room_setting));
+            hashMap.put("layout/activity_common_list_with_refresh_0", Integer.valueOf(R.layout.activity_common_list_with_refresh));
+            hashMap.put("layout/activity_controller_interactive_tracking_list_0", Integer.valueOf(R.layout.activity_controller_interactive_tracking_list));
+            hashMap.put("layout/activity_country_0", Integer.valueOf(R.layout.activity_country));
+            hashMap.put("layout/activity_country_discover_0", Integer.valueOf(R.layout.activity_country_discover));
+            hashMap.put("layout/activity_cp_memorial_0", Integer.valueOf(R.layout.activity_cp_memorial));
+            hashMap.put("layout/activity_cp_memorial_edit_0", Integer.valueOf(R.layout.activity_cp_memorial_edit));
+            hashMap.put("layout/activity_cp_rank_0", Integer.valueOf(R.layout.activity_cp_rank));
+            hashMap.put("layout/activity_cp_space_0", Integer.valueOf(R.layout.activity_cp_space));
+            hashMap.put("layout/activity_create_activities_0", Integer.valueOf(R.layout.activity_create_activities));
+            hashMap.put("layout/activity_default_webview_0", Integer.valueOf(R.layout.activity_default_webview));
+            hashMap.put("layout/activity_edit_nickname_0", Integer.valueOf(R.layout.activity_edit_nickname));
+            hashMap.put("layout/activity_exchange_detail_0", Integer.valueOf(R.layout.activity_exchange_detail));
+            hashMap.put("layout/activity_exchange_diamonds_0", Integer.valueOf(R.layout.activity_exchange_diamonds));
+            hashMap.put("layout/activity_exchange_gem_0", Integer.valueOf(R.layout.activity_exchange_gem));
+            hashMap.put("layout/activity_family_application_0", Integer.valueOf(R.layout.activity_family_application));
+            hashMap.put("layout/activity_family_center_0", Integer.valueOf(R.layout.activity_family_center));
+            hashMap.put("layout/activity_family_center_header_0", Integer.valueOf(R.layout.activity_family_center_header));
+            hashMap.put("layout/activity_family_exit_0", Integer.valueOf(R.layout.activity_family_exit));
+            hashMap.put("layout/activity_family_member_0", Integer.valueOf(R.layout.activity_family_member));
+            hashMap.put("layout/activity_family_rank_0", Integer.valueOf(R.layout.activity_family_rank));
+            hashMap.put("layout/activity_family_recording_0", Integer.valueOf(R.layout.activity_family_recording));
+            hashMap.put("layout/activity_family_setting_0", Integer.valueOf(R.layout.activity_family_setting));
+            hashMap.put("layout/activity_family_share_0", Integer.valueOf(R.layout.activity_family_share));
+            hashMap.put("layout/activity_family_star_0", Integer.valueOf(R.layout.activity_family_star));
+            hashMap.put("layout/activity_foodie_result_dialog_0", Integer.valueOf(R.layout.activity_foodie_result_dialog));
+            hashMap.put("layout/activity_game_level_0", Integer.valueOf(R.layout.activity_game_level));
+            hashMap.put("layout/activity_game_level_rules_0", Integer.valueOf(R.layout.activity_game_level_rules));
+            hashMap.put("layout/activity_game_match_0", Integer.valueOf(R.layout.activity_game_match));
+            hashMap.put("layout/activity_game_match_lobby_0", Integer.valueOf(R.layout.activity_game_match_lobby));
+            hashMap.put("layout/activity_gift_effect_0", Integer.valueOf(R.layout.activity_gift_effect));
+            hashMap.put("layout/activity_gift_record_0", Integer.valueOf(R.layout.activity_gift_record));
+            hashMap.put("layout/activity_goddess_0", Integer.valueOf(R.layout.activity_goddess));
+            hashMap.put("layout/activity_group_all_rank_0", Integer.valueOf(R.layout.activity_group_all_rank));
+            hashMap.put("layout/activity_group_custom_theme_0", Integer.valueOf(R.layout.activity_group_custom_theme));
+            hashMap.put("layout/activity_group_setting_0", Integer.valueOf(R.layout.activity_group_setting));
+            hashMap.put("layout/activity_group_support_0", Integer.valueOf(R.layout.activity_group_support));
+            hashMap.put("layout/activity_group_themes_0", Integer.valueOf(R.layout.activity_group_themes));
+            hashMap.put("layout/activity_hilo_information_0", Integer.valueOf(R.layout.activity_hilo_information));
+            hashMap.put("layout/activity_horizontal_webview_0", Integer.valueOf(R.layout.activity_horizontal_webview));
+            hashMap.put("layout/activity_local_add_music_0", Integer.valueOf(R.layout.activity_local_add_music));
+            hashMap.put("layout/activity_login_0", Integer.valueOf(R.layout.activity_login));
+            hashMap.put("layout/activity_main_0", Integer.valueOf(R.layout.activity_main));
+            hashMap.put("layout/activity_match_video_0", Integer.valueOf(R.layout.activity_match_video));
+            hashMap.put("layout/activity_medal_0", Integer.valueOf(R.layout.activity_medal));
+            hashMap.put("layout/activity_medal_manage_0", Integer.valueOf(R.layout.activity_medal_manage));
+            hashMap.put("layout/activity_my_bag_0", Integer.valueOf(R.layout.activity_my_bag));
+            hashMap.put("layout/activity_my_music_0", Integer.valueOf(R.layout.activity_my_music));
+            hashMap.put("layout/activity_number_of_mic_0", Integer.valueOf(R.layout.activity_number_of_mic));
+            hashMap.put("layout/activity_people_certification_0", Integer.valueOf(R.layout.activity_people_certification));
+            hashMap.put("layout/activity_people_match_0", Integer.valueOf(R.layout.activity_people_match));
+            hashMap.put("layout/activity_promoter_0", Integer.valueOf(R.layout.activity_promoter));
+            hashMap.put("layout/activity_promoter_center_0", Integer.valueOf(R.layout.activity_promoter_center));
+            hashMap.put("layout/activity_recharge_list_0", Integer.valueOf(R.layout.activity_recharge_list));
+            hashMap.put("layout/activity_red_envelop_detail_head_0", Integer.valueOf(R.layout.activity_red_envelop_detail_head));
+            hashMap.put("layout/activity_red_envelope_detail_0", Integer.valueOf(R.layout.activity_red_envelope_detail));
+            hashMap.put("layout/activity_red_envelope_record_0", Integer.valueOf(R.layout.activity_red_envelope_record));
+            hashMap.put("layout/activity_room_and_personal_task_0", Integer.valueOf(R.layout.activity_room_and_personal_task));
+            hashMap.put("layout/activity_room_blocked_list_0", Integer.valueOf(R.layout.activity_room_blocked_list));
+            hashMap.put("layout/activity_room_member_0", Integer.valueOf(R.layout.activity_room_member));
+            hashMap.put("layout/activity_room_member_online_0", Integer.valueOf(R.layout.activity_room_member_online));
+            hashMap.put("layout/activity_room_record_0", Integer.valueOf(R.layout.activity_room_record));
+            hashMap.put("layout/activity_room_user_block_0", Integer.valueOf(R.layout.activity_room_user_block));
+            hashMap.put("layout/activity_room_user_info_level_0", Integer.valueOf(R.layout.activity_room_user_info_level));
+            hashMap.put("layout/activity_search_user_0", Integer.valueOf(R.layout.activity_search_user));
+            hashMap.put("layout/activity_second_tf_0", Integer.valueOf(R.layout.activity_second_tf));
+            hashMap.put("layout/activity_second_tf_diamond_0", Integer.valueOf(R.layout.activity_second_tf_diamond));
+            hashMap.put("layout/activity_second_transfer_0", Integer.valueOf(R.layout.activity_second_transfer));
+            hashMap.put("layout/activity_select_country_0", Integer.valueOf(R.layout.activity_select_country));
+            hashMap.put("layout/activity_share_contacts_0", Integer.valueOf(R.layout.activity_share_contacts));
+            hashMap.put("layout/activity_store_0", Integer.valueOf(R.layout.activity_store));
+            hashMap.put("layout/activity_strange_list_0", Integer.valueOf(R.layout.activity_strange_list));
+            hashMap.put("layout/activity_strange_match_0", Integer.valueOf(R.layout.activity_strange_match));
+            hashMap.put("layout/activity_super_admin_report_0", Integer.valueOf(R.layout.activity_super_admin_report));
+            hashMap.put("layout/activity_support_gift_rank_0", Integer.valueOf(R.layout.activity_support_gift_rank));
+            hashMap.put("layout/activity_svip_0", Integer.valueOf(R.layout.activity_svip));
+            hashMap.put("layout/activity_svip_point_0", Integer.valueOf(R.layout.activity_svip_point));
+            hashMap.put("layout/activity_svip_privileges_0", Integer.valueOf(R.layout.activity_svip_privileges));
+            hashMap.put("layout/activity_svip_rules_0", Integer.valueOf(R.layout.activity_svip_rules));
+            hashMap.put("layout/activity_task_0", Integer.valueOf(R.layout.activity_task));
+            hashMap.put("layout/activity_text_0", Integer.valueOf(R.layout.activity_text));
+            hashMap.put("layout/activity_transfer_0", Integer.valueOf(R.layout.activity_transfer));
+            hashMap.put("layout/activity_transfer_center_0", Integer.valueOf(R.layout.activity_transfer_center));
+            hashMap.put("layout/activity_transfer_record_0", Integer.valueOf(R.layout.activity_transfer_record));
+            hashMap.put("layout/activity_transfer_search_0", Integer.valueOf(R.layout.activity_transfer_search));
+            hashMap.put("layout/activity_user_detail_0", Integer.valueOf(R.layout.activity_user_detail));
+            hashMap.put("layout/activity_user_info_edit_0", Integer.valueOf(R.layout.activity_user_info_edit));
+            hashMap.put("layout/activity_video_call_0", Integer.valueOf(R.layout.activity_video_call));
+            hashMap.put("layout/activity_video_recording_0", Integer.valueOf(R.layout.activity_video_recording));
+            hashMap.put("layout/activity_video_result_0", Integer.valueOf(R.layout.activity_video_result));
+            hashMap.put("layout/activity_vip_record_0", Integer.valueOf(R.layout.activity_vip_record));
+            hashMap.put("layout/activity_wallet_0", Integer.valueOf(R.layout.activity_wallet));
+            hashMap.put("layout/activity_you_tu_watch_0", Integer.valueOf(R.layout.activity_you_tu_watch));
+            hashMap.put("layout/audio_hilo_game_0", Integer.valueOf(R.layout.audio_hilo_game));
+            hashMap.put("layout/audio_hilo_game_bet_item_0", Integer.valueOf(R.layout.audio_hilo_game_bet_item));
+            hashMap.put("layout/bai_shun_head_0", Integer.valueOf(R.layout.bai_shun_head));
+            hashMap.put("layout/balloon_like_each_other_0", Integer.valueOf(R.layout.balloon_like_each_other));
+            hashMap.put("layout/base_layout_custom_tab_item_0", Integer.valueOf(R.layout.base_layout_custom_tab_item));
+            hashMap.put("layout/base_layout_task_tab_item_0", Integer.valueOf(R.layout.base_layout_task_tab_item));
+            hashMap.put("layout/cell_bill_0", Integer.valueOf(R.layout.cell_bill));
+            hashMap.put("layout/cell_common_0", Integer.valueOf(R.layout.cell_common));
+            hashMap.put("layout/cell_connection_log_0", Integer.valueOf(R.layout.cell_connection_log));
+            hashMap.put("layout/cell_conversation_0", Integer.valueOf(R.layout.cell_conversation));
+            hashMap.put("layout/cell_country_0", Integer.valueOf(R.layout.cell_country));
+            hashMap.put("layout/cell_fans_0", Integer.valueOf(R.layout.cell_fans));
+            hashMap.put("layout/cell_hilo_assistant_0", Integer.valueOf(R.layout.cell_hilo_assistant));
+            hashMap.put("layout/cell_hilo_assistant_beans_holder_type1_0", Integer.valueOf(R.layout.cell_hilo_assistant_beans_holder_type1));
+            hashMap.put("layout/cell_hilo_assistant_enter_car_0", Integer.valueOf(R.layout.cell_hilo_assistant_enter_car));
+            hashMap.put("layout/cell_hilo_assistant_holder_type1_0", Integer.valueOf(R.layout.cell_hilo_assistant_holder_type1));
+            hashMap.put("layout/cell_hilo_assistant_praise_0", Integer.valueOf(R.layout.cell_hilo_assistant_praise));
+            hashMap.put("layout/cell_hilo_information_0", Integer.valueOf(R.layout.cell_hilo_information));
+            hashMap.put("layout/cell_history_user_information_summary_0", Integer.valueOf(R.layout.cell_history_user_information_summary));
+            hashMap.put("layout/cell_like_each_other_0", Integer.valueOf(R.layout.cell_like_each_other));
+            hashMap.put("layout/cell_online_0", Integer.valueOf(R.layout.cell_online));
+            hashMap.put("layout/cell_result_analysis_0", Integer.valueOf(R.layout.cell_result_analysis));
+            hashMap.put("layout/common_frame_view_wrapper_0", Integer.valueOf(R.layout.common_frame_view_wrapper));
+            hashMap.put("layout/custom_footer_0", Integer.valueOf(R.layout.custom_footer));
+            hashMap.put("layout/dialog_aristocracy_card_0", Integer.valueOf(R.layout.dialog_aristocracy_card));
+            hashMap.put("layout/dialog_baloot_end_0", Integer.valueOf(R.layout.dialog_baloot_end));
+            hashMap.put("layout/dialog_baloot_introduce_0", Integer.valueOf(R.layout.dialog_baloot_introduce));
+            hashMap.put("layout/dialog_block_or_report_0", Integer.valueOf(R.layout.dialog_block_or_report));
+            hashMap.put("layout/dialog_block_text_0", Integer.valueOf(R.layout.dialog_block_text));
+            hashMap.put("layout/dialog_carrom_introduce_0", Integer.valueOf(R.layout.dialog_carrom_introduce));
+            hashMap.put("layout/dialog_change_country_0", Integer.valueOf(R.layout.dialog_change_country));
+            hashMap.put("layout/dialog_change_sex_0", Integer.valueOf(R.layout.dialog_change_sex));
+            hashMap.put("layout/dialog_check_room_error_agora_0", Integer.valueOf(R.layout.dialog_check_room_error_agora));
+            hashMap.put("layout/dialog_common_text_0", Integer.valueOf(R.layout.dialog_common_text));
+            hashMap.put("layout/dialog_cp_certificate_0", Integer.valueOf(R.layout.dialog_cp_certificate));
+            hashMap.put("layout/dialog_cp_confirm_0", Integer.valueOf(R.layout.dialog_cp_confirm));
+            hashMap.put("layout/dialog_cp_confirm_two_0", Integer.valueOf(R.layout.dialog_cp_confirm_two));
+            hashMap.put("layout/dialog_cp_delete_0", Integer.valueOf(R.layout.dialog_cp_delete));
+            hashMap.put("layout/dialog_cp_invitation_receive_0", Integer.valueOf(R.layout.dialog_cp_invitation_receive));
+            hashMap.put("layout/dialog_cp_invitation_send_0", Integer.valueOf(R.layout.dialog_cp_invitation_send));
+            hashMap.put("layout/dialog_cp_more_0", Integer.valueOf(R.layout.dialog_cp_more));
+            hashMap.put("layout/dialog_cp_privilege_0", Integer.valueOf(R.layout.dialog_cp_privilege));
+            hashMap.put("layout/dialog_cp_rule_0", Integer.valueOf(R.layout.dialog_cp_rule));
+            hashMap.put("layout/dialog_cp_tip_0", Integer.valueOf(R.layout.dialog_cp_tip));
+            hashMap.put("layout/dialog_create_1v1_pk_0", Integer.valueOf(R.layout.dialog_create_1v1_pk));
+            hashMap.put("layout/dialog_create_backgammon_0", Integer.valueOf(R.layout.dialog_create_backgammon));
+            hashMap.put("layout/dialog_create_baloot_0", Integer.valueOf(R.layout.dialog_create_baloot));
+            hashMap.put("layout/dialog_create_carrom_0", Integer.valueOf(R.layout.dialog_create_carrom));
+            hashMap.put("layout/dialog_create_crush_0", Integer.valueOf(R.layout.dialog_create_crush));
+            hashMap.put("layout/dialog_create_domino_0", Integer.valueOf(R.layout.dialog_create_domino));
+            hashMap.put("layout/dialog_create_jackaro_0", Integer.valueOf(R.layout.dialog_create_jackaro));
+            hashMap.put("layout/dialog_create_ludo_0", Integer.valueOf(R.layout.dialog_create_ludo));
+            hashMap.put("layout/dialog_create_nuo_0", Integer.valueOf(R.layout.dialog_create_nuo));
+            hashMap.put("layout/dialog_crush_end_0", Integer.valueOf(R.layout.dialog_crush_end));
+            hashMap.put("layout/dialog_crush_introduce_0", Integer.valueOf(R.layout.dialog_crush_introduce));
+            hashMap.put("layout/dialog_custom_gift_rule_0", Integer.valueOf(R.layout.dialog_custom_gift_rule));
+            hashMap.put("layout/dialog_daily_operating_0", Integer.valueOf(R.layout.dialog_daily_operating));
+            hashMap.put("layout/dialog_daily_record_0", Integer.valueOf(R.layout.dialog_daily_record));
+            hashMap.put("layout/dialog_daily_vip_diamond_0", Integer.valueOf(R.layout.dialog_daily_vip_diamond));
+            hashMap.put("layout/dialog_default_more_0", Integer.valueOf(R.layout.dialog_default_more));
+            hashMap.put("layout/dialog_delete_account_0", Integer.valueOf(R.layout.dialog_delete_account));
+            hashMap.put("layout/dialog_domino_end_0", Integer.valueOf(R.layout.dialog_domino_end));
+            hashMap.put("layout/dialog_domino_introduce_0", Integer.valueOf(R.layout.dialog_domino_introduce));
+            hashMap.put("layout/dialog_family_member_more_0", Integer.valueOf(R.layout.dialog_family_member_more));
+            hashMap.put("layout/dialog_family_setting_0", Integer.valueOf(R.layout.dialog_family_setting));
+            hashMap.put("layout/dialog_family_share_0", Integer.valueOf(R.layout.dialog_family_share));
+            hashMap.put("layout/dialog_filtrate_user_0", Integer.valueOf(R.layout.dialog_filtrate_user));
+            hashMap.put("layout/dialog_first_charge_0", Integer.valueOf(R.layout.dialog_first_charge));
+            hashMap.put("layout/dialog_first_recharge_0", Integer.valueOf(R.layout.dialog_first_recharge));
+            hashMap.put("layout/dialog_gem_details_0", Integer.valueOf(R.layout.dialog_gem_details));
+            hashMap.put("layout/dialog_gem_store_0", Integer.valueOf(R.layout.dialog_gem_store));
+            hashMap.put("layout/dialog_gift_text_0", Integer.valueOf(R.layout.dialog_gift_text));
+            hashMap.put("layout/dialog_gold_task_0", Integer.valueOf(R.layout.dialog_gold_task));
+            hashMap.put("layout/dialog_group_face_0", Integer.valueOf(R.layout.dialog_group_face));
+            hashMap.put("layout/dialog_group_music_0", Integer.valueOf(R.layout.dialog_group_music));
+            hashMap.put("layout/dialog_h5_diamond_game_0", Integer.valueOf(R.layout.dialog_h5_diamond_game));
+            hashMap.put("layout/dialog_h5_game_0", Integer.valueOf(R.layout.dialog_h5_game));
+            hashMap.put("layout/dialog_h5_gem_game_0", Integer.valueOf(R.layout.dialog_h5_gem_game));
+            hashMap.put("layout/dialog_helper_0", Integer.valueOf(R.layout.dialog_helper));
+            hashMap.put("layout/dialog_im_clean_message_0", Integer.valueOf(R.layout.dialog_im_clean_message));
+            hashMap.put("layout/dialog_invite_take_mic_get_diamond_0", Integer.valueOf(R.layout.dialog_invite_take_mic_get_diamond));
+            hashMap.put("layout/dialog_item_medal_0", Integer.valueOf(R.layout.dialog_item_medal));
+            hashMap.put("layout/dialog_jackaro_introduce_0", Integer.valueOf(R.layout.dialog_jackaro_introduce));
+            hashMap.put("layout/dialog_join_lock_room_0", Integer.valueOf(R.layout.dialog_join_lock_room));
+            hashMap.put("layout/dialog_joined_level_0", Integer.valueOf(R.layout.dialog_joined_level));
+            hashMap.put("layout/dialog_leave_room_0", Integer.valueOf(R.layout.dialog_leave_room));
+            hashMap.put("layout/dialog_lucky_box_0", Integer.valueOf(R.layout.dialog_lucky_box));
+            hashMap.put("layout/dialog_lucky_box_big_prizes_0", Integer.valueOf(R.layout.dialog_lucky_box_big_prizes));
+            hashMap.put("layout/dialog_lucky_box_ranking_0", Integer.valueOf(R.layout.dialog_lucky_box_ranking));
+            hashMap.put("layout/dialog_lucky_box_winning_record_0", Integer.valueOf(R.layout.dialog_lucky_box_winning_record));
+            hashMap.put("layout/dialog_lucky_fruit_place_bet_confirm_0", Integer.valueOf(R.layout.dialog_lucky_fruit_place_bet_confirm));
+            hashMap.put("layout/dialog_lucky_fruit_ranking_0", Integer.valueOf(R.layout.dialog_lucky_fruit_ranking));
+            hashMap.put("layout/dialog_lucky_fruit_record_0", Integer.valueOf(R.layout.dialog_lucky_fruit_record));
+            hashMap.put("layout/dialog_lucky_fruit_rule_0", Integer.valueOf(R.layout.dialog_lucky_fruit_rule));
+            hashMap.put("layout/dialog_lucky_wheel_0", Integer.valueOf(R.layout.dialog_lucky_wheel));
+            hashMap.put("layout/dialog_ludo_end_0", Integer.valueOf(R.layout.dialog_ludo_end));
+            hashMap.put("layout/dialog_ludo_introduce_0", Integer.valueOf(R.layout.dialog_ludo_introduce));
+            hashMap.put("layout/dialog_main_activity_0", Integer.valueOf(R.layout.dialog_main_activity));
+            hashMap.put("layout/dialog_match_permissions_0", Integer.valueOf(R.layout.dialog_match_permissions));
+            hashMap.put("layout/dialog_medal_level_0", Integer.valueOf(R.layout.dialog_medal_level));
+            hashMap.put("layout/dialog_message_list_0", Integer.valueOf(R.layout.dialog_message_list));
+            hashMap.put("layout/dialog_message_menu_0", Integer.valueOf(R.layout.dialog_message_menu));
+            hashMap.put("layout/dialog_mic_operate_click_0", Integer.valueOf(R.layout.dialog_mic_operate_click));
+            hashMap.put("layout/dialog_mystery_0", Integer.valueOf(R.layout.dialog_mystery));
+            hashMap.put("layout/dialog_notification_permission_0", Integer.valueOf(R.layout.dialog_notification_permission));
+            hashMap.put("layout/dialog_number_of_dice_0", Integer.valueOf(R.layout.dialog_number_of_dice));
+            hashMap.put("layout/dialog_number_of_mic_0", Integer.valueOf(R.layout.dialog_number_of_mic));
+            hashMap.put("layout/dialog_open_envelope_0", Integer.valueOf(R.layout.dialog_open_envelope));
+            hashMap.put("layout/dialog_other_gift_0", Integer.valueOf(R.layout.dialog_other_gift));
+            hashMap.put("layout/dialog_pass_word_level_0", Integer.valueOf(R.layout.dialog_pass_word_level));
+            hashMap.put("layout/dialog_pic_or_svga_0", Integer.valueOf(R.layout.dialog_pic_or_svga));
+            hashMap.put("layout/dialog_pk1v1_rule_0", Integer.valueOf(R.layout.dialog_pk1v1_rule));
+            hashMap.put("layout/dialog_pk_end_0", Integer.valueOf(R.layout.dialog_pk_end));
+            hashMap.put("layout/dialog_pk_rule_0", Integer.valueOf(R.layout.dialog_pk_rule));
+            hashMap.put("layout/dialog_pk_support_0", Integer.valueOf(R.layout.dialog_pk_support));
+            hashMap.put("layout/dialog_preview_0", Integer.valueOf(R.layout.dialog_preview));
+            hashMap.put("layout/dialog_red_envelope_create_0", Integer.valueOf(R.layout.dialog_red_envelope_create));
+            hashMap.put("layout/dialog_relation_invitation_receive_0", Integer.valueOf(R.layout.dialog_relation_invitation_receive));
+            hashMap.put("layout/dialog_relation_invitation_send_0", Integer.valueOf(R.layout.dialog_relation_invitation_send));
+            hashMap.put("layout/dialog_room_animation_effect_0", Integer.valueOf(R.layout.dialog_room_animation_effect));
+            hashMap.put("layout/dialog_room_broad_cast_0", Integer.valueOf(R.layout.dialog_room_broad_cast));
+            hashMap.put("layout/dialog_room_cp_user_info_0", Integer.valueOf(R.layout.dialog_room_cp_user_info));
+            hashMap.put("layout/dialog_room_game_0", Integer.valueOf(R.layout.dialog_room_game));
+            hashMap.put("layout/dialog_room_gift_0", Integer.valueOf(R.layout.dialog_room_gift));
+            hashMap.put("layout/dialog_room_info2_0", Integer.valueOf(R.layout.dialog_room_info2));
+            hashMap.put("layout/dialog_room_pk_create_0", Integer.valueOf(R.layout.dialog_room_pk_create));
+            hashMap.put("layout/dialog_room_pk_invite_0", Integer.valueOf(R.layout.dialog_room_pk_invite));
+            hashMap.put("layout/dialog_room_power_diamond_0", Integer.valueOf(R.layout.dialog_room_power_diamond));
+            hashMap.put("layout/dialog_room_power_join_0", Integer.valueOf(R.layout.dialog_room_power_join));
+            hashMap.put("layout/dialog_room_rocket_0", Integer.valueOf(R.layout.dialog_room_rocket));
+            hashMap.put("layout/dialog_room_rocket_reaward_0", Integer.valueOf(R.layout.dialog_room_rocket_reaward));
+            hashMap.put("layout/dialog_room_tip_0", Integer.valueOf(R.layout.dialog_room_tip));
+            hashMap.put("layout/dialog_room_tool_0", Integer.valueOf(R.layout.dialog_room_tool));
+            hashMap.put("layout/dialog_room_user_info_0", Integer.valueOf(R.layout.dialog_room_user_info));
+            hashMap.put("layout/dialog_safeties_reference_0", Integer.valueOf(R.layout.dialog_safeties_reference));
+            hashMap.put("layout/dialog_send_group_broadcast_0", Integer.valueOf(R.layout.dialog_send_group_broadcast));
+            hashMap.put("layout/dialog_share_invite_friends_0", Integer.valueOf(R.layout.dialog_share_invite_friends));
+            hashMap.put("layout/dialog_sheep_end_0", Integer.valueOf(R.layout.dialog_sheep_end));
+            hashMap.put("layout/dialog_show_svga_or_pic_0", Integer.valueOf(R.layout.dialog_show_svga_or_pic));
+            hashMap.put("layout/dialog_store_preview_0", Integer.valueOf(R.layout.dialog_store_preview));
+            hashMap.put("layout/dialog_strange_end_0", Integer.valueOf(R.layout.dialog_strange_end));
+            hashMap.put("layout/dialog_strange_like_0", Integer.valueOf(R.layout.dialog_strange_like));
+            hashMap.put("layout/dialog_styled_0", Integer.valueOf(R.layout.dialog_styled));
+            hashMap.put("layout/dialog_super_like_0", Integer.valueOf(R.layout.dialog_super_like));
+            hashMap.put("layout/dialog_svip_unblock_0", Integer.valueOf(R.layout.dialog_svip_unblock));
+            hashMap.put("layout/dialog_take_mic_task_complete_diamond_0", Integer.valueOf(R.layout.dialog_take_mic_task_complete_diamond));
+            hashMap.put("layout/dialog_uno_end_0", Integer.valueOf(R.layout.dialog_uno_end));
+            hashMap.put("layout/dialog_uno_introduce_0", Integer.valueOf(R.layout.dialog_uno_introduce));
+            hashMap.put("layout/dialog_upload_0", Integer.valueOf(R.layout.dialog_upload));
+            hashMap.put("layout/dialog_user_menu_0", Integer.valueOf(R.layout.dialog_user_menu));
+            hashMap.put("layout/dialog_verification_0", Integer.valueOf(R.layout.dialog_verification));
+            hashMap.put("layout/dialog_video_gift_0", Integer.valueOf(R.layout.dialog_video_gift));
+            hashMap.put("layout/dialog_video_instructions_0", Integer.valueOf(R.layout.dialog_video_instructions));
+            hashMap.put("layout/dialog_watch_helper_0", Integer.valueOf(R.layout.dialog_watch_helper));
+            hashMap.put("layout/dialog_watch_rule_0", Integer.valueOf(R.layout.dialog_watch_rule));
+            hashMap.put("layout/dialog_wealth_medal_0", Integer.valueOf(R.layout.dialog_wealth_medal));
+            hashMap.put("layout/dialog_whats_tip_0", Integer.valueOf(R.layout.dialog_whats_tip));
+            hashMap.put("layout/dialog_you_tu_helper_0", Integer.valueOf(R.layout.dialog_you_tu_helper));
+            hashMap.put("layout/dialog_you_tu_link_0", Integer.valueOf(R.layout.dialog_you_tu_link));
+            hashMap.put("layout/dialog_you_tu_list_0", Integer.valueOf(R.layout.dialog_you_tu_list));
+            hashMap.put("layout/dialog_you_tu_room_fragment_0", Integer.valueOf(R.layout.dialog_you_tu_room_fragment));
+            hashMap.put("layout/edit_country_0", Integer.valueOf(R.layout.edit_country));
+            hashMap.put("layout/edit_country_title_0", Integer.valueOf(R.layout.edit_country_title));
+            hashMap.put("layout/envelope_banner_0", Integer.valueOf(R.layout.envelope_banner));
+            hashMap.put("layout/floating_view_0", Integer.valueOf(R.layout.floating_view));
+            hashMap.put("layout/fragment_activities_0", Integer.valueOf(R.layout.fragment_activities));
+            hashMap.put("layout/fragment_audio_room_0", Integer.valueOf(R.layout.fragment_audio_room));
+            hashMap.put("layout/fragment_base_list_0", Integer.valueOf(R.layout.fragment_base_list));
+            hashMap.put("layout/fragment_binder_0", Integer.valueOf(R.layout.fragment_binder));
+            hashMap.put("layout/fragment_carrom_bag_0", Integer.valueOf(R.layout.fragment_carrom_bag));
+            hashMap.put("layout/fragment_carrom_child_0", Integer.valueOf(R.layout.fragment_carrom_child));
+            hashMap.put("layout/fragment_carrom_store_0", Integer.valueOf(R.layout.fragment_carrom_store));
+            hashMap.put("layout/fragment_contact_0", Integer.valueOf(R.layout.fragment_contact));
+            hashMap.put("layout/fragment_cp_0", Integer.valueOf(R.layout.fragment_cp));
+            hashMap.put("layout/fragment_cp_child_0", Integer.valueOf(R.layout.fragment_cp_child));
+            hashMap.put("layout/fragment_diamond_task_0", Integer.valueOf(R.layout.fragment_diamond_task));
+            hashMap.put("layout/fragment_discover_0", Integer.valueOf(R.layout.fragment_discover));
+            hashMap.put("layout/fragment_discover_head_0", Integer.valueOf(R.layout.fragment_discover_head));
+            hashMap.put("layout/fragment_family_application_0", Integer.valueOf(R.layout.fragment_family_application));
+            hashMap.put("layout/fragment_family_exit_0", Integer.valueOf(R.layout.fragment_family_exit));
+            hashMap.put("layout/fragment_family_rank_0", Integer.valueOf(R.layout.fragment_family_rank));
+            hashMap.put("layout/fragment_family_setting_0", Integer.valueOf(R.layout.fragment_family_setting));
+            hashMap.put("layout/fragment_family_setting_edit_0", Integer.valueOf(R.layout.fragment_family_setting_edit));
+            hashMap.put("layout/fragment_family_star_0", Integer.valueOf(R.layout.fragment_family_star));
+            hashMap.put("layout/fragment_family_star_child_0", Integer.valueOf(R.layout.fragment_family_star_child));
+            hashMap.put("layout/fragment_first_charge_0", Integer.valueOf(R.layout.fragment_first_charge));
+            hashMap.put("layout/fragment_game_room_0", Integer.valueOf(R.layout.fragment_game_room));
+            hashMap.put("layout/fragment_gift_record_0", Integer.valueOf(R.layout.fragment_gift_record));
+            hashMap.put("layout/fragment_gold_task_0", Integer.valueOf(R.layout.fragment_gold_task));
+            hashMap.put("layout/fragment_group_theme_0", Integer.valueOf(R.layout.fragment_group_theme));
+            hashMap.put("layout/fragment_home_0", Integer.valueOf(R.layout.fragment_home));
+            hashMap.put("layout/fragment_home_chat_0", Integer.valueOf(R.layout.fragment_home_chat));
+            hashMap.put("layout/fragment_home_community_0", Integer.valueOf(R.layout.fragment_home_community));
+            hashMap.put("layout/fragment_home_game_0", Integer.valueOf(R.layout.fragment_home_game));
+            hashMap.put("layout/fragment_home_game_head_0", Integer.valueOf(R.layout.fragment_home_game_head));
+            hashMap.put("layout/fragment_home_matching_0", Integer.valueOf(R.layout.fragment_home_matching));
+            hashMap.put("layout/fragment_home_matching_head_0", Integer.valueOf(R.layout.fragment_home_matching_head));
+            hashMap.put("layout/fragment_home_room_0", Integer.valueOf(R.layout.fragment_home_room));
+            hashMap.put("layout/fragment_interactive_tracking_0", Integer.valueOf(R.layout.fragment_interactive_tracking));
+            hashMap.put("layout/fragment_login_phone_0", Integer.valueOf(R.layout.fragment_login_phone));
+            hashMap.put("layout/fragment_message_0", Integer.valueOf(R.layout.fragment_message));
+            hashMap.put("layout/fragment_my_bag_0", Integer.valueOf(R.layout.fragment_my_bag));
+            hashMap.put("layout/fragment_my_room_0", Integer.valueOf(R.layout.fragment_my_room));
+            hashMap.put("layout/fragment_new_room_0", Integer.valueOf(R.layout.fragment_new_room));
+            hashMap.put("layout/fragment_new_room_head_0", Integer.valueOf(R.layout.fragment_new_room_head));
+            hashMap.put("layout/fragment_popular_0", Integer.valueOf(R.layout.fragment_popular));
+            hashMap.put("layout/fragment_promoter_center_0", Integer.valueOf(R.layout.fragment_promoter_center));
+            hashMap.put("layout/fragment_promoter_center_head_0", Integer.valueOf(R.layout.fragment_promoter_center_head));
+            hashMap.put("layout/fragment_real_task_0", Integer.valueOf(R.layout.fragment_real_task));
+            hashMap.put("layout/fragment_record_0", Integer.valueOf(R.layout.fragment_record));
+            hashMap.put("layout/fragment_room_activity_0", Integer.valueOf(R.layout.fragment_room_activity));
+            hashMap.put("layout/fragment_room_and_personal_0", Integer.valueOf(R.layout.fragment_room_and_personal));
+            hashMap.put("layout/fragment_room_bag_0", Integer.valueOf(R.layout.fragment_room_bag));
+            hashMap.put("layout/fragment_room_gift_0", Integer.valueOf(R.layout.fragment_room_gift));
+            hashMap.put("layout/fragment_room_profile_0", Integer.valueOf(R.layout.fragment_room_profile));
+            hashMap.put("layout/fragment_room_record_0", Integer.valueOf(R.layout.fragment_room_record));
+            hashMap.put("layout/fragment_second_head_0", Integer.valueOf(R.layout.fragment_second_head));
+            hashMap.put("layout/fragment_second_tf_0", Integer.valueOf(R.layout.fragment_second_tf));
+            hashMap.put("layout/fragment_select_country_0", Integer.valueOf(R.layout.fragment_select_country));
+            hashMap.put("layout/fragment_store_0", Integer.valueOf(R.layout.fragment_store));
+            hashMap.put("layout/fragment_transfer_0", Integer.valueOf(R.layout.fragment_transfer));
+            hashMap.put("layout/fragment_transfer_center_0", Integer.valueOf(R.layout.fragment_transfer_center));
+            hashMap.put("layout/fragment_transfer_center_detail_0", Integer.valueOf(R.layout.fragment_transfer_center_detail));
+            hashMap.put("layout/fragment_transfer_center_head_0", Integer.valueOf(R.layout.fragment_transfer_center_head));
+            hashMap.put("layout/fragment_transfer_record_0", Integer.valueOf(R.layout.fragment_transfer_record));
+            hashMap.put("layout/fragment_user_profile_0", Integer.valueOf(R.layout.fragment_user_profile));
+            hashMap.put("layout/fragment_user_props_0", Integer.valueOf(R.layout.fragment_user_props));
+            hashMap.put("layout/fragment_user_props_head_0", Integer.valueOf(R.layout.fragment_user_props_head));
+            hashMap.put("layout/fragment_verification_code_0", Integer.valueOf(R.layout.fragment_verification_code));
+            hashMap.put("layout/fragment_video_recording_0", Integer.valueOf(R.layout.fragment_video_recording));
+            hashMap.put("layout/fragment_vip_record_0", Integer.valueOf(R.layout.fragment_vip_record));
+            hashMap.put("layout/fragment_wallet_beans_0", Integer.valueOf(R.layout.fragment_wallet_beans));
+            hashMap.put("layout/fragment_wallet_diamond_0", Integer.valueOf(R.layout.fragment_wallet_diamond));
+            hashMap.put("layout/fragment_wallet_gold_0", Integer.valueOf(R.layout.fragment_wallet_gold));
+            hashMap.put("layout/fragment_you_tu_hot_list_0", Integer.valueOf(R.layout.fragment_you_tu_hot_list));
+            hashMap.put("layout/fragment_you_tu_play_list_0", Integer.valueOf(R.layout.fragment_you_tu_play_list));
+            hashMap.put("layout/gift_banner_view1_0", Integer.valueOf(R.layout.gift_banner_view1));
+            hashMap.put("layout/gift_banner_view2_0", Integer.valueOf(R.layout.gift_banner_view2));
+            hashMap.put("layout/gift_banner_view3_0", Integer.valueOf(R.layout.gift_banner_view3));
+            hashMap.put("layout/gift_banner_view4_0", Integer.valueOf(R.layout.gift_banner_view4));
+            hashMap.put("layout/gift_banner_view5_0", Integer.valueOf(R.layout.gift_banner_view5));
+            hashMap.put("layout/gift_banner_view6_0", Integer.valueOf(R.layout.gift_banner_view6));
+            hashMap.put("layout/include_account_item_0", Integer.valueOf(R.layout.include_account_item));
+            hashMap.put("layout/include_baloot_item_0", Integer.valueOf(R.layout.include_baloot_item));
+            hashMap.put("layout/include_bill_item_0", Integer.valueOf(R.layout.include_bill_item));
+            hashMap.put("layout/include_carrom_item_0", Integer.valueOf(R.layout.include_carrom_item));
+            hashMap.put("layout/include_carrom_title_0", Integer.valueOf(R.layout.include_carrom_title));
+            hashMap.put("layout/include_cp_item_0", Integer.valueOf(R.layout.include_cp_item));
+            hashMap.put("layout/include_family_item_0", Integer.valueOf(R.layout.include_family_item));
+            hashMap.put("layout/include_jackaro_item_0", Integer.valueOf(R.layout.include_jackaro_item));
+            hashMap.put("layout/include_ludo_item_0", Integer.valueOf(R.layout.include_ludo_item));
+            hashMap.put("layout/include_main_activity_item_0", Integer.valueOf(R.layout.include_main_activity_item));
+            hashMap.put("layout/include_match_big_item_0", Integer.valueOf(R.layout.include_match_big_item));
+            hashMap.put("layout/include_match_min_item_0", Integer.valueOf(R.layout.include_match_min_item));
+            hashMap.put("layout/include_number_dice_0", Integer.valueOf(R.layout.include_number_dice));
+            hashMap.put("layout/include_pk_go_0", Integer.valueOf(R.layout.include_pk_go));
+            hashMap.put("layout/include_pk_level_0", Integer.valueOf(R.layout.include_pk_level));
+            hashMap.put("layout/include_report_item_0", Integer.valueOf(R.layout.include_report_item));
+            hashMap.put("layout/include_svip_rules_0", Integer.valueOf(R.layout.include_svip_rules));
+            hashMap.put("layout/include_title_0", Integer.valueOf(R.layout.include_title));
+            hashMap.put("layout/include_title_write_0", Integer.valueOf(R.layout.include_title_write));
+            hashMap.put("layout/include_transfer_text_0", Integer.valueOf(R.layout.include_transfer_text));
+            hashMap.put("layout/include_uno_item_0", Integer.valueOf(R.layout.include_uno_item));
+            hashMap.put("layout/item_activities_detail_0", Integer.valueOf(R.layout.item_activities_detail));
+            hashMap.put("layout/item_activity_0", Integer.valueOf(R.layout.item_activity));
+            hashMap.put("layout/item_add_image_0", Integer.valueOf(R.layout.item_add_image));
+            hashMap.put("layout/item_agora_error_agora_id_0", Integer.valueOf(R.layout.item_agora_error_agora_id));
+            hashMap.put("layout/item_agora_error_user_info_0", Integer.valueOf(R.layout.item_agora_error_user_info));
+            hashMap.put("layout/item_all_medal_0", Integer.valueOf(R.layout.item_all_medal));
+            hashMap.put("layout/item_aristocracy_0", Integer.valueOf(R.layout.item_aristocracy));
+            hashMap.put("layout/item_aristocracy_bag_0", Integer.valueOf(R.layout.item_aristocracy_bag));
+            hashMap.put("layout/item_bai_shun_0", Integer.valueOf(R.layout.item_bai_shun));
+            hashMap.put("layout/item_bai_shun_game_0", Integer.valueOf(R.layout.item_bai_shun_game));
+            hashMap.put("layout/item_big_micro_view_0", Integer.valueOf(R.layout.item_big_micro_view));
+            hashMap.put("layout/item_carrom_bag_child_0", Integer.valueOf(R.layout.item_carrom_bag_child));
+            hashMap.put("layout/item_carrom_child_0", Integer.valueOf(R.layout.item_carrom_child));
+            hashMap.put("layout/item_chat_banner_0", Integer.valueOf(R.layout.item_chat_banner));
+            hashMap.put("layout/item_chat_interactive_0", Integer.valueOf(R.layout.item_chat_interactive));
+            hashMap.put("layout/item_chat_room_foodie_circle_result_0", Integer.valueOf(R.layout.item_chat_room_foodie_circle_result));
+            hashMap.put("layout/item_chat_room_foodie_ranking_0", Integer.valueOf(R.layout.item_chat_room_foodie_ranking));
+            hashMap.put("layout/item_chat_room_foodie_record_0", Integer.valueOf(R.layout.item_chat_room_foodie_record));
+            hashMap.put("layout/item_chat_room_lucky_fruit_record_0", Integer.valueOf(R.layout.item_chat_room_lucky_fruit_record));
+            hashMap.put("layout/item_contact_like_each_other_0", Integer.valueOf(R.layout.item_contact_like_each_other));
+            hashMap.put("layout/item_contact_like_me_other_0", Integer.valueOf(R.layout.item_contact_like_me_other));
+            hashMap.put("layout/item_country_0", Integer.valueOf(R.layout.item_country));
+            hashMap.put("layout/item_cp_0", Integer.valueOf(R.layout.item_cp));
+            hashMap.put("layout/item_cp_medal_0", Integer.valueOf(R.layout.item_cp_medal));
+            hashMap.put("layout/item_cp_memorial_item_0", Integer.valueOf(R.layout.item_cp_memorial_item));
+            hashMap.put("layout/item_cp_memorial_top_0", Integer.valueOf(R.layout.item_cp_memorial_top));
+            hashMap.put("layout/item_cp_my_rank_0", Integer.valueOf(R.layout.item_cp_my_rank));
+            hashMap.put("layout/item_cp_rank_0", Integer.valueOf(R.layout.item_cp_rank));
+            hashMap.put("layout/item_cp_record_0", Integer.valueOf(R.layout.item_cp_record));
+            hashMap.put("layout/item_cp_space_0", Integer.valueOf(R.layout.item_cp_space));
+            hashMap.put("layout/item_create_activity_image_0", Integer.valueOf(R.layout.item_create_activity_image));
+            hashMap.put("layout/item_crush_win_0", Integer.valueOf(R.layout.item_crush_win));
+            hashMap.put("layout/item_currently_pk_0", Integer.valueOf(R.layout.item_currently_pk));
+            hashMap.put("layout/item_daily_earn_diamond_task_0", Integer.valueOf(R.layout.item_daily_earn_diamond_task));
+            hashMap.put("layout/item_daily_record_0", Integer.valueOf(R.layout.item_daily_record));
+            hashMap.put("layout/item_dialog_activity_0", Integer.valueOf(R.layout.item_dialog_activity));
+            hashMap.put("layout/item_diamond_purchase_0", Integer.valueOf(R.layout.item_diamond_purchase));
+            hashMap.put("layout/item_discover_banner_0", Integer.valueOf(R.layout.item_discover_banner));
+            hashMap.put("layout/item_discover_broad_cast_0", Integer.valueOf(R.layout.item_discover_broad_cast));
+            hashMap.put("layout/item_discover_country_0", Integer.valueOf(R.layout.item_discover_country));
+            hashMap.put("layout/item_domino_win_0", Integer.valueOf(R.layout.item_domino_win));
+            hashMap.put("layout/item_exchange_detail_0", Integer.valueOf(R.layout.item_exchange_detail));
+            hashMap.put("layout/item_family_application_0", Integer.valueOf(R.layout.item_family_application));
+            hashMap.put("layout/item_family_center_member_0", Integer.valueOf(R.layout.item_family_center_member));
+            hashMap.put("layout/item_family_exit_0", Integer.valueOf(R.layout.item_family_exit));
+            hashMap.put("layout/item_family_rank_0", Integer.valueOf(R.layout.item_family_rank));
+            hashMap.put("layout/item_family_room_0", Integer.valueOf(R.layout.item_family_room));
+            hashMap.put("layout/item_family_search_member_0", Integer.valueOf(R.layout.item_family_search_member));
+            hashMap.put("layout/item_family_share_0", Integer.valueOf(R.layout.item_family_share));
+            hashMap.put("layout/item_family_star_0", Integer.valueOf(R.layout.item_family_star));
+            hashMap.put("layout/item_first_charge_0", Integer.valueOf(R.layout.item_first_charge));
+            hashMap.put("layout/item_fragment_activity_0", Integer.valueOf(R.layout.item_fragment_activity));
+            hashMap.put("layout/item_fragment_promoter_center_0", Integer.valueOf(R.layout.item_fragment_promoter_center));
+            hashMap.put("layout/item_fragment_second_tf_0", Integer.valueOf(R.layout.item_fragment_second_tf));
+            hashMap.put("layout/item_fragment_transfer_0", Integer.valueOf(R.layout.item_fragment_transfer));
+            hashMap.put("layout/item_fragment_transfer_center_0", Integer.valueOf(R.layout.item_fragment_transfer_center));
+            hashMap.put("layout/item_game_broadcast_0", Integer.valueOf(R.layout.item_game_broadcast));
+            hashMap.put("layout/item_game_level_card_0", Integer.valueOf(R.layout.item_game_level_card));
+            hashMap.put("layout/item_game_level_privileges_0", Integer.valueOf(R.layout.item_game_level_privileges));
+            hashMap.put("layout/item_game_list_0", Integer.valueOf(R.layout.item_game_list));
+            hashMap.put("layout/item_game_micro_view_0", Integer.valueOf(R.layout.item_game_micro_view));
+            hashMap.put("layout/item_gem_0", Integer.valueOf(R.layout.item_gem));
+            hashMap.put("layout/item_gem_details_0", Integer.valueOf(R.layout.item_gem_details));
+            hashMap.put("layout/item_gem_exchange_0", Integer.valueOf(R.layout.item_gem_exchange));
+            hashMap.put("layout/item_gem_game_0", Integer.valueOf(R.layout.item_gem_game));
+            hashMap.put("layout/item_gift_record_0", Integer.valueOf(R.layout.item_gift_record));
+            hashMap.put("layout/item_gift_wall_0", Integer.valueOf(R.layout.item_gift_wall));
+            hashMap.put("layout/item_global_broadcast_history_0", Integer.valueOf(R.layout.item_global_broadcast_history));
+            hashMap.put("layout/item_goddess_0", Integer.valueOf(R.layout.item_goddess));
+            hashMap.put("layout/item_gold_game_0", Integer.valueOf(R.layout.item_gold_game));
+            hashMap.put("layout/item_gold_recharge_0", Integer.valueOf(R.layout.item_gold_recharge));
+            hashMap.put("layout/item_group_lucky_box_0", Integer.valueOf(R.layout.item_group_lucky_box));
+            hashMap.put("layout/item_group_lucky_box_big_reward_0", Integer.valueOf(R.layout.item_group_lucky_box_big_reward));
+            hashMap.put("layout/item_group_lucky_box_ranking_0", Integer.valueOf(R.layout.item_group_lucky_box_ranking));
+            hashMap.put("layout/item_group_lucky_box_winning_0", Integer.valueOf(R.layout.item_group_lucky_box_winning));
+            hashMap.put("layout/item_group_member_admin_0", Integer.valueOf(R.layout.item_group_member_admin));
+            hashMap.put("layout/item_group_member_block_0", Integer.valueOf(R.layout.item_group_member_block));
+            hashMap.put("layout/item_group_member_online_0", Integer.valueOf(R.layout.item_group_member_online));
+            hashMap.put("layout/item_group_my_theme_0", Integer.valueOf(R.layout.item_group_my_theme));
+            hashMap.put("layout/item_group_normal_rank_0", Integer.valueOf(R.layout.item_group_normal_rank));
+            hashMap.put("layout/item_group_popular1_0", Integer.valueOf(R.layout.item_group_popular1));
+            hashMap.put("layout/item_group_popular2_0", Integer.valueOf(R.layout.item_group_popular2));
+            hashMap.put("layout/item_group_popular3_0", Integer.valueOf(R.layout.item_group_popular3));
+            hashMap.put("layout/item_group_popular4_0", Integer.valueOf(R.layout.item_group_popular4));
+            hashMap.put("layout/item_group_support_0", Integer.valueOf(R.layout.item_group_support));
+            hashMap.put("layout/item_group_theme_0", Integer.valueOf(R.layout.item_group_theme));
+            hashMap.put("layout/item_group_top_rank_0", Integer.valueOf(R.layout.item_group_top_rank));
+            hashMap.put("layout/item_hilo_game_mic_0", Integer.valueOf(R.layout.item_hilo_game_mic));
+            hashMap.put("layout/item_hilo_game_micro_view_0", Integer.valueOf(R.layout.item_hilo_game_micro_view));
+            hashMap.put("layout/item_hilo_information_0", Integer.valueOf(R.layout.item_hilo_information));
+            hashMap.put("layout/item_home_authentication_0", Integer.valueOf(R.layout.item_home_authentication));
+            hashMap.put("layout/item_home_game_0", Integer.valueOf(R.layout.item_home_game));
+            hashMap.put("layout/item_home_game_room_0", Integer.valueOf(R.layout.item_home_game_room));
+            hashMap.put("layout/item_local_music_0", Integer.valueOf(R.layout.item_local_music));
+            hashMap.put("layout/item_lucky_fruit_record_bet_0", Integer.valueOf(R.layout.item_lucky_fruit_record_bet));
+            hashMap.put("layout/item_lucky_wheel_select_0", Integer.valueOf(R.layout.item_lucky_wheel_select));
+            hashMap.put("layout/item_ludo_win_0", Integer.valueOf(R.layout.item_ludo_win));
+            hashMap.put("layout/item_main_activity_0", Integer.valueOf(R.layout.item_main_activity));
+            hashMap.put("layout/item_match_game_0", Integer.valueOf(R.layout.item_match_game));
+            hashMap.put("layout/item_medal_0", Integer.valueOf(R.layout.item_medal));
+            hashMap.put("layout/item_medal_level_0", Integer.valueOf(R.layout.item_medal_level));
+            hashMap.put("layout/item_medal_manege_0", Integer.valueOf(R.layout.item_medal_manege));
+            hashMap.put("layout/item_message_popular_0", Integer.valueOf(R.layout.item_message_popular));
+            hashMap.put("layout/item_mic_face_0", Integer.valueOf(R.layout.item_mic_face));
+            hashMap.put("layout/item_micro_game_view_0", Integer.valueOf(R.layout.item_micro_game_view));
+            hashMap.put("layout/item_middle_micro_view_0", Integer.valueOf(R.layout.item_middle_micro_view));
+            hashMap.put("layout/item_mounts_0", Integer.valueOf(R.layout.item_mounts));
+            hashMap.put("layout/item_my_bag_0", Integer.valueOf(R.layout.item_my_bag));
+            hashMap.put("layout/item_my_group_0", Integer.valueOf(R.layout.item_my_group));
+            hashMap.put("layout/item_my_music_0", Integer.valueOf(R.layout.item_my_music));
+            hashMap.put("layout/item_my_or_join_group_0", Integer.valueOf(R.layout.item_my_or_join_group));
+            hashMap.put("layout/item_name_plate_0", Integer.valueOf(R.layout.item_name_plate));
+            hashMap.put("layout/item_name_plate1_0", Integer.valueOf(R.layout.item_name_plate1));
+            hashMap.put("layout/item_new_room_0", Integer.valueOf(R.layout.item_new_room));
+            hashMap.put("layout/item_new_user_0", Integer.valueOf(R.layout.item_new_user));
+            hashMap.put("layout/item_official_recharge_0", Integer.valueOf(R.layout.item_official_recharge));
+            hashMap.put("layout/item_people_match_0", Integer.valueOf(R.layout.item_people_match));
+            hashMap.put("layout/item_pk1v1_0", Integer.valueOf(R.layout.item_pk1v1));
+            hashMap.put("layout/item_pk_micro_view_0", Integer.valueOf(R.layout.item_pk_micro_view));
+            hashMap.put("layout/item_popup_gift_member_0", Integer.valueOf(R.layout.item_popup_gift_member));
+            hashMap.put("layout/item_popup_gift_number_0", Integer.valueOf(R.layout.item_popup_gift_number));
+            hashMap.put("layout/item_power_manager_0", Integer.valueOf(R.layout.item_power_manager));
+            hashMap.put("layout/item_power_rank_0", Integer.valueOf(R.layout.item_power_rank));
+            hashMap.put("layout/item_power_room_0", Integer.valueOf(R.layout.item_power_room));
+            hashMap.put("layout/item_power_team_member_manager_0", Integer.valueOf(R.layout.item_power_team_member_manager));
+            hashMap.put("layout/item_privileges_details_0", Integer.valueOf(R.layout.item_privileges_details));
+            hashMap.put("layout/item_privileges_image_0", Integer.valueOf(R.layout.item_privileges_image));
+            hashMap.put("layout/item_privileges_image_header_0", Integer.valueOf(R.layout.item_privileges_image_header));
+            hashMap.put("layout/item_rank_0", Integer.valueOf(R.layout.item_rank));
+            hashMap.put("layout/item_rank1_0", Integer.valueOf(R.layout.item_rank1));
+            hashMap.put("layout/item_red_envelope_detail_0", Integer.valueOf(R.layout.item_red_envelope_detail));
+            hashMap.put("layout/item_red_envelope_record_0", Integer.valueOf(R.layout.item_red_envelope_record));
+        }
+
+        private static void b() {
+            HashMap hashMap = a;
+            hashMap.put("layout/item_room_active_normal_rank_0", Integer.valueOf(R.layout.item_room_active_normal_rank));
+            hashMap.put("layout/item_room_active_top_rank_0", Integer.valueOf(R.layout.item_room_active_top_rank));
+            hashMap.put("layout/item_room_bag_0", Integer.valueOf(R.layout.item_room_bag));
+            hashMap.put("layout/item_room_gift_0", Integer.valueOf(R.layout.item_room_gift));
+            hashMap.put("layout/item_room_gift_customize_0", Integer.valueOf(R.layout.item_room_gift_customize));
+            hashMap.put("layout/item_room_online_member_0", Integer.valueOf(R.layout.item_room_online_member));
+            hashMap.put("layout/item_room_personal_task_list_adapter_0", Integer.valueOf(R.layout.item_room_personal_task_list_adapter));
+            hashMap.put("layout/item_room_record_0", Integer.valueOf(R.layout.item_room_record));
+            hashMap.put("layout/item_search_group_view_0", Integer.valueOf(R.layout.item_search_group_view));
+            hashMap.put("layout/item_search_user_0", Integer.valueOf(R.layout.item_search_user));
+            hashMap.put("layout/item_search_user_view_0", Integer.valueOf(R.layout.item_search_user_view));
+            hashMap.put("layout/item_select_country_0", Integer.valueOf(R.layout.item_select_country));
+            hashMap.put("layout/item_select_country_title_0", Integer.valueOf(R.layout.item_select_country_title));
+            hashMap.put("layout/item_select_image_0", Integer.valueOf(R.layout.item_select_image));
+            hashMap.put("layout/item_sheep_win_0", Integer.valueOf(R.layout.item_sheep_win));
+            hashMap.put("layout/item_small_micro_view_0", Integer.valueOf(R.layout.item_small_micro_view));
+            hashMap.put("layout/item_store_0", Integer.valueOf(R.layout.item_store));
+            hashMap.put("layout/item_strange_list_0", Integer.valueOf(R.layout.item_strange_list));
+            hashMap.put("layout/item_support_pk_0", Integer.valueOf(R.layout.item_support_pk));
+            hashMap.put("layout/item_svip_card_0", Integer.valueOf(R.layout.item_svip_card));
+            hashMap.put("layout/item_svip_point_0", Integer.valueOf(R.layout.item_svip_point));
+            hashMap.put("layout/item_svip_privileges_0", Integer.valueOf(R.layout.item_svip_privileges));
+            hashMap.put("layout/item_text_0", Integer.valueOf(R.layout.item_text));
+            hashMap.put("layout/item_text_group_0", Integer.valueOf(R.layout.item_text_group));
+            hashMap.put("layout/item_transfer_banner_0", Integer.valueOf(R.layout.item_transfer_banner));
+            hashMap.put("layout/item_transfer_record_0", Integer.valueOf(R.layout.item_transfer_record));
+            hashMap.put("layout/item_transfer_search_0", Integer.valueOf(R.layout.item_transfer_search));
+            hashMap.put("layout/item_uno_win_0", Integer.valueOf(R.layout.item_uno_win));
+            hashMap.put("layout/item_user_block_0", Integer.valueOf(R.layout.item_user_block));
+            hashMap.put("layout/item_user_detail_small_picture_0", Integer.valueOf(R.layout.item_user_detail_small_picture));
+            hashMap.put("layout/item_user_detail_small_picture1_0", Integer.valueOf(R.layout.item_user_detail_small_picture1));
+            hashMap.put("layout/item_user_gift_0", Integer.valueOf(R.layout.item_user_gift));
+            hashMap.put("layout/item_user_relation_0", Integer.valueOf(R.layout.item_user_relation));
+            hashMap.put("layout/item_video_0", Integer.valueOf(R.layout.item_video));
+            hashMap.put("layout/item_video_gift_0", Integer.valueOf(R.layout.item_video_gift));
+            hashMap.put("layout/item_video_im_gift_0", Integer.valueOf(R.layout.item_video_im_gift));
+            hashMap.put("layout/item_video_im_text_0", Integer.valueOf(R.layout.item_video_im_text));
+            hashMap.put("layout/item_vip_card_0", Integer.valueOf(R.layout.item_vip_card));
+            hashMap.put("layout/item_wallet_banner_0", Integer.valueOf(R.layout.item_wallet_banner));
+            hashMap.put("layout/item_watch_video_0", Integer.valueOf(R.layout.item_watch_video));
+            hashMap.put("layout/item_you_tu_hot_list_0", Integer.valueOf(R.layout.item_you_tu_hot_list));
+            hashMap.put("layout/item_you_tu_list_0", Integer.valueOf(R.layout.item_you_tu_list));
+            hashMap.put("layout/layout_custom_community_tab_item_0", Integer.valueOf(R.layout.layout_custom_community_tab_item));
+            hashMap.put("layout/layout_discover_broad_cast_0", Integer.valueOf(R.layout.layout_discover_broad_cast));
+            hashMap.put("layout/layout_global_broad11_0", Integer.valueOf(R.layout.layout_global_broad11));
+            hashMap.put("layout/layout_global_room_broad_cast_child_0", Integer.valueOf(R.layout.layout_global_room_broad_cast_child));
+            hashMap.put("layout/layout_power_rank_week_0", Integer.valueOf(R.layout.layout_power_rank_week));
+            hashMap.put("layout/layout_room_online_member_0", Integer.valueOf(R.layout.layout_room_online_member));
+            hashMap.put("layout/layout_room_personal_task_tab_item_0", Integer.valueOf(R.layout.layout_room_personal_task_tab_item));
+            hashMap.put("layout/layout_test_shape_image_view_0", Integer.valueOf(R.layout.layout_test_shape_image_view));
+            hashMap.put("layout/live_room_activity_0", Integer.valueOf(R.layout.live_room_activity));
+            hashMap.put("layout/lucky_wheel_select_dialog_0", Integer.valueOf(R.layout.lucky_wheel_select_dialog));
+            hashMap.put("layout/pk1v1_win_0", Integer.valueOf(R.layout.pk1v1_win));
+            hashMap.put("layout/pop_window_gift_number_recycler_0", Integer.valueOf(R.layout.pop_window_gift_number_recycler));
+            hashMap.put("layout/popup_keep_call_tips_0", Integer.valueOf(R.layout.popup_keep_call_tips));
+            hashMap.put("layout/power_detail_view_controller_0", Integer.valueOf(R.layout.power_detail_view_controller));
+            hashMap.put("layout/room_button_pk_0", Integer.valueOf(R.layout.room_button_pk));
+            hashMap.put("layout/room_floating_view_0", Integer.valueOf(R.layout.room_floating_view));
+            hashMap.put("layout/room_list_empty_0", Integer.valueOf(R.layout.room_list_empty));
+            hashMap.put("layout/room_micro_game_0", Integer.valueOf(R.layout.room_micro_game));
+            hashMap.put("layout/room_micro_pk_0", Integer.valueOf(R.layout.room_micro_pk));
+            hashMap.put("layout/room_pk1v1_0", Integer.valueOf(R.layout.room_pk1v1));
+            hashMap.put("layout/room_record_tab_0", Integer.valueOf(R.layout.room_record_tab));
+            hashMap.put("layout/room_view_contact_wrapper_0", Integer.valueOf(R.layout.room_view_contact_wrapper));
+            hashMap.put("layout/share_child_like_me_contacts_0", Integer.valueOf(R.layout.share_child_like_me_contacts));
+            hashMap.put("layout/share_common_contacts_0", Integer.valueOf(R.layout.share_common_contacts));
+            hashMap.put("layout/splash_advertising_view_0", Integer.valueOf(R.layout.splash_advertising_view));
+            hashMap.put("layout/svip_foot_0", Integer.valueOf(R.layout.svip_foot));
+            hashMap.put("layout/tab_first_charge_item_0", Integer.valueOf(R.layout.tab_first_charge_item));
+            hashMap.put("layout/tab_layout_text_0", Integer.valueOf(R.layout.tab_layout_text));
+            hashMap.put("layout/task_tab_activity_item_0", Integer.valueOf(R.layout.task_tab_activity_item));
+            hashMap.put("layout/transfer_tab_activity_item_0", Integer.valueOf(R.layout.transfer_tab_activity_item));
+            hashMap.put("layout/video_im_0", Integer.valueOf(R.layout.video_im));
+            hashMap.put("layout/video_tip_0", Integer.valueOf(R.layout.video_tip));
+            hashMap.put("layout/view_active_rank_parent_0", Integer.valueOf(R.layout.view_active_rank_parent));
+            hashMap.put("layout/view_advertising_0", Integer.valueOf(R.layout.view_advertising));
+            hashMap.put("layout/view_aristocracy_permission_list_0", Integer.valueOf(R.layout.view_aristocracy_permission_list));
+            hashMap.put("layout/view_charm_rank_parent_0", Integer.valueOf(R.layout.view_charm_rank_parent));
+            hashMap.put("layout/view_chat_room_game_lucky_fruit_0", Integer.valueOf(R.layout.view_chat_room_game_lucky_fruit));
+            hashMap.put("layout/view_chat_room_game_lucky_fruit_result_0", Integer.valueOf(R.layout.view_chat_room_game_lucky_fruit_result));
+            hashMap.put("layout/view_child_charm_rank_detail_0", Integer.valueOf(R.layout.view_child_charm_rank_detail));
+            hashMap.put("layout/view_child_cp_rank_detail_0", Integer.valueOf(R.layout.view_child_cp_rank_detail));
+            hashMap.put("layout/view_controller_alert_agora_configure_0", Integer.valueOf(R.layout.view_controller_alert_agora_configure));
+            hashMap.put("layout/view_controller_all_rank_0", Integer.valueOf(R.layout.view_controller_all_rank));
+            hashMap.put("layout/view_controller_authentication_0", Integer.valueOf(R.layout.view_controller_authentication));
+            hashMap.put("layout/view_controller_buy_aristocracy_identity_0", Integer.valueOf(R.layout.view_controller_buy_aristocracy_identity));
+            hashMap.put("layout/view_controller_change_sex_0", Integer.valueOf(R.layout.view_controller_change_sex));
+            hashMap.put("layout/view_controller_common_list_0", Integer.valueOf(R.layout.view_controller_common_list));
+            hashMap.put("layout/view_controller_confirm_tip_0", Integer.valueOf(R.layout.view_controller_confirm_tip));
+            hashMap.put("layout/view_controller_connection_logs_0", Integer.valueOf(R.layout.view_controller_connection_logs));
+            hashMap.put("layout/view_controller_cp_rank_0", Integer.valueOf(R.layout.view_controller_cp_rank));
+            hashMap.put("layout/view_controller_cp_rank_menu_0", Integer.valueOf(R.layout.view_controller_cp_rank_menu));
+            hashMap.put("layout/view_controller_delete_account1_0", Integer.valueOf(R.layout.view_controller_delete_account1));
+            hashMap.put("layout/view_controller_delete_account2_0", Integer.valueOf(R.layout.view_controller_delete_account2));
+            hashMap.put("layout/view_controller_delete_account3_0", Integer.valueOf(R.layout.view_controller_delete_account3));
+            hashMap.put("layout/view_controller_feedback_0", Integer.valueOf(R.layout.view_controller_feedback));
+            hashMap.put("layout/view_controller_fill_user_data_0", Integer.valueOf(R.layout.view_controller_fill_user_data));
+            hashMap.put("layout/view_controller_gender_preference_0", Integer.valueOf(R.layout.view_controller_gender_preference));
+            hashMap.put("layout/view_controller_gift_wall_0", Integer.valueOf(R.layout.view_controller_gift_wall));
+            hashMap.put("layout/view_controller_global_broad_cast_0", Integer.valueOf(R.layout.view_controller_global_broad_cast));
+            hashMap.put("layout/view_controller_hilo_assistant_0", Integer.valueOf(R.layout.view_controller_hilo_assistant));
+            hashMap.put("layout/view_controller_home_drawer_head_layout_0", Integer.valueOf(R.layout.view_controller_home_drawer_head_layout));
+            hashMap.put("layout/view_controller_my_bag_0", Integer.valueOf(R.layout.view_controller_my_bag));
+            hashMap.put("layout/view_controller_neighborhoods_note_0", Integer.valueOf(R.layout.view_controller_neighborhoods_note));
+            hashMap.put("layout/view_controller_open_source_0", Integer.valueOf(R.layout.view_controller_open_source));
+            hashMap.put("layout/view_controller_platform_protocal_0", Integer.valueOf(R.layout.view_controller_platform_protocal));
+            hashMap.put("layout/view_controller_power_all_rank_0", Integer.valueOf(R.layout.view_controller_power_all_rank));
+            hashMap.put("layout/view_controller_power_menu_0", Integer.valueOf(R.layout.view_controller_power_menu));
+            hashMap.put("layout/view_controller_power_team_0", Integer.valueOf(R.layout.view_controller_power_team));
+            hashMap.put("layout/view_controller_region_preference_0", Integer.valueOf(R.layout.view_controller_region_preference));
+            hashMap.put("layout/view_controller_rong_im_test_0", Integer.valueOf(R.layout.view_controller_rong_im_test));
+            hashMap.put("layout/view_controller_server_selection_0", Integer.valueOf(R.layout.view_controller_server_selection));
+            hashMap.put("layout/view_controller_setting_native_0", Integer.valueOf(R.layout.view_controller_setting_native));
+            hashMap.put("layout/view_controller_share_contacts_0", Integer.valueOf(R.layout.view_controller_share_contacts));
+            hashMap.put("layout/view_controller_svga_0", Integer.valueOf(R.layout.view_controller_svga));
+            hashMap.put("layout/view_controller_test_mic_view_0", Integer.valueOf(R.layout.view_controller_test_mic_view));
+            hashMap.put("layout/view_controller_test_video_calling_0", Integer.valueOf(R.layout.view_controller_test_video_calling));
+            hashMap.put("layout/view_controller_vip_0", Integer.valueOf(R.layout.view_controller_vip));
+            hashMap.put("layout/view_controller_web_view_0", Integer.valueOf(R.layout.view_controller_web_view));
+            hashMap.put("layout/view_cp_level_0", Integer.valueOf(R.layout.view_cp_level));
+            hashMap.put("layout/view_cp_my_rank_0", Integer.valueOf(R.layout.view_cp_my_rank));
+            hashMap.put("layout/view_cp_rank_flipper_holder_0", Integer.valueOf(R.layout.view_cp_rank_flipper_holder));
+            hashMap.put("layout/view_cp_rank_parent_0", Integer.valueOf(R.layout.view_cp_rank_parent));
+            hashMap.put("layout/view_envelope_number_0", Integer.valueOf(R.layout.view_envelope_number));
+            hashMap.put("layout/view_foodie_big_reward_rule_0", Integer.valueOf(R.layout.view_foodie_big_reward_rule));
+            hashMap.put("layout/view_foodie_confirm_bet_dialog_2_0", Integer.valueOf(R.layout.view_foodie_confirm_bet_dialog_2));
+            hashMap.put("layout/view_foodie_confirm_repeat_dialog_0", Integer.valueOf(R.layout.view_foodie_confirm_repeat_dialog));
+            hashMap.put("layout/view_foodie_dialog_0", Integer.valueOf(R.layout.view_foodie_dialog));
+            hashMap.put("layout/view_foodie_intro_0", Integer.valueOf(R.layout.view_foodie_intro));
+            hashMap.put("layout/view_foodie_rank_0", Integer.valueOf(R.layout.view_foodie_rank));
+            hashMap.put("layout/view_foodie_record_0", Integer.valueOf(R.layout.view_foodie_record));
+            hashMap.put("layout/view_fruit_confirm_repeat_dialog_0", Integer.valueOf(R.layout.view_fruit_confirm_repeat_dialog));
+            hashMap.put("layout/view_game_backgammon_0", Integer.valueOf(R.layout.view_game_backgammon));
+            hashMap.put("layout/view_game_baloot_0", Integer.valueOf(R.layout.view_game_baloot));
+            hashMap.put("layout/view_game_carrom_0", Integer.valueOf(R.layout.view_game_carrom));
+            hashMap.put("layout/view_game_crush_0", Integer.valueOf(R.layout.view_game_crush));
+            hashMap.put("layout/view_game_domino_0", Integer.valueOf(R.layout.view_game_domino));
+            hashMap.put("layout/view_game_jackaro_0", Integer.valueOf(R.layout.view_game_jackaro));
+            hashMap.put("layout/view_game_ludo_0", Integer.valueOf(R.layout.view_game_ludo));
+            hashMap.put("layout/view_game_notice_0", Integer.valueOf(R.layout.view_game_notice));
+            hashMap.put("layout/view_game_pk_0", Integer.valueOf(R.layout.view_game_pk));
+            hashMap.put("layout/view_game_sheep_h5_0", Integer.valueOf(R.layout.view_game_sheep_h5));
+            hashMap.put("layout/view_game_uno_0", Integer.valueOf(R.layout.view_game_uno));
+            hashMap.put("layout/view_gift_member_recycler_0", Integer.valueOf(R.layout.view_gift_member_recycler));
+            hashMap.put("layout/view_gift_notice_0", Integer.valueOf(R.layout.view_gift_notice));
+            hashMap.put("layout/view_gift_wall_flipper_holder_0", Integer.valueOf(R.layout.view_gift_wall_flipper_holder));
+            hashMap.put("layout/view_group_banner_0", Integer.valueOf(R.layout.view_group_banner));
+            hashMap.put("layout/view_group_child_charm_rank_detail_0", Integer.valueOf(R.layout.view_group_child_charm_rank_detail));
+            hashMap.put("layout/view_group_input_layout_0", Integer.valueOf(R.layout.view_group_input_layout));
+            hashMap.put("layout/view_home_room_banner_0", Integer.valueOf(R.layout.view_home_room_banner));
+            hashMap.put("layout/view_horizontal_interactive_0", Integer.valueOf(R.layout.view_horizontal_interactive));
+            hashMap.put("layout/view_level_pk_0", Integer.valueOf(R.layout.view_level_pk));
+            hashMap.put("layout/view_mask_cover_local_0", Integer.valueOf(R.layout.view_mask_cover_local));
+            hashMap.put("layout/view_mask_cover_local_specify_0", Integer.valueOf(R.layout.view_mask_cover_local_specify));
+            hashMap.put("layout/view_mask_cover_remote_0", Integer.valueOf(R.layout.view_mask_cover_remote));
+            hashMap.put("layout/view_mask_cover_remote_specify_0", Integer.valueOf(R.layout.view_mask_cover_remote_specify));
+            hashMap.put("layout/view_message_banner_0", Integer.valueOf(R.layout.view_message_banner));
+            hashMap.put("layout/view_my_bag_0", Integer.valueOf(R.layout.view_my_bag));
+            hashMap.put("layout/view_pk_search_0", Integer.valueOf(R.layout.view_pk_search));
+            hashMap.put("layout/view_planet_0", Integer.valueOf(R.layout.view_planet));
+            hashMap.put("layout/view_popular_0", Integer.valueOf(R.layout.view_popular));
+            hashMap.put("layout/view_popular_childer_all_group_0", Integer.valueOf(R.layout.view_popular_childer_all_group));
+            hashMap.put("layout/view_power_medal_0", Integer.valueOf(R.layout.view_power_medal));
+            hashMap.put("layout/view_power_rank_flipper_holder_0", Integer.valueOf(R.layout.view_power_rank_flipper_holder));
+            hashMap.put("layout/view_rank_flipper_holder_0", Integer.valueOf(R.layout.view_rank_flipper_holder));
+            hashMap.put("layout/view_rocket_svga_count_down_0", Integer.valueOf(R.layout.view_rocket_svga_count_down));
+            hashMap.put("layout/view_room_child_active_rank_detail_0", Integer.valueOf(R.layout.view_room_child_active_rank_detail));
+            hashMap.put("layout/view_room_game_0", Integer.valueOf(R.layout.view_room_game));
+            hashMap.put("layout/view_room_rocket_enter_0", Integer.valueOf(R.layout.view_room_rocket_enter));
+            hashMap.put("layout/view_search_child_group_0", Integer.valueOf(R.layout.view_search_child_group));
+            hashMap.put("layout/view_search_child_user_0", Integer.valueOf(R.layout.view_search_child_user));
+            hashMap.put("layout/view_search_group_user_0", Integer.valueOf(R.layout.view_search_group_user));
+            hashMap.put("layout/view_send_gift_linearlayout_0", Integer.valueOf(R.layout.view_send_gift_linearlayout));
+            hashMap.put("layout/view_task_0", Integer.valueOf(R.layout.view_task));
+            hashMap.put("layout/view_task_item_0", Integer.valueOf(R.layout.view_task_item));
+            hashMap.put("layout/view_verify_dialog_0", Integer.valueOf(R.layout.view_verify_dialog));
+            hashMap.put("layout/view_video_call_0", Integer.valueOf(R.layout.view_video_call));
+            hashMap.put("layout/view_vote_layout_0", Integer.valueOf(R.layout.view_vote_layout));
+            hashMap.put("layout/view_wrapper_matching_pending_0", Integer.valueOf(R.layout.view_wrapper_matching_pending));
+            hashMap.put("layout/view_you_tu_be_0", Integer.valueOf(R.layout.view_you_tu_be));
+            hashMap.put("layout/view_you_tu_more_0", Integer.valueOf(R.layout.view_you_tu_more));
+            hashMap.put("layout/view_you_tu_video_0", Integer.valueOf(R.layout.view_you_tu_video));
+        }
+    }
+
+    static {
+        o();
+        p();
+    }
+
+    private final ViewDataBinding a(androidx.databinding.f fVar, View view, int i, Object obj) {
+        switch (i) {
+            case 1:
+                if ("layout/activity_account_0".equals(obj)) {
+                    return new ActivityAccountBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_account is invalid. Received: " + obj);
+            case 2:
+                if ("layout/activity_activities_0".equals(obj)) {
+                    return new ActivityActivitiesBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_activities is invalid. Received: " + obj);
+            case 3:
+                if ("layout/activity_activities_detail_0".equals(obj)) {
+                    return new ActivityActivitiesDetailBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_activities_detail is invalid. Received: " + obj);
+            case 4:
+                if ("layout/activity_aristocracy_bag_0".equals(obj)) {
+                    return new ActivityAristocracyBagBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_aristocracy_bag is invalid. Received: " + obj);
+            case 5:
+                if ("layout/activity_auth_0".equals(obj)) {
+                    return new ActivityAuthBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_auth is invalid. Received: " + obj);
+            case 6:
+                if ("layout/activity_bai_shun_0".equals(obj)) {
+                    return new ActivityBaiShunBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_bai_shun is invalid. Received: " + obj);
+            case 7:
+                if ("layout/activity_bill_0".equals(obj)) {
+                    return new ActivityBillBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_bill is invalid. Received: " + obj);
+            case 8:
+                if ("layout/activity_blocked_user_list_0".equals(obj)) {
+                    return new ActivityBlockedUserListBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_blocked_user_list is invalid. Received: " + obj);
+            case 9:
+                if ("layout/activity_change_password_0".equals(obj)) {
+                    return new ActivityChangePasswordBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_change_password is invalid. Received: " + obj);
+            case 10:
+                if ("layout/activity_chat_0".equals(obj)) {
+                    return new ActivityChatBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_chat is invalid. Received: " + obj);
+            case 11:
+                if ("layout/activity_chat_dialog_0".equals(obj)) {
+                    return new ActivityChatDialogBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_chat_dialog is invalid. Received: " + obj);
+            case 12:
+                if ("layout/activity_chat_strange_0".equals(obj)) {
+                    return new ActivityChatStrangeBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_chat_strange is invalid. Received: " + obj);
+            case 13:
+                if ("layout/activity_common_change_room_setting_0".equals(obj)) {
+                    return new ActivityCommonChangeRoomSettingBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_common_change_room_setting is invalid. Received: " + obj);
+            case 14:
+                if ("layout/activity_common_list_with_refresh_0".equals(obj)) {
+                    return new ActivityCommonListWithRefreshBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_common_list_with_refresh is invalid. Received: " + obj);
+            case 15:
+                if ("layout/activity_controller_interactive_tracking_list_0".equals(obj)) {
+                    return new ActivityControllerInteractiveTrackingListBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_controller_interactive_tracking_list is invalid. Received: " + obj);
+            case 16:
+                if ("layout/activity_country_0".equals(obj)) {
+                    return new ActivityCountryBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_country is invalid. Received: " + obj);
+            case 17:
+                if ("layout/activity_country_discover_0".equals(obj)) {
+                    return new ActivityCountryDiscoverBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_country_discover is invalid. Received: " + obj);
+            case 18:
+                if ("layout/activity_cp_memorial_0".equals(obj)) {
+                    return new ActivityCpMemorialBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_cp_memorial is invalid. Received: " + obj);
+            case 19:
+                if ("layout/activity_cp_memorial_edit_0".equals(obj)) {
+                    return new ActivityCpMemorialEditBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_cp_memorial_edit is invalid. Received: " + obj);
+            case 20:
+                if ("layout/activity_cp_rank_0".equals(obj)) {
+                    return new ActivityCpRankBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_cp_rank is invalid. Received: " + obj);
+            case 21:
+                if ("layout/activity_cp_space_0".equals(obj)) {
+                    return new ActivityCpSpaceBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_cp_space is invalid. Received: " + obj);
+            case 22:
+                if ("layout/activity_create_activities_0".equals(obj)) {
+                    return new ActivityCreateActivitiesBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_create_activities is invalid. Received: " + obj);
+            case 23:
+                if ("layout/activity_default_webview_0".equals(obj)) {
+                    return new ActivityDefaultWebviewBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_default_webview is invalid. Received: " + obj);
+            case 24:
+                if ("layout/activity_edit_nickname_0".equals(obj)) {
+                    return new ActivityEditNicknameBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_edit_nickname is invalid. Received: " + obj);
+            case 25:
+                if ("layout/activity_exchange_detail_0".equals(obj)) {
+                    return new ActivityExchangeDetailBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_exchange_detail is invalid. Received: " + obj);
+            case 26:
+                if ("layout/activity_exchange_diamonds_0".equals(obj)) {
+                    return new ActivityExchangeDiamondsBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_exchange_diamonds is invalid. Received: " + obj);
+            case 27:
+                if ("layout/activity_exchange_gem_0".equals(obj)) {
+                    return new ActivityExchangeGemBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_exchange_gem is invalid. Received: " + obj);
+            case 28:
+                if ("layout/activity_family_application_0".equals(obj)) {
+                    return new ActivityFamilyApplicationBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_family_application is invalid. Received: " + obj);
+            case 29:
+                if ("layout/activity_family_center_0".equals(obj)) {
+                    return new ActivityFamilyCenterBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_family_center is invalid. Received: " + obj);
+            case 30:
+                if ("layout/activity_family_center_header_0".equals(obj)) {
+                    return new ActivityFamilyCenterHeaderBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_family_center_header is invalid. Received: " + obj);
+            case 31:
+                if ("layout/activity_family_exit_0".equals(obj)) {
+                    return new ActivityFamilyExitBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_family_exit is invalid. Received: " + obj);
+            case 32:
+                if ("layout/activity_family_member_0".equals(obj)) {
+                    return new ActivityFamilyMemberBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_family_member is invalid. Received: " + obj);
+            case 33:
+                if ("layout/activity_family_rank_0".equals(obj)) {
+                    return new ActivityFamilyRankBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_family_rank is invalid. Received: " + obj);
+            case 34:
+                if ("layout/activity_family_recording_0".equals(obj)) {
+                    return new ActivityFamilyRecordingBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_family_recording is invalid. Received: " + obj);
+            case 35:
+                if ("layout/activity_family_setting_0".equals(obj)) {
+                    return new ActivityFamilySettingBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_family_setting is invalid. Received: " + obj);
+            case 36:
+                if ("layout/activity_family_share_0".equals(obj)) {
+                    return new ActivityFamilyShareBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_family_share is invalid. Received: " + obj);
+            case 37:
+                if ("layout/activity_family_star_0".equals(obj)) {
+                    return new ActivityFamilyStarBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_family_star is invalid. Received: " + obj);
+            case 38:
+                if ("layout/activity_foodie_result_dialog_0".equals(obj)) {
+                    return new ActivityFoodieResultDialogBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_foodie_result_dialog is invalid. Received: " + obj);
+            case 39:
+                if ("layout/activity_game_level_0".equals(obj)) {
+                    return new ActivityGameLevelBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_game_level is invalid. Received: " + obj);
+            case 40:
+                if ("layout/activity_game_level_rules_0".equals(obj)) {
+                    return new ActivityGameLevelRulesBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_game_level_rules is invalid. Received: " + obj);
+            case 41:
+                if ("layout/activity_game_match_0".equals(obj)) {
+                    return new ActivityGameMatchBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_game_match is invalid. Received: " + obj);
+            case 42:
+                if ("layout/activity_game_match_lobby_0".equals(obj)) {
+                    return new ActivityGameMatchLobbyBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_game_match_lobby is invalid. Received: " + obj);
+            case 43:
+                if ("layout/activity_gift_effect_0".equals(obj)) {
+                    return new ActivityGiftEffectBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_gift_effect is invalid. Received: " + obj);
+            case 44:
+                if ("layout/activity_gift_record_0".equals(obj)) {
+                    return new ActivityGiftRecordBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_gift_record is invalid. Received: " + obj);
+            case 45:
+                if ("layout/activity_goddess_0".equals(obj)) {
+                    return new ActivityGoddessBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_goddess is invalid. Received: " + obj);
+            case 46:
+                if ("layout/activity_group_all_rank_0".equals(obj)) {
+                    return new ActivityGroupAllRankBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_group_all_rank is invalid. Received: " + obj);
+            case 47:
+                if ("layout/activity_group_custom_theme_0".equals(obj)) {
+                    return new ActivityGroupCustomThemeBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_group_custom_theme is invalid. Received: " + obj);
+            case 48:
+                if ("layout/activity_group_setting_0".equals(obj)) {
+                    return new ActivityGroupSettingBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_group_setting is invalid. Received: " + obj);
+            case 49:
+                if ("layout/activity_group_support_0".equals(obj)) {
+                    return new ActivityGroupSupportBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_group_support is invalid. Received: " + obj);
+            case 50:
+                if ("layout/activity_group_themes_0".equals(obj)) {
+                    return new ActivityGroupThemesBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_group_themes is invalid. Received: " + obj);
+            default:
+                return null;
+        }
+    }
+
+    private final ViewDataBinding b(androidx.databinding.f fVar, View view, int i, Object obj) {
+        switch (i) {
+            case 51:
+                if ("layout/activity_hilo_information_0".equals(obj)) {
+                    return new ActivityHiloInformationBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_hilo_information is invalid. Received: " + obj);
+            case 52:
+                if ("layout/activity_horizontal_webview_0".equals(obj)) {
+                    return new ActivityHorizontalWebviewBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_horizontal_webview is invalid. Received: " + obj);
+            case 53:
+                if ("layout/activity_local_add_music_0".equals(obj)) {
+                    return new ActivityLocalAddMusicBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_local_add_music is invalid. Received: " + obj);
+            case 54:
+                if ("layout/activity_login_0".equals(obj)) {
+                    return new ActivityLoginBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_login is invalid. Received: " + obj);
+            case 55:
+                if ("layout/activity_main_0".equals(obj)) {
+                    return new ActivityMainBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_main is invalid. Received: " + obj);
+            case 56:
+                if ("layout/activity_match_video_0".equals(obj)) {
+                    return new ActivityMatchVideoBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_match_video is invalid. Received: " + obj);
+            case 57:
+                if ("layout/activity_medal_0".equals(obj)) {
+                    return new ActivityMedalBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_medal is invalid. Received: " + obj);
+            case 58:
+                if ("layout/activity_medal_manage_0".equals(obj)) {
+                    return new ActivityMedalManageBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_medal_manage is invalid. Received: " + obj);
+            case 59:
+                if ("layout/activity_my_bag_0".equals(obj)) {
+                    return new ActivityMyBagBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_my_bag is invalid. Received: " + obj);
+            case 60:
+                if ("layout/activity_my_music_0".equals(obj)) {
+                    return new ActivityMyMusicBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_my_music is invalid. Received: " + obj);
+            case 61:
+                if ("layout/activity_number_of_mic_0".equals(obj)) {
+                    return new ActivityNumberOfMicBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_number_of_mic is invalid. Received: " + obj);
+            case 62:
+                if ("layout/activity_people_certification_0".equals(obj)) {
+                    return new ActivityPeopleCertificationBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_people_certification is invalid. Received: " + obj);
+            case 63:
+                if ("layout/activity_people_match_0".equals(obj)) {
+                    return new ActivityPeopleMatchBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_people_match is invalid. Received: " + obj);
+            case 64:
+                if ("layout/activity_promoter_0".equals(obj)) {
+                    return new ActivityPromoterBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_promoter is invalid. Received: " + obj);
+            case 65:
+                if ("layout/activity_promoter_center_0".equals(obj)) {
+                    return new ActivityPromoterCenterBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_promoter_center is invalid. Received: " + obj);
+            case 66:
+                if ("layout/activity_recharge_list_0".equals(obj)) {
+                    return new ActivityRechargeListBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_recharge_list is invalid. Received: " + obj);
+            case 67:
+                if ("layout/activity_red_envelop_detail_head_0".equals(obj)) {
+                    return new ActivityRedEnvelopDetailHeadBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_red_envelop_detail_head is invalid. Received: " + obj);
+            case 68:
+                if ("layout/activity_red_envelope_detail_0".equals(obj)) {
+                    return new ActivityRedEnvelopeDetailBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_red_envelope_detail is invalid. Received: " + obj);
+            case 69:
+                if ("layout/activity_red_envelope_record_0".equals(obj)) {
+                    return new ActivityRedEnvelopeRecordBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_red_envelope_record is invalid. Received: " + obj);
+            case 70:
+                if ("layout/activity_room_and_personal_task_0".equals(obj)) {
+                    return new ActivityRoomAndPersonalTaskBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_room_and_personal_task is invalid. Received: " + obj);
+            case 71:
+                if ("layout/activity_room_blocked_list_0".equals(obj)) {
+                    return new ActivityRoomBlockedListBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_room_blocked_list is invalid. Received: " + obj);
+            case 72:
+                if ("layout/activity_room_member_0".equals(obj)) {
+                    return new ActivityRoomMemberBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_room_member is invalid. Received: " + obj);
+            case 73:
+                if ("layout/activity_room_member_online_0".equals(obj)) {
+                    return new ActivityRoomMemberOnlineBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_room_member_online is invalid. Received: " + obj);
+            case 74:
+                if ("layout/activity_room_record_0".equals(obj)) {
+                    return new ActivityRoomRecordBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_room_record is invalid. Received: " + obj);
+            case 75:
+                if ("layout/activity_room_user_block_0".equals(obj)) {
+                    return new ActivityRoomUserBlockBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_room_user_block is invalid. Received: " + obj);
+            case 76:
+                if ("layout/activity_room_user_info_level_0".equals(obj)) {
+                    return new ActivityRoomUserInfoLevelBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_room_user_info_level is invalid. Received: " + obj);
+            case 77:
+                if ("layout/activity_search_user_0".equals(obj)) {
+                    return new ActivitySearchUserBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_search_user is invalid. Received: " + obj);
+            case 78:
+                if ("layout/activity_second_tf_0".equals(obj)) {
+                    return new ActivitySecondTfBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_second_tf is invalid. Received: " + obj);
+            case 79:
+                if ("layout/activity_second_tf_diamond_0".equals(obj)) {
+                    return new ActivitySecondTfDiamondBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_second_tf_diamond is invalid. Received: " + obj);
+            case 80:
+                if ("layout/activity_second_transfer_0".equals(obj)) {
+                    return new ActivitySecondTransferBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_second_transfer is invalid. Received: " + obj);
+            case 81:
+                if ("layout/activity_select_country_0".equals(obj)) {
+                    return new ActivitySelectCountryBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_select_country is invalid. Received: " + obj);
+            case 82:
+                if ("layout/activity_share_contacts_0".equals(obj)) {
+                    return new ActivityShareContactsBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_share_contacts is invalid. Received: " + obj);
+            case 83:
+                if ("layout/activity_store_0".equals(obj)) {
+                    return new ActivityStoreBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_store is invalid. Received: " + obj);
+            case 84:
+                if ("layout/activity_strange_list_0".equals(obj)) {
+                    return new ActivityStrangeListBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_strange_list is invalid. Received: " + obj);
+            case 85:
+                if ("layout/activity_strange_match_0".equals(obj)) {
+                    return new ActivityStrangeMatchBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_strange_match is invalid. Received: " + obj);
+            case 86:
+                if ("layout/activity_super_admin_report_0".equals(obj)) {
+                    return new ActivitySuperAdminReportBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_super_admin_report is invalid. Received: " + obj);
+            case 87:
+                if ("layout/activity_support_gift_rank_0".equals(obj)) {
+                    return new ActivitySupportGiftRankBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_support_gift_rank is invalid. Received: " + obj);
+            case 88:
+                if ("layout/activity_svip_0".equals(obj)) {
+                    return new ActivitySvipBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_svip is invalid. Received: " + obj);
+            case 89:
+                if ("layout/activity_svip_point_0".equals(obj)) {
+                    return new ActivitySvipPointBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_svip_point is invalid. Received: " + obj);
+            case 90:
+                if ("layout/activity_svip_privileges_0".equals(obj)) {
+                    return new ActivitySvipPrivilegesBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_svip_privileges is invalid. Received: " + obj);
+            case 91:
+                if ("layout/activity_svip_rules_0".equals(obj)) {
+                    return new ActivitySvipRulesBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_svip_rules is invalid. Received: " + obj);
+            case 92:
+                if ("layout/activity_task_0".equals(obj)) {
+                    return new ActivityTaskBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_task is invalid. Received: " + obj);
+            case 93:
+                if ("layout/activity_text_0".equals(obj)) {
+                    return new ActivityTextBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_text is invalid. Received: " + obj);
+            case 94:
+                if ("layout/activity_transfer_0".equals(obj)) {
+                    return new ActivityTransferBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_transfer is invalid. Received: " + obj);
+            case 95:
+                if ("layout/activity_transfer_center_0".equals(obj)) {
+                    return new ActivityTransferCenterBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_transfer_center is invalid. Received: " + obj);
+            case 96:
+                if ("layout/activity_transfer_record_0".equals(obj)) {
+                    return new ActivityTransferRecordBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_transfer_record is invalid. Received: " + obj);
+            case 97:
+                if ("layout/activity_transfer_search_0".equals(obj)) {
+                    return new ActivityTransferSearchBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_transfer_search is invalid. Received: " + obj);
+            case 98:
+                if ("layout/activity_user_detail_0".equals(obj)) {
+                    return new ActivityUserDetailBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_user_detail is invalid. Received: " + obj);
+            case 99:
+                if ("layout/activity_user_info_edit_0".equals(obj)) {
+                    return new ActivityUserInfoEditBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_user_info_edit is invalid. Received: " + obj);
+            case 100:
+                if ("layout/activity_video_call_0".equals(obj)) {
+                    return new ActivityVideoCallBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_video_call is invalid. Received: " + obj);
+            default:
+                return null;
+        }
+    }
+
+    private final ViewDataBinding c(androidx.databinding.f fVar, View view, int i, Object obj) {
+        switch (i) {
+            case RoomEvent.ROOM_BLOCKED /* 501 */:
+                if ("layout/item_room_active_normal_rank_0".equals(obj)) {
+                    return new ItemRoomActiveNormalRankBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_room_active_normal_rank is invalid. Received: " + obj);
+            case RoomEvent.ROOM_BACK_GROUP_UPDATE /* 502 */:
+                if ("layout/item_room_active_top_rank_0".equals(obj)) {
+                    return new ItemRoomActiveTopRankBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_room_active_top_rank is invalid. Received: " + obj);
+            case RoomEvent.UPDATE_CUSTOM_THEME /* 503 */:
+                if ("layout/item_room_bag_0".equals(obj)) {
+                    return new ItemRoomBagBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_room_bag is invalid. Received: " + obj);
+            case 504:
+                if ("layout/item_room_gift_0".equals(obj)) {
+                    return new ItemRoomGiftBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_room_gift is invalid. Received: " + obj);
+            case 505:
+                if ("layout/item_room_gift_customize_0".equals(obj)) {
+                    return new ItemRoomGiftCustomizeBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_room_gift_customize is invalid. Received: " + obj);
+            case 506:
+                if ("layout/item_room_online_member_0".equals(obj)) {
+                    return new ItemRoomOnlineMemberBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_room_online_member is invalid. Received: " + obj);
+            case 507:
+                if ("layout/item_room_personal_task_list_adapter_0".equals(obj)) {
+                    return new ItemRoomPersonalTaskListAdapterBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_room_personal_task_list_adapter is invalid. Received: " + obj);
+            case 508:
+                if ("layout/item_room_record_0".equals(obj)) {
+                    return new ItemRoomRecordBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_room_record is invalid. Received: " + obj);
+            case 509:
+                if ("layout/item_search_group_view_0".equals(obj)) {
+                    return new ItemSearchGroupViewBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_search_group_view is invalid. Received: " + obj);
+            case 510:
+                if ("layout/item_search_user_0".equals(obj)) {
+                    return new ItemSearchUserBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_search_user is invalid. Received: " + obj);
+            case UnixStat.DEFAULT_LINK_PERM /* 511 */:
+                if ("layout/item_search_user_view_0".equals(obj)) {
+                    return new ItemSearchUserViewBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_search_user_view is invalid. Received: " + obj);
+            case 512:
+                if ("layout/item_select_country_0".equals(obj)) {
+                    return new ItemSelectCountryBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_select_country is invalid. Received: " + obj);
+            case 513:
+                if ("layout/item_select_country_title_0".equals(obj)) {
+                    return new ItemSelectCountryTitleBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_select_country_title is invalid. Received: " + obj);
+            case 514:
+                if ("layout/item_select_image_0".equals(obj)) {
+                    return new ItemSelectImageBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_select_image is invalid. Received: " + obj);
+            case 515:
+                if ("layout/item_sheep_win_0".equals(obj)) {
+                    return new ItemSheepWinBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_sheep_win is invalid. Received: " + obj);
+            case 516:
+                if ("layout/item_small_micro_view_0".equals(obj)) {
+                    return new ItemSmallMicroViewBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_small_micro_view is invalid. Received: " + obj);
+            case 517:
+                if ("layout/item_store_0".equals(obj)) {
+                    return new ItemStoreBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_store is invalid. Received: " + obj);
+            case 518:
+                if ("layout/item_strange_list_0".equals(obj)) {
+                    return new ItemStrangeListBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_strange_list is invalid. Received: " + obj);
+            case 519:
+                if ("layout/item_support_pk_0".equals(obj)) {
+                    return new ItemSupportPkBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_support_pk is invalid. Received: " + obj);
+            case 520:
+                if ("layout/item_svip_card_0".equals(obj)) {
+                    return new ItemSvipCardBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_svip_card is invalid. Received: " + obj);
+            case 521:
+                if ("layout/item_svip_point_0".equals(obj)) {
+                    return new ItemSvipPointBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_svip_point is invalid. Received: " + obj);
+            case 522:
+                if ("layout/item_svip_privileges_0".equals(obj)) {
+                    return new ItemSvipPrivilegesBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_svip_privileges is invalid. Received: " + obj);
+            case 523:
+                if ("layout/item_text_0".equals(obj)) {
+                    return new ItemTextBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_text is invalid. Received: " + obj);
+            case 524:
+                if ("layout/item_text_group_0".equals(obj)) {
+                    return new ItemTextGroupBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_text_group is invalid. Received: " + obj);
+            case 525:
+                if ("layout/item_transfer_banner_0".equals(obj)) {
+                    return new ItemTransferBannerBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_transfer_banner is invalid. Received: " + obj);
+            case 526:
+                if ("layout/item_transfer_record_0".equals(obj)) {
+                    return new ItemTransferRecordBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_transfer_record is invalid. Received: " + obj);
+            case 527:
+                if ("layout/item_transfer_search_0".equals(obj)) {
+                    return new ItemTransferSearchBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_transfer_search is invalid. Received: " + obj);
+            case 528:
+                if ("layout/item_uno_win_0".equals(obj)) {
+                    return new ItemUnoWinBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_uno_win is invalid. Received: " + obj);
+            case 529:
+                if ("layout/item_user_block_0".equals(obj)) {
+                    return new ItemUserBlockBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_user_block is invalid. Received: " + obj);
+            case 530:
+                if ("layout/item_user_detail_small_picture_0".equals(obj)) {
+                    return new ItemUserDetailSmallPictureBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_user_detail_small_picture is invalid. Received: " + obj);
+            case 531:
+                if ("layout/item_user_detail_small_picture1_0".equals(obj)) {
+                    return new ItemUserDetailSmallPicture1BindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_user_detail_small_picture1 is invalid. Received: " + obj);
+            case 532:
+                if ("layout/item_user_gift_0".equals(obj)) {
+                    return new ItemUserGiftBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_user_gift is invalid. Received: " + obj);
+            case 533:
+                if ("layout/item_user_relation_0".equals(obj)) {
+                    return new ItemUserRelationBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_user_relation is invalid. Received: " + obj);
+            case 534:
+                if ("layout/item_video_0".equals(obj)) {
+                    return new ItemVideoBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_video is invalid. Received: " + obj);
+            case 535:
+                if ("layout/item_video_gift_0".equals(obj)) {
+                    return new ItemVideoGiftBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_video_gift is invalid. Received: " + obj);
+            case 536:
+                if ("layout/item_video_im_gift_0".equals(obj)) {
+                    return new ItemVideoImGiftBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_video_im_gift is invalid. Received: " + obj);
+            case 537:
+                if ("layout/item_video_im_text_0".equals(obj)) {
+                    return new ItemVideoImTextBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_video_im_text is invalid. Received: " + obj);
+            case 538:
+                if ("layout/item_vip_card_0".equals(obj)) {
+                    return new ItemVipCardBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_vip_card is invalid. Received: " + obj);
+            case 539:
+                if ("layout/item_wallet_banner_0".equals(obj)) {
+                    return new ItemWalletBannerBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_wallet_banner is invalid. Received: " + obj);
+            case 540:
+                if ("layout/item_watch_video_0".equals(obj)) {
+                    return new ItemWatchVideoBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_watch_video is invalid. Received: " + obj);
+            case 541:
+                if ("layout/item_you_tu_hot_list_0".equals(obj)) {
+                    return new ItemYouTuHotListBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_you_tu_hot_list is invalid. Received: " + obj);
+            case 542:
+                if ("layout/item_you_tu_list_0".equals(obj)) {
+                    return new ItemYouTuListBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_you_tu_list is invalid. Received: " + obj);
+            case 543:
+                if ("layout/layout_custom_community_tab_item_0".equals(obj)) {
+                    return new LayoutCustomCommunityTabItemBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for layout_custom_community_tab_item is invalid. Received: " + obj);
+            case 544:
+                if ("layout/layout_discover_broad_cast_0".equals(obj)) {
+                    return new LayoutDiscoverBroadCastBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for layout_discover_broad_cast is invalid. Received: " + obj);
+            case 545:
+                if ("layout/layout_global_broad11_0".equals(obj)) {
+                    return new LayoutGlobalBroad11BindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for layout_global_broad11 is invalid. Received: " + obj);
+            case 546:
+                if ("layout/layout_global_room_broad_cast_child_0".equals(obj)) {
+                    return new LayoutGlobalRoomBroadCastChildBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for layout_global_room_broad_cast_child is invalid. Received: " + obj);
+            case 547:
+                if ("layout/layout_power_rank_week_0".equals(obj)) {
+                    return new LayoutPowerRankWeekBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for layout_power_rank_week is invalid. Received: " + obj);
+            case 548:
+                if ("layout/layout_room_online_member_0".equals(obj)) {
+                    return new LayoutRoomOnlineMemberBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for layout_room_online_member is invalid. Received: " + obj);
+            case 549:
+                if ("layout/layout_room_personal_task_tab_item_0".equals(obj)) {
+                    return new LayoutRoomPersonalTaskTabItemBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for layout_room_personal_task_tab_item is invalid. Received: " + obj);
+            case 550:
+                if ("layout/layout_test_shape_image_view_0".equals(obj)) {
+                    return new LayoutTestShapeImageViewBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for layout_test_shape_image_view is invalid. Received: " + obj);
+            default:
+                return null;
+        }
+    }
+
+    private final ViewDataBinding d(androidx.databinding.f fVar, View view, int i, Object obj) {
+        switch (i) {
+            case 551:
+                if ("layout/live_room_activity_0".equals(obj)) {
+                    return new LiveRoomActivityBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for live_room_activity is invalid. Received: " + obj);
+            case 552:
+                if ("layout/lucky_wheel_select_dialog_0".equals(obj)) {
+                    return new LuckyWheelSelectDialogBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for lucky_wheel_select_dialog is invalid. Received: " + obj);
+            case 553:
+                if ("layout/pk1v1_win_0".equals(obj)) {
+                    return new Pk1v1WinBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for pk1v1_win is invalid. Received: " + obj);
+            case 554:
+                if ("layout/pop_window_gift_number_recycler_0".equals(obj)) {
+                    return new PopWindowGiftNumberRecyclerBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for pop_window_gift_number_recycler is invalid. Received: " + obj);
+            case 555:
+                if ("layout/popup_keep_call_tips_0".equals(obj)) {
+                    return new PopupKeepCallTipsBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for popup_keep_call_tips is invalid. Received: " + obj);
+            case 556:
+                if ("layout/power_detail_view_controller_0".equals(obj)) {
+                    return new PowerDetailViewControllerBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for power_detail_view_controller is invalid. Received: " + obj);
+            case 557:
+                if ("layout/room_button_pk_0".equals(obj)) {
+                    return new RoomButtonPkBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for room_button_pk is invalid. Received: " + obj);
+            case 558:
+                if ("layout/room_floating_view_0".equals(obj)) {
+                    return new RoomFloatingViewBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for room_floating_view is invalid. Received: " + obj);
+            case 559:
+                if ("layout/room_list_empty_0".equals(obj)) {
+                    return new RoomListEmptyBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for room_list_empty is invalid. Received: " + obj);
+            case 560:
+                if ("layout/room_micro_game_0".equals(obj)) {
+                    return new RoomMicroGameBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for room_micro_game is invalid. Received: " + obj);
+            case 561:
+                if ("layout/room_micro_pk_0".equals(obj)) {
+                    return new RoomMicroPkBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for room_micro_pk is invalid. Received: " + obj);
+            case 562:
+                if ("layout/room_pk1v1_0".equals(obj)) {
+                    return new RoomPk1v1BindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for room_pk1v1 is invalid. Received: " + obj);
+            case 563:
+                if ("layout/room_record_tab_0".equals(obj)) {
+                    return new RoomRecordTabBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for room_record_tab is invalid. Received: " + obj);
+            case 564:
+                if ("layout/room_view_contact_wrapper_0".equals(obj)) {
+                    return new RoomViewContactWrapperBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for room_view_contact_wrapper is invalid. Received: " + obj);
+            case 565:
+                if ("layout/share_child_like_me_contacts_0".equals(obj)) {
+                    return new ShareChildLikeMeContactsBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for share_child_like_me_contacts is invalid. Received: " + obj);
+            case 566:
+                if ("layout/share_common_contacts_0".equals(obj)) {
+                    return new ShareCommonContactsBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for share_common_contacts is invalid. Received: " + obj);
+            case 567:
+                if ("layout/splash_advertising_view_0".equals(obj)) {
+                    return new SplashAdvertisingViewBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for splash_advertising_view is invalid. Received: " + obj);
+            case 568:
+                if ("layout/svip_foot_0".equals(obj)) {
+                    return new SvipFootBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for svip_foot is invalid. Received: " + obj);
+            case 569:
+                if ("layout/tab_first_charge_item_0".equals(obj)) {
+                    return new TabFirstChargeItemBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for tab_first_charge_item is invalid. Received: " + obj);
+            case 570:
+                if ("layout/tab_layout_text_0".equals(obj)) {
+                    return new TabLayoutTextBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for tab_layout_text is invalid. Received: " + obj);
+            case 571:
+                if ("layout/task_tab_activity_item_0".equals(obj)) {
+                    return new TaskTabActivityItemBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for task_tab_activity_item is invalid. Received: " + obj);
+            case 572:
+                if ("layout/transfer_tab_activity_item_0".equals(obj)) {
+                    return new TransferTabActivityItemBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for transfer_tab_activity_item is invalid. Received: " + obj);
+            case 573:
+                if ("layout/video_im_0".equals(obj)) {
+                    return new VideoImBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for video_im is invalid. Received: " + obj);
+            case 574:
+                if ("layout/video_tip_0".equals(obj)) {
+                    return new VideoTipBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for video_tip is invalid. Received: " + obj);
+            case 575:
+                if ("layout/view_active_rank_parent_0".equals(obj)) {
+                    return new ViewActiveRankParentBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_active_rank_parent is invalid. Received: " + obj);
+            case 576:
+                if ("layout/view_advertising_0".equals(obj)) {
+                    return new ViewAdvertisingBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_advertising is invalid. Received: " + obj);
+            case 577:
+                if ("layout/view_aristocracy_permission_list_0".equals(obj)) {
+                    return new ViewAristocracyPermissionListBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_aristocracy_permission_list is invalid. Received: " + obj);
+            case 578:
+                if ("layout/view_charm_rank_parent_0".equals(obj)) {
+                    return new ViewCharmRankParentBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_charm_rank_parent is invalid. Received: " + obj);
+            case 579:
+                if ("layout/view_chat_room_game_lucky_fruit_0".equals(obj)) {
+                    return new ViewChatRoomGameLuckyFruitBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_chat_room_game_lucky_fruit is invalid. Received: " + obj);
+            case 580:
+                if ("layout/view_chat_room_game_lucky_fruit_result_0".equals(obj)) {
+                    return new ViewChatRoomGameLuckyFruitResultBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_chat_room_game_lucky_fruit_result is invalid. Received: " + obj);
+            case 581:
+                if ("layout/view_child_charm_rank_detail_0".equals(obj)) {
+                    return new ViewChildCharmRankDetailBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_child_charm_rank_detail is invalid. Received: " + obj);
+            case 582:
+                if ("layout/view_child_cp_rank_detail_0".equals(obj)) {
+                    return new ViewChildCpRankDetailBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_child_cp_rank_detail is invalid. Received: " + obj);
+            case 583:
+                if ("layout/view_controller_alert_agora_configure_0".equals(obj)) {
+                    return new ViewControllerAlertAgoraConfigureBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_controller_alert_agora_configure is invalid. Received: " + obj);
+            case 584:
+                if ("layout/view_controller_all_rank_0".equals(obj)) {
+                    return new ViewControllerAllRankBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_controller_all_rank is invalid. Received: " + obj);
+            case 585:
+                if ("layout/view_controller_authentication_0".equals(obj)) {
+                    return new ViewControllerAuthenticationBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_controller_authentication is invalid. Received: " + obj);
+            case 586:
+                if ("layout/view_controller_buy_aristocracy_identity_0".equals(obj)) {
+                    return new ViewControllerBuyAristocracyIdentityBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_controller_buy_aristocracy_identity is invalid. Received: " + obj);
+            case 587:
+                if ("layout/view_controller_change_sex_0".equals(obj)) {
+                    return new ViewControllerChangeSexBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_controller_change_sex is invalid. Received: " + obj);
+            case 588:
+                if ("layout/view_controller_common_list_0".equals(obj)) {
+                    return new ViewControllerCommonListBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_controller_common_list is invalid. Received: " + obj);
+            case 589:
+                if ("layout/view_controller_confirm_tip_0".equals(obj)) {
+                    return new ViewControllerConfirmTipBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_controller_confirm_tip is invalid. Received: " + obj);
+            case 590:
+                if ("layout/view_controller_connection_logs_0".equals(obj)) {
+                    return new ViewControllerConnectionLogsBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_controller_connection_logs is invalid. Received: " + obj);
+            case 591:
+                if ("layout/view_controller_cp_rank_0".equals(obj)) {
+                    return new ViewControllerCpRankBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_controller_cp_rank is invalid. Received: " + obj);
+            case 592:
+                if ("layout/view_controller_cp_rank_menu_0".equals(obj)) {
+                    return new ViewControllerCpRankMenuBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_controller_cp_rank_menu is invalid. Received: " + obj);
+            case 593:
+                if ("layout/view_controller_delete_account1_0".equals(obj)) {
+                    return new ViewControllerDeleteAccount1BindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_controller_delete_account1 is invalid. Received: " + obj);
+            case 594:
+                if ("layout/view_controller_delete_account2_0".equals(obj)) {
+                    return new ViewControllerDeleteAccount2BindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_controller_delete_account2 is invalid. Received: " + obj);
+            case 595:
+                if ("layout/view_controller_delete_account3_0".equals(obj)) {
+                    return new ViewControllerDeleteAccount3BindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_controller_delete_account3 is invalid. Received: " + obj);
+            case 596:
+                if ("layout/view_controller_feedback_0".equals(obj)) {
+                    return new ViewControllerFeedbackBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_controller_feedback is invalid. Received: " + obj);
+            case 597:
+                if ("layout/view_controller_fill_user_data_0".equals(obj)) {
+                    return new ViewControllerFillUserDataBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_controller_fill_user_data is invalid. Received: " + obj);
+            case 598:
+                if ("layout/view_controller_gender_preference_0".equals(obj)) {
+                    return new ViewControllerGenderPreferenceBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_controller_gender_preference is invalid. Received: " + obj);
+            case 599:
+                if ("layout/view_controller_gift_wall_0".equals(obj)) {
+                    return new ViewControllerGiftWallBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_controller_gift_wall is invalid. Received: " + obj);
+            case 600:
+                if ("layout/view_controller_global_broad_cast_0".equals(obj)) {
+                    return new ViewControllerGlobalBroadCastBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_controller_global_broad_cast is invalid. Received: " + obj);
+            default:
+                return null;
+        }
+    }
+
+    private final ViewDataBinding e(androidx.databinding.f fVar, View view, int i, Object obj) {
+        switch (i) {
+            case 601:
+                if ("layout/view_controller_hilo_assistant_0".equals(obj)) {
+                    return new ViewControllerHiloAssistantBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_controller_hilo_assistant is invalid. Received: " + obj);
+            case RoomEvent.ROOM_IM_GIFT /* 602 */:
+                if ("layout/view_controller_home_drawer_head_layout_0".equals(obj)) {
+                    return new ViewControllerHomeDrawerHeadLayoutBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_controller_home_drawer_head_layout is invalid. Received: " + obj);
+            case RoomEvent.ROOM_WEB_SOCKET_GIFT /* 603 */:
+                if ("layout/view_controller_my_bag_0".equals(obj)) {
+                    return new ViewControllerMyBagBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_controller_my_bag is invalid. Received: " + obj);
+            case 604:
+                if ("layout/view_controller_neighborhoods_note_0".equals(obj)) {
+                    return new ViewControllerNeighborhoodsNoteBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_controller_neighborhoods_note is invalid. Received: " + obj);
+            case 605:
+                if ("layout/view_controller_open_source_0".equals(obj)) {
+                    return new ViewControllerOpenSourceBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_controller_open_source is invalid. Received: " + obj);
+            case 606:
+                if ("layout/view_controller_platform_protocal_0".equals(obj)) {
+                    return new ViewControllerPlatformProtocalBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_controller_platform_protocal is invalid. Received: " + obj);
+            case 607:
+                if ("layout/view_controller_power_all_rank_0".equals(obj)) {
+                    return new ViewControllerPowerAllRankBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_controller_power_all_rank is invalid. Received: " + obj);
+            case 608:
+                if ("layout/view_controller_power_menu_0".equals(obj)) {
+                    return new ViewControllerPowerMenuBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_controller_power_menu is invalid. Received: " + obj);
+            case 609:
+                if ("layout/view_controller_power_team_0".equals(obj)) {
+                    return new ViewControllerPowerTeamBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_controller_power_team is invalid. Received: " + obj);
+            case 610:
+                if ("layout/view_controller_region_preference_0".equals(obj)) {
+                    return new ViewControllerRegionPreferenceBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_controller_region_preference is invalid. Received: " + obj);
+            case 611:
+                if ("layout/view_controller_rong_im_test_0".equals(obj)) {
+                    return new ViewControllerRongImTestBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_controller_rong_im_test is invalid. Received: " + obj);
+            case 612:
+                if ("layout/view_controller_server_selection_0".equals(obj)) {
+                    return new ViewControllerServerSelectionBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_controller_server_selection is invalid. Received: " + obj);
+            case 613:
+                if ("layout/view_controller_setting_native_0".equals(obj)) {
+                    return new ViewControllerSettingNativeBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_controller_setting_native is invalid. Received: " + obj);
+            case 614:
+                if ("layout/view_controller_share_contacts_0".equals(obj)) {
+                    return new ViewControllerShareContactsBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_controller_share_contacts is invalid. Received: " + obj);
+            case 615:
+                if ("layout/view_controller_svga_0".equals(obj)) {
+                    return new ViewControllerSvgaBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_controller_svga is invalid. Received: " + obj);
+            case 616:
+                if ("layout/view_controller_test_mic_view_0".equals(obj)) {
+                    return new ViewControllerTestMicViewBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_controller_test_mic_view is invalid. Received: " + obj);
+            case 617:
+                if ("layout/view_controller_test_video_calling_0".equals(obj)) {
+                    return new ViewControllerTestVideoCallingBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_controller_test_video_calling is invalid. Received: " + obj);
+            case 618:
+                if ("layout/view_controller_vip_0".equals(obj)) {
+                    return new ViewControllerVipBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_controller_vip is invalid. Received: " + obj);
+            case 619:
+                if ("layout/view_controller_web_view_0".equals(obj)) {
+                    return new ViewControllerWebViewBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_controller_web_view is invalid. Received: " + obj);
+            case 620:
+                if ("layout/view_cp_level_0".equals(obj)) {
+                    return new ViewCpLevelBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_cp_level is invalid. Received: " + obj);
+            case 621:
+                if ("layout/view_cp_my_rank_0".equals(obj)) {
+                    return new ViewCpMyRankBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_cp_my_rank is invalid. Received: " + obj);
+            case 622:
+                if ("layout/view_cp_rank_flipper_holder_0".equals(obj)) {
+                    return new ViewCpRankFlipperHolderBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_cp_rank_flipper_holder is invalid. Received: " + obj);
+            case 623:
+                if ("layout/view_cp_rank_parent_0".equals(obj)) {
+                    return new ViewCpRankParentBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_cp_rank_parent is invalid. Received: " + obj);
+            case 624:
+                if ("layout/view_envelope_number_0".equals(obj)) {
+                    return new ViewEnvelopeNumberBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_envelope_number is invalid. Received: " + obj);
+            case 625:
+                if ("layout/view_foodie_big_reward_rule_0".equals(obj)) {
+                    return new ViewFoodieBigRewardRuleBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_foodie_big_reward_rule is invalid. Received: " + obj);
+            case 626:
+                if ("layout/view_foodie_confirm_bet_dialog_2_0".equals(obj)) {
+                    return new ViewFoodieConfirmBetDialog2BindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_foodie_confirm_bet_dialog_2 is invalid. Received: " + obj);
+            case 627:
+                if ("layout/view_foodie_confirm_repeat_dialog_0".equals(obj)) {
+                    return new ViewFoodieConfirmRepeatDialogBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_foodie_confirm_repeat_dialog is invalid. Received: " + obj);
+            case 628:
+                if ("layout/view_foodie_dialog_0".equals(obj)) {
+                    return new ViewFoodieDialogBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_foodie_dialog is invalid. Received: " + obj);
+            case 629:
+                if ("layout/view_foodie_intro_0".equals(obj)) {
+                    return new ViewFoodieIntroBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_foodie_intro is invalid. Received: " + obj);
+            case 630:
+                if ("layout/view_foodie_rank_0".equals(obj)) {
+                    return new ViewFoodieRankBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_foodie_rank is invalid. Received: " + obj);
+            case 631:
+                if ("layout/view_foodie_record_0".equals(obj)) {
+                    return new ViewFoodieRecordBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_foodie_record is invalid. Received: " + obj);
+            case 632:
+                if ("layout/view_fruit_confirm_repeat_dialog_0".equals(obj)) {
+                    return new ViewFruitConfirmRepeatDialogBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_fruit_confirm_repeat_dialog is invalid. Received: " + obj);
+            case 633:
+                if ("layout/view_game_backgammon_0".equals(obj)) {
+                    return new ViewGameBackgammonBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_game_backgammon is invalid. Received: " + obj);
+            case 634:
+                if ("layout/view_game_baloot_0".equals(obj)) {
+                    return new ViewGameBalootBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_game_baloot is invalid. Received: " + obj);
+            case 635:
+                if ("layout/view_game_carrom_0".equals(obj)) {
+                    return new ViewGameCarromBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_game_carrom is invalid. Received: " + obj);
+            case 636:
+                if ("layout/view_game_crush_0".equals(obj)) {
+                    return new ViewGameCrushBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_game_crush is invalid. Received: " + obj);
+            case 637:
+                if ("layout/view_game_domino_0".equals(obj)) {
+                    return new ViewGameDominoBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_game_domino is invalid. Received: " + obj);
+            case 638:
+                if ("layout/view_game_jackaro_0".equals(obj)) {
+                    return new ViewGameJackaroBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_game_jackaro is invalid. Received: " + obj);
+            case 639:
+                if ("layout/view_game_ludo_0".equals(obj)) {
+                    return new ViewGameLudoBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_game_ludo is invalid. Received: " + obj);
+            case 640:
+                if ("layout/view_game_notice_0".equals(obj)) {
+                    return new ViewGameNoticeBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_game_notice is invalid. Received: " + obj);
+            case 641:
+                if ("layout/view_game_pk_0".equals(obj)) {
+                    return new ViewGamePkBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_game_pk is invalid. Received: " + obj);
+            case 642:
+                if ("layout/view_game_sheep_h5_0".equals(obj)) {
+                    return new ViewGameSheepH5BindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_game_sheep_h5 is invalid. Received: " + obj);
+            case 643:
+                if ("layout/view_game_uno_0".equals(obj)) {
+                    return new ViewGameUnoBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_game_uno is invalid. Received: " + obj);
+            case 644:
+                if ("layout/view_gift_member_recycler_0".equals(obj)) {
+                    return new ViewGiftMemberRecyclerBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_gift_member_recycler is invalid. Received: " + obj);
+            case 645:
+                if ("layout/view_gift_notice_0".equals(obj)) {
+                    return new ViewGiftNoticeBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_gift_notice is invalid. Received: " + obj);
+            case 646:
+                if ("layout/view_gift_wall_flipper_holder_0".equals(obj)) {
+                    return new ViewGiftWallFlipperHolderBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_gift_wall_flipper_holder is invalid. Received: " + obj);
+            case 647:
+                if ("layout/view_group_banner_0".equals(obj)) {
+                    return new ViewGroupBannerBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_group_banner is invalid. Received: " + obj);
+            case 648:
+                if ("layout/view_group_child_charm_rank_detail_0".equals(obj)) {
+                    return new ViewGroupChildCharmRankDetailBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_group_child_charm_rank_detail is invalid. Received: " + obj);
+            case 649:
+                if ("layout/view_group_input_layout_0".equals(obj)) {
+                    return new ViewGroupInputLayoutBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_group_input_layout is invalid. Received: " + obj);
+            case 650:
+                if ("layout/view_home_room_banner_0".equals(obj)) {
+                    return new ViewHomeRoomBannerBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_home_room_banner is invalid. Received: " + obj);
+            default:
+                return null;
+        }
+    }
+
+    private final ViewDataBinding f(androidx.databinding.f fVar, View view, int i, Object obj) {
+        switch (i) {
+            case 651:
+                if ("layout/view_horizontal_interactive_0".equals(obj)) {
+                    return new ViewHorizontalInteractiveBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_horizontal_interactive is invalid. Received: " + obj);
+            case 652:
+                if ("layout/view_level_pk_0".equals(obj)) {
+                    return new ViewLevelPkBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_level_pk is invalid. Received: " + obj);
+            case 653:
+                if ("layout/view_mask_cover_local_0".equals(obj)) {
+                    return new ViewMaskCoverLocalBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_mask_cover_local is invalid. Received: " + obj);
+            case 654:
+                if ("layout/view_mask_cover_local_specify_0".equals(obj)) {
+                    return new ViewMaskCoverLocalSpecifyBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_mask_cover_local_specify is invalid. Received: " + obj);
+            case 655:
+                if ("layout/view_mask_cover_remote_0".equals(obj)) {
+                    return new ViewMaskCoverRemoteBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_mask_cover_remote is invalid. Received: " + obj);
+            case 656:
+                if ("layout/view_mask_cover_remote_specify_0".equals(obj)) {
+                    return new ViewMaskCoverRemoteSpecifyBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_mask_cover_remote_specify is invalid. Received: " + obj);
+            case 657:
+                if ("layout/view_message_banner_0".equals(obj)) {
+                    return new ViewMessageBannerBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_message_banner is invalid. Received: " + obj);
+            case 658:
+                if ("layout/view_my_bag_0".equals(obj)) {
+                    return new ViewMyBagBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_my_bag is invalid. Received: " + obj);
+            case 659:
+                if ("layout/view_pk_search_0".equals(obj)) {
+                    return new ViewPkSearchBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_pk_search is invalid. Received: " + obj);
+            case 660:
+                if ("layout/view_planet_0".equals(obj)) {
+                    return new ViewPlanetBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_planet is invalid. Received: " + obj);
+            case 661:
+                if ("layout/view_popular_0".equals(obj)) {
+                    return new ViewPopularBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_popular is invalid. Received: " + obj);
+            case 662:
+                if ("layout/view_popular_childer_all_group_0".equals(obj)) {
+                    return new ViewPopularChilderAllGroupBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_popular_childer_all_group is invalid. Received: " + obj);
+            case 663:
+                if ("layout/view_power_medal_0".equals(obj)) {
+                    return new ViewPowerMedalBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_power_medal is invalid. Received: " + obj);
+            case 664:
+                if ("layout/view_power_rank_flipper_holder_0".equals(obj)) {
+                    return new ViewPowerRankFlipperHolderBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_power_rank_flipper_holder is invalid. Received: " + obj);
+            case 665:
+                if ("layout/view_rank_flipper_holder_0".equals(obj)) {
+                    return new ViewRankFlipperHolderBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_rank_flipper_holder is invalid. Received: " + obj);
+            case 666:
+                if ("layout/view_rocket_svga_count_down_0".equals(obj)) {
+                    return new ViewRocketSvgaCountDownBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_rocket_svga_count_down is invalid. Received: " + obj);
+            case 667:
+                if ("layout/view_room_child_active_rank_detail_0".equals(obj)) {
+                    return new ViewRoomChildActiveRankDetailBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_room_child_active_rank_detail is invalid. Received: " + obj);
+            case 668:
+                if ("layout/view_room_game_0".equals(obj)) {
+                    return new ViewRoomGameBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_room_game is invalid. Received: " + obj);
+            case 669:
+                if ("layout/view_room_rocket_enter_0".equals(obj)) {
+                    return new ViewRoomRocketEnterBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_room_rocket_enter is invalid. Received: " + obj);
+            case 670:
+                if ("layout/view_search_child_group_0".equals(obj)) {
+                    return new ViewSearchChildGroupBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_search_child_group is invalid. Received: " + obj);
+            case 671:
+                if ("layout/view_search_child_user_0".equals(obj)) {
+                    return new ViewSearchChildUserBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_search_child_user is invalid. Received: " + obj);
+            case 672:
+                if ("layout/view_search_group_user_0".equals(obj)) {
+                    return new ViewSearchGroupUserBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_search_group_user is invalid. Received: " + obj);
+            case 673:
+                if ("layout/view_send_gift_linearlayout_0".equals(obj)) {
+                    return new ViewSendGiftLinearlayoutBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_send_gift_linearlayout is invalid. Received: " + obj);
+            case 674:
+                if ("layout/view_task_0".equals(obj)) {
+                    return new ViewTaskBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_task is invalid. Received: " + obj);
+            case 675:
+                if ("layout/view_task_item_0".equals(obj)) {
+                    return new ViewTaskItemBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_task_item is invalid. Received: " + obj);
+            case 676:
+                if ("layout/view_verify_dialog_0".equals(obj)) {
+                    return new ViewVerifyDialogBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_verify_dialog is invalid. Received: " + obj);
+            case 677:
+                if ("layout/view_video_call_0".equals(obj)) {
+                    return new ViewVideoCallBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_video_call is invalid. Received: " + obj);
+            case 678:
+                if ("layout/view_vote_layout_0".equals(obj)) {
+                    return new ViewVoteLayoutBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_vote_layout is invalid. Received: " + obj);
+            case 679:
+                if ("layout/view_wrapper_matching_pending_0".equals(obj)) {
+                    return new ViewWrapperMatchingPendingBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_wrapper_matching_pending is invalid. Received: " + obj);
+            case 680:
+                if ("layout/view_you_tu_be_0".equals(obj)) {
+                    return new ViewYouTuBeBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_you_tu_be is invalid. Received: " + obj);
+            case 681:
+                if ("layout/view_you_tu_more_0".equals(obj)) {
+                    return new ViewYouTuMoreBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_you_tu_more is invalid. Received: " + obj);
+            case 682:
+                if ("layout/view_you_tu_video_0".equals(obj)) {
+                    return new ViewYouTuVideoBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for view_you_tu_video is invalid. Received: " + obj);
+            default:
+                return null;
+        }
+    }
+
+    private final ViewDataBinding g(androidx.databinding.f fVar, View view, int i, Object obj) {
+        switch (i) {
+            case 101:
+                if ("layout/activity_video_recording_0".equals(obj)) {
+                    return new ActivityVideoRecordingBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_video_recording is invalid. Received: " + obj);
+            case 102:
+                if ("layout/activity_video_result_0".equals(obj)) {
+                    return new ActivityVideoResultBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_video_result is invalid. Received: " + obj);
+            case 103:
+                if ("layout/activity_vip_record_0".equals(obj)) {
+                    return new ActivityVipRecordBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_vip_record is invalid. Received: " + obj);
+            case 104:
+                if ("layout/activity_wallet_0".equals(obj)) {
+                    return new ActivityWalletBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_wallet is invalid. Received: " + obj);
+            case 105:
+                if ("layout/activity_you_tu_watch_0".equals(obj)) {
+                    return new ActivityYouTuWatchBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for activity_you_tu_watch is invalid. Received: " + obj);
+            case 106:
+                if ("layout/audio_hilo_game_0".equals(obj)) {
+                    return new AudioHiloGameBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for audio_hilo_game is invalid. Received: " + obj);
+            case 107:
+                if ("layout/audio_hilo_game_bet_item_0".equals(obj)) {
+                    return new AudioHiloGameBetItemBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for audio_hilo_game_bet_item is invalid. Received: " + obj);
+            case 108:
+                if ("layout/bai_shun_head_0".equals(obj)) {
+                    return new BaiShunHeadBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for bai_shun_head is invalid. Received: " + obj);
+            case 109:
+                if ("layout/balloon_like_each_other_0".equals(obj)) {
+                    return new BalloonLikeEachOtherBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for balloon_like_each_other is invalid. Received: " + obj);
+            case 110:
+                if ("layout/base_layout_custom_tab_item_0".equals(obj)) {
+                    return new BaseLayoutCustomTabItemBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for base_layout_custom_tab_item is invalid. Received: " + obj);
+            case 111:
+                if ("layout/base_layout_task_tab_item_0".equals(obj)) {
+                    return new BaseLayoutTaskTabItemBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for base_layout_task_tab_item is invalid. Received: " + obj);
+            case 112:
+                if ("layout/cell_bill_0".equals(obj)) {
+                    return new CellBillBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for cell_bill is invalid. Received: " + obj);
+            case 113:
+                if ("layout/cell_common_0".equals(obj)) {
+                    return new CellCommonBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for cell_common is invalid. Received: " + obj);
+            case 114:
+                if ("layout/cell_connection_log_0".equals(obj)) {
+                    return new CellConnectionLogBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for cell_connection_log is invalid. Received: " + obj);
+            case 115:
+                if ("layout/cell_conversation_0".equals(obj)) {
+                    return new CellConversationBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for cell_conversation is invalid. Received: " + obj);
+            case 116:
+                if ("layout/cell_country_0".equals(obj)) {
+                    return new CellCountryBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for cell_country is invalid. Received: " + obj);
+            case 117:
+                if ("layout/cell_fans_0".equals(obj)) {
+                    return new CellFansBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for cell_fans is invalid. Received: " + obj);
+            case 118:
+                if ("layout/cell_hilo_assistant_0".equals(obj)) {
+                    return new CellHiloAssistantBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for cell_hilo_assistant is invalid. Received: " + obj);
+            case 119:
+                if ("layout/cell_hilo_assistant_beans_holder_type1_0".equals(obj)) {
+                    return new CellHiloAssistantBeansHolderType1BindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for cell_hilo_assistant_beans_holder_type1 is invalid. Received: " + obj);
+            case 120:
+                if ("layout/cell_hilo_assistant_enter_car_0".equals(obj)) {
+                    return new CellHiloAssistantEnterCarBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for cell_hilo_assistant_enter_car is invalid. Received: " + obj);
+            case 121:
+                if ("layout/cell_hilo_assistant_holder_type1_0".equals(obj)) {
+                    return new CellHiloAssistantHolderType1BindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for cell_hilo_assistant_holder_type1 is invalid. Received: " + obj);
+            case 122:
+                if ("layout/cell_hilo_assistant_praise_0".equals(obj)) {
+                    return new CellHiloAssistantPraiseBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for cell_hilo_assistant_praise is invalid. Received: " + obj);
+            case 123:
+                if ("layout/cell_hilo_information_0".equals(obj)) {
+                    return new CellHiloInformationBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for cell_hilo_information is invalid. Received: " + obj);
+            case 124:
+                if ("layout/cell_history_user_information_summary_0".equals(obj)) {
+                    return new CellHistoryUserInformationSummaryBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for cell_history_user_information_summary is invalid. Received: " + obj);
+            case 125:
+                if ("layout/cell_like_each_other_0".equals(obj)) {
+                    return new CellLikeEachOtherBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for cell_like_each_other is invalid. Received: " + obj);
+            case 126:
+                if ("layout/cell_online_0".equals(obj)) {
+                    return new CellOnlineBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for cell_online is invalid. Received: " + obj);
+            case 127:
+                if ("layout/cell_result_analysis_0".equals(obj)) {
+                    return new CellResultAnalysisBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for cell_result_analysis is invalid. Received: " + obj);
+            case 128:
+                if ("layout/common_frame_view_wrapper_0".equals(obj)) {
+                    return new CommonFrameViewWrapperBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for common_frame_view_wrapper is invalid. Received: " + obj);
+            case 129:
+                if ("layout/custom_footer_0".equals(obj)) {
+                    return new CustomFooterBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for custom_footer is invalid. Received: " + obj);
+            case 130:
+                if ("layout/dialog_aristocracy_card_0".equals(obj)) {
+                    return new DialogAristocracyCardBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_aristocracy_card is invalid. Received: " + obj);
+            case UserProxyUtility.msgTypeOfRoomActivity /* 131 */:
+                if ("layout/dialog_baloot_end_0".equals(obj)) {
+                    return new DialogBalootEndBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_baloot_end is invalid. Received: " + obj);
+            case UserProxyUtility.msgTypeOfVideo /* 132 */:
+                if ("layout/dialog_baloot_introduce_0".equals(obj)) {
+                    return new DialogBalootIntroduceBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_baloot_introduce is invalid. Received: " + obj);
+            case 133:
+                if ("layout/dialog_block_or_report_0".equals(obj)) {
+                    return new DialogBlockOrReportBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_block_or_report is invalid. Received: " + obj);
+            case UserProxyUtility.msgTypeOfVideoCallReady /* 134 */:
+                if ("layout/dialog_block_text_0".equals(obj)) {
+                    return new DialogBlockTextBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_block_text is invalid. Received: " + obj);
+            case 135:
+                if ("layout/dialog_carrom_introduce_0".equals(obj)) {
+                    return new DialogCarromIntroduceBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_carrom_introduce is invalid. Received: " + obj);
+            case 136:
+                if ("layout/dialog_change_country_0".equals(obj)) {
+                    return new DialogChangeCountryBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_change_country is invalid. Received: " + obj);
+            case 137:
+                if ("layout/dialog_change_sex_0".equals(obj)) {
+                    return new DialogChangeSexBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_change_sex is invalid. Received: " + obj);
+            case 138:
+                if ("layout/dialog_check_room_error_agora_0".equals(obj)) {
+                    return new DialogCheckRoomErrorAgoraBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_check_room_error_agora is invalid. Received: " + obj);
+            case 139:
+                if ("layout/dialog_common_text_0".equals(obj)) {
+                    return new DialogCommonTextBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_common_text is invalid. Received: " + obj);
+            case UserProxyUtility.msgTypeOfMatchSuccess /* 140 */:
+                if ("layout/dialog_cp_certificate_0".equals(obj)) {
+                    return new DialogCpCertificateBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_cp_certificate is invalid. Received: " + obj);
+            case UserProxyUtility.msgTypeOfMatchConfirm /* 141 */:
+                if ("layout/dialog_cp_confirm_0".equals(obj)) {
+                    return new DialogCpConfirmBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_cp_confirm is invalid. Received: " + obj);
+            case UserProxyUtility.msgTypeOfCallReady /* 142 */:
+                if ("layout/dialog_cp_confirm_two_0".equals(obj)) {
+                    return new DialogCpConfirmTwoBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_cp_confirm_two is invalid. Received: " + obj);
+            case 143:
+                if ("layout/dialog_cp_delete_0".equals(obj)) {
+                    return new DialogCpDeleteBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_cp_delete is invalid. Received: " + obj);
+            case 144:
+                if ("layout/dialog_cp_invitation_receive_0".equals(obj)) {
+                    return new DialogCpInvitationReceiveBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_cp_invitation_receive is invalid. Received: " + obj);
+            case 145:
+                if ("layout/dialog_cp_invitation_send_0".equals(obj)) {
+                    return new DialogCpInvitationSendBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_cp_invitation_send is invalid. Received: " + obj);
+            case UserProxyUtility.msgGameBanner /* 146 */:
+                if ("layout/dialog_cp_more_0".equals(obj)) {
+                    return new DialogCpMoreBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_cp_more is invalid. Received: " + obj);
+            case UserProxyUtility.sheepMatchSuccess /* 147 */:
+                if ("layout/dialog_cp_privilege_0".equals(obj)) {
+                    return new DialogCpPrivilegeBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_cp_privilege is invalid. Received: " + obj);
+            case UserProxyUtility.sheepEnd /* 148 */:
+                if ("layout/dialog_cp_rule_0".equals(obj)) {
+                    return new DialogCpRuleBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_cp_rule is invalid. Received: " + obj);
+            case UserProxyUtility.cpInvite /* 149 */:
+                if ("layout/dialog_cp_tip_0".equals(obj)) {
+                    return new DialogCpTipBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_cp_tip is invalid. Received: " + obj);
+            case UserProxyUtility.cpUpgrades /* 150 */:
+                if ("layout/dialog_create_1v1_pk_0".equals(obj)) {
+                    return new DialogCreate1v1PkBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_create_1v1_pk is invalid. Received: " + obj);
+            default:
+                return null;
+        }
+    }
+
+    private final ViewDataBinding h(androidx.databinding.f fVar, View view, int i, Object obj) {
+        switch (i) {
+            case UserProxyUtility.svipUpgrades /* 151 */:
+                if ("layout/dialog_create_backgammon_0".equals(obj)) {
+                    return new DialogCreateBackgammonBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_create_backgammon is invalid. Received: " + obj);
+            case 152:
+                if ("layout/dialog_create_baloot_0".equals(obj)) {
+                    return new DialogCreateBalootBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_create_baloot is invalid. Received: " + obj);
+            case 153:
+                if ("layout/dialog_create_carrom_0".equals(obj)) {
+                    return new DialogCreateCarromBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_create_carrom is invalid. Received: " + obj);
+            case 154:
+                if ("layout/dialog_create_crush_0".equals(obj)) {
+                    return new DialogCreateCrushBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_create_crush is invalid. Received: " + obj);
+            case UserProxyUtility.roomMicChange /* 155 */:
+                if ("layout/dialog_create_domino_0".equals(obj)) {
+                    return new DialogCreateDominoBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_create_domino is invalid. Received: " + obj);
+            case 156:
+                if ("layout/dialog_create_jackaro_0".equals(obj)) {
+                    return new DialogCreateJackaroBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_create_jackaro is invalid. Received: " + obj);
+            case UserProxyUtility.lobbyMatchSuccess /* 157 */:
+                if ("layout/dialog_create_ludo_0".equals(obj)) {
+                    return new DialogCreateLudoBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_create_ludo is invalid. Received: " + obj);
+            case UserProxyUtility.h5GameVoiceMute /* 158 */:
+                if ("layout/dialog_create_nuo_0".equals(obj)) {
+                    return new DialogCreateNuoBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_create_nuo is invalid. Received: " + obj);
+            case UserProxyUtility.h5GameVoiceUnMute /* 159 */:
+                if ("layout/dialog_crush_end_0".equals(obj)) {
+                    return new DialogCrushEndBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_crush_end is invalid. Received: " + obj);
+            case UserProxyUtility.exitRoom /* 160 */:
+                if ("layout/dialog_crush_introduce_0".equals(obj)) {
+                    return new DialogCrushIntroduceBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_crush_introduce is invalid. Received: " + obj);
+            case UserProxyUtility.countryMg /* 161 */:
+                if ("layout/dialog_custom_gift_rule_0".equals(obj)) {
+                    return new DialogCustomGiftRuleBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_custom_gift_rule is invalid. Received: " + obj);
+            case UserProxyUtility.videoSettingChange /* 162 */:
+                if ("layout/dialog_daily_operating_0".equals(obj)) {
+                    return new DialogDailyOperatingBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_daily_operating is invalid. Received: " + obj);
+            case UserProxyUtility.videoEffect /* 163 */:
+                if ("layout/dialog_daily_record_0".equals(obj)) {
+                    return new DialogDailyRecordBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_daily_record is invalid. Received: " + obj);
+            case UserProxyUtility.h5GameVoice /* 164 */:
+                if ("layout/dialog_daily_vip_diamond_0".equals(obj)) {
+                    return new DialogDailyVipDiamondBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_daily_vip_diamond is invalid. Received: " + obj);
+            case UserProxyUtility.h5Finish /* 165 */:
+                if ("layout/dialog_default_more_0".equals(obj)) {
+                    return new DialogDefaultMoreBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_default_more is invalid. Received: " + obj);
+            case UserProxyUtility.pkInvite /* 166 */:
+                if ("layout/dialog_delete_account_0".equals(obj)) {
+                    return new DialogDeleteAccountBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_delete_account is invalid. Received: " + obj);
+            case UserProxyUtility.pkExit /* 167 */:
+                if ("layout/dialog_domino_end_0".equals(obj)) {
+                    return new DialogDominoEndBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_domino_end is invalid. Received: " + obj);
+            case UserProxyUtility.pkBanner /* 168 */:
+                if ("layout/dialog_domino_introduce_0".equals(obj)) {
+                    return new DialogDominoIntroduceBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_domino_introduce is invalid. Received: " + obj);
+            case UserProxyUtility.gamePKInviteCancel /* 169 */:
+                if ("layout/dialog_family_member_more_0".equals(obj)) {
+                    return new DialogFamilyMemberMoreBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_family_member_more is invalid. Received: " + obj);
+            case UserProxyUtility.specialRelationInvite /* 170 */:
+                if ("layout/dialog_family_setting_0".equals(obj)) {
+                    return new DialogFamilySettingBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_family_setting is invalid. Received: " + obj);
+            case UserProxyUtility.strangeChatMatch /* 171 */:
+                if ("layout/dialog_family_share_0".equals(obj)) {
+                    return new DialogFamilyShareBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_family_share is invalid. Received: " + obj);
+            case UserProxyUtility.envelopeBanner /* 172 */:
+                if ("layout/dialog_filtrate_user_0".equals(obj)) {
+                    return new DialogFiltrateUserBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_filtrate_user is invalid. Received: " + obj);
+            case 173:
+                if ("layout/dialog_first_charge_0".equals(obj)) {
+                    return new DialogFirstChargeBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_first_charge is invalid. Received: " + obj);
+            case 174:
+                if ("layout/dialog_first_recharge_0".equals(obj)) {
+                    return new DialogFirstRechargeBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_first_recharge is invalid. Received: " + obj);
+            case 175:
+                if ("layout/dialog_gem_details_0".equals(obj)) {
+                    return new DialogGemDetailsBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_gem_details is invalid. Received: " + obj);
+            case UserProxyUtility.foodieHot /* 176 */:
+                if ("layout/dialog_gem_store_0".equals(obj)) {
+                    return new DialogGemStoreBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_gem_store is invalid. Received: " + obj);
+            case UserProxyUtility.foodieResult /* 177 */:
+                if ("layout/dialog_gift_text_0".equals(obj)) {
+                    return new DialogGiftTextBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_gift_text is invalid. Received: " + obj);
+            case UserProxyUtility.rocketBanner /* 178 */:
+                if ("layout/dialog_gold_task_0".equals(obj)) {
+                    return new DialogGoldTaskBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_gold_task is invalid. Received: " + obj);
+            case UserProxyUtility.notification /* 179 */:
+                if ("layout/dialog_group_face_0".equals(obj)) {
+                    return new DialogGroupFaceBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_group_face is invalid. Received: " + obj);
+            case 180:
+                if ("layout/dialog_group_music_0".equals(obj)) {
+                    return new DialogGroupMusicBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_group_music is invalid. Received: " + obj);
+            case UserProxyUtility.hiloGameBetRank /* 181 */:
+                if ("layout/dialog_h5_diamond_game_0".equals(obj)) {
+                    return new DialogH5DiamondGameBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_h5_diamond_game is invalid. Received: " + obj);
+            case UserProxyUtility.hiloGameBetWinRank /* 182 */:
+                if ("layout/dialog_h5_game_0".equals(obj)) {
+                    return new DialogH5GameBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_h5_game is invalid. Received: " + obj);
+            case UserProxyUtility.hiloGameModel /* 183 */:
+                if ("layout/dialog_h5_gem_game_0".equals(obj)) {
+                    return new DialogH5GemGameBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_h5_gem_game is invalid. Received: " + obj);
+            case UserProxyUtility.roomGift /* 184 */:
+                if ("layout/dialog_helper_0".equals(obj)) {
+                    return new DialogHelperBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_helper is invalid. Received: " + obj);
+            case UserProxyUtility.roomPKMicChange /* 185 */:
+                if ("layout/dialog_im_clean_message_0".equals(obj)) {
+                    return new DialogImCleanMessageBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_im_clean_message is invalid. Received: " + obj);
+            case UserProxyUtility.surePKMicChange /* 186 */:
+                if ("layout/dialog_invite_take_mic_get_diamond_0".equals(obj)) {
+                    return new DialogInviteTakeMicGetDiamondBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_invite_take_mic_get_diamond is invalid. Received: " + obj);
+            case UserProxyUtility.hiloGameNewRound /* 187 */:
+                if ("layout/dialog_item_medal_0".equals(obj)) {
+                    return new DialogItemMedalBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_item_medal is invalid. Received: " + obj);
+            case UserProxyUtility.roomMicNumChange /* 188 */:
+                if ("layout/dialog_jackaro_introduce_0".equals(obj)) {
+                    return new DialogJackaroIntroduceBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_jackaro_introduce is invalid. Received: " + obj);
+            case UserProxyUtility.roomOnLine /* 189 */:
+                if ("layout/dialog_join_lock_room_0".equals(obj)) {
+                    return new DialogJoinLockRoomBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_join_lock_room is invalid. Received: " + obj);
+            case UserProxyUtility.roomLeave /* 190 */:
+                if ("layout/dialog_joined_level_0".equals(obj)) {
+                    return new DialogJoinedLevelBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_joined_level is invalid. Received: " + obj);
+            case UserProxyUtility.roomExpression /* 191 */:
+                if ("layout/dialog_leave_room_0".equals(obj)) {
+                    return new DialogLeaveRoomBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_leave_room is invalid. Received: " + obj);
+            case UserProxyUtility.roomAllGift /* 192 */:
+                if ("layout/dialog_lucky_box_0".equals(obj)) {
+                    return new DialogLuckyBoxBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_lucky_box is invalid. Received: " + obj);
+            case UserProxyUtility.momentUpdateMessage /* 193 */:
+                if ("layout/dialog_lucky_box_big_prizes_0".equals(obj)) {
+                    return new DialogLuckyBoxBigPrizesBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_lucky_box_big_prizes is invalid. Received: " + obj);
+            case UserProxyUtility.roomReady /* 194 */:
+                if ("layout/dialog_lucky_box_ranking_0".equals(obj)) {
+                    return new DialogLuckyBoxRankingBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_lucky_box_ranking is invalid. Received: " + obj);
+            case 195:
+                if ("layout/dialog_lucky_box_winning_record_0".equals(obj)) {
+                    return new DialogLuckyBoxWinningRecordBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_lucky_box_winning_record is invalid. Received: " + obj);
+            case 196:
+                if ("layout/dialog_lucky_fruit_place_bet_confirm_0".equals(obj)) {
+                    return new DialogLuckyFruitPlaceBetConfirmBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_lucky_fruit_place_bet_confirm is invalid. Received: " + obj);
+            case 197:
+                if ("layout/dialog_lucky_fruit_ranking_0".equals(obj)) {
+                    return new DialogLuckyFruitRankingBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_lucky_fruit_ranking is invalid. Received: " + obj);
+            case 198:
+                if ("layout/dialog_lucky_fruit_record_0".equals(obj)) {
+                    return new DialogLuckyFruitRecordBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_lucky_fruit_record is invalid. Received: " + obj);
+            case 199:
+                if ("layout/dialog_lucky_fruit_rule_0".equals(obj)) {
+                    return new DialogLuckyFruitRuleBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_lucky_fruit_rule is invalid. Received: " + obj);
+            case 200:
+                if ("layout/dialog_lucky_wheel_0".equals(obj)) {
+                    return new DialogLuckyWheelBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_lucky_wheel is invalid. Received: " + obj);
+            default:
+                return null;
+        }
+    }
+
+    private final ViewDataBinding i(androidx.databinding.f fVar, View view, int i, Object obj) {
+        switch (i) {
+            case 201:
+                if ("layout/dialog_ludo_end_0".equals(obj)) {
+                    return new DialogLudoEndBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_ludo_end is invalid. Received: " + obj);
+            case 202:
+                if ("layout/dialog_ludo_introduce_0".equals(obj)) {
+                    return new DialogLudoIntroduceBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_ludo_introduce is invalid. Received: " + obj);
+            case 203:
+                if ("layout/dialog_main_activity_0".equals(obj)) {
+                    return new DialogMainActivityBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_main_activity is invalid. Received: " + obj);
+            case 204:
+                if ("layout/dialog_match_permissions_0".equals(obj)) {
+                    return new DialogMatchPermissionsBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_match_permissions is invalid. Received: " + obj);
+            case 205:
+                if ("layout/dialog_medal_level_0".equals(obj)) {
+                    return new DialogMedalLevelBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_medal_level is invalid. Received: " + obj);
+            case 206:
+                if ("layout/dialog_message_list_0".equals(obj)) {
+                    return new DialogMessageListBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_message_list is invalid. Received: " + obj);
+            case 207:
+                if ("layout/dialog_message_menu_0".equals(obj)) {
+                    return new DialogMessageMenuBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_message_menu is invalid. Received: " + obj);
+            case 208:
+                if ("layout/dialog_mic_operate_click_0".equals(obj)) {
+                    return new DialogMicOperateClickBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_mic_operate_click is invalid. Received: " + obj);
+            case 209:
+                if ("layout/dialog_mystery_0".equals(obj)) {
+                    return new DialogMysteryBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_mystery is invalid. Received: " + obj);
+            case RoomEvent.ROOM_OPEN_USE_INFO /* 210 */:
+                if ("layout/dialog_notification_permission_0".equals(obj)) {
+                    return new DialogNotificationPermissionBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_notification_permission is invalid. Received: " + obj);
+            case RoomEvent.ROOM_IN /* 211 */:
+                if ("layout/dialog_number_of_dice_0".equals(obj)) {
+                    return new DialogNumberOfDiceBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_number_of_dice is invalid. Received: " + obj);
+            case RoomEvent.ROOM_INVITE_USER_UP_MIC /* 212 */:
+                if ("layout/dialog_number_of_mic_0".equals(obj)) {
+                    return new DialogNumberOfMicBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_number_of_mic is invalid. Received: " + obj);
+            case RoomEvent.ROOM_USER_IN_ROOM /* 213 */:
+                if ("layout/dialog_open_envelope_0".equals(obj)) {
+                    return new DialogOpenEnvelopeBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_open_envelope is invalid. Received: " + obj);
+            case RoomEvent.ROOM_ROOM_CLOSE /* 214 */:
+                if ("layout/dialog_other_gift_0".equals(obj)) {
+                    return new DialogOtherGiftBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_other_gift is invalid. Received: " + obj);
+            case RoomEvent.ROOM_FLOAT_CLOSE /* 215 */:
+                if ("layout/dialog_pass_word_level_0".equals(obj)) {
+                    return new DialogPassWordLevelBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_pass_word_level is invalid. Received: " + obj);
+            case RoomEvent.ROOM_USER_LEAVE /* 216 */:
+                if ("layout/dialog_pic_or_svga_0".equals(obj)) {
+                    return new DialogPicOrSvgaBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_pic_or_svga is invalid. Received: " + obj);
+            case RoomEvent.ROOM_JOIN_AGORA_CHANNEL_SUCCESS /* 217 */:
+                if ("layout/dialog_pk1v1_rule_0".equals(obj)) {
+                    return new DialogPk1v1RuleBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_pk1v1_rule is invalid. Received: " + obj);
+            case RoomEvent.ROOM_LEAVE_AGORA_CHANNEL_SUCCESS /* 218 */:
+                if ("layout/dialog_pk_end_0".equals(obj)) {
+                    return new DialogPkEndBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_pk_end is invalid. Received: " + obj);
+            case RoomEvent.ROOM_CLEAN /* 219 */:
+                if ("layout/dialog_pk_rule_0".equals(obj)) {
+                    return new DialogPkRuleBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_pk_rule is invalid. Received: " + obj);
+            case 220:
+                if ("layout/dialog_pk_support_0".equals(obj)) {
+                    return new DialogPkSupportBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_pk_support is invalid. Received: " + obj);
+            case 221:
+                if ("layout/dialog_preview_0".equals(obj)) {
+                    return new DialogPreviewBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_preview is invalid. Received: " + obj);
+            case Constants.SDK_VERSION_CODE /* 222 */:
+                if ("layout/dialog_red_envelope_create_0".equals(obj)) {
+                    return new DialogRedEnvelopeCreateBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_red_envelope_create is invalid. Received: " + obj);
+            case 223:
+                if ("layout/dialog_relation_invitation_receive_0".equals(obj)) {
+                    return new DialogRelationInvitationReceiveBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_relation_invitation_receive is invalid. Received: " + obj);
+            case 224:
+                if ("layout/dialog_relation_invitation_send_0".equals(obj)) {
+                    return new DialogRelationInvitationSendBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_relation_invitation_send is invalid. Received: " + obj);
+            case 225:
+                if ("layout/dialog_room_animation_effect_0".equals(obj)) {
+                    return new DialogRoomAnimationEffectBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_room_animation_effect is invalid. Received: " + obj);
+            case 226:
+                if ("layout/dialog_room_broad_cast_0".equals(obj)) {
+                    return new DialogRoomBroadCastBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_room_broad_cast is invalid. Received: " + obj);
+            case 227:
+                if ("layout/dialog_room_cp_user_info_0".equals(obj)) {
+                    return new DialogRoomCpUserInfoBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_room_cp_user_info is invalid. Received: " + obj);
+            case 228:
+                if ("layout/dialog_room_game_0".equals(obj)) {
+                    return new DialogRoomGameBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_room_game is invalid. Received: " + obj);
+            case 229:
+                if ("layout/dialog_room_gift_0".equals(obj)) {
+                    return new DialogRoomGiftBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_room_gift is invalid. Received: " + obj);
+            case 230:
+                if ("layout/dialog_room_info2_0".equals(obj)) {
+                    return new DialogRoomInfo2BindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_room_info2 is invalid. Received: " + obj);
+            case 231:
+                if ("layout/dialog_room_pk_create_0".equals(obj)) {
+                    return new DialogRoomPkCreateBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_room_pk_create is invalid. Received: " + obj);
+            case 232:
+                if ("layout/dialog_room_pk_invite_0".equals(obj)) {
+                    return new DialogRoomPkInviteBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_room_pk_invite is invalid. Received: " + obj);
+            case 233:
+                if ("layout/dialog_room_power_diamond_0".equals(obj)) {
+                    return new DialogRoomPowerDiamondBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_room_power_diamond is invalid. Received: " + obj);
+            case 234:
+                if ("layout/dialog_room_power_join_0".equals(obj)) {
+                    return new DialogRoomPowerJoinBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_room_power_join is invalid. Received: " + obj);
+            case 235:
+                if ("layout/dialog_room_rocket_0".equals(obj)) {
+                    return new DialogRoomRocketBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_room_rocket is invalid. Received: " + obj);
+            case 236:
+                if ("layout/dialog_room_rocket_reaward_0".equals(obj)) {
+                    return new DialogRoomRocketReawardBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_room_rocket_reaward is invalid. Received: " + obj);
+            case 237:
+                if ("layout/dialog_room_tip_0".equals(obj)) {
+                    return new DialogRoomTipBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_room_tip is invalid. Received: " + obj);
+            case 238:
+                if ("layout/dialog_room_tool_0".equals(obj)) {
+                    return new DialogRoomToolBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_room_tool is invalid. Received: " + obj);
+            case 239:
+                if ("layout/dialog_room_user_info_0".equals(obj)) {
+                    return new DialogRoomUserInfoBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_room_user_info is invalid. Received: " + obj);
+            case 240:
+                if ("layout/dialog_safeties_reference_0".equals(obj)) {
+                    return new DialogSafetiesReferenceBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_safeties_reference is invalid. Received: " + obj);
+            case 241:
+                if ("layout/dialog_send_group_broadcast_0".equals(obj)) {
+                    return new DialogSendGroupBroadcastBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_send_group_broadcast is invalid. Received: " + obj);
+            case 242:
+                if ("layout/dialog_share_invite_friends_0".equals(obj)) {
+                    return new DialogShareInviteFriendsBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_share_invite_friends is invalid. Received: " + obj);
+            case 243:
+                if ("layout/dialog_sheep_end_0".equals(obj)) {
+                    return new DialogSheepEndBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_sheep_end is invalid. Received: " + obj);
+            case 244:
+                if ("layout/dialog_show_svga_or_pic_0".equals(obj)) {
+                    return new DialogShowSvgaOrPicBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_show_svga_or_pic is invalid. Received: " + obj);
+            case 245:
+                if ("layout/dialog_store_preview_0".equals(obj)) {
+                    return new DialogStorePreviewBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_store_preview is invalid. Received: " + obj);
+            case 246:
+                if ("layout/dialog_strange_end_0".equals(obj)) {
+                    return new DialogStrangeEndBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_strange_end is invalid. Received: " + obj);
+            case 247:
+                if ("layout/dialog_strange_like_0".equals(obj)) {
+                    return new DialogStrangeLikeBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_strange_like is invalid. Received: " + obj);
+            case 248:
+                if ("layout/dialog_styled_0".equals(obj)) {
+                    return new DialogStyledBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_styled is invalid. Received: " + obj);
+            case 249:
+                if ("layout/dialog_super_like_0".equals(obj)) {
+                    return new DialogSuperLikeBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_super_like is invalid. Received: " + obj);
+            case RoomEvent.ROOM_CURRENT_USER_ONLINE /* 250 */:
+                if ("layout/dialog_svip_unblock_0".equals(obj)) {
+                    return new DialogSvipUnblockBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_svip_unblock is invalid. Received: " + obj);
+            default:
+                return null;
+        }
+    }
+
+    private final ViewDataBinding j(androidx.databinding.f fVar, View view, int i, Object obj) {
+        switch (i) {
+            case 251:
+                if ("layout/dialog_take_mic_task_complete_diamond_0".equals(obj)) {
+                    return new DialogTakeMicTaskCompleteDiamondBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_take_mic_task_complete_diamond is invalid. Received: " + obj);
+            case 252:
+                if ("layout/dialog_uno_end_0".equals(obj)) {
+                    return new DialogUnoEndBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_uno_end is invalid. Received: " + obj);
+            case 253:
+                if ("layout/dialog_uno_introduce_0".equals(obj)) {
+                    return new DialogUnoIntroduceBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_uno_introduce is invalid. Received: " + obj);
+            case 254:
+                if ("layout/dialog_upload_0".equals(obj)) {
+                    return new DialogUploadBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_upload is invalid. Received: " + obj);
+            case 255:
+                if ("layout/dialog_user_menu_0".equals(obj)) {
+                    return new DialogUserMenuBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_user_menu is invalid. Received: " + obj);
+            case 256:
+                if ("layout/dialog_verification_0".equals(obj)) {
+                    return new DialogVerificationBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_verification is invalid. Received: " + obj);
+            case 257:
+                if ("layout/dialog_video_gift_0".equals(obj)) {
+                    return new DialogVideoGiftBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_video_gift is invalid. Received: " + obj);
+            case 258:
+                if ("layout/dialog_video_instructions_0".equals(obj)) {
+                    return new DialogVideoInstructionsBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_video_instructions is invalid. Received: " + obj);
+            case 259:
+                if ("layout/dialog_watch_helper_0".equals(obj)) {
+                    return new DialogWatchHelperBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_watch_helper is invalid. Received: " + obj);
+            case 260:
+                if ("layout/dialog_watch_rule_0".equals(obj)) {
+                    return new DialogWatchRuleBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_watch_rule is invalid. Received: " + obj);
+            case TipsMessageBean.MSG_TYPE_GROUP_KICK /* 261 */:
+                if ("layout/dialog_wealth_medal_0".equals(obj)) {
+                    return new DialogWealthMedalBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_wealth_medal is invalid. Received: " + obj);
+            case TipsMessageBean.MSG_TYPE_GROUP_MODIFY_NAME /* 262 */:
+                if ("layout/dialog_whats_tip_0".equals(obj)) {
+                    return new DialogWhatsTipBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_whats_tip is invalid. Received: " + obj);
+            case TipsMessageBean.MSG_TYPE_GROUP_MODIFY_NOTICE /* 263 */:
+                if ("layout/dialog_you_tu_helper_0".equals(obj)) {
+                    return new DialogYouTuHelperBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_you_tu_helper is invalid. Received: " + obj);
+            case 264:
+                if ("layout/dialog_you_tu_link_0".equals(obj)) {
+                    return new DialogYouTuLinkBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_you_tu_link is invalid. Received: " + obj);
+            case 265:
+                if ("layout/dialog_you_tu_list_0".equals(obj)) {
+                    return new DialogYouTuListBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_you_tu_list is invalid. Received: " + obj);
+            case 266:
+                if ("layout/dialog_you_tu_room_fragment_0".equals(obj)) {
+                    return new DialogYouTuRoomFragmentBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for dialog_you_tu_room_fragment is invalid. Received: " + obj);
+            case 267:
+                if ("layout/edit_country_0".equals(obj)) {
+                    return new EditCountryBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for edit_country is invalid. Received: " + obj);
+            case 268:
+                if ("layout/edit_country_title_0".equals(obj)) {
+                    return new EditCountryTitleBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for edit_country_title is invalid. Received: " + obj);
+            case 269:
+                if ("layout/envelope_banner_0".equals(obj)) {
+                    return new EnvelopeBannerBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for envelope_banner is invalid. Received: " + obj);
+            case 270:
+                if ("layout/floating_view_0".equals(obj)) {
+                    return new FloatingViewBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for floating_view is invalid. Received: " + obj);
+            case 271:
+                if ("layout/fragment_activities_0".equals(obj)) {
+                    return new FragmentActivitiesBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_activities is invalid. Received: " + obj);
+            case 272:
+                if ("layout/fragment_audio_room_0".equals(obj)) {
+                    return new FragmentAudioRoomBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_audio_room is invalid. Received: " + obj);
+            case TUIMessageBean.MSG_STATUS_READ /* 273 */:
+                if ("layout/fragment_base_list_0".equals(obj)) {
+                    return new FragmentBaseListBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_base_list is invalid. Received: " + obj);
+            case TUIMessageBean.MSG_STATUS_DELETE /* 274 */:
+                if ("layout/fragment_binder_0".equals(obj)) {
+                    return new FragmentBinderBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_binder is invalid. Received: " + obj);
+            case TUIMessageBean.MSG_STATUS_REVOKE /* 275 */:
+                if ("layout/fragment_carrom_bag_0".equals(obj)) {
+                    return new FragmentCarromBagBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_carrom_bag is invalid. Received: " + obj);
+            case 276:
+                if ("layout/fragment_carrom_child_0".equals(obj)) {
+                    return new FragmentCarromChildBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_carrom_child is invalid. Received: " + obj);
+            case 277:
+                if ("layout/fragment_carrom_store_0".equals(obj)) {
+                    return new FragmentCarromStoreBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_carrom_store is invalid. Received: " + obj);
+            case 278:
+                if ("layout/fragment_contact_0".equals(obj)) {
+                    return new FragmentContactBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_contact is invalid. Received: " + obj);
+            case 279:
+                if ("layout/fragment_cp_0".equals(obj)) {
+                    return new FragmentCpBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_cp is invalid. Received: " + obj);
+            case 280:
+                if ("layout/fragment_cp_child_0".equals(obj)) {
+                    return new FragmentCpChildBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_cp_child is invalid. Received: " + obj);
+            case 281:
+                if ("layout/fragment_diamond_task_0".equals(obj)) {
+                    return new FragmentDiamondTaskBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_diamond_task is invalid. Received: " + obj);
+            case 282:
+                if ("layout/fragment_discover_0".equals(obj)) {
+                    return new FragmentDiscoverBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_discover is invalid. Received: " + obj);
+            case 283:
+                if ("layout/fragment_discover_head_0".equals(obj)) {
+                    return new FragmentDiscoverHeadBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_discover_head is invalid. Received: " + obj);
+            case 284:
+                if ("layout/fragment_family_application_0".equals(obj)) {
+                    return new FragmentFamilyApplicationBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_family_application is invalid. Received: " + obj);
+            case 285:
+                if ("layout/fragment_family_exit_0".equals(obj)) {
+                    return new FragmentFamilyExitBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_family_exit is invalid. Received: " + obj);
+            case 286:
+                if ("layout/fragment_family_rank_0".equals(obj)) {
+                    return new FragmentFamilyRankBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_family_rank is invalid. Received: " + obj);
+            case 287:
+                if ("layout/fragment_family_setting_0".equals(obj)) {
+                    return new FragmentFamilySettingBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_family_setting is invalid. Received: " + obj);
+            case 288:
+                if ("layout/fragment_family_setting_edit_0".equals(obj)) {
+                    return new FragmentFamilySettingEditBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_family_setting_edit is invalid. Received: " + obj);
+            case 289:
+                if ("layout/fragment_family_star_0".equals(obj)) {
+                    return new FragmentFamilyStarBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_family_star is invalid. Received: " + obj);
+            case 290:
+                if ("layout/fragment_family_star_child_0".equals(obj)) {
+                    return new FragmentFamilyStarChildBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_family_star_child is invalid. Received: " + obj);
+            case 291:
+                if ("layout/fragment_first_charge_0".equals(obj)) {
+                    return new FragmentFirstChargeBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_first_charge is invalid. Received: " + obj);
+            case 292:
+                if ("layout/fragment_game_room_0".equals(obj)) {
+                    return new FragmentGameRoomBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_game_room is invalid. Received: " + obj);
+            case 293:
+                if ("layout/fragment_gift_record_0".equals(obj)) {
+                    return new FragmentGiftRecordBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_gift_record is invalid. Received: " + obj);
+            case 294:
+                if ("layout/fragment_gold_task_0".equals(obj)) {
+                    return new FragmentGoldTaskBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_gold_task is invalid. Received: " + obj);
+            case 295:
+                if ("layout/fragment_group_theme_0".equals(obj)) {
+                    return new FragmentGroupThemeBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_group_theme is invalid. Received: " + obj);
+            case 296:
+                if ("layout/fragment_home_0".equals(obj)) {
+                    return new FragmentHomeBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_home is invalid. Received: " + obj);
+            case 297:
+                if ("layout/fragment_home_chat_0".equals(obj)) {
+                    return new FragmentHomeChatBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_home_chat is invalid. Received: " + obj);
+            case 298:
+                if ("layout/fragment_home_community_0".equals(obj)) {
+                    return new FragmentHomeCommunityBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_home_community is invalid. Received: " + obj);
+            case 299:
+                if ("layout/fragment_home_game_0".equals(obj)) {
+                    return new FragmentHomeGameBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_home_game is invalid. Received: " + obj);
+            case 300:
+                if ("layout/fragment_home_game_head_0".equals(obj)) {
+                    return new FragmentHomeGameHeadBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_home_game_head is invalid. Received: " + obj);
+            default:
+                return null;
+        }
+    }
+
+    private final ViewDataBinding k(androidx.databinding.f fVar, View view, int i, Object obj) {
+        switch (i) {
+            case RoomEvent.ROOM_WHEN_CALL_OUT /* 301 */:
+                if ("layout/fragment_home_matching_0".equals(obj)) {
+                    return new FragmentHomeMatchingBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_home_matching is invalid. Received: " + obj);
+            case ErrorCode.DM_DEVICEID_INVALID /* 302 */:
+                if ("layout/fragment_home_matching_head_0".equals(obj)) {
+                    return new FragmentHomeMatchingHeadBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_home_matching_head is invalid. Received: " + obj);
+            case ErrorCode.DM_APPKEY_INVALID /* 303 */:
+                if ("layout/fragment_home_room_0".equals(obj)) {
+                    return new FragmentHomeRoomBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_home_room is invalid. Received: " + obj);
+            case ErrorCode.DM_PACKAGENAME_INVALID /* 304 */:
+                if ("layout/fragment_interactive_tracking_0".equals(obj)) {
+                    return new FragmentInteractiveTrackingBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_interactive_tracking is invalid. Received: " + obj);
+            case 305:
+                if ("layout/fragment_login_phone_0".equals(obj)) {
+                    return new FragmentLoginPhoneBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_login_phone is invalid. Received: " + obj);
+            case 306:
+                if ("layout/fragment_message_0".equals(obj)) {
+                    return new FragmentMessageBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_message is invalid. Received: " + obj);
+            case StatusLine.HTTP_TEMP_REDIRECT /* 307 */:
+                if ("layout/fragment_my_bag_0".equals(obj)) {
+                    return new FragmentMyBagBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_my_bag is invalid. Received: " + obj);
+            case StatusLine.HTTP_PERM_REDIRECT /* 308 */:
+                if ("layout/fragment_my_room_0".equals(obj)) {
+                    return new FragmentMyRoomBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_my_room is invalid. Received: " + obj);
+            case 309:
+                if ("layout/fragment_new_room_0".equals(obj)) {
+                    return new FragmentNewRoomBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_new_room is invalid. Received: " + obj);
+            case 310:
+                if ("layout/fragment_new_room_head_0".equals(obj)) {
+                    return new FragmentNewRoomHeadBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_new_room_head is invalid. Received: " + obj);
+            case 311:
+                if ("layout/fragment_popular_0".equals(obj)) {
+                    return new FragmentPopularBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_popular is invalid. Received: " + obj);
+            case 312:
+                if ("layout/fragment_promoter_center_0".equals(obj)) {
+                    return new FragmentPromoterCenterBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_promoter_center is invalid. Received: " + obj);
+            case 313:
+                if ("layout/fragment_promoter_center_head_0".equals(obj)) {
+                    return new FragmentPromoterCenterHeadBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_promoter_center_head is invalid. Received: " + obj);
+            case 314:
+                if ("layout/fragment_real_task_0".equals(obj)) {
+                    return new FragmentRealTaskBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_real_task is invalid. Received: " + obj);
+            case 315:
+                if ("layout/fragment_record_0".equals(obj)) {
+                    return new FragmentRecordBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_record is invalid. Received: " + obj);
+            case 316:
+                if ("layout/fragment_room_activity_0".equals(obj)) {
+                    return new FragmentRoomActivityBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_room_activity is invalid. Received: " + obj);
+            case 317:
+                if ("layout/fragment_room_and_personal_0".equals(obj)) {
+                    return new FragmentRoomAndPersonalBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_room_and_personal is invalid. Received: " + obj);
+            case 318:
+                if ("layout/fragment_room_bag_0".equals(obj)) {
+                    return new FragmentRoomBagBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_room_bag is invalid. Received: " + obj);
+            case 319:
+                if ("layout/fragment_room_gift_0".equals(obj)) {
+                    return new FragmentRoomGiftBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_room_gift is invalid. Received: " + obj);
+            case 320:
+                if ("layout/fragment_room_profile_0".equals(obj)) {
+                    return new FragmentRoomProfileBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_room_profile is invalid. Received: " + obj);
+            case 321:
+                if ("layout/fragment_room_record_0".equals(obj)) {
+                    return new FragmentRoomRecordBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_room_record is invalid. Received: " + obj);
+            case 322:
+                if ("layout/fragment_second_head_0".equals(obj)) {
+                    return new FragmentSecondHeadBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_second_head is invalid. Received: " + obj);
+            case 323:
+                if ("layout/fragment_second_tf_0".equals(obj)) {
+                    return new FragmentSecondTfBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_second_tf is invalid. Received: " + obj);
+            case 324:
+                if ("layout/fragment_select_country_0".equals(obj)) {
+                    return new FragmentSelectCountryBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_select_country is invalid. Received: " + obj);
+            case 325:
+                if ("layout/fragment_store_0".equals(obj)) {
+                    return new FragmentStoreBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_store is invalid. Received: " + obj);
+            case 326:
+                if ("layout/fragment_transfer_0".equals(obj)) {
+                    return new FragmentTransferBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_transfer is invalid. Received: " + obj);
+            case 327:
+                if ("layout/fragment_transfer_center_0".equals(obj)) {
+                    return new FragmentTransferCenterBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_transfer_center is invalid. Received: " + obj);
+            case 328:
+                if ("layout/fragment_transfer_center_detail_0".equals(obj)) {
+                    return new FragmentTransferCenterDetailBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_transfer_center_detail is invalid. Received: " + obj);
+            case 329:
+                if ("layout/fragment_transfer_center_head_0".equals(obj)) {
+                    return new FragmentTransferCenterHeadBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_transfer_center_head is invalid. Received: " + obj);
+            case 330:
+                if ("layout/fragment_transfer_record_0".equals(obj)) {
+                    return new FragmentTransferRecordBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_transfer_record is invalid. Received: " + obj);
+            case 331:
+                if ("layout/fragment_user_profile_0".equals(obj)) {
+                    return new FragmentUserProfileBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_user_profile is invalid. Received: " + obj);
+            case 332:
+                if ("layout/fragment_user_props_0".equals(obj)) {
+                    return new FragmentUserPropsBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_user_props is invalid. Received: " + obj);
+            case 333:
+                if ("layout/fragment_user_props_head_0".equals(obj)) {
+                    return new FragmentUserPropsHeadBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_user_props_head is invalid. Received: " + obj);
+            case 334:
+                if ("layout/fragment_verification_code_0".equals(obj)) {
+                    return new FragmentVerificationCodeBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_verification_code is invalid. Received: " + obj);
+            case 335:
+                if ("layout/fragment_video_recording_0".equals(obj)) {
+                    return new FragmentVideoRecordingBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_video_recording is invalid. Received: " + obj);
+            case 336:
+                if ("layout/fragment_vip_record_0".equals(obj)) {
+                    return new FragmentVipRecordBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_vip_record is invalid. Received: " + obj);
+            case 337:
+                if ("layout/fragment_wallet_beans_0".equals(obj)) {
+                    return new FragmentWalletBeansBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_wallet_beans is invalid. Received: " + obj);
+            case 338:
+                if ("layout/fragment_wallet_diamond_0".equals(obj)) {
+                    return new FragmentWalletDiamondBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_wallet_diamond is invalid. Received: " + obj);
+            case 339:
+                if ("layout/fragment_wallet_gold_0".equals(obj)) {
+                    return new FragmentWalletGoldBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_wallet_gold is invalid. Received: " + obj);
+            case 340:
+                if ("layout/fragment_you_tu_hot_list_0".equals(obj)) {
+                    return new FragmentYouTuHotListBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_you_tu_hot_list is invalid. Received: " + obj);
+            case 341:
+                if ("layout/fragment_you_tu_play_list_0".equals(obj)) {
+                    return new FragmentYouTuPlayListBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for fragment_you_tu_play_list is invalid. Received: " + obj);
+            case 342:
+                if ("layout/gift_banner_view1_0".equals(obj)) {
+                    return new GiftBannerView1BindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for gift_banner_view1 is invalid. Received: " + obj);
+            case 343:
+                if ("layout/gift_banner_view2_0".equals(obj)) {
+                    return new GiftBannerView2BindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for gift_banner_view2 is invalid. Received: " + obj);
+            case 344:
+                if ("layout/gift_banner_view3_0".equals(obj)) {
+                    return new GiftBannerView3BindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for gift_banner_view3 is invalid. Received: " + obj);
+            case 345:
+                if ("layout/gift_banner_view4_0".equals(obj)) {
+                    return new GiftBannerView4BindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for gift_banner_view4 is invalid. Received: " + obj);
+            case 346:
+                if ("layout/gift_banner_view5_0".equals(obj)) {
+                    return new GiftBannerView5BindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for gift_banner_view5 is invalid. Received: " + obj);
+            case 347:
+                if ("layout/gift_banner_view6_0".equals(obj)) {
+                    return new GiftBannerView6BindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for gift_banner_view6 is invalid. Received: " + obj);
+            case 348:
+                if ("layout/include_account_item_0".equals(obj)) {
+                    return new IncludeAccountItemBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for include_account_item is invalid. Received: " + obj);
+            case 349:
+                if ("layout/include_baloot_item_0".equals(obj)) {
+                    return new IncludeBalootItemBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for include_baloot_item is invalid. Received: " + obj);
+            case 350:
+                if ("layout/include_bill_item_0".equals(obj)) {
+                    return new IncludeBillItemBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for include_bill_item is invalid. Received: " + obj);
+            default:
+                return null;
+        }
+    }
+
+    private final ViewDataBinding l(androidx.databinding.f fVar, View view, int i, Object obj) {
+        switch (i) {
+            case 351:
+                if ("layout/include_carrom_item_0".equals(obj)) {
+                    return new IncludeCarromItemBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for include_carrom_item is invalid. Received: " + obj);
+            case 352:
+                if ("layout/include_carrom_title_0".equals(obj)) {
+                    return new IncludeCarromTitleBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for include_carrom_title is invalid. Received: " + obj);
+            case 353:
+                if ("layout/include_cp_item_0".equals(obj)) {
+                    return new IncludeCpItemBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for include_cp_item is invalid. Received: " + obj);
+            case 354:
+                if ("layout/include_family_item_0".equals(obj)) {
+                    return new IncludeFamilyItemBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for include_family_item is invalid. Received: " + obj);
+            case 355:
+                if ("layout/include_jackaro_item_0".equals(obj)) {
+                    return new IncludeJackaroItemBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for include_jackaro_item is invalid. Received: " + obj);
+            case 356:
+                if ("layout/include_ludo_item_0".equals(obj)) {
+                    return new IncludeLudoItemBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for include_ludo_item is invalid. Received: " + obj);
+            case 357:
+                if ("layout/include_main_activity_item_0".equals(obj)) {
+                    return new IncludeMainActivityItemBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for include_main_activity_item is invalid. Received: " + obj);
+            case 358:
+                if ("layout/include_match_big_item_0".equals(obj)) {
+                    return new IncludeMatchBigItemBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for include_match_big_item is invalid. Received: " + obj);
+            case 359:
+                if ("layout/include_match_min_item_0".equals(obj)) {
+                    return new IncludeMatchMinItemBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for include_match_min_item is invalid. Received: " + obj);
+            case 360:
+                if ("layout/include_number_dice_0".equals(obj)) {
+                    return new IncludeNumberDiceBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for include_number_dice is invalid. Received: " + obj);
+            case 361:
+                if ("layout/include_pk_go_0".equals(obj)) {
+                    return new IncludePkGoBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for include_pk_go is invalid. Received: " + obj);
+            case 362:
+                if ("layout/include_pk_level_0".equals(obj)) {
+                    return new IncludePkLevelBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for include_pk_level is invalid. Received: " + obj);
+            case 363:
+                if ("layout/include_report_item_0".equals(obj)) {
+                    return new IncludeReportItemBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for include_report_item is invalid. Received: " + obj);
+            case 364:
+                if ("layout/include_svip_rules_0".equals(obj)) {
+                    return new IncludeSvipRulesBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for include_svip_rules is invalid. Received: " + obj);
+            case 365:
+                if ("layout/include_title_0".equals(obj)) {
+                    return new IncludeTitleBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for include_title is invalid. Received: " + obj);
+            case 366:
+                if ("layout/include_title_write_0".equals(obj)) {
+                    return new IncludeTitleWriteBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for include_title_write is invalid. Received: " + obj);
+            case 367:
+                if ("layout/include_transfer_text_0".equals(obj)) {
+                    return new IncludeTransferTextBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for include_transfer_text is invalid. Received: " + obj);
+            case 368:
+                if ("layout/include_uno_item_0".equals(obj)) {
+                    return new IncludeUnoItemBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for include_uno_item is invalid. Received: " + obj);
+            case 369:
+                if ("layout/item_activities_detail_0".equals(obj)) {
+                    return new ItemActivitiesDetailBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_activities_detail is invalid. Received: " + obj);
+            case 370:
+                if ("layout/item_activity_0".equals(obj)) {
+                    return new ItemActivityBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_activity is invalid. Received: " + obj);
+            case 371:
+                if ("layout/item_add_image_0".equals(obj)) {
+                    return new ItemAddImageBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_add_image is invalid. Received: " + obj);
+            case 372:
+                if ("layout/item_agora_error_agora_id_0".equals(obj)) {
+                    return new ItemAgoraErrorAgoraIdBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_agora_error_agora_id is invalid. Received: " + obj);
+            case 373:
+                if ("layout/item_agora_error_user_info_0".equals(obj)) {
+                    return new ItemAgoraErrorUserInfoBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_agora_error_user_info is invalid. Received: " + obj);
+            case 374:
+                if ("layout/item_all_medal_0".equals(obj)) {
+                    return new ItemAllMedalBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_all_medal is invalid. Received: " + obj);
+            case 375:
+                if ("layout/item_aristocracy_0".equals(obj)) {
+                    return new ItemAristocracyBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_aristocracy is invalid. Received: " + obj);
+            case 376:
+                if ("layout/item_aristocracy_bag_0".equals(obj)) {
+                    return new ItemAristocracyBagBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_aristocracy_bag is invalid. Received: " + obj);
+            case 377:
+                if ("layout/item_bai_shun_0".equals(obj)) {
+                    return new ItemBaiShunBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_bai_shun is invalid. Received: " + obj);
+            case 378:
+                if ("layout/item_bai_shun_game_0".equals(obj)) {
+                    return new ItemBaiShunGameBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_bai_shun_game is invalid. Received: " + obj);
+            case 379:
+                if ("layout/item_big_micro_view_0".equals(obj)) {
+                    return new ItemBigMicroViewBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_big_micro_view is invalid. Received: " + obj);
+            case 380:
+                if ("layout/item_carrom_bag_child_0".equals(obj)) {
+                    return new ItemCarromBagChildBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_carrom_bag_child is invalid. Received: " + obj);
+            case 381:
+                if ("layout/item_carrom_child_0".equals(obj)) {
+                    return new ItemCarromChildBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_carrom_child is invalid. Received: " + obj);
+            case 382:
+                if ("layout/item_chat_banner_0".equals(obj)) {
+                    return new ItemChatBannerBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_chat_banner is invalid. Received: " + obj);
+            case 383:
+                if ("layout/item_chat_interactive_0".equals(obj)) {
+                    return new ItemChatInteractiveBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_chat_interactive is invalid. Received: " + obj);
+            case 384:
+                if ("layout/item_chat_room_foodie_circle_result_0".equals(obj)) {
+                    return new ItemChatRoomFoodieCircleResultBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_chat_room_foodie_circle_result is invalid. Received: " + obj);
+            case 385:
+                if ("layout/item_chat_room_foodie_ranking_0".equals(obj)) {
+                    return new ItemChatRoomFoodieRankingBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_chat_room_foodie_ranking is invalid. Received: " + obj);
+            case 386:
+                if ("layout/item_chat_room_foodie_record_0".equals(obj)) {
+                    return new ItemChatRoomFoodieRecordBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_chat_room_foodie_record is invalid. Received: " + obj);
+            case 387:
+                if ("layout/item_chat_room_lucky_fruit_record_0".equals(obj)) {
+                    return new ItemChatRoomLuckyFruitRecordBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_chat_room_lucky_fruit_record is invalid. Received: " + obj);
+            case 388:
+                if ("layout/item_contact_like_each_other_0".equals(obj)) {
+                    return new ItemContactLikeEachOtherBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_contact_like_each_other is invalid. Received: " + obj);
+            case 389:
+                if ("layout/item_contact_like_me_other_0".equals(obj)) {
+                    return new ItemContactLikeMeOtherBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_contact_like_me_other is invalid. Received: " + obj);
+            case 390:
+                if ("layout/item_country_0".equals(obj)) {
+                    return new ItemCountryBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_country is invalid. Received: " + obj);
+            case 391:
+                if ("layout/item_cp_0".equals(obj)) {
+                    return new ItemCpBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_cp is invalid. Received: " + obj);
+            case 392:
+                if ("layout/item_cp_medal_0".equals(obj)) {
+                    return new ItemCpMedalBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_cp_medal is invalid. Received: " + obj);
+            case 393:
+                if ("layout/item_cp_memorial_item_0".equals(obj)) {
+                    return new ItemCpMemorialItemBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_cp_memorial_item is invalid. Received: " + obj);
+            case 394:
+                if ("layout/item_cp_memorial_top_0".equals(obj)) {
+                    return new ItemCpMemorialTopBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_cp_memorial_top is invalid. Received: " + obj);
+            case 395:
+                if ("layout/item_cp_my_rank_0".equals(obj)) {
+                    return new ItemCpMyRankBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_cp_my_rank is invalid. Received: " + obj);
+            case 396:
+                if ("layout/item_cp_rank_0".equals(obj)) {
+                    return new ItemCpRankBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_cp_rank is invalid. Received: " + obj);
+            case 397:
+                if ("layout/item_cp_record_0".equals(obj)) {
+                    return new ItemCpRecordBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_cp_record is invalid. Received: " + obj);
+            case 398:
+                if ("layout/item_cp_space_0".equals(obj)) {
+                    return new ItemCpSpaceBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_cp_space is invalid. Received: " + obj);
+            case 399:
+                if ("layout/item_create_activity_image_0".equals(obj)) {
+                    return new ItemCreateActivityImageBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_create_activity_image is invalid. Received: " + obj);
+            case 400:
+                if ("layout/item_crush_win_0".equals(obj)) {
+                    return new ItemCrushWinBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_crush_win is invalid. Received: " + obj);
+            default:
+                return null;
+        }
+    }
+
+    private final ViewDataBinding m(androidx.databinding.f fVar, View view, int i, Object obj) {
+        switch (i) {
+            case 401:
+                if ("layout/item_currently_pk_0".equals(obj)) {
+                    return new ItemCurrentlyPkBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_currently_pk is invalid. Received: " + obj);
+            case 402:
+                if ("layout/item_daily_earn_diamond_task_0".equals(obj)) {
+                    return new ItemDailyEarnDiamondTaskBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_daily_earn_diamond_task is invalid. Received: " + obj);
+            case 403:
+                if ("layout/item_daily_record_0".equals(obj)) {
+                    return new ItemDailyRecordBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_daily_record is invalid. Received: " + obj);
+            case 404:
+                if ("layout/item_dialog_activity_0".equals(obj)) {
+                    return new ItemDialogActivityBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_dialog_activity is invalid. Received: " + obj);
+            case 405:
+                if ("layout/item_diamond_purchase_0".equals(obj)) {
+                    return new ItemDiamondPurchaseBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_diamond_purchase is invalid. Received: " + obj);
+            case 406:
+                if ("layout/item_discover_banner_0".equals(obj)) {
+                    return new ItemDiscoverBannerBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_discover_banner is invalid. Received: " + obj);
+            case 407:
+                if ("layout/item_discover_broad_cast_0".equals(obj)) {
+                    return new ItemDiscoverBroadCastBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_discover_broad_cast is invalid. Received: " + obj);
+            case 408:
+                if ("layout/item_discover_country_0".equals(obj)) {
+                    return new ItemDiscoverCountryBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_discover_country is invalid. Received: " + obj);
+            case 409:
+                if ("layout/item_domino_win_0".equals(obj)) {
+                    return new ItemDominoWinBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_domino_win is invalid. Received: " + obj);
+            case 410:
+                if ("layout/item_exchange_detail_0".equals(obj)) {
+                    return new ItemExchangeDetailBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_exchange_detail is invalid. Received: " + obj);
+            case 411:
+                if ("layout/item_family_application_0".equals(obj)) {
+                    return new ItemFamilyApplicationBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_family_application is invalid. Received: " + obj);
+            case 412:
+                if ("layout/item_family_center_member_0".equals(obj)) {
+                    return new ItemFamilyCenterMemberBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_family_center_member is invalid. Received: " + obj);
+            case 413:
+                if ("layout/item_family_exit_0".equals(obj)) {
+                    return new ItemFamilyExitBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_family_exit is invalid. Received: " + obj);
+            case 414:
+                if ("layout/item_family_rank_0".equals(obj)) {
+                    return new ItemFamilyRankBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_family_rank is invalid. Received: " + obj);
+            case 415:
+                if ("layout/item_family_room_0".equals(obj)) {
+                    return new ItemFamilyRoomBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_family_room is invalid. Received: " + obj);
+            case 416:
+                if ("layout/item_family_search_member_0".equals(obj)) {
+                    return new ItemFamilySearchMemberBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_family_search_member is invalid. Received: " + obj);
+            case 417:
+                if ("layout/item_family_share_0".equals(obj)) {
+                    return new ItemFamilyShareBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_family_share is invalid. Received: " + obj);
+            case 418:
+                if ("layout/item_family_star_0".equals(obj)) {
+                    return new ItemFamilyStarBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_family_star is invalid. Received: " + obj);
+            case 419:
+                if ("layout/item_first_charge_0".equals(obj)) {
+                    return new ItemFirstChargeBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_first_charge is invalid. Received: " + obj);
+            case 420:
+                if ("layout/item_fragment_activity_0".equals(obj)) {
+                    return new ItemFragmentActivityBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_fragment_activity is invalid. Received: " + obj);
+            case 421:
+                if ("layout/item_fragment_promoter_center_0".equals(obj)) {
+                    return new ItemFragmentPromoterCenterBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_fragment_promoter_center is invalid. Received: " + obj);
+            case FlowControl.STATUS_FLOW_CTRL_BRUSH /* 422 */:
+                if ("layout/item_fragment_second_tf_0".equals(obj)) {
+                    return new ItemFragmentSecondTfBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_fragment_second_tf is invalid. Received: " + obj);
+            case 423:
+                if ("layout/item_fragment_transfer_0".equals(obj)) {
+                    return new ItemFragmentTransferBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_fragment_transfer is invalid. Received: " + obj);
+            case 424:
+                if ("layout/item_fragment_transfer_center_0".equals(obj)) {
+                    return new ItemFragmentTransferCenterBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_fragment_transfer_center is invalid. Received: " + obj);
+            case 425:
+                if ("layout/item_game_broadcast_0".equals(obj)) {
+                    return new ItemGameBroadcastBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_game_broadcast is invalid. Received: " + obj);
+            case 426:
+                if ("layout/item_game_level_card_0".equals(obj)) {
+                    return new ItemGameLevelCardBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_game_level_card is invalid. Received: " + obj);
+            case 427:
+                if ("layout/item_game_level_privileges_0".equals(obj)) {
+                    return new ItemGameLevelPrivilegesBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_game_level_privileges is invalid. Received: " + obj);
+            case 428:
+                if ("layout/item_game_list_0".equals(obj)) {
+                    return new ItemGameListBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_game_list is invalid. Received: " + obj);
+            case 429:
+                if ("layout/item_game_micro_view_0".equals(obj)) {
+                    return new ItemGameMicroViewBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_game_micro_view is invalid. Received: " + obj);
+            case 430:
+                if ("layout/item_gem_0".equals(obj)) {
+                    return new ItemGemBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_gem is invalid. Received: " + obj);
+            case 431:
+                if ("layout/item_gem_details_0".equals(obj)) {
+                    return new ItemGemDetailsBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_gem_details is invalid. Received: " + obj);
+            case 432:
+                if ("layout/item_gem_exchange_0".equals(obj)) {
+                    return new ItemGemExchangeBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_gem_exchange is invalid. Received: " + obj);
+            case 433:
+                if ("layout/item_gem_game_0".equals(obj)) {
+                    return new ItemGemGameBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_gem_game is invalid. Received: " + obj);
+            case 434:
+                if ("layout/item_gift_record_0".equals(obj)) {
+                    return new ItemGiftRecordBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_gift_record is invalid. Received: " + obj);
+            case 435:
+                if ("layout/item_gift_wall_0".equals(obj)) {
+                    return new ItemGiftWallBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_gift_wall is invalid. Received: " + obj);
+            case 436:
+                if ("layout/item_global_broadcast_history_0".equals(obj)) {
+                    return new ItemGlobalBroadcastHistoryBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_global_broadcast_history is invalid. Received: " + obj);
+            case 437:
+                if ("layout/item_goddess_0".equals(obj)) {
+                    return new ItemGoddessBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_goddess is invalid. Received: " + obj);
+            case 438:
+                if ("layout/item_gold_game_0".equals(obj)) {
+                    return new ItemGoldGameBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_gold_game is invalid. Received: " + obj);
+            case 439:
+                if ("layout/item_gold_recharge_0".equals(obj)) {
+                    return new ItemGoldRechargeBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_gold_recharge is invalid. Received: " + obj);
+            case 440:
+                if ("layout/item_group_lucky_box_0".equals(obj)) {
+                    return new ItemGroupLuckyBoxBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_group_lucky_box is invalid. Received: " + obj);
+            case 441:
+                if ("layout/item_group_lucky_box_big_reward_0".equals(obj)) {
+                    return new ItemGroupLuckyBoxBigRewardBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_group_lucky_box_big_reward is invalid. Received: " + obj);
+            case 442:
+                if ("layout/item_group_lucky_box_ranking_0".equals(obj)) {
+                    return new ItemGroupLuckyBoxRankingBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_group_lucky_box_ranking is invalid. Received: " + obj);
+            case Constants.PORT /* 443 */:
+                if ("layout/item_group_lucky_box_winning_0".equals(obj)) {
+                    return new ItemGroupLuckyBoxWinningBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_group_lucky_box_winning is invalid. Received: " + obj);
+            case 444:
+                if ("layout/item_group_member_admin_0".equals(obj)) {
+                    return new ItemGroupMemberAdminBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_group_member_admin is invalid. Received: " + obj);
+            case 445:
+                if ("layout/item_group_member_block_0".equals(obj)) {
+                    return new ItemGroupMemberBlockBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_group_member_block is invalid. Received: " + obj);
+            case 446:
+                if ("layout/item_group_member_online_0".equals(obj)) {
+                    return new ItemGroupMemberOnlineBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_group_member_online is invalid. Received: " + obj);
+            case 447:
+                if ("layout/item_group_my_theme_0".equals(obj)) {
+                    return new ItemGroupMyThemeBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_group_my_theme is invalid. Received: " + obj);
+            case 448:
+                if ("layout/item_group_normal_rank_0".equals(obj)) {
+                    return new ItemGroupNormalRankBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_group_normal_rank is invalid. Received: " + obj);
+            case 449:
+                if ("layout/item_group_popular1_0".equals(obj)) {
+                    return new ItemGroupPopular1BindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_group_popular1 is invalid. Received: " + obj);
+            case 450:
+                if ("layout/item_group_popular2_0".equals(obj)) {
+                    return new ItemGroupPopular2BindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_group_popular2 is invalid. Received: " + obj);
+            default:
+                return null;
+        }
+    }
+
+    private final ViewDataBinding n(androidx.databinding.f fVar, View view, int i, Object obj) {
+        switch (i) {
+            case 451:
+                if ("layout/item_group_popular3_0".equals(obj)) {
+                    return new ItemGroupPopular3BindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_group_popular3 is invalid. Received: " + obj);
+            case 452:
+                if ("layout/item_group_popular4_0".equals(obj)) {
+                    return new ItemGroupPopular4BindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_group_popular4 is invalid. Received: " + obj);
+            case 453:
+                if ("layout/item_group_support_0".equals(obj)) {
+                    return new ItemGroupSupportBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_group_support is invalid. Received: " + obj);
+            case 454:
+                if ("layout/item_group_theme_0".equals(obj)) {
+                    return new ItemGroupThemeBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_group_theme is invalid. Received: " + obj);
+            case 455:
+                if ("layout/item_group_top_rank_0".equals(obj)) {
+                    return new ItemGroupTopRankBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_group_top_rank is invalid. Received: " + obj);
+            case 456:
+                if ("layout/item_hilo_game_mic_0".equals(obj)) {
+                    return new ItemHiloGameMicBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_hilo_game_mic is invalid. Received: " + obj);
+            case 457:
+                if ("layout/item_hilo_game_micro_view_0".equals(obj)) {
+                    return new ItemHiloGameMicroViewBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_hilo_game_micro_view is invalid. Received: " + obj);
+            case 458:
+                if ("layout/item_hilo_information_0".equals(obj)) {
+                    return new ItemHiloInformationBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_hilo_information is invalid. Received: " + obj);
+            case 459:
+                if ("layout/item_home_authentication_0".equals(obj)) {
+                    return new ItemHomeAuthenticationBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_home_authentication is invalid. Received: " + obj);
+            case 460:
+                if ("layout/item_home_game_0".equals(obj)) {
+                    return new ItemHomeGameBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_home_game is invalid. Received: " + obj);
+            case 461:
+                if ("layout/item_home_game_room_0".equals(obj)) {
+                    return new ItemHomeGameRoomBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_home_game_room is invalid. Received: " + obj);
+            case 462:
+                if ("layout/item_local_music_0".equals(obj)) {
+                    return new ItemLocalMusicBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_local_music is invalid. Received: " + obj);
+            case 463:
+                if ("layout/item_lucky_fruit_record_bet_0".equals(obj)) {
+                    return new ItemLuckyFruitRecordBetBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_lucky_fruit_record_bet is invalid. Received: " + obj);
+            case 464:
+                if ("layout/item_lucky_wheel_select_0".equals(obj)) {
+                    return new ItemLuckyWheelSelectBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_lucky_wheel_select is invalid. Received: " + obj);
+            case 465:
+                if ("layout/item_ludo_win_0".equals(obj)) {
+                    return new ItemLudoWinBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_ludo_win is invalid. Received: " + obj);
+            case 466:
+                if ("layout/item_main_activity_0".equals(obj)) {
+                    return new ItemMainActivityBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_main_activity is invalid. Received: " + obj);
+            case 467:
+                if ("layout/item_match_game_0".equals(obj)) {
+                    return new ItemMatchGameBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_match_game is invalid. Received: " + obj);
+            case 468:
+                if ("layout/item_medal_0".equals(obj)) {
+                    return new ItemMedalBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_medal is invalid. Received: " + obj);
+            case 469:
+                if ("layout/item_medal_level_0".equals(obj)) {
+                    return new ItemMedalLevelBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_medal_level is invalid. Received: " + obj);
+            case 470:
+                if ("layout/item_medal_manege_0".equals(obj)) {
+                    return new ItemMedalManegeBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_medal_manege is invalid. Received: " + obj);
+            case 471:
+                if ("layout/item_message_popular_0".equals(obj)) {
+                    return new ItemMessagePopularBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_message_popular is invalid. Received: " + obj);
+            case 472:
+                if ("layout/item_mic_face_0".equals(obj)) {
+                    return new ItemMicFaceBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_mic_face is invalid. Received: " + obj);
+            case 473:
+                if ("layout/item_micro_game_view_0".equals(obj)) {
+                    return new ItemMicroGameViewBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_micro_game_view is invalid. Received: " + obj);
+            case 474:
+                if ("layout/item_middle_micro_view_0".equals(obj)) {
+                    return new ItemMiddleMicroViewBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_middle_micro_view is invalid. Received: " + obj);
+            case 475:
+                if ("layout/item_mounts_0".equals(obj)) {
+                    return new ItemMountsBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_mounts is invalid. Received: " + obj);
+            case 476:
+                if ("layout/item_my_bag_0".equals(obj)) {
+                    return new ItemMyBagBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_my_bag is invalid. Received: " + obj);
+            case 477:
+                if ("layout/item_my_group_0".equals(obj)) {
+                    return new ItemMyGroupBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_my_group is invalid. Received: " + obj);
+            case 478:
+                if ("layout/item_my_music_0".equals(obj)) {
+                    return new ItemMyMusicBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_my_music is invalid. Received: " + obj);
+            case 479:
+                if ("layout/item_my_or_join_group_0".equals(obj)) {
+                    return new ItemMyOrJoinGroupBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_my_or_join_group is invalid. Received: " + obj);
+            case 480:
+                if ("layout/item_name_plate_0".equals(obj)) {
+                    return new ItemNamePlateBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_name_plate is invalid. Received: " + obj);
+            case 481:
+                if ("layout/item_name_plate1_0".equals(obj)) {
+                    return new ItemNamePlate1BindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_name_plate1 is invalid. Received: " + obj);
+            case 482:
+                if ("layout/item_new_room_0".equals(obj)) {
+                    return new ItemNewRoomBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_new_room is invalid. Received: " + obj);
+            case 483:
+                if ("layout/item_new_user_0".equals(obj)) {
+                    return new ItemNewUserBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_new_user is invalid. Received: " + obj);
+            case 484:
+                if ("layout/item_official_recharge_0".equals(obj)) {
+                    return new ItemOfficialRechargeBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_official_recharge is invalid. Received: " + obj);
+            case 485:
+                if ("layout/item_people_match_0".equals(obj)) {
+                    return new ItemPeopleMatchBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_people_match is invalid. Received: " + obj);
+            case 486:
+                if ("layout/item_pk1v1_0".equals(obj)) {
+                    return new ItemPk1v1BindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_pk1v1 is invalid. Received: " + obj);
+            case 487:
+                if ("layout/item_pk_micro_view_0".equals(obj)) {
+                    return new ItemPkMicroViewBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_pk_micro_view is invalid. Received: " + obj);
+            case 488:
+                if ("layout/item_popup_gift_member_0".equals(obj)) {
+                    return new ItemPopupGiftMemberBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_popup_gift_member is invalid. Received: " + obj);
+            case 489:
+                if ("layout/item_popup_gift_number_0".equals(obj)) {
+                    return new ItemPopupGiftNumberBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_popup_gift_number is invalid. Received: " + obj);
+            case 490:
+                if ("layout/item_power_manager_0".equals(obj)) {
+                    return new ItemPowerManagerBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_power_manager is invalid. Received: " + obj);
+            case 491:
+                if ("layout/item_power_rank_0".equals(obj)) {
+                    return new ItemPowerRankBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_power_rank is invalid. Received: " + obj);
+            case 492:
+                if ("layout/item_power_room_0".equals(obj)) {
+                    return new ItemPowerRoomBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_power_room is invalid. Received: " + obj);
+            case UnixStat.DEFAULT_DIR_PERM /* 493 */:
+                if ("layout/item_power_team_member_manager_0".equals(obj)) {
+                    return new ItemPowerTeamMemberManagerBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_power_team_member_manager is invalid. Received: " + obj);
+            case 494:
+                if ("layout/item_privileges_details_0".equals(obj)) {
+                    return new ItemPrivilegesDetailsBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_privileges_details is invalid. Received: " + obj);
+            case 495:
+                if ("layout/item_privileges_image_0".equals(obj)) {
+                    return new ItemPrivilegesImageBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_privileges_image is invalid. Received: " + obj);
+            case 496:
+                if ("layout/item_privileges_image_header_0".equals(obj)) {
+                    return new ItemPrivilegesImageHeaderBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_privileges_image_header is invalid. Received: " + obj);
+            case 497:
+                if ("layout/item_rank_0".equals(obj)) {
+                    return new ItemRankBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_rank is invalid. Received: " + obj);
+            case 498:
+                if ("layout/item_rank1_0".equals(obj)) {
+                    return new ItemRank1BindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_rank1 is invalid. Received: " + obj);
+            case 499:
+                if ("layout/item_red_envelope_detail_0".equals(obj)) {
+                    return new ItemRedEnvelopeDetailBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_red_envelope_detail is invalid. Received: " + obj);
+            case 500:
+                if ("layout/item_red_envelope_record_0".equals(obj)) {
+                    return new ItemRedEnvelopeRecordBindingImpl(fVar, view);
+                }
+                throw new IllegalArgumentException("The tag for item_red_envelope_record is invalid. Received: " + obj);
+            default:
+                return null;
+        }
+    }
+
+    private static void o() {
+        SparseIntArray sparseIntArray = a;
+        sparseIntArray.put(R.layout.activity_account, 1);
+        sparseIntArray.put(R.layout.activity_activities, 2);
+        sparseIntArray.put(R.layout.activity_activities_detail, 3);
+        sparseIntArray.put(R.layout.activity_aristocracy_bag, 4);
+        sparseIntArray.put(R.layout.activity_auth, 5);
+        sparseIntArray.put(R.layout.activity_bai_shun, 6);
+        sparseIntArray.put(R.layout.activity_bill, 7);
+        sparseIntArray.put(R.layout.activity_blocked_user_list, 8);
+        sparseIntArray.put(R.layout.activity_change_password, 9);
+        sparseIntArray.put(R.layout.activity_chat, 10);
+        sparseIntArray.put(R.layout.activity_chat_dialog, 11);
+        sparseIntArray.put(R.layout.activity_chat_strange, 12);
+        sparseIntArray.put(R.layout.activity_common_change_room_setting, 13);
+        sparseIntArray.put(R.layout.activity_common_list_with_refresh, 14);
+        sparseIntArray.put(R.layout.activity_controller_interactive_tracking_list, 15);
+        sparseIntArray.put(R.layout.activity_country, 16);
+        sparseIntArray.put(R.layout.activity_country_discover, 17);
+        sparseIntArray.put(R.layout.activity_cp_memorial, 18);
+        sparseIntArray.put(R.layout.activity_cp_memorial_edit, 19);
+        sparseIntArray.put(R.layout.activity_cp_rank, 20);
+        sparseIntArray.put(R.layout.activity_cp_space, 21);
+        sparseIntArray.put(R.layout.activity_create_activities, 22);
+        sparseIntArray.put(R.layout.activity_default_webview, 23);
+        sparseIntArray.put(R.layout.activity_edit_nickname, 24);
+        sparseIntArray.put(R.layout.activity_exchange_detail, 25);
+        sparseIntArray.put(R.layout.activity_exchange_diamonds, 26);
+        sparseIntArray.put(R.layout.activity_exchange_gem, 27);
+        sparseIntArray.put(R.layout.activity_family_application, 28);
+        sparseIntArray.put(R.layout.activity_family_center, 29);
+        sparseIntArray.put(R.layout.activity_family_center_header, 30);
+        sparseIntArray.put(R.layout.activity_family_exit, 31);
+        sparseIntArray.put(R.layout.activity_family_member, 32);
+        sparseIntArray.put(R.layout.activity_family_rank, 33);
+        sparseIntArray.put(R.layout.activity_family_recording, 34);
+        sparseIntArray.put(R.layout.activity_family_setting, 35);
+        sparseIntArray.put(R.layout.activity_family_share, 36);
+        sparseIntArray.put(R.layout.activity_family_star, 37);
+        sparseIntArray.put(R.layout.activity_foodie_result_dialog, 38);
+        sparseIntArray.put(R.layout.activity_game_level, 39);
+        sparseIntArray.put(R.layout.activity_game_level_rules, 40);
+        sparseIntArray.put(R.layout.activity_game_match, 41);
+        sparseIntArray.put(R.layout.activity_game_match_lobby, 42);
+        sparseIntArray.put(R.layout.activity_gift_effect, 43);
+        sparseIntArray.put(R.layout.activity_gift_record, 44);
+        sparseIntArray.put(R.layout.activity_goddess, 45);
+        sparseIntArray.put(R.layout.activity_group_all_rank, 46);
+        sparseIntArray.put(R.layout.activity_group_custom_theme, 47);
+        sparseIntArray.put(R.layout.activity_group_setting, 48);
+        sparseIntArray.put(R.layout.activity_group_support, 49);
+        sparseIntArray.put(R.layout.activity_group_themes, 50);
+        sparseIntArray.put(R.layout.activity_hilo_information, 51);
+        sparseIntArray.put(R.layout.activity_horizontal_webview, 52);
+        sparseIntArray.put(R.layout.activity_local_add_music, 53);
+        sparseIntArray.put(R.layout.activity_login, 54);
+        sparseIntArray.put(R.layout.activity_main, 55);
+        sparseIntArray.put(R.layout.activity_match_video, 56);
+        sparseIntArray.put(R.layout.activity_medal, 57);
+        sparseIntArray.put(R.layout.activity_medal_manage, 58);
+        sparseIntArray.put(R.layout.activity_my_bag, 59);
+        sparseIntArray.put(R.layout.activity_my_music, 60);
+        sparseIntArray.put(R.layout.activity_number_of_mic, 61);
+        sparseIntArray.put(R.layout.activity_people_certification, 62);
+        sparseIntArray.put(R.layout.activity_people_match, 63);
+        sparseIntArray.put(R.layout.activity_promoter, 64);
+        sparseIntArray.put(R.layout.activity_promoter_center, 65);
+        sparseIntArray.put(R.layout.activity_recharge_list, 66);
+        sparseIntArray.put(R.layout.activity_red_envelop_detail_head, 67);
+        sparseIntArray.put(R.layout.activity_red_envelope_detail, 68);
+        sparseIntArray.put(R.layout.activity_red_envelope_record, 69);
+        sparseIntArray.put(R.layout.activity_room_and_personal_task, 70);
+        sparseIntArray.put(R.layout.activity_room_blocked_list, 71);
+        sparseIntArray.put(R.layout.activity_room_member, 72);
+        sparseIntArray.put(R.layout.activity_room_member_online, 73);
+        sparseIntArray.put(R.layout.activity_room_record, 74);
+        sparseIntArray.put(R.layout.activity_room_user_block, 75);
+        sparseIntArray.put(R.layout.activity_room_user_info_level, 76);
+        sparseIntArray.put(R.layout.activity_search_user, 77);
+        sparseIntArray.put(R.layout.activity_second_tf, 78);
+        sparseIntArray.put(R.layout.activity_second_tf_diamond, 79);
+        sparseIntArray.put(R.layout.activity_second_transfer, 80);
+        sparseIntArray.put(R.layout.activity_select_country, 81);
+        sparseIntArray.put(R.layout.activity_share_contacts, 82);
+        sparseIntArray.put(R.layout.activity_store, 83);
+        sparseIntArray.put(R.layout.activity_strange_list, 84);
+        sparseIntArray.put(R.layout.activity_strange_match, 85);
+        sparseIntArray.put(R.layout.activity_super_admin_report, 86);
+        sparseIntArray.put(R.layout.activity_support_gift_rank, 87);
+        sparseIntArray.put(R.layout.activity_svip, 88);
+        sparseIntArray.put(R.layout.activity_svip_point, 89);
+        sparseIntArray.put(R.layout.activity_svip_privileges, 90);
+        sparseIntArray.put(R.layout.activity_svip_rules, 91);
+        sparseIntArray.put(R.layout.activity_task, 92);
+        sparseIntArray.put(R.layout.activity_text, 93);
+        sparseIntArray.put(R.layout.activity_transfer, 94);
+        sparseIntArray.put(R.layout.activity_transfer_center, 95);
+        sparseIntArray.put(R.layout.activity_transfer_record, 96);
+        sparseIntArray.put(R.layout.activity_transfer_search, 97);
+        sparseIntArray.put(R.layout.activity_user_detail, 98);
+        sparseIntArray.put(R.layout.activity_user_info_edit, 99);
+        sparseIntArray.put(R.layout.activity_video_call, 100);
+        sparseIntArray.put(R.layout.activity_video_recording, 101);
+        sparseIntArray.put(R.layout.activity_video_result, 102);
+        sparseIntArray.put(R.layout.activity_vip_record, 103);
+        sparseIntArray.put(R.layout.activity_wallet, 104);
+        sparseIntArray.put(R.layout.activity_you_tu_watch, 105);
+        sparseIntArray.put(R.layout.audio_hilo_game, 106);
+        sparseIntArray.put(R.layout.audio_hilo_game_bet_item, 107);
+        sparseIntArray.put(R.layout.bai_shun_head, 108);
+        sparseIntArray.put(R.layout.balloon_like_each_other, 109);
+        sparseIntArray.put(R.layout.base_layout_custom_tab_item, 110);
+        sparseIntArray.put(R.layout.base_layout_task_tab_item, 111);
+        sparseIntArray.put(R.layout.cell_bill, 112);
+        sparseIntArray.put(R.layout.cell_common, 113);
+        sparseIntArray.put(R.layout.cell_connection_log, 114);
+        sparseIntArray.put(R.layout.cell_conversation, 115);
+        sparseIntArray.put(R.layout.cell_country, 116);
+        sparseIntArray.put(R.layout.cell_fans, 117);
+        sparseIntArray.put(R.layout.cell_hilo_assistant, 118);
+        sparseIntArray.put(R.layout.cell_hilo_assistant_beans_holder_type1, 119);
+        sparseIntArray.put(R.layout.cell_hilo_assistant_enter_car, 120);
+        sparseIntArray.put(R.layout.cell_hilo_assistant_holder_type1, 121);
+        sparseIntArray.put(R.layout.cell_hilo_assistant_praise, 122);
+        sparseIntArray.put(R.layout.cell_hilo_information, 123);
+        sparseIntArray.put(R.layout.cell_history_user_information_summary, 124);
+        sparseIntArray.put(R.layout.cell_like_each_other, 125);
+        sparseIntArray.put(R.layout.cell_online, 126);
+        sparseIntArray.put(R.layout.cell_result_analysis, 127);
+        sparseIntArray.put(R.layout.common_frame_view_wrapper, 128);
+        sparseIntArray.put(R.layout.custom_footer, 129);
+        sparseIntArray.put(R.layout.dialog_aristocracy_card, 130);
+        sparseIntArray.put(R.layout.dialog_baloot_end, UserProxyUtility.msgTypeOfRoomActivity);
+        sparseIntArray.put(R.layout.dialog_baloot_introduce, UserProxyUtility.msgTypeOfVideo);
+        sparseIntArray.put(R.layout.dialog_block_or_report, 133);
+        sparseIntArray.put(R.layout.dialog_block_text, UserProxyUtility.msgTypeOfVideoCallReady);
+        sparseIntArray.put(R.layout.dialog_carrom_introduce, 135);
+        sparseIntArray.put(R.layout.dialog_change_country, 136);
+        sparseIntArray.put(R.layout.dialog_change_sex, 137);
+        sparseIntArray.put(R.layout.dialog_check_room_error_agora, 138);
+        sparseIntArray.put(R.layout.dialog_common_text, 139);
+        sparseIntArray.put(R.layout.dialog_cp_certificate, UserProxyUtility.msgTypeOfMatchSuccess);
+        sparseIntArray.put(R.layout.dialog_cp_confirm, UserProxyUtility.msgTypeOfMatchConfirm);
+        sparseIntArray.put(R.layout.dialog_cp_confirm_two, UserProxyUtility.msgTypeOfCallReady);
+        sparseIntArray.put(R.layout.dialog_cp_delete, 143);
+        sparseIntArray.put(R.layout.dialog_cp_invitation_receive, 144);
+        sparseIntArray.put(R.layout.dialog_cp_invitation_send, 145);
+        sparseIntArray.put(R.layout.dialog_cp_more, UserProxyUtility.msgGameBanner);
+        sparseIntArray.put(R.layout.dialog_cp_privilege, UserProxyUtility.sheepMatchSuccess);
+        sparseIntArray.put(R.layout.dialog_cp_rule, UserProxyUtility.sheepEnd);
+        sparseIntArray.put(R.layout.dialog_cp_tip, UserProxyUtility.cpInvite);
+        sparseIntArray.put(R.layout.dialog_create_1v1_pk, UserProxyUtility.cpUpgrades);
+        sparseIntArray.put(R.layout.dialog_create_backgammon, UserProxyUtility.svipUpgrades);
+        sparseIntArray.put(R.layout.dialog_create_baloot, 152);
+        sparseIntArray.put(R.layout.dialog_create_carrom, 153);
+        sparseIntArray.put(R.layout.dialog_create_crush, 154);
+        sparseIntArray.put(R.layout.dialog_create_domino, UserProxyUtility.roomMicChange);
+        sparseIntArray.put(R.layout.dialog_create_jackaro, 156);
+        sparseIntArray.put(R.layout.dialog_create_ludo, UserProxyUtility.lobbyMatchSuccess);
+        sparseIntArray.put(R.layout.dialog_create_nuo, UserProxyUtility.h5GameVoiceMute);
+        sparseIntArray.put(R.layout.dialog_crush_end, UserProxyUtility.h5GameVoiceUnMute);
+        sparseIntArray.put(R.layout.dialog_crush_introduce, UserProxyUtility.exitRoom);
+        sparseIntArray.put(R.layout.dialog_custom_gift_rule, UserProxyUtility.countryMg);
+        sparseIntArray.put(R.layout.dialog_daily_operating, UserProxyUtility.videoSettingChange);
+        sparseIntArray.put(R.layout.dialog_daily_record, UserProxyUtility.videoEffect);
+        sparseIntArray.put(R.layout.dialog_daily_vip_diamond, UserProxyUtility.h5GameVoice);
+        sparseIntArray.put(R.layout.dialog_default_more, UserProxyUtility.h5Finish);
+        sparseIntArray.put(R.layout.dialog_delete_account, UserProxyUtility.pkInvite);
+        sparseIntArray.put(R.layout.dialog_domino_end, UserProxyUtility.pkExit);
+        sparseIntArray.put(R.layout.dialog_domino_introduce, UserProxyUtility.pkBanner);
+        sparseIntArray.put(R.layout.dialog_family_member_more, UserProxyUtility.gamePKInviteCancel);
+        sparseIntArray.put(R.layout.dialog_family_setting, UserProxyUtility.specialRelationInvite);
+        sparseIntArray.put(R.layout.dialog_family_share, UserProxyUtility.strangeChatMatch);
+        sparseIntArray.put(R.layout.dialog_filtrate_user, UserProxyUtility.envelopeBanner);
+        sparseIntArray.put(R.layout.dialog_first_charge, 173);
+        sparseIntArray.put(R.layout.dialog_first_recharge, 174);
+        sparseIntArray.put(R.layout.dialog_gem_details, 175);
+        sparseIntArray.put(R.layout.dialog_gem_store, UserProxyUtility.foodieHot);
+        sparseIntArray.put(R.layout.dialog_gift_text, UserProxyUtility.foodieResult);
+        sparseIntArray.put(R.layout.dialog_gold_task, UserProxyUtility.rocketBanner);
+        sparseIntArray.put(R.layout.dialog_group_face, UserProxyUtility.notification);
+        sparseIntArray.put(R.layout.dialog_group_music, 180);
+        sparseIntArray.put(R.layout.dialog_h5_diamond_game, UserProxyUtility.hiloGameBetRank);
+        sparseIntArray.put(R.layout.dialog_h5_game, UserProxyUtility.hiloGameBetWinRank);
+        sparseIntArray.put(R.layout.dialog_h5_gem_game, UserProxyUtility.hiloGameModel);
+        sparseIntArray.put(R.layout.dialog_helper, UserProxyUtility.roomGift);
+        sparseIntArray.put(R.layout.dialog_im_clean_message, UserProxyUtility.roomPKMicChange);
+        sparseIntArray.put(R.layout.dialog_invite_take_mic_get_diamond, UserProxyUtility.surePKMicChange);
+        sparseIntArray.put(R.layout.dialog_item_medal, UserProxyUtility.hiloGameNewRound);
+        sparseIntArray.put(R.layout.dialog_jackaro_introduce, UserProxyUtility.roomMicNumChange);
+        sparseIntArray.put(R.layout.dialog_join_lock_room, UserProxyUtility.roomOnLine);
+        sparseIntArray.put(R.layout.dialog_joined_level, UserProxyUtility.roomLeave);
+        sparseIntArray.put(R.layout.dialog_leave_room, UserProxyUtility.roomExpression);
+        sparseIntArray.put(R.layout.dialog_lucky_box, UserProxyUtility.roomAllGift);
+        sparseIntArray.put(R.layout.dialog_lucky_box_big_prizes, UserProxyUtility.momentUpdateMessage);
+        sparseIntArray.put(R.layout.dialog_lucky_box_ranking, UserProxyUtility.roomReady);
+        sparseIntArray.put(R.layout.dialog_lucky_box_winning_record, 195);
+        sparseIntArray.put(R.layout.dialog_lucky_fruit_place_bet_confirm, 196);
+        sparseIntArray.put(R.layout.dialog_lucky_fruit_ranking, 197);
+        sparseIntArray.put(R.layout.dialog_lucky_fruit_record, 198);
+        sparseIntArray.put(R.layout.dialog_lucky_fruit_rule, 199);
+        sparseIntArray.put(R.layout.dialog_lucky_wheel, 200);
+        sparseIntArray.put(R.layout.dialog_ludo_end, 201);
+        sparseIntArray.put(R.layout.dialog_ludo_introduce, 202);
+        sparseIntArray.put(R.layout.dialog_main_activity, 203);
+        sparseIntArray.put(R.layout.dialog_match_permissions, 204);
+        sparseIntArray.put(R.layout.dialog_medal_level, 205);
+        sparseIntArray.put(R.layout.dialog_message_list, 206);
+        sparseIntArray.put(R.layout.dialog_message_menu, 207);
+        sparseIntArray.put(R.layout.dialog_mic_operate_click, 208);
+        sparseIntArray.put(R.layout.dialog_mystery, 209);
+        sparseIntArray.put(R.layout.dialog_notification_permission, RoomEvent.ROOM_OPEN_USE_INFO);
+        sparseIntArray.put(R.layout.dialog_number_of_dice, RoomEvent.ROOM_IN);
+        sparseIntArray.put(R.layout.dialog_number_of_mic, RoomEvent.ROOM_INVITE_USER_UP_MIC);
+        sparseIntArray.put(R.layout.dialog_open_envelope, RoomEvent.ROOM_USER_IN_ROOM);
+        sparseIntArray.put(R.layout.dialog_other_gift, RoomEvent.ROOM_ROOM_CLOSE);
+        sparseIntArray.put(R.layout.dialog_pass_word_level, RoomEvent.ROOM_FLOAT_CLOSE);
+        sparseIntArray.put(R.layout.dialog_pic_or_svga, RoomEvent.ROOM_USER_LEAVE);
+        sparseIntArray.put(R.layout.dialog_pk1v1_rule, RoomEvent.ROOM_JOIN_AGORA_CHANNEL_SUCCESS);
+        sparseIntArray.put(R.layout.dialog_pk_end, RoomEvent.ROOM_LEAVE_AGORA_CHANNEL_SUCCESS);
+        sparseIntArray.put(R.layout.dialog_pk_rule, RoomEvent.ROOM_CLEAN);
+        sparseIntArray.put(R.layout.dialog_pk_support, 220);
+        sparseIntArray.put(R.layout.dialog_preview, 221);
+        sparseIntArray.put(R.layout.dialog_red_envelope_create, Constants.SDK_VERSION_CODE);
+        sparseIntArray.put(R.layout.dialog_relation_invitation_receive, 223);
+        sparseIntArray.put(R.layout.dialog_relation_invitation_send, 224);
+        sparseIntArray.put(R.layout.dialog_room_animation_effect, 225);
+        sparseIntArray.put(R.layout.dialog_room_broad_cast, 226);
+        sparseIntArray.put(R.layout.dialog_room_cp_user_info, 227);
+        sparseIntArray.put(R.layout.dialog_room_game, 228);
+        sparseIntArray.put(R.layout.dialog_room_gift, 229);
+        sparseIntArray.put(R.layout.dialog_room_info2, 230);
+        sparseIntArray.put(R.layout.dialog_room_pk_create, 231);
+        sparseIntArray.put(R.layout.dialog_room_pk_invite, 232);
+        sparseIntArray.put(R.layout.dialog_room_power_diamond, 233);
+        sparseIntArray.put(R.layout.dialog_room_power_join, 234);
+        sparseIntArray.put(R.layout.dialog_room_rocket, 235);
+        sparseIntArray.put(R.layout.dialog_room_rocket_reaward, 236);
+        sparseIntArray.put(R.layout.dialog_room_tip, 237);
+        sparseIntArray.put(R.layout.dialog_room_tool, 238);
+        sparseIntArray.put(R.layout.dialog_room_user_info, 239);
+        sparseIntArray.put(R.layout.dialog_safeties_reference, 240);
+        sparseIntArray.put(R.layout.dialog_send_group_broadcast, 241);
+        sparseIntArray.put(R.layout.dialog_share_invite_friends, 242);
+        sparseIntArray.put(R.layout.dialog_sheep_end, 243);
+        sparseIntArray.put(R.layout.dialog_show_svga_or_pic, 244);
+        sparseIntArray.put(R.layout.dialog_store_preview, 245);
+        sparseIntArray.put(R.layout.dialog_strange_end, 246);
+        sparseIntArray.put(R.layout.dialog_strange_like, 247);
+        sparseIntArray.put(R.layout.dialog_styled, 248);
+        sparseIntArray.put(R.layout.dialog_super_like, 249);
+        sparseIntArray.put(R.layout.dialog_svip_unblock, RoomEvent.ROOM_CURRENT_USER_ONLINE);
+        sparseIntArray.put(R.layout.dialog_take_mic_task_complete_diamond, 251);
+        sparseIntArray.put(R.layout.dialog_uno_end, 252);
+        sparseIntArray.put(R.layout.dialog_uno_introduce, 253);
+        sparseIntArray.put(R.layout.dialog_upload, 254);
+        sparseIntArray.put(R.layout.dialog_user_menu, 255);
+        sparseIntArray.put(R.layout.dialog_verification, 256);
+        sparseIntArray.put(R.layout.dialog_video_gift, 257);
+        sparseIntArray.put(R.layout.dialog_video_instructions, 258);
+        sparseIntArray.put(R.layout.dialog_watch_helper, 259);
+        sparseIntArray.put(R.layout.dialog_watch_rule, 260);
+        sparseIntArray.put(R.layout.dialog_wealth_medal, TipsMessageBean.MSG_TYPE_GROUP_KICK);
+        sparseIntArray.put(R.layout.dialog_whats_tip, TipsMessageBean.MSG_TYPE_GROUP_MODIFY_NAME);
+        sparseIntArray.put(R.layout.dialog_you_tu_helper, TipsMessageBean.MSG_TYPE_GROUP_MODIFY_NOTICE);
+        sparseIntArray.put(R.layout.dialog_you_tu_link, 264);
+        sparseIntArray.put(R.layout.dialog_you_tu_list, 265);
+        sparseIntArray.put(R.layout.dialog_you_tu_room_fragment, 266);
+        sparseIntArray.put(R.layout.edit_country, 267);
+        sparseIntArray.put(R.layout.edit_country_title, 268);
+        sparseIntArray.put(R.layout.envelope_banner, 269);
+        sparseIntArray.put(R.layout.floating_view, 270);
+        sparseIntArray.put(R.layout.fragment_activities, 271);
+        sparseIntArray.put(R.layout.fragment_audio_room, 272);
+        sparseIntArray.put(R.layout.fragment_base_list, TUIMessageBean.MSG_STATUS_READ);
+        sparseIntArray.put(R.layout.fragment_binder, TUIMessageBean.MSG_STATUS_DELETE);
+        sparseIntArray.put(R.layout.fragment_carrom_bag, TUIMessageBean.MSG_STATUS_REVOKE);
+        sparseIntArray.put(R.layout.fragment_carrom_child, 276);
+        sparseIntArray.put(R.layout.fragment_carrom_store, 277);
+        sparseIntArray.put(R.layout.fragment_contact, 278);
+        sparseIntArray.put(R.layout.fragment_cp, 279);
+        sparseIntArray.put(R.layout.fragment_cp_child, 280);
+        sparseIntArray.put(R.layout.fragment_diamond_task, 281);
+        sparseIntArray.put(R.layout.fragment_discover, 282);
+        sparseIntArray.put(R.layout.fragment_discover_head, 283);
+        sparseIntArray.put(R.layout.fragment_family_application, 284);
+        sparseIntArray.put(R.layout.fragment_family_exit, 285);
+        sparseIntArray.put(R.layout.fragment_family_rank, 286);
+        sparseIntArray.put(R.layout.fragment_family_setting, 287);
+        sparseIntArray.put(R.layout.fragment_family_setting_edit, 288);
+        sparseIntArray.put(R.layout.fragment_family_star, 289);
+        sparseIntArray.put(R.layout.fragment_family_star_child, 290);
+        sparseIntArray.put(R.layout.fragment_first_charge, 291);
+        sparseIntArray.put(R.layout.fragment_game_room, 292);
+        sparseIntArray.put(R.layout.fragment_gift_record, 293);
+        sparseIntArray.put(R.layout.fragment_gold_task, 294);
+        sparseIntArray.put(R.layout.fragment_group_theme, 295);
+        sparseIntArray.put(R.layout.fragment_home, 296);
+        sparseIntArray.put(R.layout.fragment_home_chat, 297);
+        sparseIntArray.put(R.layout.fragment_home_community, 298);
+        sparseIntArray.put(R.layout.fragment_home_game, 299);
+        sparseIntArray.put(R.layout.fragment_home_game_head, 300);
+        sparseIntArray.put(R.layout.fragment_home_matching, RoomEvent.ROOM_WHEN_CALL_OUT);
+        sparseIntArray.put(R.layout.fragment_home_matching_head, ErrorCode.DM_DEVICEID_INVALID);
+        sparseIntArray.put(R.layout.fragment_home_room, ErrorCode.DM_APPKEY_INVALID);
+        sparseIntArray.put(R.layout.fragment_interactive_tracking, ErrorCode.DM_PACKAGENAME_INVALID);
+        sparseIntArray.put(R.layout.fragment_login_phone, 305);
+        sparseIntArray.put(R.layout.fragment_message, 306);
+        sparseIntArray.put(R.layout.fragment_my_bag, StatusLine.HTTP_TEMP_REDIRECT);
+        sparseIntArray.put(R.layout.fragment_my_room, StatusLine.HTTP_PERM_REDIRECT);
+        sparseIntArray.put(R.layout.fragment_new_room, 309);
+        sparseIntArray.put(R.layout.fragment_new_room_head, 310);
+        sparseIntArray.put(R.layout.fragment_popular, 311);
+        sparseIntArray.put(R.layout.fragment_promoter_center, 312);
+        sparseIntArray.put(R.layout.fragment_promoter_center_head, 313);
+        sparseIntArray.put(R.layout.fragment_real_task, 314);
+        sparseIntArray.put(R.layout.fragment_record, 315);
+        sparseIntArray.put(R.layout.fragment_room_activity, 316);
+        sparseIntArray.put(R.layout.fragment_room_and_personal, 317);
+        sparseIntArray.put(R.layout.fragment_room_bag, 318);
+        sparseIntArray.put(R.layout.fragment_room_gift, 319);
+        sparseIntArray.put(R.layout.fragment_room_profile, 320);
+        sparseIntArray.put(R.layout.fragment_room_record, 321);
+        sparseIntArray.put(R.layout.fragment_second_head, 322);
+        sparseIntArray.put(R.layout.fragment_second_tf, 323);
+        sparseIntArray.put(R.layout.fragment_select_country, 324);
+        sparseIntArray.put(R.layout.fragment_store, 325);
+        sparseIntArray.put(R.layout.fragment_transfer, 326);
+        sparseIntArray.put(R.layout.fragment_transfer_center, 327);
+        sparseIntArray.put(R.layout.fragment_transfer_center_detail, 328);
+        sparseIntArray.put(R.layout.fragment_transfer_center_head, 329);
+        sparseIntArray.put(R.layout.fragment_transfer_record, 330);
+        sparseIntArray.put(R.layout.fragment_user_profile, 331);
+        sparseIntArray.put(R.layout.fragment_user_props, 332);
+        sparseIntArray.put(R.layout.fragment_user_props_head, 333);
+        sparseIntArray.put(R.layout.fragment_verification_code, 334);
+        sparseIntArray.put(R.layout.fragment_video_recording, 335);
+        sparseIntArray.put(R.layout.fragment_vip_record, 336);
+        sparseIntArray.put(R.layout.fragment_wallet_beans, 337);
+        sparseIntArray.put(R.layout.fragment_wallet_diamond, 338);
+        sparseIntArray.put(R.layout.fragment_wallet_gold, 339);
+        sparseIntArray.put(R.layout.fragment_you_tu_hot_list, 340);
+        sparseIntArray.put(R.layout.fragment_you_tu_play_list, 341);
+        sparseIntArray.put(R.layout.gift_banner_view1, 342);
+        sparseIntArray.put(R.layout.gift_banner_view2, 343);
+        sparseIntArray.put(R.layout.gift_banner_view3, 344);
+        sparseIntArray.put(R.layout.gift_banner_view4, 345);
+        sparseIntArray.put(R.layout.gift_banner_view5, 346);
+        sparseIntArray.put(R.layout.gift_banner_view6, 347);
+        sparseIntArray.put(R.layout.include_account_item, 348);
+        sparseIntArray.put(R.layout.include_baloot_item, 349);
+        sparseIntArray.put(R.layout.include_bill_item, 350);
+        sparseIntArray.put(R.layout.include_carrom_item, 351);
+        sparseIntArray.put(R.layout.include_carrom_title, 352);
+        sparseIntArray.put(R.layout.include_cp_item, 353);
+        sparseIntArray.put(R.layout.include_family_item, 354);
+        sparseIntArray.put(R.layout.include_jackaro_item, 355);
+        sparseIntArray.put(R.layout.include_ludo_item, 356);
+        sparseIntArray.put(R.layout.include_main_activity_item, 357);
+        sparseIntArray.put(R.layout.include_match_big_item, 358);
+        sparseIntArray.put(R.layout.include_match_min_item, 359);
+        sparseIntArray.put(R.layout.include_number_dice, 360);
+        sparseIntArray.put(R.layout.include_pk_go, 361);
+        sparseIntArray.put(R.layout.include_pk_level, 362);
+        sparseIntArray.put(R.layout.include_report_item, 363);
+        sparseIntArray.put(R.layout.include_svip_rules, 364);
+        sparseIntArray.put(R.layout.include_title, 365);
+        sparseIntArray.put(R.layout.include_title_write, 366);
+        sparseIntArray.put(R.layout.include_transfer_text, 367);
+        sparseIntArray.put(R.layout.include_uno_item, 368);
+        sparseIntArray.put(R.layout.item_activities_detail, 369);
+        sparseIntArray.put(R.layout.item_activity, 370);
+        sparseIntArray.put(R.layout.item_add_image, 371);
+        sparseIntArray.put(R.layout.item_agora_error_agora_id, 372);
+        sparseIntArray.put(R.layout.item_agora_error_user_info, 373);
+        sparseIntArray.put(R.layout.item_all_medal, 374);
+        sparseIntArray.put(R.layout.item_aristocracy, 375);
+        sparseIntArray.put(R.layout.item_aristocracy_bag, 376);
+        sparseIntArray.put(R.layout.item_bai_shun, 377);
+        sparseIntArray.put(R.layout.item_bai_shun_game, 378);
+        sparseIntArray.put(R.layout.item_big_micro_view, 379);
+        sparseIntArray.put(R.layout.item_carrom_bag_child, 380);
+        sparseIntArray.put(R.layout.item_carrom_child, 381);
+        sparseIntArray.put(R.layout.item_chat_banner, 382);
+        sparseIntArray.put(R.layout.item_chat_interactive, 383);
+        sparseIntArray.put(R.layout.item_chat_room_foodie_circle_result, 384);
+        sparseIntArray.put(R.layout.item_chat_room_foodie_ranking, 385);
+        sparseIntArray.put(R.layout.item_chat_room_foodie_record, 386);
+        sparseIntArray.put(R.layout.item_chat_room_lucky_fruit_record, 387);
+        sparseIntArray.put(R.layout.item_contact_like_each_other, 388);
+        sparseIntArray.put(R.layout.item_contact_like_me_other, 389);
+        sparseIntArray.put(R.layout.item_country, 390);
+        sparseIntArray.put(R.layout.item_cp, 391);
+        sparseIntArray.put(R.layout.item_cp_medal, 392);
+        sparseIntArray.put(R.layout.item_cp_memorial_item, 393);
+        sparseIntArray.put(R.layout.item_cp_memorial_top, 394);
+        sparseIntArray.put(R.layout.item_cp_my_rank, 395);
+        sparseIntArray.put(R.layout.item_cp_rank, 396);
+        sparseIntArray.put(R.layout.item_cp_record, 397);
+        sparseIntArray.put(R.layout.item_cp_space, 398);
+        sparseIntArray.put(R.layout.item_create_activity_image, 399);
+        sparseIntArray.put(R.layout.item_crush_win, 400);
+        sparseIntArray.put(R.layout.item_currently_pk, 401);
+        sparseIntArray.put(R.layout.item_daily_earn_diamond_task, 402);
+        sparseIntArray.put(R.layout.item_daily_record, 403);
+        sparseIntArray.put(R.layout.item_dialog_activity, 404);
+        sparseIntArray.put(R.layout.item_diamond_purchase, 405);
+        sparseIntArray.put(R.layout.item_discover_banner, 406);
+        sparseIntArray.put(R.layout.item_discover_broad_cast, 407);
+        sparseIntArray.put(R.layout.item_discover_country, 408);
+        sparseIntArray.put(R.layout.item_domino_win, 409);
+        sparseIntArray.put(R.layout.item_exchange_detail, 410);
+        sparseIntArray.put(R.layout.item_family_application, 411);
+        sparseIntArray.put(R.layout.item_family_center_member, 412);
+        sparseIntArray.put(R.layout.item_family_exit, 413);
+        sparseIntArray.put(R.layout.item_family_rank, 414);
+        sparseIntArray.put(R.layout.item_family_room, 415);
+        sparseIntArray.put(R.layout.item_family_search_member, 416);
+        sparseIntArray.put(R.layout.item_family_share, 417);
+        sparseIntArray.put(R.layout.item_family_star, 418);
+        sparseIntArray.put(R.layout.item_first_charge, 419);
+        sparseIntArray.put(R.layout.item_fragment_activity, 420);
+        sparseIntArray.put(R.layout.item_fragment_promoter_center, 421);
+        sparseIntArray.put(R.layout.item_fragment_second_tf, FlowControl.STATUS_FLOW_CTRL_BRUSH);
+        sparseIntArray.put(R.layout.item_fragment_transfer, 423);
+        sparseIntArray.put(R.layout.item_fragment_transfer_center, 424);
+        sparseIntArray.put(R.layout.item_game_broadcast, 425);
+        sparseIntArray.put(R.layout.item_game_level_card, 426);
+        sparseIntArray.put(R.layout.item_game_level_privileges, 427);
+        sparseIntArray.put(R.layout.item_game_list, 428);
+        sparseIntArray.put(R.layout.item_game_micro_view, 429);
+        sparseIntArray.put(R.layout.item_gem, 430);
+        sparseIntArray.put(R.layout.item_gem_details, 431);
+        sparseIntArray.put(R.layout.item_gem_exchange, 432);
+        sparseIntArray.put(R.layout.item_gem_game, 433);
+        sparseIntArray.put(R.layout.item_gift_record, 434);
+        sparseIntArray.put(R.layout.item_gift_wall, 435);
+        sparseIntArray.put(R.layout.item_global_broadcast_history, 436);
+        sparseIntArray.put(R.layout.item_goddess, 437);
+        sparseIntArray.put(R.layout.item_gold_game, 438);
+        sparseIntArray.put(R.layout.item_gold_recharge, 439);
+        sparseIntArray.put(R.layout.item_group_lucky_box, 440);
+        sparseIntArray.put(R.layout.item_group_lucky_box_big_reward, 441);
+        sparseIntArray.put(R.layout.item_group_lucky_box_ranking, 442);
+        sparseIntArray.put(R.layout.item_group_lucky_box_winning, Constants.PORT);
+        sparseIntArray.put(R.layout.item_group_member_admin, 444);
+        sparseIntArray.put(R.layout.item_group_member_block, 445);
+        sparseIntArray.put(R.layout.item_group_member_online, 446);
+        sparseIntArray.put(R.layout.item_group_my_theme, 447);
+        sparseIntArray.put(R.layout.item_group_normal_rank, 448);
+        sparseIntArray.put(R.layout.item_group_popular1, 449);
+        sparseIntArray.put(R.layout.item_group_popular2, 450);
+        sparseIntArray.put(R.layout.item_group_popular3, 451);
+        sparseIntArray.put(R.layout.item_group_popular4, 452);
+        sparseIntArray.put(R.layout.item_group_support, 453);
+        sparseIntArray.put(R.layout.item_group_theme, 454);
+        sparseIntArray.put(R.layout.item_group_top_rank, 455);
+        sparseIntArray.put(R.layout.item_hilo_game_mic, 456);
+        sparseIntArray.put(R.layout.item_hilo_game_micro_view, 457);
+        sparseIntArray.put(R.layout.item_hilo_information, 458);
+        sparseIntArray.put(R.layout.item_home_authentication, 459);
+        sparseIntArray.put(R.layout.item_home_game, 460);
+        sparseIntArray.put(R.layout.item_home_game_room, 461);
+        sparseIntArray.put(R.layout.item_local_music, 462);
+        sparseIntArray.put(R.layout.item_lucky_fruit_record_bet, 463);
+        sparseIntArray.put(R.layout.item_lucky_wheel_select, 464);
+        sparseIntArray.put(R.layout.item_ludo_win, 465);
+        sparseIntArray.put(R.layout.item_main_activity, 466);
+        sparseIntArray.put(R.layout.item_match_game, 467);
+        sparseIntArray.put(R.layout.item_medal, 468);
+        sparseIntArray.put(R.layout.item_medal_level, 469);
+        sparseIntArray.put(R.layout.item_medal_manege, 470);
+        sparseIntArray.put(R.layout.item_message_popular, 471);
+        sparseIntArray.put(R.layout.item_mic_face, 472);
+        sparseIntArray.put(R.layout.item_micro_game_view, 473);
+        sparseIntArray.put(R.layout.item_middle_micro_view, 474);
+        sparseIntArray.put(R.layout.item_mounts, 475);
+        sparseIntArray.put(R.layout.item_my_bag, 476);
+        sparseIntArray.put(R.layout.item_my_group, 477);
+        sparseIntArray.put(R.layout.item_my_music, 478);
+        sparseIntArray.put(R.layout.item_my_or_join_group, 479);
+        sparseIntArray.put(R.layout.item_name_plate, 480);
+        sparseIntArray.put(R.layout.item_name_plate1, 481);
+        sparseIntArray.put(R.layout.item_new_room, 482);
+        sparseIntArray.put(R.layout.item_new_user, 483);
+        sparseIntArray.put(R.layout.item_official_recharge, 484);
+        sparseIntArray.put(R.layout.item_people_match, 485);
+        sparseIntArray.put(R.layout.item_pk1v1, 486);
+        sparseIntArray.put(R.layout.item_pk_micro_view, 487);
+        sparseIntArray.put(R.layout.item_popup_gift_member, 488);
+        sparseIntArray.put(R.layout.item_popup_gift_number, 489);
+        sparseIntArray.put(R.layout.item_power_manager, 490);
+        sparseIntArray.put(R.layout.item_power_rank, 491);
+        sparseIntArray.put(R.layout.item_power_room, 492);
+        sparseIntArray.put(R.layout.item_power_team_member_manager, UnixStat.DEFAULT_DIR_PERM);
+        sparseIntArray.put(R.layout.item_privileges_details, 494);
+        sparseIntArray.put(R.layout.item_privileges_image, 495);
+        sparseIntArray.put(R.layout.item_privileges_image_header, 496);
+        sparseIntArray.put(R.layout.item_rank, 497);
+        sparseIntArray.put(R.layout.item_rank1, 498);
+        sparseIntArray.put(R.layout.item_red_envelope_detail, 499);
+        sparseIntArray.put(R.layout.item_red_envelope_record, 500);
+    }
+
+    private static void p() {
+        SparseIntArray sparseIntArray = a;
+        sparseIntArray.put(R.layout.item_room_active_normal_rank, RoomEvent.ROOM_BLOCKED);
+        sparseIntArray.put(R.layout.item_room_active_top_rank, RoomEvent.ROOM_BACK_GROUP_UPDATE);
+        sparseIntArray.put(R.layout.item_room_bag, RoomEvent.UPDATE_CUSTOM_THEME);
+        sparseIntArray.put(R.layout.item_room_gift, 504);
+        sparseIntArray.put(R.layout.item_room_gift_customize, 505);
+        sparseIntArray.put(R.layout.item_room_online_member, 506);
+        sparseIntArray.put(R.layout.item_room_personal_task_list_adapter, 507);
+        sparseIntArray.put(R.layout.item_room_record, 508);
+        sparseIntArray.put(R.layout.item_search_group_view, 509);
+        sparseIntArray.put(R.layout.item_search_user, 510);
+        sparseIntArray.put(R.layout.item_search_user_view, UnixStat.DEFAULT_LINK_PERM);
+        sparseIntArray.put(R.layout.item_select_country, 512);
+        sparseIntArray.put(R.layout.item_select_country_title, 513);
+        sparseIntArray.put(R.layout.item_select_image, 514);
+        sparseIntArray.put(R.layout.item_sheep_win, 515);
+        sparseIntArray.put(R.layout.item_small_micro_view, 516);
+        sparseIntArray.put(R.layout.item_store, 517);
+        sparseIntArray.put(R.layout.item_strange_list, 518);
+        sparseIntArray.put(R.layout.item_support_pk, 519);
+        sparseIntArray.put(R.layout.item_svip_card, 520);
+        sparseIntArray.put(R.layout.item_svip_point, 521);
+        sparseIntArray.put(R.layout.item_svip_privileges, 522);
+        sparseIntArray.put(R.layout.item_text, 523);
+        sparseIntArray.put(R.layout.item_text_group, 524);
+        sparseIntArray.put(R.layout.item_transfer_banner, 525);
+        sparseIntArray.put(R.layout.item_transfer_record, 526);
+        sparseIntArray.put(R.layout.item_transfer_search, 527);
+        sparseIntArray.put(R.layout.item_uno_win, 528);
+        sparseIntArray.put(R.layout.item_user_block, 529);
+        sparseIntArray.put(R.layout.item_user_detail_small_picture, 530);
+        sparseIntArray.put(R.layout.item_user_detail_small_picture1, 531);
+        sparseIntArray.put(R.layout.item_user_gift, 532);
+        sparseIntArray.put(R.layout.item_user_relation, 533);
+        sparseIntArray.put(R.layout.item_video, 534);
+        sparseIntArray.put(R.layout.item_video_gift, 535);
+        sparseIntArray.put(R.layout.item_video_im_gift, 536);
+        sparseIntArray.put(R.layout.item_video_im_text, 537);
+        sparseIntArray.put(R.layout.item_vip_card, 538);
+        sparseIntArray.put(R.layout.item_wallet_banner, 539);
+        sparseIntArray.put(R.layout.item_watch_video, 540);
+        sparseIntArray.put(R.layout.item_you_tu_hot_list, 541);
+        sparseIntArray.put(R.layout.item_you_tu_list, 542);
+        sparseIntArray.put(R.layout.layout_custom_community_tab_item, 543);
+        sparseIntArray.put(R.layout.layout_discover_broad_cast, 544);
+        sparseIntArray.put(R.layout.layout_global_broad11, 545);
+        sparseIntArray.put(R.layout.layout_global_room_broad_cast_child, 546);
+        sparseIntArray.put(R.layout.layout_power_rank_week, 547);
+        sparseIntArray.put(R.layout.layout_room_online_member, 548);
+        sparseIntArray.put(R.layout.layout_room_personal_task_tab_item, 549);
+        sparseIntArray.put(R.layout.layout_test_shape_image_view, 550);
+        sparseIntArray.put(R.layout.live_room_activity, 551);
+        sparseIntArray.put(R.layout.lucky_wheel_select_dialog, 552);
+        sparseIntArray.put(R.layout.pk1v1_win, 553);
+        sparseIntArray.put(R.layout.pop_window_gift_number_recycler, 554);
+        sparseIntArray.put(R.layout.popup_keep_call_tips, 555);
+        sparseIntArray.put(R.layout.power_detail_view_controller, 556);
+        sparseIntArray.put(R.layout.room_button_pk, 557);
+        sparseIntArray.put(R.layout.room_floating_view, 558);
+        sparseIntArray.put(R.layout.room_list_empty, 559);
+        sparseIntArray.put(R.layout.room_micro_game, 560);
+        sparseIntArray.put(R.layout.room_micro_pk, 561);
+        sparseIntArray.put(R.layout.room_pk1v1, 562);
+        sparseIntArray.put(R.layout.room_record_tab, 563);
+        sparseIntArray.put(R.layout.room_view_contact_wrapper, 564);
+        sparseIntArray.put(R.layout.share_child_like_me_contacts, 565);
+        sparseIntArray.put(R.layout.share_common_contacts, 566);
+        sparseIntArray.put(R.layout.splash_advertising_view, 567);
+        sparseIntArray.put(R.layout.svip_foot, 568);
+        sparseIntArray.put(R.layout.tab_first_charge_item, 569);
+        sparseIntArray.put(R.layout.tab_layout_text, 570);
+        sparseIntArray.put(R.layout.task_tab_activity_item, 571);
+        sparseIntArray.put(R.layout.transfer_tab_activity_item, 572);
+        sparseIntArray.put(R.layout.video_im, 573);
+        sparseIntArray.put(R.layout.video_tip, 574);
+        sparseIntArray.put(R.layout.view_active_rank_parent, 575);
+        sparseIntArray.put(R.layout.view_advertising, 576);
+        sparseIntArray.put(R.layout.view_aristocracy_permission_list, 577);
+        sparseIntArray.put(R.layout.view_charm_rank_parent, 578);
+        sparseIntArray.put(R.layout.view_chat_room_game_lucky_fruit, 579);
+        sparseIntArray.put(R.layout.view_chat_room_game_lucky_fruit_result, 580);
+        sparseIntArray.put(R.layout.view_child_charm_rank_detail, 581);
+        sparseIntArray.put(R.layout.view_child_cp_rank_detail, 582);
+        sparseIntArray.put(R.layout.view_controller_alert_agora_configure, 583);
+        sparseIntArray.put(R.layout.view_controller_all_rank, 584);
+        sparseIntArray.put(R.layout.view_controller_authentication, 585);
+        sparseIntArray.put(R.layout.view_controller_buy_aristocracy_identity, 586);
+        sparseIntArray.put(R.layout.view_controller_change_sex, 587);
+        sparseIntArray.put(R.layout.view_controller_common_list, 588);
+        sparseIntArray.put(R.layout.view_controller_confirm_tip, 589);
+        sparseIntArray.put(R.layout.view_controller_connection_logs, 590);
+        sparseIntArray.put(R.layout.view_controller_cp_rank, 591);
+        sparseIntArray.put(R.layout.view_controller_cp_rank_menu, 592);
+        sparseIntArray.put(R.layout.view_controller_delete_account1, 593);
+        sparseIntArray.put(R.layout.view_controller_delete_account2, 594);
+        sparseIntArray.put(R.layout.view_controller_delete_account3, 595);
+        sparseIntArray.put(R.layout.view_controller_feedback, 596);
+        sparseIntArray.put(R.layout.view_controller_fill_user_data, 597);
+        sparseIntArray.put(R.layout.view_controller_gender_preference, 598);
+        sparseIntArray.put(R.layout.view_controller_gift_wall, 599);
+        sparseIntArray.put(R.layout.view_controller_global_broad_cast, 600);
+        sparseIntArray.put(R.layout.view_controller_hilo_assistant, 601);
+        sparseIntArray.put(R.layout.view_controller_home_drawer_head_layout, RoomEvent.ROOM_IM_GIFT);
+        sparseIntArray.put(R.layout.view_controller_my_bag, RoomEvent.ROOM_WEB_SOCKET_GIFT);
+        sparseIntArray.put(R.layout.view_controller_neighborhoods_note, 604);
+        sparseIntArray.put(R.layout.view_controller_open_source, 605);
+        sparseIntArray.put(R.layout.view_controller_platform_protocal, 606);
+        sparseIntArray.put(R.layout.view_controller_power_all_rank, 607);
+        sparseIntArray.put(R.layout.view_controller_power_menu, 608);
+        sparseIntArray.put(R.layout.view_controller_power_team, 609);
+        sparseIntArray.put(R.layout.view_controller_region_preference, 610);
+        sparseIntArray.put(R.layout.view_controller_rong_im_test, 611);
+        sparseIntArray.put(R.layout.view_controller_server_selection, 612);
+        sparseIntArray.put(R.layout.view_controller_setting_native, 613);
+        sparseIntArray.put(R.layout.view_controller_share_contacts, 614);
+        sparseIntArray.put(R.layout.view_controller_svga, 615);
+        sparseIntArray.put(R.layout.view_controller_test_mic_view, 616);
+        sparseIntArray.put(R.layout.view_controller_test_video_calling, 617);
+        sparseIntArray.put(R.layout.view_controller_vip, 618);
+        sparseIntArray.put(R.layout.view_controller_web_view, 619);
+        sparseIntArray.put(R.layout.view_cp_level, 620);
+        sparseIntArray.put(R.layout.view_cp_my_rank, 621);
+        sparseIntArray.put(R.layout.view_cp_rank_flipper_holder, 622);
+        sparseIntArray.put(R.layout.view_cp_rank_parent, 623);
+        sparseIntArray.put(R.layout.view_envelope_number, 624);
+        sparseIntArray.put(R.layout.view_foodie_big_reward_rule, 625);
+        sparseIntArray.put(R.layout.view_foodie_confirm_bet_dialog_2, 626);
+        sparseIntArray.put(R.layout.view_foodie_confirm_repeat_dialog, 627);
+        sparseIntArray.put(R.layout.view_foodie_dialog, 628);
+        sparseIntArray.put(R.layout.view_foodie_intro, 629);
+        sparseIntArray.put(R.layout.view_foodie_rank, 630);
+        sparseIntArray.put(R.layout.view_foodie_record, 631);
+        sparseIntArray.put(R.layout.view_fruit_confirm_repeat_dialog, 632);
+        sparseIntArray.put(R.layout.view_game_backgammon, 633);
+        sparseIntArray.put(R.layout.view_game_baloot, 634);
+        sparseIntArray.put(R.layout.view_game_carrom, 635);
+        sparseIntArray.put(R.layout.view_game_crush, 636);
+        sparseIntArray.put(R.layout.view_game_domino, 637);
+        sparseIntArray.put(R.layout.view_game_jackaro, 638);
+        sparseIntArray.put(R.layout.view_game_ludo, 639);
+        sparseIntArray.put(R.layout.view_game_notice, 640);
+        sparseIntArray.put(R.layout.view_game_pk, 641);
+        sparseIntArray.put(R.layout.view_game_sheep_h5, 642);
+        sparseIntArray.put(R.layout.view_game_uno, 643);
+        sparseIntArray.put(R.layout.view_gift_member_recycler, 644);
+        sparseIntArray.put(R.layout.view_gift_notice, 645);
+        sparseIntArray.put(R.layout.view_gift_wall_flipper_holder, 646);
+        sparseIntArray.put(R.layout.view_group_banner, 647);
+        sparseIntArray.put(R.layout.view_group_child_charm_rank_detail, 648);
+        sparseIntArray.put(R.layout.view_group_input_layout, 649);
+        sparseIntArray.put(R.layout.view_home_room_banner, 650);
+        sparseIntArray.put(R.layout.view_horizontal_interactive, 651);
+        sparseIntArray.put(R.layout.view_level_pk, 652);
+        sparseIntArray.put(R.layout.view_mask_cover_local, 653);
+        sparseIntArray.put(R.layout.view_mask_cover_local_specify, 654);
+        sparseIntArray.put(R.layout.view_mask_cover_remote, 655);
+        sparseIntArray.put(R.layout.view_mask_cover_remote_specify, 656);
+        sparseIntArray.put(R.layout.view_message_banner, 657);
+        sparseIntArray.put(R.layout.view_my_bag, 658);
+        sparseIntArray.put(R.layout.view_pk_search, 659);
+        sparseIntArray.put(R.layout.view_planet, 660);
+        sparseIntArray.put(R.layout.view_popular, 661);
+        sparseIntArray.put(R.layout.view_popular_childer_all_group, 662);
+        sparseIntArray.put(R.layout.view_power_medal, 663);
+        sparseIntArray.put(R.layout.view_power_rank_flipper_holder, 664);
+        sparseIntArray.put(R.layout.view_rank_flipper_holder, 665);
+        sparseIntArray.put(R.layout.view_rocket_svga_count_down, 666);
+        sparseIntArray.put(R.layout.view_room_child_active_rank_detail, 667);
+        sparseIntArray.put(R.layout.view_room_game, 668);
+        sparseIntArray.put(R.layout.view_room_rocket_enter, 669);
+        sparseIntArray.put(R.layout.view_search_child_group, 670);
+        sparseIntArray.put(R.layout.view_search_child_user, 671);
+        sparseIntArray.put(R.layout.view_search_group_user, 672);
+        sparseIntArray.put(R.layout.view_send_gift_linearlayout, 673);
+        sparseIntArray.put(R.layout.view_task, 674);
+        sparseIntArray.put(R.layout.view_task_item, 675);
+        sparseIntArray.put(R.layout.view_verify_dialog, 676);
+        sparseIntArray.put(R.layout.view_video_call, 677);
+        sparseIntArray.put(R.layout.view_vote_layout, 678);
+        sparseIntArray.put(R.layout.view_wrapper_matching_pending, 679);
+        sparseIntArray.put(R.layout.view_you_tu_be, 680);
+        sparseIntArray.put(R.layout.view_you_tu_more, 681);
+        sparseIntArray.put(R.layout.view_you_tu_video, 682);
+    }
+
+    public List collectDependencies() {
+        ArrayList arrayList = new ArrayList(8);
+        arrayList.add(new androidx.databinding.library.baseAdapters.DataBinderMapperImpl());
+        arrayList.add(new com.qhqc.core.basic.DataBinderMapperImpl());
+        arrayList.add(new com.qhqc.core.basic.widget.DataBinderMapperImpl());
+        arrayList.add(new com.qhqc.core.feature.community.DataBinderMapperImpl());
+        arrayList.add(new com.qiahao.base_common.DataBinderMapperImpl());
+        arrayList.add(new com.qiahao.hilo_message.DataBinderMapperImpl());
+        arrayList.add(new com.ruffian.library.widget.DataBinderMapperImpl());
+        arrayList.add(new com.tencent.qcloud.tuikit.tuichat.DataBinderMapperImpl());
+        return arrayList;
+    }
+
+    public ViewDataBinding getDataBinder(androidx.databinding.f fVar, View view, int i) {
+        int i2 = a.get(i);
+        if (i2 <= 0) {
+            return null;
+        }
+        Object tag = view.getTag();
+        if (tag != null) {
+            switch ((i2 - 1) / 50) {
+                case 0:
+                    return a(fVar, view, i2, tag);
+                case 1:
+                    return b(fVar, view, i2, tag);
+                case 2:
+                    return g(fVar, view, i2, tag);
+                case 3:
+                    return h(fVar, view, i2, tag);
+                case 4:
+                    return i(fVar, view, i2, tag);
+                case 5:
+                    return j(fVar, view, i2, tag);
+                case 6:
+                    return k(fVar, view, i2, tag);
+                case 7:
+                    return l(fVar, view, i2, tag);
+                case 8:
+                    return m(fVar, view, i2, tag);
+                case 9:
+                    return n(fVar, view, i2, tag);
+                case 10:
+                    return c(fVar, view, i2, tag);
+                case 11:
+                    return d(fVar, view, i2, tag);
+                case 12:
+                    return e(fVar, view, i2, tag);
+                case 13:
+                    return f(fVar, view, i2, tag);
+                default:
+                    return null;
+            }
+        }
+        throw new RuntimeException("view must have a tag");
+    }
+
+    public int getLayoutId(String str) {
+        Integer num;
+        if (str == null || (num = (Integer) a.a.get(str)) == null) {
+            return 0;
+        }
+        return num.intValue();
+    }
+
+    public ViewDataBinding getDataBinder(androidx.databinding.f fVar, View[] viewArr, int i) {
+        if (viewArr == null || viewArr.length == 0 || a.get(i) <= 0 || viewArr[0].getTag() != null) {
+            return null;
+        }
+        throw new RuntimeException("view must have a tag");
+    }
+}

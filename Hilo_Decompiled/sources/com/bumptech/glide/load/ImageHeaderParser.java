@@ -1,0 +1,76 @@
+package com.bumptech.glide.load;
+
+import java.io.InputStream;
+import java.nio.ByteBuffer;
+import p4.b;
+
+/* loaded from: C:\Users\admin\Projects\Archive\SULAIMAN_EMPIRE\DEX_FILES\classes2.dex */
+public interface ImageHeaderParser {
+
+    /* loaded from: C:\Users\admin\Projects\Archive\SULAIMAN_EMPIRE\DEX_FILES\classes2.dex */
+    public enum ImageType {
+        GIF(true),
+        JPEG(false),
+        RAW(false),
+        PNG_A(true),
+        PNG(false),
+        WEBP_A(true),
+        WEBP(false),
+        ANIMATED_WEBP(true),
+        AVIF(true),
+        ANIMATED_AVIF(true),
+        UNKNOWN(false);
+
+
+        /* renamed from: a, reason: collision with root package name */
+        private final boolean f٧٤١٦a;
+
+        ImageType(boolean z10) {
+            this.f٧٤١٦a = z10;
+        }
+
+        public boolean hasAlpha() {
+            return this.f٧٤١٦a;
+        }
+
+        public boolean isWebp() {
+            int i10 = a.f٧٤١٧a[ordinal()];
+            if (i10 == 1 || i10 == 2 || i10 == 3) {
+                return true;
+            }
+            return false;
+        }
+    }
+
+    /* loaded from: C:\Users\admin\Projects\Archive\SULAIMAN_EMPIRE\DEX_FILES\classes2.dex */
+    static /* synthetic */ class a {
+
+        /* renamed from: a, reason: collision with root package name */
+        static final /* synthetic */ int[] f٧٤١٧a;
+
+        static {
+            int[] iArr = new int[ImageType.values().length];
+            f٧٤١٧a = iArr;
+            try {
+                iArr[ImageType.WEBP.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                f٧٤١٧a[ImageType.WEBP_A.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                f٧٤١٧a[ImageType.ANIMATED_WEBP.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+        }
+    }
+
+    int a(InputStream inputStream, b bVar);
+
+    int b(ByteBuffer byteBuffer, b bVar);
+
+    ImageType c(ByteBuffer byteBuffer);
+
+    ImageType d(InputStream inputStream);
+}

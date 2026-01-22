@@ -1,0 +1,27 @@
+package com.tencent.imsdk.relationship;
+
+import java.io.Serializable;
+
+/* loaded from: C:\Users\admin\Projects\Archive\SULAIMAN_EMPIRE\DEX_FILES\classes5.dex */
+public class FollowTypeCheckResult implements Serializable {
+    private int followType;
+    private int resultCode;
+    private String resultInfo;
+    private String userID;
+
+    public int getFollowType() {
+        return this.followType;
+    }
+
+    public int getResultCode() {
+        return this.resultCode;
+    }
+
+    public String getResultInfo() {
+        return this.resultInfo;
+    }
+
+    public String getUserID() {
+        return this.userID;
+    }
+}

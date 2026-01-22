@@ -1,0 +1,5 @@
+package com.bumptech.glide.integration.webp.decoder;
+
+/* loaded from: C:\Users\admin\Projects\Archive\SULAIMAN_EMPIRE\DEX_FILES\classes2.dex */
+public abstract /* synthetic */ class i {
+}

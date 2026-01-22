@@ -1,0 +1,7 @@
+package kotlin.reflect.jvm.internal.impl.load.java.descriptors;
+
+import kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor;
+
+/* loaded from: C:\Users\admin\Projects\Archive\SULAIMAN_EMPIRE\DEX_FILES\classes3.dex */
+public interface JavaClassDescriptor extends ClassDescriptor {
+}

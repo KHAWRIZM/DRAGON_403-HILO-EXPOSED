@@ -1,0 +1,15 @@
+package com.google.android.gms.signin;
+
+import com.google.android.gms.common.api.Api;
+import com.google.android.gms.common.internal.IAccountAccessor;
+
+/* loaded from: C:\Users\admin\Projects\Archive\SULAIMAN_EMPIRE\DEX_FILES\classes2.dex */
+public interface zae extends Api.Client {
+    void zaa();
+
+    void zab();
+
+    void zac(IAccountAccessor iAccountAccessor, boolean z10);
+
+    void zad(com.google.android.gms.signin.internal.zae zaeVar);
+}

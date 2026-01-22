@@ -1,0 +1,18 @@
+package com.google.android.gms.measurement.internal;
+
+import com.google.android.gms.common.internal.Preconditions;
+
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: C:\Users\admin\Projects\Archive\SULAIMAN_EMPIRE\DEX_FILES\classes2.dex */
+public class zzf extends zzjd implements zzjf {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public zzf(zzib zzibVar) {
+        super(zzibVar);
+        Preconditions.checkNotNull(zzibVar);
+    }
+
+    @Override // com.google.android.gms.measurement.internal.zzjd
+    public final void zzg() {
+        this.zzu.zzaW().zzg();
+    }
+}

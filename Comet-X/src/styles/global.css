@@ -1,0 +1,374 @@
+/**
+ * 🎨 COMET-X SOVEREIGN THEME
+ * نظام الألوان السيادي
+ * 
+ * Color System (مثل Comet):
+ * 🔵 BLUE   = التفكير والتخطيط (AI Processing)
+ * 🟢 GREEN  = نجاح العملية
+ * 🔴 RED    = خطأ أو تحذير
+ * 🟡 YELLOW = انتظار أو تحميل
+ * ⚪ GRAY   = معلومات إضافية
+ */
+
+:root {
+    /* ═══════════════════════════════════════════════════════════════
+     🐉 SOVEREIGN COLOR PALETTE
+     ═══════════════════════════════════════════════════════════════ */
+
+    /* Background Colors */
+    --bg-primary: #050505;
+    --bg-secondary: #0a0a0f;
+    --bg-tertiary: #111118;
+    --bg-card: #1a1a24;
+    --bg-hover: #252532;
+
+    /* Status Colors (مثل Comet) */
+    --color-thinking: #3b82f6;
+    /* 🔵 Blue - AI Processing */
+    --color-success: #10b981;
+    /* 🟢 Green - Success */
+    --color-error: #ef4444;
+    /* 🔴 Red - Error */
+    --color-warning: #f59e0b;
+    /* 🟡 Yellow - Warning */
+    --color-info: #6b7280;
+    /* ⚪ Gray - Info */
+
+    /* Accent Colors */
+    --accent-primary: #3b82f6;
+    --accent-secondary: #8b5cf6;
+    --accent-cyan: #06b6d4;
+
+    /* Text Colors */
+    --text-primary: #ffffff;
+    --text-secondary: #a1a1aa;
+    --text-muted: #52525b;
+
+    /* Border Colors */
+    --border-primary: #27272a;
+    --border-hover: #3b82f6;
+
+    /* Glow Effects */
+    --glow-blue: 0 0 20px rgba(59, 130, 246, 0.4);
+    --glow-green: 0 0 20px rgba(16, 185, 129, 0.4);
+    --glow-red: 0 0 20px rgba(239, 68, 68, 0.4);
+
+    /* Fonts */
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-sans: 'Inter', sans-serif;
+
+    /* Spacing */
+    --sidebar-width: 320px;
+    --titlebar-height: 40px;
+    --tabbar-height: 42px;
+    --commandbar-height: 50px;
+
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-normal: 300ms ease;
+    --transition-slow: 500ms ease;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   🌐 GLOBAL STYLES
+   ═══════════════════════════════════════════════════════════════ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: var(--font-sans);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-primary);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
+}
+
+/* Selection */
+::selection {
+    background: var(--accent-primary);
+    color: var(--text-primary);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   🚀 APP LAYOUT
+   ═══════════════════════════════════════════════════════════════ */
+
+.comet-app {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-primary);
+}
+
+.comet-main {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+}
+
+.comet-browser-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-secondary);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   🎯 STATUS INDICATOR ANIMATIONS
+   ═══════════════════════════════════════════════════════════════ */
+
+@keyframes thinking-pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        box-shadow: var(--glow-blue);
+    }
+
+    50% {
+        opacity: 0.6;
+        box-shadow: 0 0 40px rgba(59, 130, 246, 0.6);
+    }
+}
+
+@keyframes success-flash {
+    0% {
+        background: var(--color-success);
+    }
+
+    100% {
+        background: transparent;
+    }
+}
+
+@keyframes error-shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    75% {
+        transform: translateX(5px);
+    }
+}
+
+@keyframes loading-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Neural Orb Animation (الكرة العصبية) */
+@keyframes neural-breathe {
+
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 20px var(--accent-primary), 0 0 40px var(--accent-primary);
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 30px var(--accent-primary), 0 0 60px var(--accent-cyan);
+    }
+}
+
+.neural-orb {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-cyan));
+    animation: neural-breathe 4s ease-in-out infinite;
+}
+
+/* Status Dot */
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.status-dot.thinking {
+    background: var(--color-thinking);
+    animation: thinking-pulse 1.5s ease-in-out infinite;
+}
+
+.status-dot.success {
+    background: var(--color-success);
+}
+
+.status-dot.error {
+    background: var(--color-error);
+}
+
+.status-dot.warning {
+    background: var(--color-warning);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   📝 TYPOGRAPHY
+   ═══════════════════════════════════════════════════════════════ */
+
+.mono {
+    font-family: var(--font-mono);
+}
+
+.text-thinking {
+    color: var(--color-thinking);
+}
+
+.text-success {
+    color: var(--color-success);
+}
+
+.text-error {
+    color: var(--color-error);
+}
+
+.text-warning {
+    color: var(--color-warning);
+}
+
+/* Code Block */
+code,
+pre {
+    font-family: var(--font-mono);
+    background: var(--bg-primary);
+    border-radius: 4px;
+}
+
+code {
+    padding: 2px 6px;
+    font-size: 13px;
+    color: var(--color-success);
+}
+
+pre {
+    padding: 16px;
+    overflow-x: auto;
+    border: 1px solid var(--border-primary);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   🔘 BUTTONS
+   ═══════════════════════════════════════════════════════════════ */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.btn-primary {
+    background: var(--accent-primary);
+    color: var(--text-primary);
+}
+
+.btn-primary:hover {
+    background: #2563eb;
+    box-shadow: var(--glow-blue);
+}
+
+.btn-ghost {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-primary);
+}
+
+.btn-ghost:hover {
+    background: var(--bg-hover);
+    color: var(--text-primary);
+    border-color: var(--border-hover);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   📥 INPUTS
+   ═══════════════════════════════════════════════════════════════ */
+
+input,
+textarea {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-primary);
+    border-radius: 6px;
+    padding: 10px 14px;
+    outline: none;
+    transition: all var(--transition-fast);
+}
+
+input:focus,
+textarea:focus {
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--text-muted);
+}
+
+/* Command Input Style */
+.command-input {
+    font-family: var(--font-mono);
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    caret-color: var(--color-success);
+}
+
+.command-input:focus {
+    box-shadow: none;
+}

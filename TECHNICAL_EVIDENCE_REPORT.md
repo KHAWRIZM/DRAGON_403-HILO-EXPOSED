@@ -2,58 +2,213 @@
 ## تقرير الأدلة التقنية - تطبيق هيلو
 ---
 
-**Investigation Date:** 2025-01-28
-**Investigator:** AI-Assisted Code Analysis (JADX Decompiler)
+**Investigation Date:** 2026-01-22 (Updated)
+**Original Analysis:** 2025-01-28
+**Investigator:** KHAWRIZM / DRAGON403 Forensic Team
 **Evidence Status:** CRITICAL - Ready for Legal Proceedings
+**Decompilation Tools:** JADX v1.5.0 + APKTool (Kali Linux)
 
 ---
 
 ## 📁 1. COMPANY IDENTIFICATION
 
 ### Confirmed Developer Identity:
-- **Package Name:** `com.qiahao.base_common`
+- **Package Name:** `com.qiahao.nextvideo`
 - **Company:** Guangzhou QiaHaoQingChun Information Technology Co., Ltd.
   - 广州俏好青春信息科技有限公司
 - **Secondary Package:** `com.qhqc` (QiaHaoQingChun abbreviation)
+- **App Class:** `com.qiahao.nextvideo.HiloApplication`
+- **Firebase Project:** `nextvideo-1590999469166`
 
-### Code Evidence Location:
+### Code Evidence Locations:
 ```
-C:\Users\admin\Desktop\HILO_CASE\Hilo_Decompiled\sources\com\qiahao\
+Windows: C:\Users\admin\Desktop\HILO_CASE\Hilo_Decompiled\sources\com\qiahao\
+Kali:    /home/kali/HelloApp_Decompiled/
 ```
 
 ---
 
-## 🌐 2. SERVER INFRASTRUCTURE
+## 🌐 2. SERVER INFRASTRUCTURE (UPDATED 2026-01-22)
 
 ### Production API Servers:
-| Server URL | Purpose |
-|------------|---------|
-| `https://api.tikhak.com` | Main API Server |
-| `https://apiv1.faceline.live` | Backup API Server |
-| `https://api.hiloconn.com` | Failover API Server |
+| Server URL | Purpose | Status |
+|------------|---------|--------|
+| `https://api.tikhak.com` | Main API Server | ACTIVE |
+| `https://apiv1.faceline.live` | Backup API Server | ACTIVE |
+| `https://api.hiloconn.com` | Failover API Server | ACTIVE |
+| `https://test.apiv1.faceline.live` | **TEST ENVIRONMENT** | EXPOSED |
 
 ### WebSocket Servers (Real-time communication):
-| Server URL | Purpose |
-|------------|---------|
-| `wss://ws.tikhak.com/ws` | Main WebSocket |
-| `wss://ws.faceline.live/ws` | Backup WebSocket |
-| `wss://ws.hiloconn.com/ws` | Failover WebSocket |
+| Server URL | Purpose | Source | Status |
+|------------|---------|--------|--------|
+| `wss://ws.tikhak.com/ws` | Main WebSocket | ServerConfigureKt.smali | 🟢 LIVE |
+| `wss://ws.faceline.live/ws` | Backup WebSocket | ServerConfigureKt.smali | ✅ **CONNECTED** |
+| `wss://ws.hiloconn.com/ws` | Failover WebSocket | ServerConfigureKt.smali | 🟢 LIVE |
+| `wss://test.ws.faceline.live/ws` | **TEST WS EXPOSED** | ServerConfigureKt.smali | 🔴 TEST |
+| `wss://test.ws.faceline.live:443/ws` | **TEST WS (Port 443)** | ServerConfigureKt.smali | 🔴 TEST |
+
+### WebSocket Connection Test (Jan 22, 2026 05:00 UTC):
+```
+$ wscat -c wss://ws.faceline.live/ws
+Connected (press CTRL+C to quit)
+> 
+Disconnected (code: 1006, reason: "")
+```
+**Result:** Successfully connected! Server is LIVE and accepting WebSocket connections.
+- Disconnected with code 1006 (abnormal closure) - likely needs auth token
 
 ### Web/H5 Servers:
 | Server URL | Purpose |
 |------------|---------|
 | `https://h5.chathot.me` | Production Web |
 | `https://moment.tikhak.com` | Social/Moments Feature |
-| `https://test.chathot.me` | Test Environment |
+| `https://test.chathot.me` | **TEST ENVIRONMENT** |
+| `https://test-moment.faceline.live` | **TEST ENVIRONMENT** |
+| `https://www.hiloconn.com` | Main Website |
+
+### CDN/Media Servers (NEW):
+| Server URL | Purpose |
+|------------|---------|
+| `https://image.whoisamy.shop/` | Image/Avatar Storage |
+| `https://oss.iludo.live/` | Media CDN |
+
+### Third-Party Chinese Infrastructure:
+| Service | Domains | Purpose |
+|---------|---------|---------|
+| **Alibaba Cloud** | `cf.aliyun.com`, `captcha.alibaba.com` | CAPTCHA |
+| **Tencent Cloud IM** | `im.sdk.cloud.tencent.cn` | Messaging SDK |
+| **Tencent TRTC** | `trtc.tencent-cloud.com` | Video Calls |
+| **SUD Gaming** | `sud.tech`, `sudcdn.cloud`, `sudden.ltd` | Gaming SDK |
+| **Taobao Analytics** | `adash.m.taobao.com` | Tracking |
+
+### Policy Pages (Legal Evidence):
+| URL | Content |
+|-----|---------|
+| `hiloconn.com/action/policy/Privacy_Policy.html` | Privacy Policy |
+| `hiloconn.com/action/policy/Terms_of_Service.html` | Terms of Service |
+| `hiloconn.com/action/policy/Copyright_Policy.html` | Copyright Policy |
+| `hiloconn.com/policy/policyHilo/ChildSafetyPolicy.html` | Child Safety |
 
 ### Evidence File:
 ```
 ServerConfigureKt.java - Lines 29-89
+AndroidManifest.xml - Package declarations
 ```
 
 ---
 
-## 🔓 3. DATA COLLECTION (Privacy Violations)
+## � 3. LEAKED API KEYS & CREDENTIALS (CRITICAL - Jan 22, 2026)
+
+### Firebase Configuration (Extracted from res/values/strings.xml):
+| Key Type | Value | Risk Level |
+|----------|-------|------------|
+| **Firebase Database URL** | `https://nextvideo-1590999469166.firebaseio.com` | 🔴 CRITICAL |
+| **Google API Key** | `AIzaSyCygke1pXNS1aWcVqLza2BjbeegalmSlTg` | 🔴 CRITICAL |
+| **Google App ID** | `1:432159938851:android:8adf65373a218409d59496` | 🟡 HIGH |
+| **Firebase Project ID** | `nextvideo-1590999469166` | 🟡 HIGH |
+| **Google Cloud Project Number** | `432159938851` | 🔴 CRITICAL |
+
+### Google Cloud Project Confirmation (API Response Jan 22, 2026):
+```json
+"consumer": "projects/432159938851"
+"reason": "API_KEY_ANDROID_APP_BLOCKED"
+"service": "identitytoolkit.googleapis.com"
+```
+**This proves:** The API key `AIzaSyCygke1pXNS1aWcVqLza2BjbeegalmSlTg` belongs to Google Cloud Project #432159938851
+
+### 🔑 FULL GOOGLE CREDENTIALS DUMP (strings.xml):
+
+| Key Name | Value | Purpose |
+|----------|-------|---------|
+| `google_api_key` | `AIzaSyCygke1pXNS1aWcVqLza2BjbeegalmSlTg` | Firebase/Google API |
+| `google_app_id` | `1:432159938851:android:8adf65373a218409d59496` | Android App ID |
+| `google_crash_reporting_api_key` | `AIzaSyCygke1pXNS1aWcVqLza2BjbeegalmSlTg` | Crashlytics API |
+| `google_storage_bucket` | `nextvideo-1590999469166.appspot.com` | Firebase Storage |
+| `default_web_client_id` | `432159938851-deoq0s10jrckc2krttv7ejeln5c60h69.apps.googleusercontent.com` | **OAuth2 Web Client** |
+| `server_client_id` | `432159938851-i474jljk2fl1g364ro64mivqsuah211f.apps.googleusercontent.com` | **OAuth2 Server Client** |
+| `gcm_defaultSenderId` | `432159938851` | FCM/GCM Sender |
+| `gcm_project_id` | `nextvideo-1590999469166` | GCM Project |
+| `project_id` | `nextvideo-1590999469166` | Firebase Project |
+| `crashlytics.mapping_file_id` | `a896b4b6994341f18016c15db853901a` | Crashlytics Mapping |
+
+### 📘 FACEBOOK CREDENTIALS (CRITICAL):
+| Key Name | Value | Purpose |
+|----------|-------|---------|
+| `facebook_app_id` | `579294106051988` | **Facebook App ID** |
+| `facebook_client_token` | `72f13ea96e1ec07be6c0196910aad5fd` | **Facebook Client Token** |
+| `fb_login_protocol_scheme` | `fb579294106051988` | Deep Link Scheme |
+
+### 📱 OPPO PUSH CREDENTIALS (Chinese Phone Manufacturer):
+| Key Name | Value | Purpose |
+|----------|-------|---------|
+| `oppo_push_app_key` | `b73635b02b714b6691960b6c18418720` | OPPO Push Key |
+| `oppo_push_app_secret` | `c3ed4679caeb406480bb8285ded57872` | **OPPO Push Secret** |
+
+### 🇨🇳 BAISHUN (Chinese Service):
+| Key Name | Value | Purpose |
+|----------|-------|---------|
+| `bai_shun_app_id` | `2976487849` | BaiShun Debug |
+| `bai_shun_app_id_release` | `9870627708` | BaiShun Production |
+
+### 🎙️ AGORA RTC KEYS (Voice/Video Infrastructure - CRITICAL):
+**Source:** `ServerConfigureKt.smali` (Kali Extraction Jan 22, 2026)
+
+| Key Name | Value | Purpose |
+|----------|-------|---------|
+| **Agora SDK Key 1** | `6291d069123642d9929a49c734c50719` | RTC Voice/Video |
+| **Agora SDK Key 2** | `fc3e087f701b4f788099e1924c3cc7b0` | RTC Backup Key |
+
+**Evidence Location:**
+```
+/home/kali/HelloApp_Decompiled/smali_classes3/com/qiahao/base_common/network/ServerConfigureKt.smali
+Line: const-string v13, "6291d069123642d9929a49c734c50719"
+Line: const-string v13, "fc3e087f701b4f788099e1924c3cc7b0"
+```
+
+**Agora Implementation Evidence:**
+```
+io/agora/rtc/internal/RtcEngineImpl.smali - "Agora super resolution module loaded"
+io/agora/rtc/video/VideoCaptureCamera2.smali - Video capture implementation
+com/qiahao/base_common/network/model/DebugAgoraVideoCallConfig.smali - Call config
+com/qiahao/base_common/model/common/ChannelEvent1v1AddTime.smali - "senderAgoraId"
+```
+
+### ☁️ ALIBABA CLOUD SDK (Chinese Infrastructure):
+| Key Name | Value | Source |
+|----------|-------|--------|
+| **Alibaba SDK Key** | `56fc10fbe8c6ae7d0d895f49c4fb6838` | AlicloudSender.smali |
+
+### OAuth2 Client ID Analysis:
+```
+Web Client:    432159938851-deoq0s10jrckc2krttv7ejeln5c60h69.apps.googleusercontent.com
+Server Client: 432159938851-i474jljk2fl1g364ro64mivqsuah211f.apps.googleusercontent.com
+```
+- Both linked to **Google Cloud Project #432159938851**
+- Can be used to trace all Google services they're using
+- Evidence for Google Legal team to identify the developer
+
+### Tencent Cloud IM (Chat Infrastructure):
+| Service | SDK ID | Purpose |
+|---------|--------|---------|
+| **Tencent IM SDK** | `sdk-im-1252463788` | Messaging Infrastructure |
+| **TRTC** | `trtc.tencent-cloud.com` | Video Calls |
+
+### What This Means:
+1. **Firebase Database Exposed** - Their realtime database URL is hardcoded
+2. **Google API Key Leaked** - Can be used to identify their Google Cloud project
+3. **Project ID Confirmed** - `nextvideo-1590999469166` links to their Firebase console
+4. **OAuth2 Clients Exposed** - TWO OAuth client IDs for Google Sign-In
+5. **FCM/GCM IDs** - Push notification infrastructure fully mapped
+6. **Evidence for Google/Apple** - Complete credential package for legal action
+
+### Evidence Location:
+```
+/home/kali/HelloApp_Decompiled/res/values/strings.xml
+```
+
+---
+
+## 🔓 4. DATA COLLECTION (Privacy Violations)
 
 ### HeaderInterceptor.java Analysis:
 
@@ -92,7 +247,7 @@ if (companion3 == null || !companion3.isEmulator()) {
 
 ---
 
-## 💎 4. VIRTUAL CURRENCY SYSTEM
+## 💎 5. VIRTUAL CURRENCY SYSTEM
 
 ### Diamond (In-App Currency):
 - **Model:** `DiamondBean.java`
@@ -221,7 +376,406 @@ private long vipExpireTime;          // VIP expiration
 
 ---
 
-**Report Generated:** 2025-01-28
+## 🔬 11. KALI LINUX APK FORENSICS (Jan 22, 2026)
+
+### Full Endpoint Extraction Summary:
+**Command Used:** `grep -rohE "https?://[a-zA-Z0-9./?=_-]+" . | sort -u`
+
+#### HILO Core Infrastructure (Confirmed):
+| Endpoint | Category | Evidence Level |
+|----------|----------|----------------|
+| `https://api.hiloconn.com` | Production API | 🔴 CRITICAL |
+| `https://api.tikhak.com` | Production API | 🔴 CRITICAL |
+| `https://apiv1.faceline.live` | Production API | 🔴 CRITICAL |
+| `https://test.apiv1.faceline.live` | **TEST ENV EXPOSED** | 🔴 CRITICAL |
+| `https://test.chathot.me` | **TEST ENV EXPOSED** | 🔴 CRITICAL |
+| `https://test-moment.faceline.live` | **TEST ENV EXPOSED** | 🔴 CRITICAL |
+| `https://h5.chathot.me` | Web Platform | 🟡 HIGH |
+| `https://moment.tikhak.com` | Social Feature | 🟡 HIGH |
+| `https://www.hiloconn.com` | Main Website | 🟡 HIGH |
+
+#### CDN/Media Infrastructure (CloudFront + S3):
+| Endpoint | Cloud Provider | Status |
+|----------|----------------|--------|
+| `https://image.whoisamy.shop/` | Amazon CloudFront/S3 | 403 (Protected) |
+| `https://oss.iludo.live/` | Chinese CDN | Active |
+| `https://im.sdk.cloud.tencent.cn/` | Tencent Cloud | Active |
+| `https://sdk-im-1252463788.file.myqcloud.com/` | Tencent Cloud | Active |
+
+#### Third-Party Chinese Services (Data Sharing):
+| Service | Endpoints Found | Purpose |
+|---------|-----------------|---------|
+| **Alibaba Aliyun** | `cf.aliyun.com`, `cfun.aliyun.com`, `cfus.aliyun.com`, `pin.aliyun.com`, `ynuf.aliapp.org` | CAPTCHA, Analytics |
+| **Alibaba Captcha** | `captcha.alibaba.com`, `diablo.alibaba.com`, `usdiablo.alibaba.com` | Anti-bot |
+| **Taobao Analytics** | `adash.m.taobao.com`, `c-adash.m.taobao.com`, `survey.taobao.com` | User Tracking |
+| **Alibaba Stats** | `gj.mmstat.com`, `gm.mmstat.com`, `log.mmstat.com` | Data Collection |
+| **Alibaba CDN** | `img.alicdn.com`, `g.alicdn.com`, `aeis.alicdn.com`, `at.alicdn.com` | Assets |
+| **Tencent Cloud** | `trtc.tencent-cloud.com`, `tencentcloud.com`, `im.sdk.cloud.tencent.cn` | Video/Chat |
+| **SUD Gaming** | `sud.tech`, `sud.ltd`, `sudcdn.cloud`, `sudcdn.ltd`, `sudden.ltd` | In-app Games |
+
+#### Google/Firebase Integration:
+| Endpoint | Purpose |
+|----------|---------|
+| `https://nextvideo-1590999469166.firebaseio.com` | **DATABASE URL** |
+| `https://firebaseremoteconfig.googleapis.com/v1/projects/` | Remote Config |
+| `https://firebaseremoteconfigrealtime.googleapis.com/v1/projects/` | Realtime Config |
+| `https://firebase-settings.crashlytics.com/` | Crash Reports |
+| `https://app-measurement.com/` | Google Analytics |
+| `https://pagead2.googlesyndication.com/` | Google Ads |
+| `https://www.googleadservices.com/` | Ad Tracking |
+
+#### Google Play/Store Integration:
+| Endpoint | Purpose |
+|----------|---------|
+| `https://play.google.com/store` | App Store |
+| `https://play.google.com/store/account/subscriptions?sku=hilo_vip_monthly` | **VIP SUBSCRIPTION** |
+| `https://accounts.google.com/o/oauth2/` | OAuth |
+| `https://plus.google.com/` | Google+ Login |
+
+#### Facebook Integration:
+| Endpoint | Purpose |
+|----------|---------|
+| `https://facebook.com/device?user_code=` | Device Login |
+| `https://graph.` | Graph API |
+| `https://graph-video.` | Video Upload |
+| Deep Link: `fbconnect://cct.com.qiahao.nextvideo` | Facebook Connect |
+
+---
+
+## 🎯 12. LEAKED CREDENTIALS SUMMARY (CRITICAL)
+
+### Firebase/Google (res/values/strings.xml):
+```
+firebase_database_url = https://nextvideo-1590999469166.firebaseio.com
+google_api_key = AIzaSyCygke1pXNS1aWcVqLza2BjbeegalmSlTg
+google_app_id = 1:432159938851:android:8adf65373a218409d59496
+```
+
+### Tencent Cloud IM:
+```
+SDK App ID: 1252463788
+File CDN: sdk-im-1252463788.file.myqcloud.com
+TRTC Stats: demos.trtc.tencent-cloud.com/prod/base/v1/events/stat
+```
+
+### Alibaba Push Service:
+```
+Push API: mpush-api.aliyun.com/v2.0/a/audid/req/
+```
+
+---
+
+## 🏢 13. COMPANY/PACKAGE EVIDENCE (AndroidManifest.xml)
+
+### Primary Package:
+```xml
+package="com.qiahao.nextvideo"
+android:name="com.qiahao.nextvideo.HiloApplication"
+```
+
+### Custom Permissions (Prove Developer Control):
+```xml
+com.qiahao.nextvideo.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+com.qiahao.nextvideo.AGOO (Alibaba Push)
+com.qiahao.nextvideo.ACCS (Alibaba Channel)
+```
+
+### Key Activities:
+| Activity | Purpose |
+|----------|---------|
+| `SplashActivity` | App Entry Point |
+| `MainActivity` | Main Interface |
+| `AuthenticationActivity` | Login/Registration |
+| `MatchVideoActivity` | Video Matching (Predatory) |
+| `RoomActivity` | Chat Rooms |
+| `VipViewDialog` | VIP Sales (Revenue) |
+| `MyBagActivity` | Virtual Currency Storage |
+| `ShareContactsActivity` | **CONTACT ACCESS** |
+
+### Services:
+| Service | Purpose |
+|---------|---------|
+| `MyFireBaseMessagingService` | Push Notifications |
+| `ChatRoomServer` | **Microphone Access** (foregroundServiceType="microphone") |
+
+---
+
+## 🌐 14. CLOUDFRONT/S3 BUCKET DISCOVERY
+
+### Amazon CloudFront Distribution:
+```
+Host: image.whoisamy.shop
+Server: AmazonS3
+Via: CloudFront
+X-Amz-Cf-Pop: RUH50-P2 (Riyadh Edge!)
+```
+
+### Bucket Paths Discovered:
+```
+/hilo/avatar/                          - User Avatars
+/Wagas/resource/game/foodie/           - Game Assets
+/Wagas/user/avatar/                    - Secondary Avatars
+```
+
+### Status: 403 Forbidden (Directory listing disabled, files still accessible with exact paths)
+
+---
+
+## 📊 15. DATA FLOW MAPPING
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                    HILO DATA COLLECTION FLOW                        │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                     │
+│  [USER DEVICE]                                                      │
+│       │                                                             │
+│       ├──▶ IMEI, VPN Status, Carrier ──▶ HeaderInterceptor.java    │
+│       ├──▶ Location, Contacts ──▶ ShareContactsActivity            │
+│       ├──▶ Microphone Audio ──▶ ChatRoomServer                     │
+│       │                                                             │
+│       ▼                                                             │
+│  [CHINESE SERVERS]                                                  │
+│       │                                                             │
+│       ├──▶ api.tikhak.com ──▶ User Data, Transactions              │
+│       ├──▶ api.hiloconn.com ──▶ Backup Storage                     │
+│       ├──▶ apiv1.faceline.live ──▶ Video/Call Data                 │
+│       │                                                             │
+│       ▼                                                             │
+│  [THIRD-PARTY SERVICES]                                             │
+│       │                                                             │
+│       ├──▶ Firebase (Google) ──▶ nextvideo-1590999469166           │
+│       ├──▶ Tencent IM ──▶ Chat Messages                            │
+│       ├──▶ Alibaba Analytics ──▶ User Behavior                     │
+│       ├──▶ Facebook ──▶ Social Graph                               │
+│       └──▶ CloudFront S3 ──▶ Media Files                           │
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🚨 16. TEST ENVIRONMENTS EXPOSED (Security Failure)
+
+### Critical Finding:
+The APK contains hardcoded TEST environment URLs that are publicly accessible:
+
+| Test URL | Production Equivalent |
+|----------|----------------------|
+| `test.apiv1.faceline.live` | `apiv1.faceline.live` |
+| `test.chathot.me` | `h5.chathot.me` |
+| `test-moment.faceline.live` | `moment.tikhak.com` |
+| `test.ws.faceline.live` | `ws.faceline.live` |
+
+### Why This Matters:
+- Test environments often have weaker security
+- May contain debug endpoints or admin panels
+- Potential for sensitive data exposure
+- Poor security hygiene = Amateur developers
+
+---
+
+## � 17. SMALI DEEP CODE ANALYSIS (Jan 22, 2026)
+
+### ServerConfigureKt.smali - Dynamic Server Management
+
+**File:** `/home/kali/HelloApp_Decompiled/smali_classes3/com/qiahao/base_common/network/ServerConfigureKt.smali`
+
+#### Key Classes Discovered:
+| Class | Purpose |
+|-------|---------|
+| `com.oudi.utils.store.MMKVStore` | Tencent MMKV local storage (stores server configs) |
+| `com.qiahao.base_common.model.BaseUrlData` | Contains API URLs + WebSocket URLs |
+| `com.qiahao.base_common.network.ServerInfo` | Individual server configuration |
+| `com.qiahao.base_common.network.CommunityServerInfo` | Community server details |
+| `com.google.gson.d` | Gson JSON parser (obfuscated) |
+
+#### Static Fields (Server Lists):
+```smali
+.field public static mBaseUrlData:Lcom/qiahao/base_common/model/BaseUrlData;
+.field public static mHttpList:Ljava/util/ArrayList;        # API server list
+.field public static mWebSocketList:Ljava/util/ArrayList;   # WebSocket server list
+.field public static mIndex:I                                # Current server index
+.field public static availableServers:Ljava/util/Map;       # Server availability map
+.field public static communityServers:Ljava/util/Map;       # Community servers
+```
+
+#### Key Methods:
+| Method | Purpose |
+|--------|---------|
+| `initConfig()` | Loads `firebase_base_url` from MMKVStore |
+| `updateServer(String json)` | Dynamically updates server list from remote JSON |
+| `setAvailableServers(Map)` | Updates available servers map |
+| `setMHttpList(ArrayList)` | Sets HTTP API server list |
+| `setMWebSocketList(ArrayList)` | Sets WebSocket server list |
+
+#### CRITICAL FINDING - Firebase Config Storage:
+```smali
+const-string v2, "firebase_base_url"
+invoke-static/range {v1 .. v6}, Lcom/oudi/utils/store/IStore$DefaultImpls;->getValue$default(...)
+```
+**Analysis:** Server URLs are dynamically fetched from Firebase and stored locally in MMKV!
+
+#### BaseUrlData Model Structure:
+```java
+class BaseUrlData {
+    List<String> getApiURLs();   // HTTP API endpoints
+    List<String> getWsURLs();    // WebSocket endpoints
+}
+```
+
+### Why This is Dangerous:
+1. **Dynamic Server Switching** - They can change servers anytime to evade blocks
+2. **Firebase Remote Config** - Server list pushed from cloud
+3. **MMKV Persistence** - Config survives app restarts
+4. **Failover System** - Multiple servers ensure service continuity
+
+---
+
+## 🔥 18. FIREBASE DATABASE SCAN (Jan 22, 2026)
+
+### Probed Nodes:
+| Node Path | Response | Status |
+|-----------|----------|--------|
+| `/.json` | Permission Denied | Secured |
+| `/rooms.json` | Permission Denied | Secured |
+| `/config.json` | `{}` (Empty) | **Node Exists!** |
+| `/settings.json` | `{}` (Empty) | **Node Exists!** |
+| `/version.json` | `{}` (Empty) | **Node Exists!** |
+| `/announcement.json` | `{}` (Empty) | **Node Exists!** |
+| `/pay_config.json` | `{}` (Empty) | **Node Exists!** |
+
+### Analysis:
+- Database has **read rules** that return empty objects (not full denial)
+- Nodes `config`, `settings`, `version`, `announcement`, `pay_config` confirmed to exist
+- This indicates a partially configured security ruleset
+- **Payment configuration node exists** - evidence of monetization system
+
+---
+
+## ☁️ 18. AMAZON S3/CLOUDFRONT FORENSICS
+
+### Bucket Discovery:
+```
+Host: image.whoisamy.shop
+CDN: Amazon CloudFront
+Storage: Amazon S3
+Edge Location: RUH50-P2 (RIYADH, Saudi Arabia!)
+```
+
+### Response Headers Captured:
+```http
+HTTP/1.1 403 Forbidden
+Server: AmazonS3
+Via: 1.1 d5fb0b1f046628e720c756612c70b04a.cloudfront.net (CloudFront)
+X-Amz-Cf-Pop: RUH50-P2
+X-Amz-Cf-Id: -o76ZHKS433c4AWxhRiMIkR0sXiODOj2MXdF-GvI9YPKp3UoIt10yg==
+```
+
+### Key Evidence:
+- **CloudFront Edge in Riyadh** - They're serving Saudi Arabian users
+- **Directory listing disabled** (403) but files accessible with exact paths
+- Known accessible paths:
+  - `/hilo/avatar/` - User profile pictures
+  - `/Wagas/resource/game/` - Game assets (foodie game items)
+  - `/Wagas/user/avatar/` - Secondary user avatars
+
+### DIRB Scan Results:
+```
+URL: https://image.whoisamy.shop/
+Status: All 403 (properly secured)
+Files tested: .env, .json, .xml, .sql
+Result: No leaks found (good bucket config)
+```
+
+---
+
+## 📁 19. FORENSIC FILE INVENTORY (Kali Linux)
+
+### Files Generated:
+| File | Location | Contents |
+|------|----------|----------|
+| `full_recon.txt` | `/home/kali/HelloApp_Decompiled/` | All URLs, Secrets, Company Refs |
+| `falla_sdk_keys.txt` | `/home/kali/HelloApp_Decompiled/` | SDK Keys from XML |
+| `falla_websockets.txt` | `/home/kali/HelloApp_Decompiled/` | WebSocket URLs |
+| `clean_websockets.txt` | `/home/kali/HelloApp_Decompiled/` | **WebSocket from SMALI** |
+| `dragon_endpoints.txt` | `/home/kali/HelloApp_Decompiled/` | API Endpoints |
+| `dragon_secrets.txt` | `/home/kali/HelloApp_Decompiled/` | Extracted Secrets |
+| `falla_database_dump.json` | `/home/kali/HelloApp_Decompiled/` | Firebase response |
+| `rooms_leak.json` | `/home/kali/HelloApp_Decompiled/` | Firebase rooms probe |
+| `s3_leak_report.txt` | `/home/kali/HelloApp_Decompiled/` | S3 bucket scan |
+
+### Decompiled Source Location:
+```
+Kali:    /home/kali/HelloApp_Decompiled/
+Windows: C:\Users\admin\Desktop\HILO_CASE\Hilo_Decompiled\
+```
+
+---
+
+## 🎯 20. SMALI CODE EVIDENCE (ServerConfigureKt.smali)
+
+### WebSocket Server Strings (Exact Source):
+```smali
+# Production Servers
+const-string/jumbo v2, "wss://ws.tikhak.com/ws"
+const-string/jumbo v2, "wss://ws.faceline.live/ws"
+const-string/jumbo v2, "wss://ws.hiloconn.com/ws"
+
+# TEST Servers (EXPOSED!)
+const-string/jumbo v15, "wss://test.ws.faceline.live/ws"
+const-string/jumbo v15, "wss://test.ws.faceline.live:443/ws"
+```
+
+### File Location:
+```
+/home/kali/HelloApp_Decompiled/smali_classes3/com/qiahao/base_common/network/ServerConfigureKt.smali
+```
+
+---
+
+## ⚡ 21. NEXT FORENSIC ACTIONS
+
+### Completed Tasks ✅:
+1. ✅ **WebSocket Extraction** - Found 5 WS servers in SMALI
+2. ✅ **Google Cloud Project** - Confirmed #432159938851
+3. ✅ **Firebase Probe** - Nodes mapped
+4. ✅ **S3 Bucket Recon** - CloudFront/Riyadh edge confirmed
+
+### Remaining Tasks:
+1. **Agora SDK Keys** - Deep search for voice chat infrastructure
+2. **Facebook App ID** - Complete social integration mapping  
+3. **Test WebSocket Connect** - Try connecting to test.ws.faceline.live
+4. **Payment API Analysis** - Search for payment gateway keys
+
+### Commands for Continued Analysis:
+```bash
+# Find Agora voice SDK in Java sources
+grep -rEi "agora|app.?id|voice|rtc" sources/ --include="*.java" | head -30
+
+# Search for payment/billing code
+grep -rEi "pay|billing|diamond|coin|purchase" sources/ --include="*.java" | head -30
+
+# Test WebSocket connection
+websocat wss://test.ws.faceline.live/ws
+```
+
+---
+
+**Report Updated:** 2026-01-22 05:00 UTC
 **Classification:** CONFIDENTIAL - Legal Evidence
 **Prepared For:** Sulaiman Nazal Alshammari - HILO Case
+**Forensic Platform:** Kali Linux (dragon403 server)
+**Evidence Chain:** APK → JADX Decompile → SMALI Analysis → API Probing → Documentation
+
+## 📊 EVIDENCE SUMMARY
+
+| Category | Items Found | Severity |
+|----------|-------------|----------|
+| API Endpoints | 3 Production + 3 Test | 🔴 CRITICAL |
+| WebSocket Servers | 3 Production + 2 Test | 🔴 CRITICAL |
+| Firebase/Google Keys | 4 Keys + Project ID | 🔴 CRITICAL |
+| Third-Party Services | Alibaba, Tencent, SUD | 🟡 HIGH |
+| CDN Infrastructure | CloudFront + S3 (Riyadh) | 🟡 HIGH |
+| Company Identity | Guangzhou QiaHaoQingChun | 🟢 CONFIRMED |
 

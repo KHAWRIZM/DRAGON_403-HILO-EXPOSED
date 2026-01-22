@@ -1,0 +1,41 @@
+Subject: FORMAL LEGAL NOTICE - HILO App Fraud Investigation Request | DRAGON 403
+
+Dear Google Play Trust & Safety Team,
+
+I am formally requesting an immediate investigation into the HILO application currently hosted on Google Play Store.
+
+SUMMARY:
+- App: HILO (com.nicegoodapps.hilo)
+- Developer: Guangzhou QiaHaoQingChun Information Technology Co., Ltd.
+- Alleged Harm: $50,000,000+ USD consumer fraud
+- Violations: GDPR, Saudi PDPL, FTC Act Section 5
+
+EVIDENCE PLATFORM:
+All technical evidence, including decompiled source code analysis, server infrastructure mapping, and data collection documentation, is publicly available at:
+
+🔗 https://dragon403.com
+
+KEY FINDINGS:
+1. Illegal IMEI collection without consent
+2. VPN detection for user tracking
+3. Impossible withdrawal thresholds (financial trap)
+4. Privacy labels do not match actual data collection
+
+FORMAL REQUESTS:
+1. Immediate app suspension pending investigation
+2. Full audit of developer's data practices
+3. Written response within 30 days
+
+Full legal notice attached as PDF.
+
+This is a documented matter. Your response (or lack thereof) will be included in ongoing public documentation.
+
+Regards,
+Sulaiman Nazal Alshammari
+KHAWRIZM | Riyadh, Saudi Arabia
+iqd@hotmail.com
+https://dragon403.com
+
+---
+Evidence Video: DRAGON 403 Documentary (attached)
+Technical Report: dragon403.com/evidence

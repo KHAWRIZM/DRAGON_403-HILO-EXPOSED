@@ -1,0 +1,16 @@
+package com.google.android.gms.auth.api;
+
+import android.content.Context;
+import android.os.Looper;
+import com.google.android.gms.common.api.Api;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.internal.ClientSettings;
+import com.google.android.gms.internal.p٠٠٠authapi.zbe;
+
+/* loaded from: C:\Users\admin\Projects\Archive\SULAIMAN_EMPIRE\DEX_FILES\classes2.dex */
+final class zba extends Api.AbstractClientBuilder {
+    @Override // com.google.android.gms.common.api.Api.AbstractClientBuilder
+    public final /* synthetic */ Api.Client buildClient(Context context, Looper looper, ClientSettings clientSettings, Object obj, GoogleApiClient.ConnectionCallbacks connectionCallbacks, GoogleApiClient.OnConnectionFailedListener onConnectionFailedListener) {
+        return new zbe(context, looper, clientSettings, (zbd) obj, connectionCallbacks, onConnectionFailedListener);
+    }
+}

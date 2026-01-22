@@ -1,0 +1,76 @@
+package com.tencent.qcloud.tuikit.tuichat.databinding;
+
+import android.util.SparseIntArray;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.databinding.ViewDataBinding;
+import androidx.databinding.f;
+import com.tencent.qcloud.tuicore.component.gatherimage.UserIconView;
+import com.tencent.qcloud.tuikit.tuichat.R;
+
+/* loaded from: C:\Users\admin\Projects\Archive\SULAIMAN_EMPIRE\DEX_FILES\classes5.dex */
+public class HiloMessageImageTextBindingImpl extends HiloMessageImageTextBinding {
+    private static final ViewDataBinding.i sIncludes = null;
+    private static final SparseIntArray sViewsWithIds;
+    private long mDirtyFlags;
+
+    static {
+        SparseIntArray sparseIntArray = new SparseIntArray();
+        sViewsWithIds = sparseIntArray;
+        sparseIntArray.put(R.id.left_user_icon_view, 1);
+        sparseIntArray.put(R.id.right_user_icon_view, 2);
+        sparseIntArray.put(R.id.msg_content_ll, 3);
+        sparseIntArray.put(R.id.custom_content_view, 4);
+        sparseIntArray.put(R.id.tv_content, 5);
+        sparseIntArray.put(R.id.image, 6);
+    }
+
+    public HiloMessageImageTextBindingImpl(f fVar, View view) {
+        this(fVar, view, ViewDataBinding.mapBindings(fVar, view, 7, sIncludes, sViewsWithIds));
+    }
+
+    protected void executeBindings() {
+        synchronized (this) {
+            this.mDirtyFlags = 0L;
+        }
+    }
+
+    public boolean hasPendingBindings() {
+        synchronized (this) {
+            try {
+                if (this.mDirtyFlags != 0) {
+                    return true;
+                }
+                return false;
+            } catch (Throwable th) {
+                throw th;
+            }
+        }
+    }
+
+    public void invalidateAll() {
+        synchronized (this) {
+            this.mDirtyFlags = 1L;
+        }
+        requestRebind();
+    }
+
+    protected boolean onFieldChange(int i, Object obj, int i2) {
+        return false;
+    }
+
+    public boolean setVariable(int i, Object obj) {
+        return true;
+    }
+
+    private HiloMessageImageTextBindingImpl(f fVar, View view, Object[] objArr) {
+        super(fVar, view, 0, (ConstraintLayout) objArr[0], (LinearLayout) objArr[4], (ImageView) objArr[6], (UserIconView) objArr[1], (LinearLayout) objArr[3], (UserIconView) objArr[2], (TextView) objArr[5]);
+        this.mDirtyFlags = -1L;
+        this.allContent.setTag(null);
+        setRootTag(view);
+        invalidateAll();
+    }
+}

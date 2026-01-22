@@ -1,0 +1,13 @@
+package com.qiahao.nextvideo.ui.fillpersonaldata.neighborhoodsnote;
+
+import kotlin.Metadata;
+
+@Metadata(d1 = {"\u0000\u0012\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\bf\u0018\u00002\u00020\u0001J\b\u0010\u0002\u001a\u00020\u0003H&J\b\u0010\u0004\u001a\u00020\u0003H&J\b\u0010\u0005\u001a\u00020\u0003H&¨\u0006\u0006"}, d2 = {"Lcom/qiahao/nextvideo/ui/fillpersonaldata/neighborhoodsnote/NeighborhoodsNoteViewControllerDelegate;", "", "neighborhoodsNoteViewControllerDelegateDidAgree", "", "neighborhoodsNoteViewControllerDelegateDidSignOut", "neighborhoodsNoteViewControllerDelegateDidBack", "app_googleRelease"}, k = 1, mv = {2, 1, 0}, xi = 48)
+/* loaded from: C:\Users\admin\Projects\Archive\SULAIMAN_EMPIRE\DEX_FILES\classes4.dex */
+public interface NeighborhoodsNoteViewControllerDelegate {
+    void neighborhoodsNoteViewControllerDelegateDidAgree();
+
+    void neighborhoodsNoteViewControllerDelegateDidBack();
+
+    void neighborhoodsNoteViewControllerDelegateDidSignOut();
+}

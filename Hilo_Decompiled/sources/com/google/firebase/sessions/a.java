@@ -1,0 +1,9 @@
+package com.google.firebase.sessions;
+
+/* loaded from: C:\Users\admin\Projects\Archive\SULAIMAN_EMPIRE\DEX_FILES\classes2.dex */
+public abstract /* synthetic */ class a {
+    public static /* synthetic */ int a(double d10) {
+        long doubleToLongBits = Double.doubleToLongBits(d10);
+        return (int) (doubleToLongBits ^ (doubleToLongBits >>> 32));
+    }
+}

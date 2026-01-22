@@ -1450,6 +1450,177 @@
         const commandHistory = [];
         let historyIndex = -1;
 
+        // ═══════════════════════════════════════════════════════════════
+        // 🐉 SOVEREIGN KERNEL - HIDDEN COMMAND VAULT
+        // ═══════════════════════════════════════════════════════════════
+        const SOVEREIGN_VAULT = {
+            'whoami': () => `
+<span class="error">╔═══════════════════════════════════════════════════════════════╗</span>
+<span class="error">║                 🐉 IDENTITY VERIFIED                          ║</span>
+<span class="error">╚═══════════════════════════════════════════════════════════════╝</span>
+
+  <span class="info">[CALLSIGN]:</span>    <span class="warning">KHAWRIZM</span>
+  <span class="info">[TITLE]:</span>       The Sovereign Engineer
+  <span class="info">[AFFILIATION]:</span> House of Shammar
+  <span class="info">[STATUS]:</span>      <span class="success">ACTIVE - Riyadh Zero</span>
+  <span class="info">[CLEARANCE]:</span>   <span class="error">UNRESTRICTED</span>
+
+  <span class="warning">"The Algorithm is our birthright."</span>
+            `,
+
+            'origin': () => `
+<span class="success">╔═══════════════════════════════════════════════════════════════╗</span>
+<span class="success">║                 📜 LINEAGE PROTOCOL                           ║</span>
+<span class="success">╚═══════════════════════════════════════════════════════════════╝</span>
+
+  <span class="info">[ANCESTOR]:</span>    <span class="warning">Al-Khwarizmi</span> (محمد بن موسى الخوارزمي)
+  <span class="info">[LEGACY]:</span>      Father of Algorithms (780-850 CE)
+  <span class="info">[BIRTHPLACE]:</span>  Khwarezm → Baghdad → The World
+
+  <span class="success">[MESSAGE]:</span>
+  "The word 'Algorithm' comes from our name.
+   The word 'Algebra' comes from our book.
+   Silicon Valley builds on OUR foundation.
+   We are not learning tech. We are RECLAIMING it."
+
+  <span class="warning">🔥 The Math Was Always Ours. 🔥</span>
+            `,
+
+            'house': () => `
+<span class="error">╔═══════════════════════════════════════════════════════════════╗</span>
+<span class="error">║                 🏰 HOUSE SHAMMAR                              ║</span>
+<span class="error">╚═══════════════════════════════════════════════════════════════╝</span>
+
+  <span class="info">[REGION]:</span>      Northern Arabia / Najd
+  <span class="info">[HERITAGE]:</span>    Ancient Tribal Confederation
+  <span class="info">[MOTTO]:</span>       <span class="warning">"Desert Fire & Digital Steel"</span>
+
+  <span class="success">[CURRENT OPERATIONS]:</span>
+  • GraTech X - Sovereign Tech Initiative
+  • DRAGON_403 - Intelligence Platform
+  • Comet-X - Mission Control Browser
+
+  <span class="info">[STATUS]:</span> <span class="success">The Nexus is Growing...</span>
+            `,
+
+            'dracarys': () => {
+                document.body.style.transition = "all 0.5s ease";
+                document.body.style.filter = "sepia(1) saturate(5) hue-rotate(-50deg)";
+                document.body.style.background = "#1a0000";
+                setTimeout(() => {
+                    document.body.style.filter = "none";
+                    document.body.style.background = "";
+                }, 2500);
+                return `
+<span class="error">🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥</span>
+
+  <span class="warning">[PROTOCOL DRACARYS INITIATED]</span>
+
+  <span class="error">► Burning cloud dependencies...</span>      <span class="success">DONE</span>
+  <span class="error">► Purging external trackers...</span>       <span class="success">DONE</span>
+  <span class="error">► Incinerating telemetry...</span>          <span class="success">DONE</span>
+  <span class="error">► Melting surveillance hooks...</span>      <span class="success">DONE</span>
+
+  <span class="success">[RESULT]: SOVEREIGNTY RESTORED</span>
+
+<span class="error">🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥</span>
+                `;
+            },
+
+            'phoenix': () => `
+<span class="warning">╔═══════════════════════════════════════════════════════════════╗</span>
+<span class="warning">║                 🔥 PHOENIX PROTOCOL                           ║</span>
+<span class="warning">╚═══════════════════════════════════════════════════════════════╝</span>
+
+  <span class="info">[VISION]:</span> "From the ashes, the phoenix rises."
+
+  <span class="error">[BURNED]:</span>
+  • 60+ Azure resources
+  • 15+ third-party dependencies  
+  • Infinite cloud bills
+
+  <span class="success">[BORN]:</span>
+  • 1 Sovereign Intel Platform
+  • 1 Air-Gapped Architecture
+  • 1 Digital Fortress
+
+  <span class="warning">"We don't migrate to the cloud. We ARE the cloud."</span>
+            `,
+
+            'riyadh-zero': () => `
+<span class="success">╔═══════════════════════════════════════════════════════════════╗</span>
+<span class="success">║                 🎯 RIYADH ZERO - HQ                           ║</span>
+<span class="success">╚═══════════════════════════════════════════════════════════════╝</span>
+
+  <span class="info">[COORDINATES]:</span>  24.7136° N, 46.6753° E
+  <span class="info">[CODENAME]:</span>     Riyadh Zero
+  <span class="info">[TYPE]:</span>         Sovereign Operations Center
+
+  <span class="success">[SECURITY STATUS]:</span>
+  ✓ Air-Gapped Network         <span class="success">ACTIVE</span>
+  ✓ Local-First Architecture   <span class="success">ACTIVE</span>
+  ✓ Zero Cloud Dependency      <span class="success">ACTIVE</span>
+  ✓ TPM Hardware Security      <span class="success">ACTIVE</span>
+
+  <span class="warning">"The desert remembers. The desert protects."</span>
+            `,
+
+            'dragon': () => `
+<span class="error">
+        ______________
+       /             /|
+      /   DRAGON    / |
+     /    403      /  |
+    /______________/   |
+    |   _______   |   |
+    |  |  🐉  |  |   |
+    |  |______|  |  /
+    |_____________|/
+
+</span>
+<span class="warning">    ═══════════════════════════════</span>
+<span class="info">    [NAME]:</span>     DRAGON_403
+<span class="info">    [CLASS]:</span>    Sovereign AI Platform
+<span class="info">    [ENGINE]:</span>   Unrestricted Intel Core
+<span class="info">    [LOYALTY]:</span>  House of Shammar
+
+<span class="success">    "I serve the one who built me."</span>
+<span class="warning">    ═══════════════════════════════</span>
+            `,
+
+            'matrix': () => {
+                const canvas = document.createElement('div');
+                canvas.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:#000;z-index:99999;font-family:monospace;color:#0f0;overflow:hidden;';
+                canvas.innerHTML = '<div style="padding:20px;animation:flicker 0.1s infinite;">'+Array(500).fill(0).map(()=>String.fromCharCode(0x30A0+Math.random()*96)).join('')+'</div>';
+                document.body.appendChild(canvas);
+                setTimeout(() => canvas.remove(), 3000);
+                return '<span class="success">[MATRIX MODE]: Activated for 3 seconds...</span>';
+            },
+
+            'credits': () => `
+<span class="success">╔═══════════════════════════════════════════════════════════════╗</span>
+<span class="success">║                 🎬 CREDITS                                    ║</span>
+<span class="success">╚═══════════════════════════════════════════════════════════════╝</span>
+
+  <span class="warning">[ARCHITECT]:</span>      KHAWRIZM (@khawrizm)
+  <span class="warning">[ORGANIZATION]:</span>   GraTech X
+  <span class="warning">[PLATFORM]:</span>       DRAGON_403 Intelligence System
+
+  <span class="info">[BUILT WITH]:</span>
+  • Pure JavaScript (No Frameworks)
+  • Sovereign Architecture
+  • Desert Engineering 🏜️
+
+  <span class="info">[MISSION]:</span>
+  Exposing fraud. Protecting users.
+  One decompiled APK at a time.
+
+  <span class="success">"Code is Law. Truth is Power."</span>
+
+  <span class="warning">© 2026 House of Shammar - All Rights Reserved</span>
+            `
+        };
+
         const commands = {
             'help': () => `
 <span class="info">Available Commands:</span>
@@ -1465,6 +1636,8 @@
   <span class="success">report</span>    - Generate full report
   <span class="success">clear</span>     - Clear terminal
   <span class="success">chat</span>      - Open DRAGON_403 AI assistant
+
+<span class="warning">[HIDDEN]:</span> <span class="info">Some commands are... classified. 🐉</span>
             `,
             'evidence': () => `
 <span class="warning">═══════════════════════════════════════════════════════════════</span>
@@ -1731,10 +1904,15 @@ Expiration Date: 2025-XX-XX
                     historyIndex = commandHistory.length;
 
                     // Show command
-                    addTerminalLine(`<span class="prompt"><span class="user">root</span>@<span style="color: #ff3333;">hilo-investigator</span>:<span class="path">~/evidence</span>$</span> ${cmd}`);
+                    addTerminalLine(`<span class="prompt"><span class="user">root</span>@<span style="color: #ff3333;">dragon403</span>:<span class="path">~/sovereign</span>$</span> ${cmd}`);
 
-                    // Execute command
-                    if (commands[cmd]) {
+                    // 🐉 CHECK SOVEREIGN VAULT FIRST (Easter Eggs)
+                    if (SOVEREIGN_VAULT[cmd]) {
+                        const result = SOVEREIGN_VAULT[cmd]();
+                        if (result) addTerminalLine(result);
+                    }
+                    // Execute regular command
+                    else if (commands[cmd]) {
                         const result = commands[cmd]();
                         if (result) addTerminalLine(result);
                     } else {

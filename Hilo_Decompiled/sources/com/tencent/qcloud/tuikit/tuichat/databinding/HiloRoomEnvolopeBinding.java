@@ -1,0 +1,53 @@
+package com.tencent.qcloud.tuikit.tuichat.databinding;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import androidx.databinding.ViewDataBinding;
+import androidx.databinding.g;
+import com.tencent.qcloud.tuikit.tuichat.R;
+
+/* loaded from: C:\Users\admin\Projects\Archive\SULAIMAN_EMPIRE\DEX_FILES\classes5.dex */
+public abstract class HiloRoomEnvolopeBinding extends ViewDataBinding {
+    public final ImageView bg;
+    public final TextView title;
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public HiloRoomEnvolopeBinding(Object obj, View view, int i, ImageView imageView, TextView textView) {
+        super(obj, view, i);
+        this.bg = imageView;
+        this.title = textView;
+    }
+
+    public static HiloRoomEnvolopeBinding bind(View view) {
+        g.g();
+        return bind(view, null);
+    }
+
+    public static HiloRoomEnvolopeBinding inflate(LayoutInflater layoutInflater, ViewGroup viewGroup, boolean z) {
+        g.g();
+        return inflate(layoutInflater, viewGroup, z, null);
+    }
+
+    @Deprecated
+    public static HiloRoomEnvolopeBinding bind(View view, Object obj) {
+        return (HiloRoomEnvolopeBinding) ViewDataBinding.bind(obj, view, R.layout.hilo_room_envolope);
+    }
+
+    @Deprecated
+    public static HiloRoomEnvolopeBinding inflate(LayoutInflater layoutInflater, ViewGroup viewGroup, boolean z, Object obj) {
+        return (HiloRoomEnvolopeBinding) ViewDataBinding.inflateInternal(layoutInflater, R.layout.hilo_room_envolope, viewGroup, z, obj);
+    }
+
+    public static HiloRoomEnvolopeBinding inflate(LayoutInflater layoutInflater) {
+        g.g();
+        return inflate(layoutInflater, null);
+    }
+
+    @Deprecated
+    public static HiloRoomEnvolopeBinding inflate(LayoutInflater layoutInflater, Object obj) {
+        return (HiloRoomEnvolopeBinding) ViewDataBinding.inflateInternal(layoutInflater, R.layout.hilo_room_envolope, (ViewGroup) null, false, obj);
+    }
+}

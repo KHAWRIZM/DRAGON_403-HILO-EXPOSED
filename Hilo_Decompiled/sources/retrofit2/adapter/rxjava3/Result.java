@@ -1,0 +1,43 @@
+package retrofit2.adapter.rxjava3;
+
+import retrofit2.Response;
+
+/* loaded from: C:\Users\admin\Projects\Archive\SULAIMAN_EMPIRE\DEX_FILES\classes6.dex */
+public final class Result<T> {
+    private final Throwable error;
+    private final Response<T> response;
+
+    private Result(Response<T> response, Throwable th) {
+        this.response = response;
+        this.error = th;
+    }
+
+    public static <T> Result<T> error(Throwable th) {
+        if (th != null) {
+            return new Result<>(null, th);
+        }
+        throw new NullPointerException("error == null");
+    }
+
+    public static <T> Result<T> response(Response<T> response) {
+        if (response != null) {
+            return new Result<>(response, null);
+        }
+        throw new NullPointerException("response == null");
+    }
+
+    public boolean isError() {
+        if (this.error != null) {
+            return true;
+        }
+        return false;
+    }
+
+    public Throwable error() {
+        return this.error;
+    }
+
+    public Response<T> response() {
+        return this.response;
+    }
+}

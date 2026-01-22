@@ -1,0 +1,35 @@
+package com.alibaba.sdk.android.crashdefend.b;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.SynchronousQueue;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+
+/* loaded from: C:\Users\admin\Projects\Archive\SULAIMAN_EMPIRE\DEX_FILES\classes.dex */
+public class a {
+
+    /* renamed from: a, reason: collision with root package name */
+    private final ThreadFactory f٦٣٨٦a = new ThreadFactory() { // from class: com.alibaba.sdk.android.crashdefend.b.a.1
+        @Override // java.util.concurrent.ThreadFactory
+        public Thread newThread(Runnable runnable) {
+            Thread thread = new Thread(runnable, "safe_thread");
+            thread.setDaemon(false);
+            return thread;
+        }
+    };
+
+    /* renamed from: b, reason: collision with root package name */
+    private ExecutorService f٦٣٨٧b;
+
+    public synchronized ExecutorService a() {
+        try {
+            if (this.f٦٣٨٧b == null) {
+                this.f٦٣٨٧b = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 1L, TimeUnit.SECONDS, new SynchronousQueue(), this.f٦٣٨٦a);
+            }
+        } catch (Throwable th) {
+            throw th;
+        }
+        return this.f٦٣٨٧b;
+    }
+}
