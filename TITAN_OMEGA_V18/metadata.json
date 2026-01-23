@@ -1,9 +1,0 @@
-{
-  "name": "Forbidden Killers | OMEGA V18 Sovereign",
-  "description": "The Final Sovereign Architecture. Three-Lobe Core V18. Riyadh Zero Infrastructure Control.",
-  "requestFramePermissions": [
-    "microphone",
-    "camera",
-    "geolocation"
-  ]
-}
