@@ -4,3 +4,7 @@
 Documentary/comet_output/
 Comet-X/node_modules/
 node_modules/
+*.env
+*.db
+*secrets*
+*KEY*
